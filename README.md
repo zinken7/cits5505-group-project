@@ -1,2 +1,1 @@
-# cits5505-group-project
-Group project CITS 5505 Agile Web
+# CITS5505 Group Project - Agile Web

@@ -19,3 +19,11 @@ Watchlist Hub is a social watchlist platform for anime, games, and movies, where
   - Filterable by status (e.g., "Currently Watching" vs "Completed").
 
 - **Social Discovery**: Explore trending content and follow users' tastes to build your own watchlist.
+
+## CSS Framwork
+
+Tailwind
+
+## JS
+
+

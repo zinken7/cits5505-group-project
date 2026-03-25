@@ -26,4 +26,6 @@ Tailwind
 
 ## JS
 
+JQuery combine with Vanilla JS
+
 

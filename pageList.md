@@ -1,8 +1,9 @@
 # Main Pages
 
 - Landing Page
-- Register Page
+- Register Page (Create Account)
 - Login Page
+- Logout Page
 - Dashboard
 - Profile Page
 - Category Page: Show list all of items of this category(e.g: list of all games)

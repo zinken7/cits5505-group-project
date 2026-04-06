@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 # Environments
+.python-version
 .env
 .envrc
 .venv

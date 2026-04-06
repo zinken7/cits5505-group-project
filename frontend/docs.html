@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 p-8">
+  <div class="max-w-4xl mx-auto space-y-12">
+    <h1 class="text-3xl font-bold text-gray-800 mb-2">UI Component Documentation</h1>
+    <p class="text-gray-500 mb-8">All available components from <code class="bg-gray-200 px-1.5 py-0.5 rounded text-sm">components/ui.js</code>. Each section shows Raw HTML and a live Preview.</p>
+
+    <!-- ============== ACCORDION ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Accordion</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="accordion" class="border rounded-lg divide-y"&gt;
+    &lt;!-- Item 1 (open by default) --&gt;
+    &lt;div class="accordion-item is-open"&gt;
+        &lt;button class="accordion-header w-full flex justify-between items-center p-4 text-left font-medium hover:bg-gray-50"&gt;
+            What is UI Lite?
+            &lt;svg class="accordion-icon w-5 h-5 transition-transform duration-200" ...&gt;&lt;/svg&gt;
+        &lt;/button&gt;
+        &lt;div class="accordion-content px-4 pb-4 text-gray-600 text-sm"&gt;
+            A lightweight jQuery component library.
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Item 2 --&gt;
+    &lt;div class="accordion-item"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Multi-open mode --&gt;
+&lt;div data-ui="accordion" data-multiple="true"&gt;...&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click a header to expand / collapse. By default only one panel opens at a time. Add <code class="bg-gray-100 px-1 rounded">data-multiple="true"</code> to allow multiple.</p>
+        <div data-ui="accordion" class="border rounded-lg divide-y">
+          <div class="accordion-item is-open">
+            <button class="accordion-header w-full flex justify-between items-center p-4 text-left font-medium hover:bg-gray-50 transition-colors">
+              What is UI Lite?
+              <svg class="accordion-icon w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="accordion-content px-4 pb-4 text-gray-600 text-sm">
+              UI Lite is a lightweight jQuery-based component library styled entirely with Tailwind CSS utility classes.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header w-full flex justify-between items-center p-4 text-left font-medium hover:bg-gray-50 transition-colors">
+              How does auto-init work?
+              <svg class="accordion-icon w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="accordion-content px-4 pb-4 text-gray-600 text-sm">
+              Any element with <code>data-ui="accordion"</code> is automatically instantiated on DOMContentLoaded via <code>window.UI.init()</code>.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header w-full flex justify-between items-center p-4 text-left font-medium hover:bg-gray-50 transition-colors">
+              Can I nest accordions?
+              <svg class="accordion-icon w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="accordion-content px-4 pb-4 text-gray-600 text-sm">
+              Yes — place a new <code>data-ui="accordion"</code> container inside an accordion-content div.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== AVATAR ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Avatar</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;!-- Avatar with image --&gt;
+&lt;div data-ui="avatar" class="w-12 h-12 rounded-full overflow-hidden"&gt;
+    &lt;img src="https://i.pravatar.cc/100" alt="User" class="w-full h-full object-cover" /&gt;
+&lt;/div&gt;
+
+&lt;!-- Avatar with custom fallback --&gt;
+&lt;div data-ui="avatar" class="w-12 h-12 rounded-full overflow-hidden"&gt;
+    &lt;img src="/invalid.jpg" alt="User" class="w-full h-full object-cover" /&gt;
+    &lt;span class="avatar-fallback hidden w-full h-full bg-blue-500 text-white text-lg font-bold"&gt;TN&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Avatar with broken src (default SVG fallback) --&gt;
+&lt;div data-ui="avatar" class="w-12 h-12 rounded-full overflow-hidden"&gt;
+    &lt;img src="/broken-link.jpg" alt="User" class="w-full h-full object-cover" /&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">If the <code class="bg-gray-100 px-1 rounded">img</code> fails to load, the component shows <code class="bg-gray-100 px-1 rounded">.avatar-fallback</code> or a default SVG icon.</p>
+        <div class="flex items-center gap-4">
+          <div data-ui="avatar" class="w-12 h-12 rounded-full overflow-hidden border">
+            <img src="https://i.pravatar.cc/100?img=12" alt="User" class="w-full h-full object-cover" />
+          </div>
+          <div data-ui="avatar" class="w-12 h-12 rounded-full overflow-hidden border">
+            <img src="/invalid-url.jpg" alt="User" class="w-full h-full object-cover" />
+            <span class="avatar-fallback hidden w-full h-full bg-blue-500 text-white text-lg font-bold rounded-full">TN</span>
+          </div>
+          <div data-ui="avatar" class="w-12 h-12 rounded-full overflow-hidden border">
+            <img src="/broken-link.jpg" alt="User" class="w-full h-full object-cover" />
+          </div>
+          <span class="text-sm text-gray-400 ml-2">← valid image · custom fallback · default SVG</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== BADGE ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Badge</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;!-- Static badge --&gt;
+&lt;span data-ui="badge" class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800"&gt;
+    Active
+&lt;/span&gt;
+
+&lt;!-- Dismissable badge --&gt;
+&lt;span data-ui="badge" class="inline-flex items-center gap-x-1 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800"&gt;
+    Tag
+    &lt;button data-dismiss="badge" class="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-blue-200"&gt;
+        &lt;svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"&gt;
+            &lt;path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/span&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Add <code class="bg-gray-100 px-1 rounded">data-dismiss="badge"</code> to a button inside the badge to make it dismissable (fade-out on click).</p>
+        <div class="flex flex-wrap items-center gap-3">
+          <span data-ui="badge" class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">Active</span>
+          <span data-ui="badge" class="inline-flex items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">Pending</span>
+          <span data-ui="badge" class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">Error</span>
+          <span data-ui="badge" class="inline-flex items-center gap-x-1 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+            Dismissable
+            <button data-dismiss="badge" class="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-blue-200">
+              <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg>
+            </button>
+          </span>
+          <span data-ui="badge" class="inline-flex items-center gap-x-1 rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
+            Remove me
+            <button data-dismiss="badge" class="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-purple-200">
+              <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg>
+            </button>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== BREADCRUMBS ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Breadcrumbs</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;!-- Container only — content is rendered via JS API --&gt;
+&lt;nav data-ui="breadcrumbs" id="my-breadcrumbs"&gt;&lt;/nav&gt;
+
+&lt;script&gt;
+// Get the instance and call setItems()
+const bc = $('#my-breadcrumbs').data('nuxt-ui-instance');
+bc.setItems([
+    { label: 'Home', url: '/' },
+    { label: 'Settings', url: '/settings' },
+    { label: 'Profile' }   // last item = no link (active page)
+]);
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Use the <code class="bg-gray-100 px-1 rounded">setItems()</code> JS method to render the breadcrumb trail dynamically. The last item is treated as the active page (no link).</p>
+        <nav data-ui="breadcrumbs" id="demo-breadcrumbs"></nav>
+        <script>
+          $(document).ready(function() {
+            setTimeout(function() {
+              const bc = $('#demo-breadcrumbs').data('nuxt-ui-instance');
+              if (bc) bc.setItems([
+                { label: 'Home', url: '#' },
+                { label: 'Dashboard', url: '#' },
+                { label: 'Settings', url: '#' },
+                { label: 'Profile' }
+              ]);
+            }, 100);
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== BUTTON ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Button</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;button data-ui="button" id="my-btn"
+    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"&gt;
+    Submit
+&lt;/button&gt;
+
+&lt;script&gt;
+// Toggle loading state via JS API
+const btn = $('#my-btn').data('nuxt-ui-instance');
+btn.setLoading(true);   // shows spinner + disables
+btn.setLoading(false);  // restores original content
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click a button to toggle its loading state. <code class="bg-gray-100 px-1 rounded">setLoading(true)</code> disables the button and prepends a spinner.</p>
+        <div class="flex flex-wrap items-center gap-3">
+          <button data-ui="button" id="demo-btn-primary" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Primary</button>
+          <button data-ui="button" id="demo-btn-secondary" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">Secondary</button>
+          <button data-ui="button" id="demo-btn-danger" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Delete</button>
+        </div>
+        <script>
+          $(document).ready(function() {
+            ['demo-btn-primary','demo-btn-secondary','demo-btn-danger'].forEach(function(id) {
+              $('#' + id).on('click', function() {
+                const inst = $(this).data('nuxt-ui-instance');
+                if (inst && !inst.isLoading) {
+                  inst.setLoading(true);
+                  setTimeout(function() { inst.setLoading(false); }, 2000);
+                }
+              });
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== CARD ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Card</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;!-- Collapsible card --&gt;
+&lt;div data-ui="card" class="border rounded-lg bg-white shadow-sm"&gt;
+    &lt;div class="card-header cursor-pointer flex justify-between items-center p-4 border-b"&gt;
+        &lt;h3 class="font-semibold"&gt;Card Title&lt;/h3&gt;
+        &lt;svg class="card-toggle-icon w-5 h-5 transition-transform" ...&gt;&lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body p-4"&gt;
+        Card content here...
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Loading overlay via JS API
+const card = $('[data-ui="card"]').data('nuxt-ui-instance');
+card.setLoading(true);   // shows spinner overlay
+card.setLoading(false);  // hides overlay
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click the header to collapse/expand. Use <code class="bg-gray-100 px-1 rounded">cursor-pointer</code> on <code class="bg-gray-100 px-1 rounded">.card-header</code> to enable collapsing. The "Toggle Loading" button demonstrates <code class="bg-gray-100 px-1 rounded">setLoading()</code>.</p>
+        <div class="space-y-4">
+          <div data-ui="card" id="demo-card" class="border rounded-lg bg-white shadow-sm">
+            <div class="card-header cursor-pointer flex justify-between items-center p-4 border-b hover:bg-gray-50 transition-colors">
+              <h3 class="font-semibold">Collapsible Card</h3>
+              <svg class="card-toggle-icon w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="card-body p-4 text-sm text-gray-600">
+              <p>This content can be collapsed by clicking the header above. You can also call <code>card.toggle()</code> programmatically.</p>
+            </div>
+          </div>
+          <button id="demo-card-loading-btn" class="text-sm bg-indigo-600 text-white px-3 py-1.5 rounded hover:bg-indigo-700 transition-colors">Toggle Loading Overlay (2s)</button>
+        </div>
+        <script>
+          $(document).ready(function() {
+            $('#demo-card-loading-btn').on('click', function() {
+              const card = $('#demo-card').data('nuxt-ui-instance');
+              if (card) { card.setLoading(true); setTimeout(function(){ card.setLoading(false); }, 2000); }
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== CAROUSEL ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Carousel</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">
+          Raw HTML:
+        </h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="carousel" data-scroll-amount="250" class="relative w-full border rounded-lg bg-gray-50 p-4 overflow-hidden"&gt;
+    
+    &lt;!-- Prev Button (Left) --&gt;
+    &lt;button class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md border border-gray-200 text-gray-600 hover:bg-gray-100 hover:text-blue-600 focus:outline-none transition-colors"&gt;
+        &lt;svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"&gt;
+            &lt;path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+    
+    &lt;!-- Track --&gt;
+    &lt;div class="carousel-track flex space-x-4 overflow-x-auto hide-scrollbar relative"&gt;
+        &lt;div class="shrink-0 w-48 h-32 bg-blue-100 rounded-lg flex items-center justify-center font-bold text-blue-800 shadow-sm border border-blue-200"&gt;Item 1&lt;/div&gt;
+        &lt;div class="shrink-0 w-48 h-32 bg-green-100 rounded-lg flex items-center justify-center font-bold text-green-800 shadow-sm border border-green-200"&gt;Item 2&lt;/div&gt;
+        &lt;div class="shrink-0 w-48 h-32 bg-red-100 rounded-lg flex items-center justify-center font-bold text-red-800 shadow-sm border border-red-200"&gt;Item 3&lt;/div&gt;
+        &lt;div class="shrink-0 w-48 h-32 bg-yellow-100 rounded-lg flex items-center justify-center font-bold text-yellow-800 shadow-sm border border-yellow-200"&gt;Item 4&lt;/div&gt;
+        &lt;div class="shrink-0 w-48 h-32 bg-purple-100 rounded-lg flex items-center justify-center font-bold text-purple-800 shadow-sm border border-purple-200"&gt;Item 5&lt;/div&gt;
+        &lt;div class="shrink-0 w-48 h-32 bg-pink-100 rounded-lg flex items-center justify-center font-bold text-pink-800 shadow-sm border border-pink-200"&gt;Item 6&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Next Button (Right) --&gt;
+    &lt;button class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md border border-gray-200 text-gray-600 hover:bg-gray-100 hover:text-blue-600 focus:outline-none transition-colors"&gt;
+        &lt;svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"&gt;
+            &lt;path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">
+          Preview:
+        </h3>
+        <p>Using the carousel component's classes: carousel-track, carousel-prev, carousel-next</p>
+        <br />
+        <div data-ui="carousel" data-scroll-amount="250" class="relative w-full border rounded-lg bg-gray-50 p-4 overflow-hidden">
+        
+        <button class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md border border-gray-200 text-gray-600 hover:bg-gray-100 hover:text-blue-600 focus:outline-none transition-colors">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        
+        <div class="carousel-track flex space-x-4 overflow-x-auto hide-scrollbar relative">
+            <div class="shrink-0 w-48 h-32 bg-blue-100 rounded-lg flex items-center justify-center font-bold text-blue-800 shadow-sm border border-blue-200">Item 1</div>
+            <div class="shrink-0 w-48 h-32 bg-green-100 rounded-lg flex items-center justify-center font-bold text-green-800 shadow-sm border border-green-200">Item 2</div>
+            <div class="shrink-0 w-48 h-32 bg-red-100 rounded-lg flex items-center justify-center font-bold text-red-800 shadow-sm border border-red-200">Item 3</div>
+            <div class="shrink-0 w-48 h-32 bg-yellow-100 rounded-lg flex items-center justify-center font-bold text-yellow-800 shadow-sm border border-yellow-200">Item 4</div>
+            <div class="shrink-0 w-48 h-32 bg-purple-100 rounded-lg flex items-center justify-center font-bold text-purple-800 shadow-sm border border-purple-200">Item 5</div>
+            <div class="shrink-0 w-48 h-32 bg-pink-100 rounded-lg flex items-center justify-center font-bold text-pink-800 shadow-sm border border-pink-200">Item 6</div>
+        </div>
+        
+        <button class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md border border-gray-200 text-gray-600 hover:bg-gray-100 hover:text-blue-600 focus:outline-none transition-colors">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+
+    </div>
+      </div>
+    </section>
+
+    <!-- ============== DATEPICKER ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Datepicker</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="datepicker"
+    class="relative w-64 border border-gray-300 rounded-lg px-3 py-2 flex items-center cursor-pointer hover:border-gray-400"&gt;
+    &lt;svg class="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
+        &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /&gt;
+    &lt;/svg&gt;
+    &lt;input type="date" class="w-full bg-transparent outline-none text-sm text-gray-700" /&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const dp = $('[data-ui="datepicker"]').data('nuxt-ui-instance');
+dp.getValue();              // returns "YYYY-MM-DD"
+dp.setValue('2025-12-31');  // sets the date
+dp.setError('Required');    // shows red border
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click anywhere on the wrapper to open the native date picker. The component hides the native calendar icon and provides <code class="bg-gray-100 px-1 rounded">getValue()</code> / <code class="bg-gray-100 px-1 rounded">setValue()</code> / <code class="bg-gray-100 px-1 rounded">setError()</code> API methods.</p>
+        <div class="flex items-center gap-4">
+          <div data-ui="datepicker" class="relative w-64 border border-gray-300 rounded-lg px-3 py-2 flex items-center cursor-pointer hover:border-gray-400 transition-colors">
+            <svg class="w-5 h-5 text-gray-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <input type="date" class="w-full bg-transparent outline-none text-sm text-gray-700" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== INPUT ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Input</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="input"&gt;
+    &lt;label class="block text-sm font-medium text-gray-700 mb-1"&gt;Email&lt;/label&gt;
+    &lt;input type="email" placeholder="you@example.com"
+        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm
+               focus:ring-blue-500 focus:border-blue-500 outline-none transition" /&gt;
+    &lt;!-- optional: pre-rendered error slot --&gt;
+    &lt;p class="error-message text-sm text-red-500 mt-1 hidden"&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const input = $('[data-ui="input"]').data('nuxt-ui-instance');
+input.setError('Email is required');  // red border + message
+input.clearError();                    // resets to default
+// Error also auto-clears when user types
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Use <code class="bg-gray-100 px-1 rounded">setError(msg)</code> to show validation errors. Error styling auto-clears on user input. Click "Show Error" to demo.</p>
+        <div class="space-y-4 max-w-md">
+          <div data-ui="input" id="demo-input">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" placeholder="you@example.com" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-blue-500 focus:border-blue-500 outline-none transition" />
+            <p class="error-message text-sm text-red-500 mt-1 hidden"></p>
+          </div>
+          <div data-ui="input" id="demo-input-textarea">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+            <textarea placeholder="Tell us about yourself..." rows="3" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-blue-500 focus:border-blue-500 outline-none transition resize-none"></textarea>
+          </div>
+          <button id="demo-input-error-btn" class="text-sm bg-red-600 text-white px-3 py-1.5 rounded hover:bg-red-700 transition-colors">Show Error on Email</button>
+        </div>
+        <script>
+          $(document).ready(function() {
+            $('#demo-input-error-btn').on('click', function() {
+              const inst = $('#demo-input').data('nuxt-ui-instance');
+              if (inst) inst.setError('This email is already taken.');
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== MODAL ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Modal</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;!-- Trigger button --&gt;
+&lt;button data-target="#my-modal" class="bg-blue-600 text-white px-4 py-2 rounded-lg"&gt;
+    Open Modal
+&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div data-ui="modal" id="my-modal" class="hidden fixed inset-0 z-50 overflow-y-auto"&gt;
+    &lt;div class="modal-backdrop fixed inset-0 bg-gray-500/75 transition-opacity opacity-0"&gt;&lt;/div&gt;
+    &lt;div class="flex min-h-full items-center justify-center p-4"&gt;
+        &lt;div class="modal-panel relative bg-white rounded-lg shadow-xl max-w-lg w-full p-6
+                    transition-all opacity-0 translate-y-4 sm:scale-95"&gt;
+            &lt;h3 class="text-lg font-semibold"&gt;Modal Title&lt;/h3&gt;
+            &lt;p class="mt-2 text-sm text-gray-500"&gt;Content here...&lt;/p&gt;
+            &lt;button data-dismiss="modal" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg"&gt;
+                Close
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Use <code class="bg-gray-100 px-1 rounded">data-target="#id"</code> on triggers to auto-open. Closes via <code class="bg-gray-100 px-1 rounded">data-dismiss="modal"</code>, backdrop click, or <kbd class="px-1.5 py-0.5 bg-gray-100 border rounded text-xs">Esc</kbd>. Animated entrance/exit with Tailwind transitions.</p>
+        <button data-target="#demo-modal" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Open Modal</button>
+      </div>
+    </section>
+
+    <!-- Modal lives outside the section to avoid z-index issues -->
+    <div data-ui="modal" id="demo-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+      <div class="modal-backdrop fixed inset-0 bg-gray-500/75 transition-opacity duration-300 opacity-0"></div>
+      <div class="flex min-h-full items-center justify-center p-4">
+        <div class="modal-panel relative bg-white rounded-lg shadow-xl max-w-lg w-full p-6 transition-all duration-300 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">Confirm Action</h3>
+            <button data-dismiss="modal" class="text-gray-400 hover:text-gray-600 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+          </div>
+          <p class="text-sm text-gray-500">Are you sure you want to proceed? This action demonstrates the modal component with animated backdrop, panel transitions, and multiple close methods.</p>
+          <div class="mt-6 flex justify-end gap-3">
+            <button data-dismiss="modal" class="px-4 py-2 text-sm text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">Cancel</button>
+            <button data-dismiss="modal" class="px-4 py-2 text-sm text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== PAGINATION ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Pagination</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;nav data-ui="pagination" id="my-pagination" class="flex items-center gap-1"&gt;
+    &lt;button data-page="prev" class="px-3 py-2 text-sm rounded-lg text-gray-500 hover:bg-gray-100"&gt;
+        &amp;laquo; Prev
+    &lt;/button&gt;
+    &lt;button data-page="1" class="px-3 py-2 text-sm rounded-lg z-10 bg-blue-600 text-white"&gt;1&lt;/button&gt;
+    &lt;button data-page="2" class="px-3 py-2 text-sm rounded-lg text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"&gt;2&lt;/button&gt;
+    &lt;button data-page="3" class="..."&gt;3&lt;/button&gt;
+    &lt;button data-page="next" class="px-3 py-2 text-sm rounded-lg text-gray-500 hover:bg-gray-100"&gt;
+        Next &amp;raquo;
+    &lt;/button&gt;
+&lt;/nav&gt;
+
+&lt;script&gt;
+// Listen for page changes
+$('#my-pagination').on('ui:page-change', function(e, data) {
+    console.log('Page:', data.page); // 1, 2, 3, "prev", "next"
+    // fetch('/api/items?page=' + data.page);
+});
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click a page number to see active styling update. The component fires a <code class="bg-gray-100 px-1 rounded">ui:page-change</code> custom event with the page value. Check the console for logged output.</p>
+        <nav data-ui="pagination" id="demo-pagination" class="flex items-center gap-1">
+          <button data-page="prev" class="px-3 py-2 text-sm rounded-lg text-gray-500 hover:bg-gray-100 transition-colors">&laquo; Prev</button>
+          <button data-page="1" class="px-3 py-2 text-sm rounded-lg z-10 bg-blue-600 text-white">1</button>
+          <button data-page="2" class="px-3 py-2 text-sm rounded-lg text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors">2</button>
+          <button data-page="3" class="px-3 py-2 text-sm rounded-lg text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors">3</button>
+          <button data-page="4" class="px-3 py-2 text-sm rounded-lg text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors">4</button>
+          <button data-page="5" class="px-3 py-2 text-sm rounded-lg text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors">5</button>
+          <button data-page="next" class="px-3 py-2 text-sm rounded-lg text-gray-500 hover:bg-gray-100 transition-colors">Next &raquo;</button>
+        </nav>
+        <p id="demo-pagination-output" class="mt-2 text-xs text-gray-400 italic"></p>
+        <script>
+          $(document).ready(function() {
+            $('#demo-pagination').on('ui:page-change', function(e, data) {
+              $('#demo-pagination-output').text('Event fired → page: ' + data.page);
+              console.log('ui:page-change →', data.page);
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== POPOVER ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Popover</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="popover" class="relative inline-block"&gt;
+    &lt;button class="popover-trigger bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300"&gt;
+        Click me
+    &lt;/button&gt;
+    &lt;div class="popover-panel hidden opacity-0 scale-95 transition-all duration-150
+                absolute z-20 mt-2 w-64 bg-white rounded-lg shadow-lg ring-1 ring-black/5 p-4"&gt;
+        &lt;p class="text-sm text-gray-600"&gt;Popover content goes here.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click the trigger to toggle. Auto-closes on outside click. The panel uses Tailwind <code class="bg-gray-100 px-1 rounded">scale</code> + <code class="bg-gray-100 px-1 rounded">opacity</code> transitions.</p>
+        <div class="flex gap-4">
+          <div data-ui="popover" class="relative inline-block">
+            <button class="popover-trigger bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm font-medium">
+              Click for Popover
+            </button>
+            <div class="popover-panel hidden opacity-0 scale-95 transition-all duration-150 origin-top-left absolute z-20 mt-2 w-72 bg-white rounded-lg shadow-lg ring-1 ring-black/5 p-4">
+              <h4 class="font-semibold text-sm text-gray-900 mb-1">Popover Title</h4>
+              <p class="text-sm text-gray-500">This floating panel closes when you click outside its boundary. Content inside is freely customisable.</p>
+              <div class="mt-3 flex gap-2">
+                <button class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded hover:bg-blue-700 transition-colors">Action</button>
+                <button class="text-xs text-gray-600 px-2.5 py-1 rounded border hover:bg-gray-50 transition-colors">Dismiss</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== PROGRESS ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Progress</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="progress" data-value="45" class="w-full"&gt;
+    &lt;div class="flex justify-between items-center mb-1"&gt;
+        &lt;span class="text-sm font-medium text-gray-700"&gt;Upload Progress&lt;/span&gt;
+        &lt;span class="progress-text text-sm text-gray-500"&gt;0%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="w-full bg-gray-200 rounded-full h-2.5"&gt;
+        &lt;div class="progress-bar bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const progress = $('[data-ui="progress"]').data('nuxt-ui-instance');
+progress.setValue(75);  // Updates bar width + text to 75%
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Initial value is read from <code class="bg-gray-100 px-1 rounded">data-value</code>. Use <code class="bg-gray-100 px-1 rounded">setValue(0-100)</code> to update. Value is clamped between 0–100. The optional <code class="bg-gray-100 px-1 rounded">.progress-text</code> element auto-updates.</p>
+        <div class="space-y-4 max-w-lg">
+          <div data-ui="progress" id="demo-progress" data-value="45" class="w-full">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium text-gray-700">Upload Progress</span>
+              <span class="progress-text text-sm text-gray-500">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div class="progress-bar bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="demo-progress-0" class="text-xs bg-gray-200 text-gray-800 px-2.5 py-1 rounded hover:bg-gray-300 transition-colors">0%</button>
+            <button id="demo-progress-25" class="text-xs bg-gray-200 text-gray-800 px-2.5 py-1 rounded hover:bg-gray-300 transition-colors">25%</button>
+            <button id="demo-progress-50" class="text-xs bg-gray-200 text-gray-800 px-2.5 py-1 rounded hover:bg-gray-300 transition-colors">50%</button>
+            <button id="demo-progress-75" class="text-xs bg-gray-200 text-gray-800 px-2.5 py-1 rounded hover:bg-gray-300 transition-colors">75%</button>
+            <button id="demo-progress-100" class="text-xs bg-blue-600 text-white px-2.5 py-1 rounded hover:bg-blue-700 transition-colors">100%</button>
+          </div>
+        </div>
+        <script>
+          $(document).ready(function() {
+            [0,25,50,75,100].forEach(function(v) {
+              $('#demo-progress-' + v).on('click', function() {
+                const inst = $('#demo-progress').data('nuxt-ui-instance');
+                if (inst) inst.setValue(v);
+              });
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== SELECT ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Select</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="select" class="relative w-64"&gt;
+    &lt;input type="hidden" name="country" /&gt;
+    &lt;button class="select-trigger w-full flex items-center justify-between border border-gray-300
+                   rounded-lg px-3 py-2 bg-white hover:border-gray-400 transition"&gt;
+        &lt;span class="select-text text-sm text-gray-400"&gt;Choose option...&lt;/span&gt;
+        &lt;svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
+            &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="select-menu hidden absolute z-20 mt-1 w-full bg-white border rounded-lg shadow-lg max-h-48 overflow-y-auto"&gt;
+        &lt;div class="select-option px-3 py-2 text-sm cursor-pointer hover:bg-gray-50" data-value="au"&gt;Australia&lt;/div&gt;
+        &lt;div class="select-option px-3 py-2 text-sm cursor-pointer hover:bg-gray-50" data-value="vn"&gt;Vietnam&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click to open, select an option to update the hidden input value. Active option gets highlighted. Closes on outside click. Listen on the hidden <code class="bg-gray-100 px-1 rounded">input</code> <code class="bg-gray-100 px-1 rounded">change</code> event for form integration.</p>
+        <div class="flex items-start gap-4">
+          <div data-ui="select" id="demo-select" class="relative w-64">
+            <input type="hidden" name="demo-fruit" />
+            <button class="select-trigger w-full flex items-center justify-between border border-gray-300 rounded-lg px-3 py-2 bg-white hover:border-gray-400 transition-colors">
+              <span class="select-text text-sm text-gray-400">Choose a fruit...</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="select-menu hidden absolute z-20 mt-1 w-full bg-white border rounded-lg shadow-lg max-h-48 overflow-y-auto">
+              <div class="select-option px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 transition-colors" data-value="apple">🍎 Apple</div>
+              <div class="select-option px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 transition-colors" data-value="banana">🍌 Banana</div>
+              <div class="select-option px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 transition-colors" data-value="cherry">🍒 Cherry</div>
+              <div class="select-option px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 transition-colors" data-value="mango">🥭 Mango</div>
+              <div class="select-option px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 transition-colors" data-value="strawberry">🍓 Strawberry</div>
+            </div>
+          </div>
+          <p id="demo-select-output" class="text-xs text-gray-400 italic pt-2.5"></p>
+        </div>
+        <script>
+          $(document).ready(function() {
+            $('#demo-select input[type="hidden"]').on('change', function() {
+              $('#demo-select-output').text('Hidden input value: ' + $(this).val());
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== SKELETON ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Skeleton</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="skeleton" class="space-y-4"&gt;
+    &lt;!-- Placeholder (visible while loading) --&gt;
+    &lt;div class="skeleton-placeholder space-y-3"&gt;
+        &lt;div class="h-4 bg-gray-200 rounded animate-pulse w-3/4"&gt;&lt;/div&gt;
+        &lt;div class="h-4 bg-gray-200 rounded animate-pulse w-1/2"&gt;&lt;/div&gt;
+        &lt;div class="h-20 bg-gray-200 rounded animate-pulse"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Real content (hidden while loading) --&gt;
+    &lt;div class="skeleton-content hidden"&gt;
+        &lt;h3&gt;Loaded Title&lt;/h3&gt;
+        &lt;p&gt;Real content is now visible.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const skel = $('[data-ui="skeleton"]').data('nuxt-ui-instance');
+skel.setLoading(true);   // shows placeholders
+skel.setLoading(false);  // shows real content
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Toggle between pulsing placeholder bars and real content using <code class="bg-gray-100 px-1 rounded">setLoading(bool)</code>. Great for async data fetching states.</p>
+        <div class="space-y-4 max-w-lg">
+          <div data-ui="skeleton" id="demo-skeleton" class="border rounded-lg p-4">
+            <div class="skeleton-placeholder space-y-3">
+              <div class="h-5 bg-gray-200 rounded animate-pulse w-1/3"></div>
+              <div class="h-4 bg-gray-200 rounded animate-pulse w-3/4"></div>
+              <div class="h-4 bg-gray-200 rounded animate-pulse w-1/2"></div>
+              <div class="h-24 bg-gray-200 rounded animate-pulse"></div>
+            </div>
+            <div class="skeleton-content hidden">
+              <h3 class="text-lg font-semibold text-gray-900">Data Loaded!</h3>
+              <p class="text-sm text-gray-600 mt-1">This is the actual content that was hidden behind the skeleton placeholders. It appears once <code>setLoading(false)</code> is called.</p>
+              <div class="mt-3 p-3 bg-blue-50 rounded text-sm text-blue-700">✅ Fetched 42 records from the server.</div>
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button id="demo-skeleton-load" class="text-sm bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700 transition-colors">Show Content</button>
+            <button id="demo-skeleton-reset" class="text-sm bg-gray-200 text-gray-800 px-3 py-1.5 rounded hover:bg-gray-300 transition-colors">Reset to Skeleton</button>
+          </div>
+        </div>
+        <script>
+          $(document).ready(function() {
+            $('#demo-skeleton-load').on('click', function() {
+              const inst = $('#demo-skeleton').data('nuxt-ui-instance');
+              if (inst) inst.setLoading(false);
+            });
+            $('#demo-skeleton-reset').on('click', function() {
+              const inst = $('#demo-skeleton').data('nuxt-ui-instance');
+              if (inst) inst.setLoading(true);
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== TABLE ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Table</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;table data-ui="table" id="my-table" class="min-w-full divide-y divide-gray-300"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th class="px-3 py-3"&gt;&lt;input type="checkbox" class="select-all-checkbox rounded" /&gt;&lt;/th&gt;
+            &lt;th data-sortable="name" class="group cursor-pointer px-3 py-3 text-left text-sm font-semibold"&gt;
+                Name
+                &lt;svg class="sort-icon inline w-4 h-4 ml-1 text-gray-400 opacity-0 group-hover:opacity-100 transition"&gt;...&lt;/svg&gt;
+            &lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody class="divide-y divide-gray-200"&gt;
+        &lt;tr&gt;
+            &lt;td class="px-3 py-3"&gt;&lt;input type="checkbox" class="row-checkbox rounded" value="1" /&gt;&lt;/td&gt;
+            &lt;td class="px-3 py-3 text-sm"&gt;Alice&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;script&gt;
+$('#my-table').on('ui:sort', function(e, data) {
+    console.log(data.column, data.direction); // "name", "asc"
+});
+const table = $('#my-table').data('nuxt-ui-instance');
+table.getSelectedValues(); // ["1", "3"] — checked row values
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Features: <strong>Select All</strong> checkbox, per-row selection with <code class="bg-gray-100 px-1 rounded">bg-blue-50</code> highlight, <strong>sortable headers</strong> firing <code class="bg-gray-100 px-1 rounded">ui:sort</code> event, and <code class="bg-gray-100 px-1 rounded">getSelectedValues()</code> API.</p>
+        <div class="overflow-x-auto border rounded-lg">
+          <table data-ui="table" id="demo-table" class="min-w-full divide-y divide-gray-300">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-4 py-3 w-10"><input type="checkbox" class="select-all-checkbox rounded border-gray-300" /></th>
+                <th data-sortable="name" class="group cursor-pointer px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Name
+                  <svg class="sort-icon inline w-4 h-4 ml-1 text-gray-400 opacity-0 group-hover:opacity-100 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                </th>
+                <th data-sortable="email" class="group cursor-pointer px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Email
+                  <svg class="sort-icon inline w-4 h-4 ml-1 text-gray-400 opacity-0 group-hover:opacity-100 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                </th>
+                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Role</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-4 py-3"><input type="checkbox" class="row-checkbox rounded border-gray-300" value="1" /></td>
+                <td class="px-4 py-3 text-sm font-medium text-gray-900">Alice Nguyen</td>
+                <td class="px-4 py-3 text-sm text-gray-500">alice@example.com</td>
+                <td class="px-4 py-3 text-sm"><span class="inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">Admin</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-4 py-3"><input type="checkbox" class="row-checkbox rounded border-gray-300" value="2" /></td>
+                <td class="px-4 py-3 text-sm font-medium text-gray-900">Bob Smith</td>
+                <td class="px-4 py-3 text-sm text-gray-500">bob@example.com</td>
+                <td class="px-4 py-3 text-sm"><span class="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800">Editor</span></td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="px-4 py-3"><input type="checkbox" class="row-checkbox rounded border-gray-300" value="3" /></td>
+                <td class="px-4 py-3 text-sm font-medium text-gray-900">Carol Tran</td>
+                <td class="px-4 py-3 text-sm text-gray-500">carol@example.com</td>
+                <td class="px-4 py-3 text-sm"><span class="inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">Viewer</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="demo-table-output" class="mt-2 text-xs text-gray-400 italic"></p>
+        <script>
+          $(document).ready(function() {
+            $('#demo-table').on('ui:sort', function(e, data) {
+              $('#demo-table-output').text('Sort event → column: ' + data.column + ', direction: ' + data.direction);
+            });
+            $('#demo-table').on('change', '.row-checkbox, .select-all-checkbox', function() {
+              const inst = $('#demo-table').data('nuxt-ui-instance');
+              if (inst) {
+                const vals = inst.getSelectedValues();
+                $('#demo-table-output').text('Selected values: [' + vals.join(', ') + ']');
+              }
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== TABS ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Tabs</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="tabs"&gt;
+    &lt;!-- Tab buttons --&gt;
+    &lt;div class="border-b flex space-x-4"&gt;
+        &lt;button data-tab-target="#tab-general"
+            class="px-4 py-2 text-sm font-medium border-b-2 border-blue-500 text-blue-600"&gt;
+            General
+        &lt;/button&gt;
+        &lt;button data-tab-target="#tab-security"
+            class="px-4 py-2 text-sm font-medium border-b-2 border-transparent text-gray-500
+                   hover:text-gray-700 hover:border-gray-300"&gt;
+            Security
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Tab panels --&gt;
+    &lt;div&gt;
+        &lt;div id="tab-general" class="p-4"&gt;General content&lt;/div&gt;
+        &lt;div id="tab-security" class="p-4 hidden"&gt;Security content&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click a tab button to switch panels. Active tab gets <code class="bg-gray-100 px-1 rounded">border-blue-500</code> styling. Use <code class="bg-gray-100 px-1 rounded">data-tab-target="#panel-id"</code> to link buttons to panels. Hidden panels use <code class="bg-gray-100 px-1 rounded">.hidden</code>.</p>
+        <div data-ui="tabs">
+          <div class="border-b flex space-x-4">
+            <button data-tab-target="#demo-tab-general" class="px-4 py-2 text-sm font-medium border-b-2 border-blue-500 text-blue-600 transition-colors">General</button>
+            <button data-tab-target="#demo-tab-security" class="px-4 py-2 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-colors">Security</button>
+            <button data-tab-target="#demo-tab-notifications" class="px-4 py-2 text-sm font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-colors">Notifications</button>
+          </div>
+          <div>
+            <div id="demo-tab-general" class="p-4">
+              <h4 class="font-semibold text-gray-900 mb-1">General Settings</h4>
+              <p class="text-sm text-gray-500">Manage your account's general preferences, display name, and language.</p>
+            </div>
+            <div id="demo-tab-security" class="p-4 hidden">
+              <h4 class="font-semibold text-gray-900 mb-1">Security Settings</h4>
+              <p class="text-sm text-gray-500">Update your password, enable two-factor authentication, and manage active sessions.</p>
+            </div>
+            <div id="demo-tab-notifications" class="p-4 hidden">
+              <h4 class="font-semibold text-gray-900 mb-1">Notification Preferences</h4>
+              <p class="text-sm text-gray-500">Choose which email and push notifications you'd like to receive.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== TOAST ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Toast</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;!-- No HTML needed! Toast is a Singleton — call from anywhere in JS --&gt;
+&lt;script&gt;
+// window.UI.toast is auto-instantiated (Singleton)
+window.UI.toast.show('Saved!', 'Your changes have been saved.', 'success', 3000);
+window.UI.toast.show('Error', 'Something went wrong.', 'error', 5000);
+window.UI.toast.show('Heads up', 'New version available.', 'info', 4000);
+
+// Parameters:
+// show(title, description, type, duration)
+//   type: 'success' | 'error' | 'info'
+//   duration: ms (0 = no auto-close)
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Toast is a <strong>Singleton</strong> — no HTML markup needed. Call <code class="bg-gray-100 px-1 rounded">window.UI.toast.show()</code> from anywhere. Toasts stack in the top-right corner with slide-in animation and auto-dismiss.</p>
+        <div class="flex flex-wrap items-center gap-3">
+          <button id="demo-toast-success" class="text-sm bg-green-600 text-white px-3 py-1.5 rounded hover:bg-green-700 transition-colors">✓ Success Toast</button>
+          <button id="demo-toast-error" class="text-sm bg-red-600 text-white px-3 py-1.5 rounded hover:bg-red-700 transition-colors">✕ Error Toast</button>
+          <button id="demo-toast-info" class="text-sm bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700 transition-colors">ℹ Info Toast</button>
+        </div>
+        <script>
+          $(document).ready(function() {
+            $('#demo-toast-success').on('click', function() {
+              window.UI.toast.show('Saved successfully!', 'Your profile has been updated.', 'success', 3000);
+            });
+            $('#demo-toast-error').on('click', function() {
+              window.UI.toast.show('Upload failed', 'File size exceeds the 10MB limit.', 'error', 5000);
+            });
+            $('#demo-toast-info').on('click', function() {
+              window.UI.toast.show('New update', 'Version 2.1 is now available.', 'info', 4000);
+            });
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- ============== TOGGLE ============== -->
+    <section class="bg-white p-6 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Toggle</h2>
+
+      <div class="mb-6">
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Raw HTML:</h3>
+        <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>&lt;div data-ui="toggle" class="flex items-center cursor-pointer"&gt;
+    &lt;input type="checkbox" class="sr-only" name="notifications" /&gt;
+    &lt;div class="toggle-track relative w-11 h-6 bg-gray-200 rounded-full transition-colors"&gt;
+        &lt;div class="toggle-thumb absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow
+                    transition-transform duration-200"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class="ml-3 text-sm text-gray-700"&gt;Enable notifications&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Disabled state --&gt;
+&lt;div data-ui="toggle" class="flex items-center cursor-not-allowed opacity-50"&gt;
+    &lt;input type="checkbox" class="sr-only" disabled /&gt;
+    ...
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-bold text-gray-500 uppercase mb-2">Preview:</h3>
+        <p class="text-sm text-gray-600 mb-3">Click the toggle or its label to switch state. The hidden <code class="bg-gray-100 px-1 rounded">checkbox</code> syncs with the visual UI for form submission. Track color changes between <code class="bg-gray-100 px-1 rounded">bg-gray-200</code> ↔ <code class="bg-gray-100 px-1 rounded">bg-blue-600</code>. Add <code class="bg-gray-100 px-1 rounded">disabled</code> to the input to prevent interaction.</p>
+        <div class="space-y-4">
+          <div data-ui="toggle" class="flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only" name="demo-notif" />
+            <div class="toggle-track relative w-11 h-6 bg-gray-200 rounded-full transition-colors duration-200">
+              <div class="toggle-thumb absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"></div>
+            </div>
+            <span class="ml-3 text-sm text-gray-700">Enable notifications</span>
+          </div>
+          <div data-ui="toggle" class="flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only" name="demo-dark" checked />
+            <div class="toggle-track relative w-11 h-6 bg-gray-200 rounded-full transition-colors duration-200">
+              <div class="toggle-thumb absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"></div>
+            </div>
+            <span class="ml-3 text-sm text-gray-700">Dark mode (pre-checked)</span>
+          </div>
+          <div data-ui="toggle" class="flex items-center cursor-not-allowed opacity-50">
+            <input type="checkbox" class="sr-only" name="demo-disabled" disabled />
+            <div class="toggle-track relative w-11 h-6 bg-gray-200 rounded-full transition-colors duration-200">
+              <div class="toggle-thumb absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"></div>
+            </div>
+            <span class="ml-3 text-sm text-gray-700">Disabled toggle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="./components/ui.js"></script>
+</body>
+
+</html>

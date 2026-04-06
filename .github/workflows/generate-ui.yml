@@ -1,0 +1,61 @@
+name: Auto Generate UI.js
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'components/**'
+      - 'buildUI.py'
+
+  pull_request:
+    branches: [main]
+    paths:
+      - 'components/**'
+      - 'buildUI.py'
+
+jobs:
+  verify:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify buildUI.py runs successfully
+        run: python buildUI.py
+
+  generate-ui:
+    if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate ui.js from components
+        run: python buildUI.py
+
+      - name: Auto commit ui.js
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto regenerate ui.js from components [skip ci]"
+          file_pattern: ui.js
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"

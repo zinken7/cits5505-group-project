@@ -28,4 +28,8 @@ Tailwind
 
 JQuery combine with Vanilla JS
 
+## Frontend
 
+### Documentation
+
+Please refer to the [Frontend Documentation](./frontend/README.md) for detailed information on the frontend implementation, including component structure, styling, and interaction logic.

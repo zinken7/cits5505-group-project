@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WatchList Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./styles/main.css" />
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          min-height: 100vh;
+          font-family: var(--font-sans);
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-sans">
     <div id="app"></div>
     <script type="module" src="./main.js"></script>
   </body>

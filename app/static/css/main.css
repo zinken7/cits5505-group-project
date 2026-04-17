@@ -1,0 +1,7 @@
+/**
+ * Team / page-level CSS (layout pages only)
+ * -----------------------------------------
+ * Loaded after the Vite + Tailwind bundle so you can override or add rules.
+ * Prefer Tailwind utilities in Jinja templates; use this file for one-off
+ * styles or third-party widgets.
+ */

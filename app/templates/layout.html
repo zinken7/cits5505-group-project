@@ -1,6 +1,12 @@
 {# App chrome: navbar, optional docs subnav, flash, main, footer, ui.js — use for most pages. #}
 {% extends "base.html" %}
 
+{# Team hooks: after Vite/Tailwind; override tokens or add rare global rules. #}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
 {% block body %}
     {% include "components/navbar.html" %}
 
@@ -31,4 +37,5 @@
     </footer>
 
     <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 {% endblock %}

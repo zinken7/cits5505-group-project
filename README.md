@@ -17,19 +17,37 @@ Typical use cases:
 
 ---
 
+## ⛔ For the team: work only in `app/`
+
+**Do not edit anything under `frontend/`.** That folder is for the **UI Lite / Vite maintainer** only (component sources, theme pipeline, production bundle).
+
+
+| You should use           |                                                                                                         |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **Routes & templates**   | `app/routes/`, `app/templates/` (e.g. extend `layout.html`, copy `blank_page.html`)                     |
+| **Optional page CSS/JS** | `app/static/css/main.css`, `app/static/js/main.js` (loaded on layout pages)                             |
+| **UI in HTML**           | Tailwind classes in Jinja + `**data-ui="…"`** — see the **UI Kit** at `**/docs/ui`** in the running app |
+
+
+You **do not** run `buildUI.py` or change files under `frontend/` for normal feature work.  
+You may still run `**npm run dev`** (or rely on a built `app/static/dist/`) so Tailwind and the Vite bundle load — that is only to **run** the app, not to edit the `frontend/` sources.
+
+---
+
 ## Tech stack
 
 
-| Layer                | Technologies                                                                                 |
-| -------------------- | -------------------------------------------------------------------------------------------- |
-| **Backend**          | Python 3, **Flask 3**, **Flask-SQLAlchemy**, **Flask-Login**, **Flask-WTF**, python-dotenv   |
-| **Database**         | **SQLite** by default (`DATABASE_URL` configurable)                                          |
-| **Server templates** | **Jinja2**, shared **layout** (`layout.html`) with navbar, flash messages, footer            |
-| **Frontend tooling** | **Vite 8**, **Tailwind CSS v4** (`@tailwindcss/vite`)                                        |
-| **Client JS**        | **jQuery** (CDN), modular **UI Lite** bundle (`frontend/components` → `app/static/js/ui.js`) |
-| **Theming**          | CSS variables + `data-theme` on `<html>` (light / dark), see `frontend/src/theme/theme.js`   |
-| **API**              | REST under `**/api/v1`**, **OpenAPI 3** spec at `/openapi.json`                              |
-| **API docs (human)** | **Swagger UI** (`/docs/apis`), **ReDoc** (`/docs/apis/redoc`)                                |
+| Layer                          | Technologies                                                                                 |
+| ------------------------------ | -------------------------------------------------------------------------------------------- |
+| **Backend**                    | Python 3, **Flask 3**, **Flask-SQLAlchemy**, **Flask-Login**, **Flask-WTF**, python-dotenv   |
+| **Database**                   | **SQLite** by default (`DATABASE_URL` configurable)                                          |
+| **Server templates**           | **Jinja2**, shared **layout** (`layout.html`) with navbar, flash messages, footer            |
+| **Frontend tooling**           | **Vite 8**, **Tailwind CSS v4** (`@tailwindcss/vite`)                                        |
+| **Client JS**                  | **jQuery** (CDN), modular **UI Lite** bundle (`frontend/components` → `app/static/js/ui.js`) |
+| **Page-level static (layout)** | `app/static/css/main.css`, `app/static/js/main.js` — optional; see callout above             |
+| **Theming**                    | CSS variables + `data-theme` on `<html>` (light / dark), see `frontend/src/theme/theme.js`   |
+| **API**                        | REST under `**/api/v1`**, **OpenAPI 3** spec at `/openapi.json`                              |
+| **API docs (human)**           | **Swagger UI** (`/docs/apis`), **ReDoc** (`/docs/apis/redoc`)                                |
 
 
 ---
@@ -41,15 +59,19 @@ app/                    # Flask application package
   routes/               # Server-rendered page blueprints (e.g. main, auth, docs)
   api/v1/               # REST API blueprint (prefix /api/v1)
   templates/            # Jinja templates (layout.html, blank_page.html, …)
-  static/               # Static assets (built Vite output, ui.js, …)
-frontend/
-  src/                  # Vite entry (main.js, style.css, theme/)
-  components/           # UI Lite jQuery components (merged by buildUI.py)
+  static/
+    css/main.css        # Team overrides (loaded after Vite/Tailwind on layout pages)
+    js/main.js          # Team scripts (after ui.js; jQuery + window.UI available)
+    js/ui.js            # UI Lite bundle (generated — do not edit by hand)
+frontend/               # UI Lite maintainer + Vite only — do not edit for normal page work
+  src/                  # Vite entry (theme, UI.init, dashboard hooks)
+  components/           # UI Lite sources → buildUI.py → app/static/js/ui.js
 buildUI.py              # Concatenates frontend/components → app/static/js/ui.js
 run.py                  # App entry: create_app() + dev server on port 5000
 config.py               # Config classes (development / production / testing)
 requirements.txt        # Python dependencies
 .env.example            # Environment template
+.github/workflows/      # e.g. regenerate ui.js on push when components change
 ```
 
 ---
@@ -184,6 +206,18 @@ Example health/root behaviour is defined on the API blueprint (see `app/api/v1/r
 
 ---
 
+## New pages (reminder)
+
+Follow the **“For the team: work only in `app/`”** section above. Typical checklist:
+
+- **Route** + **template** (`layout.html` / `blank_page.html`).
+- **Tailwind** + `**data-ui`** in markup; see `/docs/ui`.
+- Optional `**app/static/js/main.js**` / `**app/static/css/main.css**`.
+
+Templates that **extend `base.html` only** (e.g. some docs views) do not automatically load `main.css` / `main.js` — add the same `<link>` / `<script>` as in `layout.html` if you need them.
+
+---
+
 ## Adding a new server-rendered page
 
 1. **Template**
@@ -193,24 +227,33 @@ Example health/root behaviour is defined on the API blueprint (see `app/api/v1/r
   Register a view in the appropriate blueprint (often `app/routes/main.py`):
 3. **Navigation** (optional)
   Add a link in `app/templates/components/navbar.html` using `url_for('main.my_feature')` (adjust endpoint name to match your blueprint + function).
-4. **Page-specific JS** (optional)
-  - Use `<main id="app">` and `initApp` patterns from `frontend/src/core/app.js` if you add client bootstrapping, **or**  
-  - Extend `{% block scripts %}` in a template that extends `base.html` / `layout.html` if you need extra scripts.
+4. **Scripts and styles** (optional)
+  - Edit `**app/static/js/main.js`** and `**app/static/css/main.css**` only.  
+  - Extend `{% block scripts %}` in a template if you must load an extra third-party script from a URL.
 
 ---
 
-## UI Lite components (`ui.js`)
+## UI Lite maintainer (`frontend/` + `ui.js`)
 
-- Source files live in `**frontend/components/`** (plus `core.js`).  
-- `**python buildUI.py**` concatenates them into `**app/static/js/ui.js**` (do not edit the bundle by hand).  
-- Components are initialized with `**window.UI.init()**` (already invoked from `frontend/src/main.js` on DOM ready for `[data-ui]` elements).  
-- `**npm run build**` does not replace `buildUI.py`; run `**buildUI.py**` whenever you change files under `frontend/components/`.
+**Everyone else can skip this section.** Only the person maintaining UI Lite touches `frontend/`.
+
+- Component sources: `**frontend/components/*.js`** (plus `core.js`).  
+- `**python buildUI.py**` writes `**app/static/js/ui.js**` — never edit that file by hand.  
+- `**window.UI.init()**` runs from the Vite bundle on `[data-ui]` elements.  
+- After changing components, run `**buildUI.py**`; for production CSS/JS also `**cd frontend && npm run build**`.  
+- Document new or updated components at `**/docs/ui**`.
+
+---
+
+## CI / GitHub Actions
+
+Workflows may regenerate `**app/static/js/ui.js**` when `frontend/components/**` or `buildUI.py` changes — relevant for the **UI Lite maintainer** only. See `.github/workflows/`.
 
 ---
 
 ## Security and deployment notes
 
-- Change `**SECRET_KEY**` and use a proper `**DATABASE_URL**` for staging/production.  
+- Change `**SECRET_KEY`** and use a proper `**DATABASE_URL**` for staging/production.  
 - Review **CORS**, **HTTPS**, and **cookie** settings before exposing the app publicly.  
 - The default SQLite file path is suitable for local development only; use a managed database for production if required.
 

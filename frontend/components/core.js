@@ -12,6 +12,5 @@ window.UI.init = function(context = document) {
     });
 };
 
-$(document).ready(() => {
-    window.UI.init();
-});
+// Init is driven from frontend/src/main.js after import "./style.css" so layout does not shift
+// when components (accordion, etc.) run before Tailwind is applied.

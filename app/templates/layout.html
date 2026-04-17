@@ -1,0 +1,34 @@
+{# App chrome: navbar, optional docs subnav, flash, main, footer, ui.js — use for most pages. #}
+{% extends "base.html" %}
+
+{% block body %}
+    {% include "components/navbar.html" %}
+
+    {% block docs_nav %}{% endblock %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div id="flash-messages" class="container mx-auto px-4 pt-4 space-y-2">
+        {% for category, message in messages %}
+        <div class="flash-message px-4 py-3 rounded-lg text-sm font-medium border border-border
+            {% if category == 'error' %}bg-card text-danger
+            {% elif category == 'success' %}bg-card text-success
+            {% else %}bg-card text-primary{% endif %}"
+            role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <main id="app" class="container mx-auto px-4 py-8 flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-t border-border py-6 text-center text-sm text-muted">
+        <p>&copy; 2026 WatchList Hub — CITS5505 Group Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+{% endblock %}

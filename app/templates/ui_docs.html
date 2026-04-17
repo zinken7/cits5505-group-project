@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}UI Kit — WatchList Hub{% endblock %}
+
+{% block meta_description %}Interactive documentation for UI Lite — jQuery components with data-ui attributes (mini framework).{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/docs_nav.css') }}">
+{% endblock %}
+
+{# UI Kit docs: subnav + main + ui.js (extends base, not layout). #}
+{% block body %}
+{% include "components/docs_subnav.html" %}
+<main id="app" class="container mx-auto px-4 py-8 flex-1">
+{% include "partials/_ui_docs_sections.html" %}
+</main>
+<footer class="border-t border-border py-6 text-center text-sm text-muted mt-auto">
+    <p>&copy; 2026 WatchList Hub — CITS5505 Group Project</p>
+</footer>
+<script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+{% endblock %}

@@ -20,12 +20,22 @@ class Pagination {
     }
 
     setCurrentPage(pageNumber) {
-        this.$el.find('[data-page]').removeClass('z-10 bg-blue-600 text-white')
-                 .addClass('text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50');
-        
-        this.$el.find(`[data-page="${pageNumber}"]`)
-                 .removeClass('text-gray-900 ring-gray-300')
-                 .addClass('z-10 bg-blue-600 text-white');
+        const $nums = this.$el.find('[data-page]').filter(function () {
+            const p = $(this).data('page');
+            return p !== 'prev' && p !== 'next';
+        });
+
+        const inactive =
+            'text-foreground ring-1 ring-inset ring-border hover:bg-muted/10 transition-colors';
+        const active = 'z-10 bg-primary text-white';
+
+        $nums.removeClass(active).addClass(inactive);
+
+        this.$el
+            .find(`[data-page="${pageNumber}"]`)
+            .first()
+            .removeClass(inactive)
+            .addClass(active);
     }
 
     triggerChange(page) {

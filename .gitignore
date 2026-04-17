@@ -18,3 +18,17 @@ venv/
 .vscode/
 .gemini/
 .claude/
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Vite build output
+app/static/dist/
+
+# Database (local SQLite — do not commit)
+*.db
+instance/
+
+# Flask
+*.pyc

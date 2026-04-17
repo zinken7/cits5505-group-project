@@ -4,13 +4,13 @@ on:
   push:
     branches: [main]
     paths:
-      - 'components/**'
+      - 'frontend/components/**'
       - 'buildUI.py'
 
   pull_request:
     branches: [main]
     paths:
-      - 'components/**'
+      - 'frontend/components/**'
       - 'buildUI.py'
 
 jobs:
@@ -55,7 +55,7 @@ jobs:
       - name: Auto commit ui.js
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: auto regenerate ui.js from components [skip ci]"
-          file_pattern: ui.js
+          commit_message: "chore: auto regenerate app/static/js/ui.js from frontend/components [skip ci]"
+          file_pattern: app/static/js/ui.js
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"

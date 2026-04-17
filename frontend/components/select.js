@@ -25,12 +25,15 @@ class Select {
             const text = $selected.text();
 
             // Update UI & Hidden Input
-            this.$triggerText.text(text).removeClass('text-gray-400').addClass('text-gray-900');
+            this.$triggerText
+                .text(text)
+                .removeClass('text-muted text-muted/70')
+                .addClass('text-foreground');
             this.$hiddenInput.val(val).trigger('change');
-            
+
             // Handle active styling
-            this.$options.removeClass('bg-blue-50 text-blue-600 font-medium');
-            $selected.addClass('bg-blue-50 text-blue-600 font-medium');
+            this.$options.removeClass('bg-primary/15 text-primary font-medium');
+            $selected.addClass('bg-primary/15 text-primary font-medium');
 
             this.close();
         });
@@ -49,13 +52,13 @@ class Select {
 
     open() {
         this.$menu.removeClass('hidden').hide().fadeIn(150);
-        this.$trigger.addClass('border-blue-500 ring-1 ring-blue-500');
+        this.$trigger.addClass('border-primary ring-1 ring-primary');
         this.isOpen = true;
     }
 
     close() {
         this.$menu.fadeOut(100, () => this.$menu.addClass('hidden').css('display', ''));
-        this.$trigger.removeClass('border-blue-500 ring-1 ring-blue-500');
+        this.$trigger.removeClass('border-primary ring-1 ring-primary');
         this.isOpen = false;
     }
 }

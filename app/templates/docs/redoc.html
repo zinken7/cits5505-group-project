@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watchlist Hub API — ReDoc</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/docs_nav.css') }}">
+  <style> body { margin: 0; padding: 0; } </style>
+</head>
+<body class="docs-standalone">
+  {% include "components/docs_subnav.html" %}
+  <redoc spec-url="/openapi.json"></redoc>
+  <script src="https://unpkg.com/redoc@2/bundles/redoc.standalone.js" crossorigin="anonymous"></script>
+</body>
+</html>

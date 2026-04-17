@@ -1,0 +1,53 @@
+{# ── Media Card Component ── #}
+{# Expected variable: item (dict with media info) #}
+{% set media = item.get('media', item) if item is mapping else item %}
+
+<div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow"
+     data-ui="card"
+     data-media-id="{{ media.get('id', '') }}">
+
+    {# Image #}
+    {% if media.get('image_url') %}
+    <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
+        <img src="{{ media.image_url }}"
+             alt="{{ media.title }}"
+             class="w-full h-full object-cover"
+             loading="lazy">
+    </div>
+    {% else %}
+    <div class="aspect-[3/4] bg-gray-100 flex items-center justify-center text-4xl">
+        {% if media.get('media_type') == 'anime' %}🎬
+        {% elif media.get('media_type') == 'game' %}🎮
+        {% else %}🍿{% endif %}
+    </div>
+    {% endif %}
+
+    {# Content #}
+    <div class="card-body p-4">
+        <h3 class="font-semibold text-gray-900 text-sm line-clamp-2 mb-1">
+            {{ media.get('title', 'Untitled') }}
+        </h3>
+
+        <div class="flex items-center justify-between text-xs text-gray-500">
+            <span class="capitalize">{{ media.get('media_type', '') }}</span>
+            {% if media.get('year') %}
+            <span>{{ media.year }}</span>
+            {% endif %}
+        </div>
+
+        {% if item.get('watchlist_count') is defined and item.watchlist_count %}
+        <p class="text-xs text-gray-400 mt-2">
+            {{ item.watchlist_count }} {{ 'user' if item.watchlist_count == 1 else 'users' }}
+        </p>
+        {% endif %}
+
+        {% if item.get('status') %}
+        <span class="inline-block mt-2 px-2 py-0.5 text-xs font-medium rounded-full
+            {% if item.status == 'watching' %}bg-blue-100 text-blue-700
+            {% elif item.status == 'completed' %}bg-green-100 text-green-700
+            {% else %}bg-yellow-100 text-yellow-700{% endif %}">
+            {{ item.status | capitalize }}
+        </span>
+        {% endif %}
+    </div>
+</div>

@@ -6,10 +6,10 @@
 
 import os
 
-# Configuration
-COMPONENTS_DIR = 'frontend/components'
-OUTPUT_FILE = 'frontend/components/ui.js'
-CORE_FILENAME = 'core.js'
+# Configuration (run from repo root: python buildUI.py)
+COMPONENTS_DIR = "frontend/components"
+OUTPUT_FILE = "app/static/js/ui.js"
+CORE_FILENAME = "core.js"
 
 def get_source_files():
     """
@@ -27,8 +27,12 @@ def get_source_files():
     for filename in os.listdir(COMPONENTS_DIR):
         if filename.endswith('.js'):
             filepath = os.path.join(COMPONENTS_DIR, filename)
-            
-            # CRITICAL: Prevent the script from reading its own output file
+
+            # Never merge the bundle filename (legacy copies lived here before output → app/static/js)
+            if filename == os.path.basename(OUTPUT_FILE):
+                continue
+
+            # CRITICAL: Prevent the script from reading its own output file (same dir edge case)
             if os.path.abspath(filepath) == output_abspath:
                 continue
                 

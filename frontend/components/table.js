@@ -38,13 +38,13 @@ class Table {
             // Reset UI for all headers
             this.$sortHeaders.data('direction', 'none');
             this.$sortHeaders.find('.sort-icon')
-                .removeClass('text-blue-600 rotate-180')
-                .addClass('text-gray-400 opacity-0 group-hover:opacity-100');
+                .removeClass('text-primary rotate-180')
+                .addClass('text-muted/70 opacity-0 group-hover:opacity-100');
 
             // Apply UI to clicked header
             $header.data('direction', nextDirection);
             const $icon = $header.find('.sort-icon');
-            $icon.removeClass('text-gray-400 opacity-0 group-hover:opacity-100').addClass('text-blue-600 opacity-100');
+            $icon.removeClass('text-muted/70 opacity-0 group-hover:opacity-100').addClass('text-primary opacity-100');
             if (nextDirection === 'desc') $icon.addClass('rotate-180');
 
             // Trigger custom event so page script can fetch new data from Flask
@@ -56,9 +56,9 @@ class Table {
         this.$el.find('.row-checkbox').each((idx, el) => {
             const $row = $(el).closest('tr');
             if ($(el).prop('checked')) {
-                $row.addClass('bg-blue-50');
+                $row.addClass('bg-primary/15');
             } else {
-                $row.removeClass('bg-blue-50');
+                $row.removeClass('bg-primary/15');
             }
         });
     }

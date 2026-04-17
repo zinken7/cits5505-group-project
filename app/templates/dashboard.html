@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard — WatchList Hub{% endblock %}
+
+{% block content %}
+<div data-page="dashboard" data-watchlist='{{ watchlist | tojson }}'>
+
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">
+        My Dashboard
+    </h1>
+
+    {# ── Status Tabs ── #}
+    <div class="flex gap-4 mb-8 border-b border-gray-200">
+        <button class="tab-btn px-4 py-2 font-medium text-blue-600 border-b-2 border-blue-600"
+                data-status="watching">
+            👀 Watching
+        </button>
+        <button class="tab-btn px-4 py-2 font-medium text-gray-500 hover:text-gray-700"
+                data-status="planned">
+            📋 Planned
+        </button>
+        <button class="tab-btn px-4 py-2 font-medium text-gray-500 hover:text-gray-700"
+                data-status="completed">
+            ✅ Completed
+        </button>
+    </div>
+
+    {# ── Watchlist Panels ── #}
+    <div id="watchlist-panels">
+        {% for status in ['watching', 'planned', 'completed'] %}
+        <div class="watchlist-panel {% if status != 'watching' %}hidden{% endif %}"
+             data-status="{{ status }}">
+
+            {% set items = watchlist | selectattr('status', 'equalto', status) | list %}
+
+            {% if items %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {% for item in items %}
+                    {% set media_item = item %}
+                    {% include "components/media_card.html" %}
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-500 text-center py-12">
+                No items in your {{ status }} list yet.
+            </p>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

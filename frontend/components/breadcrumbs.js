@@ -1,6 +1,49 @@
+const BREADCRUMB_SEPARATOR = `
+            <svg class="h-4 w-4 shrink-0 text-muted/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        `;
+
+function buildBreadcrumbHtml(items) {
+    let html = '<ol class="flex items-center flex-wrap gap-x-2 gap-y-1 text-sm text-muted">';
+
+    items.forEach((item, index) => {
+        const isLast = index === items.length - 1;
+
+        html += `<li><div class="flex items-center">`;
+
+        if (index > 0) {
+            html += BREADCRUMB_SEPARATOR;
+        }
+
+        if (isLast || !item.url) {
+            html += `<span class="ml-2 font-medium text-foreground">${item.label}</span>`;
+        } else {
+            html += `<a href="${item.url}" class="${index > 0 ? 'ml-2 ' : ''}hover:text-foreground transition-colors">${item.label}</a>`;
+        }
+
+        html += `</div></li>`;
+    });
+
+    html += '</ol>';
+    return html;
+}
+
 class Breadcrumbs {
     constructor(element) {
         this.$el = $(element);
+        const raw = this.$el.attr('data-items');
+        if (!raw || this.$el.find('ol').length) {
+            return;
+        }
+        try {
+            const items = JSON.parse(raw);
+            if (Array.isArray(items) && items.length > 0) {
+                this.setItems(items);
+            }
+        } catch (e) {
+            /* ignore invalid JSON */
+        }
     }
 
     /**
@@ -13,36 +56,7 @@ class Breadcrumbs {
             return;
         }
 
-        let html = '<ol class="flex items-center space-x-2 text-sm text-gray-500">';
-        
-        const separator = `
-            <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-        `;
-
-        items.forEach((item, index) => {
-            const isLast = index === items.length - 1;
-            
-            html += `<li><div class="flex items-center">`;
-            
-            if (index > 0) {
-                html += separator;
-            }
-
-            if (isLast || !item.url) {
-                // Active/Last item (No link)
-                html += `<span class="ml-2 font-medium text-gray-900">${item.label}</span>`;
-            } else {
-                // Clickable link
-                html += `<a href="${item.url}" class="${index > 0 ? 'ml-2 ' : ''}hover:text-gray-900 transition-colors">${item.label}</a>`;
-            }
-            
-            html += `</div></li>`;
-        });
-
-        html += '</ol>';
-        this.$el.html(html);
+        this.$el.html(buildBreadcrumbHtml(items));
     }
 }
 

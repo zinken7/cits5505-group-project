@@ -1,5 +1,5 @@
 buildUI.py                                  @zinken7
-frontend/components/ui.js                   @zinken7
+app/static/js/ui.js                         @zinken7
 
 .github/CODEOWNERS                          @zinken7
 .github/workflows/                          @zinken7

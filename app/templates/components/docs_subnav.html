@@ -1,0 +1,12 @@
+{# Same bar on /docs, /docs/ui, /docs/apis, /docs/apis/redoc #}
+{% set path = request.path.rstrip('/') or '/' %}
+<nav class="docs-nav" aria-label="Documentation">
+    <a href="{{ url_for('docs.hub') }}"
+       class="docs-nav__link {% if path == '/docs' %}docs-nav__link--active{% endif %}">Overview</a>
+    <a href="{{ url_for('docs.ui') }}"
+       class="docs-nav__link {% if path == '/docs/ui' %}docs-nav__link--active{% endif %}">UI Kit</a>
+    <a href="{{ url_for('docs.apis') }}"
+       class="docs-nav__link {% if path == '/docs/apis' %}docs-nav__link--active{% endif %}">APIs</a>
+    <a href="{{ url_for('docs.apis_redoc') }}"
+       class="docs-nav__link {% if path == '/docs/apis/redoc' %}docs-nav__link--active{% endif %}">ReDoc</a>
+</nav>

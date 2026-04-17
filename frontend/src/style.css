@@ -1,0 +1,229 @@
+/* ── Tailwind v4 Entry ── */
+@import "tailwindcss";
+
+@source "../components";
+@source "../../app/templates";
+
+/*
+ * Design tokens — shared across the app
+ * --------------------------------------
+ * In HTML/Jinja use mapped Tailwind utilities: bg-page, bg-card, text-foreground,
+ * text-muted, bg-primary, text-primary, bg-accent, border-border, etc.
+ * Or use raw CSS: background: var(--color-bg);
+ */
+
+/* ── Raw palette (semantic) ── */
+:root {
+  --page-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --accent-primary: #8b5cf6;
+  --accent-secondary: #06b6d4;
+  --semantic-success: #16a34a;
+  --semantic-warning: #d97706;
+  --semantic-danger: #dc2626;
+  --border-default: #e2e8f0;
+  --ring-focus: #8b5cf6;
+  --shadow-card: 0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.06);
+  --overlay-scrim: rgb(15 23 42 / 0.45);
+}
+
+[data-theme="dark"] {
+  --page-bg: #0b0f19;
+  --card-bg: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent-primary: #a855f7;
+  --accent-secondary: #22d3ee;
+  --semantic-success: #4ade80;
+  --semantic-warning: #fbbf24;
+  --semantic-danger: #f87171;
+  --border-default: #334155;
+  --ring-focus: #a855f7;
+  --shadow-card: 0 4px 24px -4px rgb(0 0 0 / 0.45);
+  --overlay-scrim: rgb(2 6 23 / 0.65);
+}
+
+/* Public aliases for plain CSS or arbitrary properties */
+:root {
+  --color-bg: var(--page-bg);
+  --color-surface: var(--card-bg);
+  --color-fg: var(--text-primary);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-success: var(--semantic-success);
+  --color-warning: var(--semantic-warning);
+  --color-danger: var(--semantic-danger);
+  --color-border: var(--border-default);
+}
+
+/* ── Tailwind theme bridge ── */
+@theme {
+  --color-page: var(--page-bg);
+  --color-card: var(--card-bg);
+  --color-foreground: var(--text-primary);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--accent-primary);
+  --color-accent: var(--accent-secondary);
+  --color-success: var(--semantic-success);
+  --color-warning: var(--semantic-warning);
+  --color-danger: var(--semantic-danger);
+  --color-border: var(--border-default);
+  --shadow-elevated: var(--shadow-card);
+}
+
+/* Theme toggle: moon when light (→ go dark), sun when dark (→ go light) */
+.theme-toggle-btn .theme-icon-sun {
+  display: none;
+}
+.theme-toggle-btn .theme-icon-moon {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle-btn .theme-icon-sun {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle-btn .theme-icon-moon {
+  display: none;
+}
+
+/* ── Base ── */
+@layer base {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--page-bg);
+    color: var(--text-primary);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+}
+
+/* ── Components ── */
+@layer components {
+  .flash-message {
+    animation: flash-fade-in 0.3s ease-out;
+  }
+
+  @keyframes flash-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /** Elevated card surface — wrap content blocks */
+  .surface-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-default);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  /** Primary CTA button (violet) */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background-color: var(--accent-primary);
+    color: white;
+    transition:
+      filter 0.15s ease,
+      transform 0.1s ease;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.08);
+  }
+
+  /** Genre / tag pill (cyan) */
+  .tag-accent {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: color-mix(in srgb, var(--accent-secondary) 18%, transparent);
+    color: var(--accent-secondary);
+    border: 1px solid color-mix(in srgb, var(--accent-secondary) 35%, transparent);
+  }
+
+  /*
+   * UI Lite — default DOM matches post-JS layout (progressive enhancement).
+   * Closed accordion / collapsed card must not rely on jQuery .hide() after first paint.
+   */
+  [data-ui="accordion"] .accordion-item:not(.is-open) > .accordion-content {
+    display: none;
+  }
+
+  [data-ui="card"].is-collapsed > .card-body {
+    display: none;
+  }
+
+  /* Open accordion: icon rotation without waiting for JS */
+  [data-ui="accordion"] .accordion-item.is-open .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Toggle: visual state from :checked — no JS class sync on load */
+  [data-ui="toggle"] input + .toggle-track {
+    background-color: color-mix(in srgb, var(--text-muted) 35%, transparent);
+  }
+  [data-ui="toggle"] input:checked + .toggle-track {
+    background-color: var(--accent-primary);
+  }
+  [data-ui="toggle"] input:checked + .toggle-track .toggle-thumb {
+    transform: translateX(1.25rem);
+  }
+
+  /* Avatar: avoid wrong frame before load/error handling */
+  [data-ui="avatar"]:not(.avatar-ready) {
+    opacity: 0;
+  }
+  [data-ui="avatar"].avatar-ready {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+  }
+
+  /* Datepicker: positioning context for the hidden WebKit indicator */
+  [data-ui="datepicker"] input[type="date"] {
+    position: relative;
+  }
+
+  /* Datepicker: hide WebKit calendar glyph before any JS (full row still clickable) */
+  [data-ui="datepicker"] input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+}

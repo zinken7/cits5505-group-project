@@ -15,9 +15,8 @@ def ui_docs_legacy():
 
 @bp.route("/")
 def index():
-    """Landing page — show trending media."""
-    trending = get_trending(limit=10)
-    return render_template("index.html", trending=trending)
+    """Landing page — cinematic Three.js experience."""
+    return render_template("index.html")
 
 
 @bp.route("/dashboard")

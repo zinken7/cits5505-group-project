@@ -14,6 +14,13 @@ class Media(db.Model):
     image_url = db.Column(db.String(500), default="")
     year = db.Column(db.Integer)
 
+    # IMDB metadata
+    imdb_id = db.Column(db.String(20), unique=True, nullable=True, index=True)
+    rating = db.Column(db.Float, nullable=True)
+    votes = db.Column(db.Integer, nullable=True)
+    imdb_url = db.Column(db.String(500), default="")
+    rank = db.Column(db.Integer, nullable=True)
+
     # Relationship
     watchlist_items = db.relationship("WatchlistItem", backref="media", lazy="dynamic")
 
@@ -25,6 +32,11 @@ class Media(db.Model):
             "description": self.description,
             "image_url": self.image_url,
             "year": self.year,
+            "imdb_id": self.imdb_id,
+            "rating": self.rating,
+            "votes": self.votes,
+            "imdb_url": self.imdb_url,
+            "rank": self.rank,
         }
 
     def __repr__(self):

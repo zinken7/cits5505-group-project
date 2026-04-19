@@ -1,0 +1,335 @@
+/* ============================================================
+   Landing Page — Three.js Cinematic Experience
+   ============================================================ */
+
+/* ── Reset for full-screen canvas ── */
+.landing-body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #050507;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  color: #fff;
+}
+
+/* ── Canvas ── */
+#landing-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* ── Loading Screen ── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050507;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loading-icon {
+  color: #8b5cf6;
+  animation: none;
+}
+
+.loading-icon svg {
+  display: block;
+}
+
+.loading-arc {
+  stroke: #8b5cf6;
+  stroke-width: 2;
+  transform-origin: center;
+  animation: spinArc 1s linear infinite;
+}
+
+@keyframes spinArc {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.loading-bar-track {
+  width: 240px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  border-radius: 4px;
+  transition: width 0.15s ease;
+}
+
+.loading-percent {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.3);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+/* ── Overlay container ── */
+.landing-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ── Navigation (top-right) ── */
+.landing-nav {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.landing-nav.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Nav buttons */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+}
+
+.nav-btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.875rem;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn--ghost:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-btn--primary {
+  background: #fff;
+  color: #0a0a0a;
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn--primary:hover {
+  background: #e8e8f0;
+  /* transform: translateY(-1px); */
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+}
+
+/* ── Hero Card (text below Three.js poster) ── */
+.hero-card {
+  position: absolute;
+  bottom: 16%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.hero-card.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* ── Hero Info ── */
+.hero-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-tagline {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.hero-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #fff 40%, rgba(139, 92, 246, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-rating::before {
+  content: "⭐ ";
+}
+
+/* ── Add to Watchlist button ── */
+.btn-watchlist {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #7c5cfc, #6366f1);
+  padding: 0.75rem 1.75rem;
+  box-shadow: 0 0 20px rgba(124, 92, 252, 0.4);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-watchlist::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-watchlist:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 32px rgba(124, 92, 252, 0.65);
+  background: linear-gradient(135deg, #8b6dfd, #7577f5);
+}
+
+.btn-watchlist:hover::before {
+  opacity: 1;
+}
+
+.btn-watchlist:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Brand watermark (bottom-center) ── */
+.landing-brand {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  transition: opacity 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landing-brand.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.brand-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .hero-poster-wrap {
+    width: 200px;
+  }
+
+  .hero-title {
+    font-size: 1.25rem;
+  }
+
+  .btn-watchlist {
+    padding: 12px 28px;
+    font-size: 0.85rem;
+  }
+
+  .landing-nav {
+    top: 16px;
+    right: 16px;
+  }
+
+  .nav-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}

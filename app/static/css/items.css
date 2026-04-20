@@ -1,0 +1,93 @@
+
+/* ── Item detail page ────────────────────────────────────────────── */
+
+.detail-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.06);
+  padding: 1.25rem 1.5rem;
+}
+
+.detail-card.overflow-hidden {
+  overflow: hidden;
+}
+
+.detail-poster {
+  aspect-ratio: 2 / 3;
+  background-color: color-mix(in srgb, var(--color-muted) 15%, transparent);
+  overflow: hidden;
+}
+
+.detail-poster img {
+  display: block;
+}
+
+.detail-popularity {
+  min-width: 9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  text-align: center;
+}
+
+.detail-stat__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.detail-stat__value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.detail-activity {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: color-mix(in srgb, var(--color-border) 35%, transparent);
+  text-align: center;
+}
+
+.detail-activity__value {
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.detail-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  color: var(--color-fg);
+  background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+}
+
+/* Inline alert (success / error messages from JS) */
+.item-detail__alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid;
+}
+
+.item-detail__alert--success {
+  color: var(--color-success);
+  border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
+  background-color: color-mix(in srgb, var(--color-success) 12%, transparent);
+}
+
+.item-detail__alert--error {
+  color: var(--color-danger);
+  border-color: color-mix(in srgb, var(--color-danger) 40%, transparent);
+  background-color: color-mix(in srgb, var(--color-danger) 12%, transparent);
+}

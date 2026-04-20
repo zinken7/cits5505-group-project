@@ -20,6 +20,7 @@ class Media(db.Model):
     votes = db.Column(db.Integer, nullable=True)
     imdb_url = db.Column(db.String(500), default="")
     rank = db.Column(db.Integer, nullable=True)
+    genres = db.Column(db.JSON, nullable=True, default=[])  # List of genre strings
 
     # Relationship
     watchlist_items = db.relationship("WatchlistItem", backref="media", lazy="dynamic")
@@ -37,6 +38,7 @@ class Media(db.Model):
             "votes": self.votes,
             "imdb_url": self.imdb_url,
             "rank": self.rank,
+            "genres": self.genres or [],
         }
 
     def __repr__(self):

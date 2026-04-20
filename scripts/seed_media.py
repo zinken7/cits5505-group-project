@@ -50,6 +50,7 @@ def seed(clear: bool = False):
                 votes=item.get("votes"),
                 imdb_url=item.get("imdb_url", ""),
                 rank=item.get("rank"),
+                genres=item.get("genres", ["Drama"]),  # Read from enriched JSON
             )
             db.session.add(media)
             added += 1

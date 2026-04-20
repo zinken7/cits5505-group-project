@@ -13,3 +13,4 @@ from app.api.v1 import social  # noqa: E402, F401
 from app.api.v1 import search  # noqa: E402, F401
 from app.api.v1 import admin  # noqa: E402, F401
 from app.api.v1 import landing  # noqa: E402, F401
+from app.api.v1 import items  # noqa: E402, F401

@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block title %}Item Detail — WatchList Hub{% endblock %}
+
+{% block content %}
+<div class="item-detail"
+     data-page="item-detail"
+     data-imdb-id="{{ imdb_id }}"
+     data-api-url="{{ url_for('api_v1.get_item', imdb_id=imdb_id) }}"
+     data-watchlist-url="{{ url_for('api_v1.watchlist_create') }}">
+
+  {# Flash slot for JS-driven success / error messages #}
+  <div class="item-detail__alert hidden" data-field="alert" role="status"></div>
+
+  <div class="grid gap-6 md:grid-cols-[minmax(0,18rem)_1fr]">
+
+    {# ── Left column : poster + action ─────────────────────────────── #}
+    <aside class="space-y-4">
+      <div class="detail-card overflow-hidden p-0">
+        <div class="detail-poster">
+          <img data-field="image_url"
+               alt=""
+               class="h-full w-full object-cover"
+               loading="eager">
+        </div>
+        <div class="p-4 space-y-2">
+          <button type="button"
+                  class="btn-primary w-full"
+                  data-action="add-to-watchlist">
+            <span data-field="action-label">Add to Watchlist</span>
+          </button>
+          <a data-field="imdb_url"
+             class="block text-center text-sm text-muted hover:text-foreground"
+             target="_blank"
+             rel="noopener">
+            View on IMDb →
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    {# ── Right column : meta + synopsis + community ───────────────── #}
+    <section class="space-y-6 min-w-0">
+
+      {# Header card : title, type/year, tagline, genres, popularity #}
+      <div class="detail-card">
+        <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div class="min-w-0">
+            <h1 class="text-3xl font-bold leading-tight"
+                data-field="title">&nbsp;</h1>
+            <p class="mt-1 text-sm text-muted">
+              <span class="capitalize" data-field="media_type">—</span>
+              <span data-field="year-sep" class="hidden">•</span>
+              <span data-field="year"></span>
+              <span data-field="runtime-sep" class="hidden">•</span>
+              <span data-field="runtime"></span>
+            </p>
+            <p class="mt-3 italic text-muted hidden"
+               data-field="tagline"></p>
+
+            <div class="mt-4 flex flex-wrap gap-2"
+                 data-field="genres"
+                 data-field-empty="hide"></div>
+          </div>
+
+          <div class="detail-popularity shrink-0">
+            <p class="text-xs uppercase tracking-wide text-muted">In watchlists</p>
+            <p class="text-3xl font-semibold"
+               data-field="watchlist_count">0</p>
+            <p class="text-xs text-muted">users added this item</p>
+          </div>
+        </div>
+
+        <hr class="my-5 border-border">
+
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div class="detail-stat">
+            <p class="detail-stat__label">Rating</p>
+            <p class="detail-stat__value" data-field="rating">—</p>
+          </div>
+          <div class="detail-stat">
+            <p class="detail-stat__label">Status</p>
+            <p class="detail-stat__value" data-field="status">—</p>
+          </div>
+          <div class="detail-stat" data-field-wrap="episodes">
+            <p class="detail-stat__label">Episodes</p>
+            <p class="detail-stat__value" data-field="episodes">—</p>
+          </div>
+          <div class="detail-stat">
+            <p class="detail-stat__label">Release Year</p>
+            <p class="detail-stat__value" data-field="year-stat">—</p>
+          </div>
+        </div>
+      </div>
+
+      {# Synopsis #}
+      <div class="detail-card">
+        <h2 class="text-lg font-semibold mb-2">Synopsis</h2>
+        <p class="leading-relaxed" data-field="description">&nbsp;</p>
+      </div>
+
+      {# Credits: director, cast, language, country, awards #}
+      <div class="detail-card">
+        <h2 class="text-lg font-semibold mb-4">Credits & Info</h2>
+        <dl class="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
+          <div data-field-wrap="director">
+            <dt class="detail-stat__label">Director</dt>
+            <dd class="font-medium" data-field="director"></dd>
+          </div>
+          <div data-field-wrap="cast">
+            <dt class="detail-stat__label">Starring</dt>
+            <dd class="font-medium" data-field="cast"></dd>
+          </div>
+          <div data-field-wrap="language">
+            <dt class="detail-stat__label">Language</dt>
+            <dd class="font-medium" data-field="language"></dd>
+          </div>
+          <div data-field-wrap="country">
+            <dt class="detail-stat__label">Country</dt>
+            <dd class="font-medium" data-field="country"></dd>
+          </div>
+          <div data-field-wrap="awards" class="sm:col-span-2">
+            <dt class="detail-stat__label">Awards</dt>
+            <dd class="font-medium" data-field="awards"></dd>
+          </div>
+        </dl>
+      </div>
+
+      {# Community activity #}
+      <div class="detail-card">
+        <h2 class="text-lg font-semibold mb-4">Community Activity</h2>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="detail-activity">
+            <p class="detail-stat__label">Watching</p>
+            <p class="detail-activity__value" data-field="watching_count">0</p>
+          </div>
+          <div class="detail-activity">
+            <p class="detail-stat__label">Completed</p>
+            <p class="detail-activity__value" data-field="completed_count">0</p>
+          </div>
+          <div class="detail-activity">
+            <p class="detail-stat__label">Planned</p>
+            <p class="detail-activity__value" data-field="planned_count">0</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+{% endblock %}

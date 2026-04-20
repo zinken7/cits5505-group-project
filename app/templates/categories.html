@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Movie Categories — WatchList Hub{% endblock %}
+{% block meta_description %}Browse movies by genre on WatchList Hub.{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8 space-y-6">
+    <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div class="space-y-2">
+            <p class="text-xs uppercase tracking-[0.3em] text-muted">Movie genres</p>
+            <h1 class="text-3xl font-semibold text-foreground">Browse movies by genre</h1>
+            <p class="text-sm text-muted max-w-2xl">Explore the movie catalog by genre. Each section shows movies tagged with that genre.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            {% for genre_option in genres %}
+                <a href="{{ url_for('main.movie_categories', genre=genre_option) }}"
+                   class="rounded-full border px-3 py-2 text-sm font-medium transition-colors duration-150
+                   {% if genre_option == selected_genre %}bg-primary text-white border-primary{% else %}bg-card text-muted border-border hover:bg-slate-100 hover:text-foreground{% endif %}">
+                    {{ genre_option }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="rounded-3xl border border-border bg-card p-5">
+        <p class="text-sm text-muted">Showing {{ total }} movie{{ '' if total == 1 else 's' }} for <span class="text-foreground font-semibold">{{ selected_genre }}</span>.</p>
+    </div>
+
+    {% if movies %}
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {% for item in movies %}
+                {% include "components/media_card.html" %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="rounded-3xl border border-border bg-card p-10 text-center">
+            <p class="text-lg font-semibold text-foreground">No movies found for {{ selected_genre }}.</p>
+            <p class="mt-2 text-sm text-muted">Try another genre or add movie records with that genre in the description.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

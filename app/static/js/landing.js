@@ -110,7 +110,11 @@
       console.warn("Failed to fetch posters", e);
       mediaList = [];
     }
-    if (mediaList.length === 0) { showUI(); return; }
+    if (mediaList.length === 0) {
+      dismissLoadingScreen();
+      showUI();
+      return;
+    }
 
     heroMedia = mediaList[Math.floor(Math.random() * mediaList.length)];
 

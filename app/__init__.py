@@ -23,11 +23,12 @@ def create_app(config_name=None):
     # ------------------------------------------------------------------
     # Extensions
     # ------------------------------------------------------------------
-    from app.extensions import db, login_manager
+    from app.extensions import db, login_manager, csrf
 
     db.init_app(app)
     login_manager.init_app(app)
     login_manager.login_view = "auth.login"
+    csrf.init_app(app)
 
     @login_manager.unauthorized_handler
     def _unauthorized_api():

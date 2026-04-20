@@ -110,7 +110,11 @@
       console.warn("Failed to fetch posters", e);
       mediaList = [];
     }
-    if (mediaList.length === 0) { showUI(); return; }
+    if (mediaList.length === 0) {
+      dismissLoadingScreen();
+      showUI();
+      return;
+    }
 
     heroMedia = mediaList[Math.floor(Math.random() * mediaList.length)];
 
@@ -996,10 +1000,20 @@
     btn.addEventListener("click", async () => {
       if (!heroMedia) return;
       try {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]');
+        const token = csrfToken ? csrfToken.getAttribute('content') : '';
+        
         const res = await fetch("/api/v1/watchlist", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ media_id: heroMedia.id, status: "planned" }),
+          headers: { 
+            "Content-Type": "application/json",
+            "X-CSRFToken": token
+          },
+          body: JSON.stringify({ 
+            mediaId: heroMedia.id, 
+            mediaType: "movie",
+            status: "planned" 
+          }),
         });
         const data = await res.json();
         if (res.status === 401) { window.location.href = "/login"; return; }

@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
+from sqlalchemy import cast, String
 from app.extensions import db
 from app.models.media import Media
 from app.models.watchlist import WatchlistItem
 
 
 def list_media(media_type, q=None, genre=None, sort=None, limit=24, offset=0):
-    """Paginated media list. `genre` is reserved for future schema."""
+    """Paginated media list with optional genre filtering."""
     query = Media.query.filter_by(media_type=media_type)
     if q:
         like = f"%{q}%"
         query = query.filter(Media.title.ilike(like))
     if genre:
-        query = query.filter(Media.description.ilike(f"%{genre}%"))
+        # Filter by genre in the genres JSON array using string matching
+        # JSON stores genres as ["Action", "Drama"] etc., so match the quoted genre name
+        query = query.filter(cast(Media.genres, String).like(f'%"{genre}"%'))
 
     total = query.count()
 

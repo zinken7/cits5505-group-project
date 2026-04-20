@@ -113,7 +113,7 @@ def create_app(config_name=None):
     # Create DB tables (dev convenience)
     # ------------------------------------------------------------------
     with app.app_context():
-        from app.models import user, media, watchlist  # noqa: F401
+        from app.models import user, media, watchlist, items  # noqa: F401
 
         # Ensure Flask's instance folder exists for SQLite
         os.makedirs(app.instance_path, exist_ok=True)

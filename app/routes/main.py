@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint, abort, redirect, render_template, url_for
 from flask_login import login_required, current_user
 
 from app.services.watchlist_service import get_user_watchlist, get_trending
@@ -35,3 +35,13 @@ def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
     watchlist = get_user_watchlist(user.id)
     return render_template("profile.html", profile_user=user, watchlist=watchlist)
+
+
+@bp.route("/items/<imdb_id>")
+def item_detail(imdb_id):
+    """Item detail page — JS hydrates from /api/v1/items/<imdb_id>."""
+    from app.models.media import Media
+
+    if not Media.query.filter_by(imdb_id=imdb_id).first():
+        abort(404)
+    return render_template("detail.html", imdb_id=imdb_id)

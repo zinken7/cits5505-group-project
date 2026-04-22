@@ -2,6 +2,11 @@
 
 {% block title %}Item Detail — WatchList Hub{% endblock %}
 
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/items.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="item-detail"
      data-page="item-detail"
@@ -148,4 +153,8 @@
     </section>
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/items.js') }}"></script>
 {% endblock %}

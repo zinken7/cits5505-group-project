@@ -181,7 +181,7 @@
 /* ── Hero Card (text below Three.js poster) ── */
 .hero-card {
   position: absolute;
-  bottom: 16%;
+  bottom: 12%;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
   display: flex;

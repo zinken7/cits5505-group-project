@@ -1,17 +1,26 @@
 @echo off
 setlocal
 
+cd /d "%~dp0"
+
+if not exist ".venv\Scripts\python.exe" (
+    echo .venv not found at "%cd%\.venv". Create it first with: python -m venv .venv
+    goto :error
+)
+
+set "VENV_PY=%cd%\.venv\Scripts\python.exe"
+
 echo Activating virtual environment...
-call .venv\Scripts\activate
+call .venv\Scripts\activate.bat || goto :error
 
 echo Seeding media...
-python scripts\seed_media.py || goto :error
+"%VENV_PY%" scripts\seed_media.py || goto :error
 
 echo Seeding items...
-python scripts\seed_items.py || goto :error
+"%VENV_PY%" scripts\seed_items.py || goto :error
 
 echo Starting backend in new window...
-start "BACKEND" cmd /k "call .venv\Scripts\activate && python run.py"
+start "BACKEND" /D "%~dp0" cmd /k ""%VENV_PY%" run.py"
 
 echo Setting up frontend...
 cd frontend || goto :error

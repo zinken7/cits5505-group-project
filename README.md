@@ -85,6 +85,29 @@ requirements.txt        # Python dependencies
 
 ## Getting started
 
+For **faster setup**, use one of the provided startup scripts instead of manual steps:
+
+#### macOS / Linux:
+```
+chmod u+x run.sh
+./run.sh
+```
+
+#### Windows:
+```
+run.bat
+```
+
+Both scripts will:
+- Seed the database with media and items data
+- Start the **Flask backend** on port 5000
+- Start the **Vite dev server** on port 5173
+- Keep both processes running
+
+**The demo will show in address: [http://127.0.0.1:5000](http://127.0.0.1:5000)**
+
+If scripts don't work or you prefer manual control, follow steps below.
+
 ### 1. Clone and virtual environment
 
 ```bash

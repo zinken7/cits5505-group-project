@@ -32,6 +32,7 @@ instance/
 
 # Flask
 *.pyc
+*.log
 
 # Scripts
 # scripts/*.py

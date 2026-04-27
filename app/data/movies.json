@@ -12,7 +12,23 @@
     "imdb_url": "https://www.imdb.com/title/tt0111161/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 142,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Frank Darabont",
+    "cast": [
+      "Tim Robbins",
+      "Morgan Freeman",
+      "Bob Gunton",
+      "William Sadler"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Fear can hold you prisoner. Hope can set you free.",
+    "awards": "Nominated for 7 Oscars. 21 wins & 43 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=6hB3S9bIaco"
   },
   {
     "rank": 2,
@@ -28,7 +44,23 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 175,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Francis Ford Coppola",
+    "cast": [
+      "Marlon Brando",
+      "Al Pacino",
+      "James Caan",
+      "Robert Duvall"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "An offer you can't refuse.",
+    "awards": "Won 3 Oscars. 32 wins & 31 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=sY1S34973zA"
   },
   {
     "rank": 3,
@@ -44,8 +76,25 @@
     "genres": [
       "Action",
       "Crime",
-      "Drama"
-    ]
+      "Drama",
+      "Thriller"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 152,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Christian Bale",
+      "Heath Ledger",
+      "Aaron Eckhart",
+      "Michael Caine"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Why so serious?",
+    "awards": "Won 2 Oscars. 163 wins & 165 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
   },
   {
     "rank": 4,
@@ -61,7 +110,23 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 202,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Francis Ford Coppola",
+    "cast": [
+      "Al Pacino",
+      "Robert De Niro",
+      "Robert Duvall",
+      "Diane Keaton"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "The Godfather returns in a motion picture that will live forever.",
+    "awards": "Won 6 Oscars. 17 wins & 20 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=9O1Iy9od7-A"
   },
   {
     "rank": 5,
@@ -75,8 +140,25 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BYjE4NzdmOTYtYjc5Yi00YzBiLWEzNDEtNTgxZGQ2MWVkN2NiXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0050083/",
     "genres": [
+      "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 96,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Sidney Lumet",
+    "cast": [
+      "Henry Fonda",
+      "Lee J. Cobb",
+      "Martin Balsam",
+      "E. G. Marshall"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Life is in their hands. Death is on their minds.",
+    "awards": "Nominated for 3 Oscars. 17 wins & 12 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=_13J_9B5jEk"
   },
   {
     "rank": 6,
@@ -91,8 +173,25 @@
     "imdb_url": "https://www.imdb.com/title/tt0167260/",
     "genres": [
       "Adventure",
+      "Drama",
       "Fantasy"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 201,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Peter Jackson",
+    "cast": [
+      "Elijah Wood",
+      "Viggo Mortensen",
+      "Ian McKellen",
+      "Sean Astin"
+    ],
+    "language": "English",
+    "country": "New Zealand",
+    "tagline": "The eye of the enemy is moving.",
+    "awards": "Won 11 Oscars. 216 wins & 124 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=r5X-hFf6Bwo"
   },
   {
     "rank": 7,
@@ -109,7 +208,23 @@
       "Biography",
       "Drama",
       "History"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 195,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Steven Spielberg",
+    "cast": [
+      "Liam Neeson",
+      "Ralph Fiennes",
+      "Ben Kingsley",
+      "Caroline Goodall"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Whoever saves one life, saves the world entire.",
+    "awards": "Won 7 Oscars. 90 wins & 49 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=gG22XNhtnoY"
   },
   {
     "rank": 8,
@@ -126,7 +241,23 @@
       "Adventure",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 178,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Peter Jackson",
+    "cast": [
+      "Elijah Wood",
+      "Ian McKellen",
+      "Viggo Mortensen",
+      "Sean Bean"
+    ],
+    "language": "English",
+    "country": "New Zealand",
+    "tagline": "One ring to rule them all.",
+    "awards": "Won 4 Oscars. 120 wins & 127 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=V75dMMIW2B4"
   },
   {
     "rank": 9,
@@ -142,7 +273,23 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 154,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Quentin Tarantino",
+    "cast": [
+      "John Travolta",
+      "Samuel L. Jackson",
+      "Uma Thurman",
+      "Bruce Willis"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Just because you are a character doesn't mean you have character.",
+    "awards": "Won 1 Oscar. 70 wins & 75 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=s7EdQ4FqbhY"
   },
   {
     "rank": 10,
@@ -159,7 +306,23 @@
       "Adventure",
       "Biography",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 178,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Sergio Leone",
+    "cast": [
+      "Clint Eastwood",
+      "Eli Wallach",
+      "Lee Van Cleef",
+      "Aldo Giuffrè"
+    ],
+    "language": "Italian",
+    "country": "Italy",
+    "tagline": "For three men the Civil War wasn't hell. It was practice.",
+    "awards": "3 wins & 5 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=WCN5JJY_wiA"
   },
   {
     "rank": 11,
@@ -174,8 +337,25 @@
     "imdb_url": "https://www.imdb.com/title/tt0167261/",
     "genres": [
       "Adventure",
+      "Drama",
       "Fantasy"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 179,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Peter Jackson",
+    "cast": [
+      "Elijah Wood",
+      "Ian McKellen",
+      "Viggo Mortensen",
+      "Orlando Bloom"
+    ],
+    "language": "English",
+    "country": "New Zealand",
+    "tagline": "A new power is rising.",
+    "awards": "Won 2 Oscars. 132 wins & 146 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=LbfMDwc4azU"
   },
   {
     "rank": 12,
@@ -191,7 +371,23 @@
     "genres": [
       "Drama",
       "Romance"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 142,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Robert Zemeckis",
+    "cast": [
+      "Tom Hanks",
+      "Robin Wright",
+      "Gary Sinise",
+      "Sally Field"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Life is like a box of chocolates — you never know what you're gonna get.",
+    "awards": "Won 6 Oscars. 46 wins & 73 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=bLvqoHBptjg"
   },
   {
     "rank": 13,
@@ -207,7 +403,23 @@
     "genres": [
       "Drama",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 139,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "David Fincher",
+    "cast": [
+      "Brad Pitt",
+      "Edward Norton",
+      "Helena Bonham Carter",
+      "Meat Loaf"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Mischief. Mayhem. Soap.",
+    "awards": "Nominated for 1 Oscar. 11 wins & 39 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=SUXWAEX2jlg"
   },
   {
     "rank": 14,
@@ -222,9 +434,26 @@
     "imdb_url": "https://www.imdb.com/title/tt1375666/",
     "genres": [
       "Action",
+      "Adventure",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 148,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Leonardo DiCaprio",
+      "Joseph Gordon-Levitt",
+      "Elliot Page",
+      "Tom Hardy"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Your mind is the scene of the crime.",
+    "awards": "Won 4 Oscars. 157 wins & 220 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=YoHD9XEInc0"
   },
   {
     "rank": 15,
@@ -238,9 +467,27 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BMTkxNGFlNDktZmJkNC00MDdhLTg0MTEtZjZiYWI3MGE5NWIwXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0080684/",
     "genres": [
+      "Action",
       "Adventure",
+      "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 124,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Irvin Kershner",
+    "cast": [
+      "Mark Hamill",
+      "Harrison Ford",
+      "Carrie Fisher",
+      "Billy Dee Williams"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "The adventure continues…",
+    "awards": "Won 1 Oscar. 25 wins & 20 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=JNwNXF9Y6kY"
   },
   {
     "rank": 16,
@@ -256,7 +503,23 @@
     "genres": [
       "Action",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 136,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Lana Wachowski, Lilly Wachowski",
+    "cast": [
+      "Keanu Reeves",
+      "Laurence Fishburne",
+      "Carrie-Anne Moss",
+      "Hugo Weaving"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Welcome to the real world.",
+    "awards": "Won 4 Oscars. 42 wins & 52 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=vKQi3bBA1y8"
   },
   {
     "rank": 17,
@@ -270,9 +533,26 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BN2E5NzI2ZGMtY2VjNi00YTRjLWI1MDUtZGY5OWU1MWJjZjRjXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0099685/",
     "genres": [
+      "Biography",
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 145,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Martin Scorsese",
+    "cast": [
+      "Robert De Niro",
+      "Ray Liotta",
+      "Joe Pesci",
+      "Lorraine Bracco"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Three decades of life in the Mafia.",
+    "awards": "Won 1 Oscar. 43 wins & 38 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=2ilzidi_J8Q"
   },
   {
     "rank": 18,
@@ -289,7 +569,23 @@
       "Adventure",
       "Drama",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 169,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Matthew McConaughey",
+      "Anne Hathaway",
+      "Jessica Chastain",
+      "Michael Caine"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Mankind was born on Earth. It was never meant to die here.",
+    "awards": "Won 1 Oscar. 44 wins & 148 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=zSWdZVtXT7E"
   },
   {
     "rank": 19,
@@ -304,7 +600,23 @@
     "imdb_url": "https://www.imdb.com/title/tt0073486/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 133,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Milos Forman",
+    "cast": [
+      "Jack Nicholson",
+      "Louise Fletcher",
+      "Michael Berryman",
+      "William Redfield"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "If he's crazy, what does that make you?",
+    "awards": "Won 5 Oscars. 38 wins & 16 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=OXrcDonY-B8"
   },
   {
     "rank": 20,
@@ -320,8 +632,25 @@
     "genres": [
       "Crime",
       "Drama",
+      "Mystery",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 127,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "David Fincher",
+    "cast": [
+      "Brad Pitt",
+      "Morgan Freeman",
+      "Kevin Spacey",
+      "Gwyneth Paltrow"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Seven deadly sins. Seven ways to die.",
+    "awards": "Nominated for 1 Oscar. 29 wins & 43 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=znmZoVkCjpI"
   },
   {
     "rank": 21,
@@ -338,7 +667,23 @@
       "Comedy",
       "Drama",
       "Family"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 130,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Frank Capra",
+    "cast": [
+      "James Stewart",
+      "Donna Reed",
+      "Lionel Barrymore",
+      "Thomas Mitchell"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "They're making memories tonight.",
+    "awards": "Nominated for 5 Oscars. 6 wins & 8 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=mP6P7ctsrCg"
   },
   {
     "rank": 22,
@@ -355,7 +700,23 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 118,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Jonathan Demme",
+    "cast": [
+      "Jodie Foster",
+      "Anthony Hopkins",
+      "Scott Glenn",
+      "Ted Levine"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "To enter the mind of a killer she must challenge the mind of a madman.",
+    "awards": "Won 5 Oscars. 70 wins & 50 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=RuX2MQeb8UM"
   },
   {
     "rank": 23,
@@ -372,7 +733,23 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 207,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Akira Kurosawa",
+    "cast": [
+      "Toshirô Mifune",
+      "Takashi Shimura",
+      "Keiko Tsushima",
+      "Yukiko Shimazaki"
+    ],
+    "language": "Japanese",
+    "country": "Japan",
+    "tagline": "The mighty warriors who became the seven national heroes of a small town.",
+    "awards": "Nominated for 2 Oscars. 8 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=dJA_ns0Z4rY"
   },
   {
     "rank": 24,
@@ -388,7 +765,23 @@
     "genres": [
       "Drama",
       "War"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 169,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Steven Spielberg",
+    "cast": [
+      "Tom Hanks",
+      "Matt Damon",
+      "Tom Sizemore",
+      "Edward Burns"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "The mission is a man.",
+    "awards": "Won 5 Oscars. 83 wins & 77 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=9CiW_DgxCnQ"
   },
   {
     "rank": 25,
@@ -403,8 +796,26 @@
     "imdb_url": "https://www.imdb.com/title/tt0120689/",
     "genres": [
       "Crime",
-      "Drama"
-    ]
+      "Drama",
+      "Fantasy",
+      "Mystery"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 189,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Frank Darabont",
+    "cast": [
+      "Tom Hanks",
+      "Michael Clarke Duncan",
+      "David Morse",
+      "Bonnie Hunt"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Miracles do happen.",
+    "awards": "Nominated for 4 Oscars. 16 wins & 36 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Ki4haFrqSrw"
   },
   {
     "rank": 26,
@@ -421,7 +832,23 @@
       "Action",
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 130,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Fernando Meirelles, Kátia Lund",
+    "cast": [
+      "Alexandre Rodrigues",
+      "Leandro Firmino",
+      "Phellipe Haagensen",
+      "Douglas Silva"
+    ],
+    "language": "Portuguese",
+    "country": "Brazil",
+    "tagline": "If you run, the beast catches you; if you stay, the beast eats you.",
+    "awards": "Nominated for 4 Oscars. 79 wins & 51 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ioUE_5wpg_E"
   },
   {
     "rank": 27,
@@ -436,8 +863,26 @@
     "imdb_url": "https://www.imdb.com/title/tt0118799/",
     "genres": [
       "Comedy",
-      "Drama"
-    ]
+      "Drama",
+      "Romance",
+      "War"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 116,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Roberto Benigni",
+    "cast": [
+      "Roberto Benigni",
+      "Nicoletta Braschi",
+      "Giorgio Cantarini",
+      "Giustino Durano"
+    ],
+    "language": "Italian",
+    "country": "Italy",
+    "tagline": "An unforgettable fable that proves love, family and imagination conquer all.",
+    "awards": "Won 3 Oscars. 71 wins & 53 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=dUSCh-tcoRU"
   },
   {
     "rank": 28,
@@ -453,7 +898,23 @@
     "genres": [
       "Action",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 137,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "James Cameron",
+    "cast": [
+      "Arnold Schwarzenegger",
+      "Linda Hamilton",
+      "Edward Furlong",
+      "Robert Patrick"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "It's nothing personal.",
+    "awards": "Won 4 Oscars. 35 wins & 33 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=CRRlbK5w8AE"
   },
   {
     "rank": 29,
@@ -470,7 +931,23 @@
       "Adventure",
       "Comedy",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 116,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Robert Zemeckis",
+    "cast": [
+      "Michael J. Fox",
+      "Christopher Lloyd",
+      "Lea Thompson",
+      "Crispin Glover"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "He was never in time for his classes… He wasn't in time for his dinner…",
+    "awards": "Won 1 Oscar. 23 wins & 26 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=qvsgGtivCgs"
   },
   {
     "rank": 30,
@@ -484,9 +961,27 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BOGUwMDk0Y2MtNjBlNi00NmRiLTk2MWYtMGMyMDlhYmI4ZDBjXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0076759/",
     "genres": [
+      "Action",
       "Adventure",
+      "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 121,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "George Lucas",
+    "cast": [
+      "Mark Hamill",
+      "Harrison Ford",
+      "Carrie Fisher",
+      "Alec Guinness"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "A long time ago in a galaxy far, far away…",
+    "awards": "Won 6 Oscars. 63 wins & 29 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=vZ734NWnAHA"
   },
   {
     "rank": 31,
@@ -500,10 +995,27 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BNTEyNmEwOWUtYzkyOC00ZTQ4LTllZmUtMjk0Y2YwOGUzYjRiXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0245429/",
     "genres": [
+      "Animation",
       "Adventure",
-      "Drama",
+      "Family",
       "Fantasy"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 125,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Hayao Miyazaki",
+    "cast": [
+      "Rumi Hiiragi",
+      "Miyu Irino",
+      "Mari Natsuki",
+      "Takashi Naitô"
+    ],
+    "language": "Japanese",
+    "country": "Japan",
+    "tagline": "The tunnel led Chihiro to a mysterious town…",
+    "awards": "Won 1 Oscar. 58 wins & 31 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ByXuk9QqQkk"
   },
   {
     "rank": 32,
@@ -518,8 +1030,26 @@
     "imdb_url": "https://www.imdb.com/title/tt0253474/",
     "genres": [
       "Biography",
-      "Drama"
-    ]
+      "Drama",
+      "Music",
+      "War"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 150,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Roman Polanski",
+    "cast": [
+      "Adrien Brody",
+      "Thomas Kretschmann",
+      "Frank Finlay",
+      "Emilia Fox"
+    ],
+    "language": "English",
+    "country": "France",
+    "tagline": "Music was his passion. Survival was his masterpiece.",
+    "awards": "Won 3 Oscars. 58 wins & 63 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=BFwGqLa_oAo"
   },
   {
     "rank": 33,
@@ -536,7 +1066,23 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 155,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Ridley Scott",
+    "cast": [
+      "Russell Crowe",
+      "Joaquin Phoenix",
+      "Connie Nielsen",
+      "Oliver Reed"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "A hero will rise.",
+    "awards": "Won 5 Oscars. 60 wins & 104 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=owK1qxDselE"
   },
   {
     "rank": 34,
@@ -552,7 +1098,23 @@
     "genres": [
       "Drama",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 132,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Bong Joon Ho",
+    "cast": [
+      "Song Kang-ho",
+      "Lee Sun-kyun",
+      "Cho Yeo-jeong",
+      "Choi Woo-shik"
+    ],
+    "language": "Korean",
+    "country": "South Korea",
+    "tagline": "Act like you own the place.",
+    "awards": "Won 4 Oscars. 308 wins & 284 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=5xH0HfJHsaY"
   },
   {
     "rank": 35,
@@ -566,8 +1128,26 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BNTY5MmE2OGMtN2IxNC00MDY4LTkwMGEtZDUzOTYyNWE0ZTNjXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0095327/",
     "genres": [
-      "Drama"
-    ]
+      "Animation",
+      "Drama",
+      "War"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 89,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Isao Takahata",
+    "cast": [
+      "Tsutomu Tatsumi",
+      "Ayano Shiraishi",
+      "Akemi Yamaguchi",
+      "Yoshiko Shinohara"
+    ],
+    "language": "Japanese",
+    "country": "Japan",
+    "tagline": "A story of love between a brother and sister.",
+    "awards": "3 wins & 2 nominations",
+    "trailer_url": "https://www.youtube.com/watch?v=4vPeTSRd580"
   },
   {
     "rank": 36,
@@ -582,8 +1162,25 @@
     "imdb_url": "https://www.imdb.com/title/tt0054215/",
     "genres": [
       "Horror",
+      "Mystery",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 109,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Alfred Hitchcock",
+    "cast": [
+      "Anthony Perkins",
+      "Janet Leigh",
+      "Vera Miles",
+      "John Gavin"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "A new and altogether different screen excitement!",
+    "awards": "Nominated for 4 Oscars. 7 wins & 18 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=NG3-GlvKPcg"
   },
   {
     "rank": 37,
@@ -597,8 +1194,28 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BZGRiZDZhZjItM2M3ZC00Y2IyLTk3Y2MtMWY5YjliNDFkZTJlXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0110357/",
     "genres": [
-      "Drama"
-    ]
+      "Animation",
+      "Adventure",
+      "Drama",
+      "Family",
+      "Musical"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 88,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Roger Allers, Rob Minkoff",
+    "cast": [
+      "Matthew Broderick",
+      "Jeremy Irons",
+      "James Earl Jones",
+      "Jonathan Taylor Thomas"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Life's greatest adventure is finding your place in the Circle of Life.",
+    "awards": "Won 2 Oscars. 41 wins & 35 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=4sj1MT05lAA"
   },
   {
     "rank": 38,
@@ -612,8 +1229,26 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BZDc2YzhkODAtZmRmZS00YzcxLWJkYWEtM2ZhZjY3MmMyZmJiXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt6019206/",
     "genres": [
-      "Drama"
-    ]
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 247,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Quentin Tarantino",
+    "cast": [
+      "Uma Thurman",
+      "David Carradine",
+      "Lucy Liu",
+      "Daryl Hannah"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Revenge is a dish best served cold.",
+    "awards": "8 wins & 5 nominations",
+    "trailer_url": "https://www.youtube.com/watch?v=7kSuas6mRpk"
   },
   {
     "rank": 39,
@@ -627,8 +1262,26 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BZThiZjU5ZDQtZDI4Mi00ZGYyLTkzOTktYmIzZTFlZTkxYzg5XkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0056058/",
     "genres": [
-      "Drama"
-    ]
+      "Action",
+      "Drama",
+      "Mystery"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 133,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Masaki Kobayashi",
+    "cast": [
+      "Tatsuya Nakadai",
+      "Akira Ishihama",
+      "Shima Iwashita",
+      "Tetsurô Tanba"
+    ],
+    "language": "Japanese",
+    "country": "Japan",
+    "tagline": "A film of unforgettable power and grace.",
+    "awards": "4 wins & 2 nominations",
+    "trailer_url": "https://www.youtube.com/watch?v=bmSmsQJBoOo"
   },
   {
     "rank": 40,
@@ -643,8 +1296,25 @@
     "imdb_url": "https://www.imdb.com/title/tt0407887/",
     "genres": [
       "Crime",
-      "Drama"
-    ]
+      "Drama",
+      "Thriller"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 151,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Martin Scorsese",
+    "cast": [
+      "Leonardo DiCaprio",
+      "Matt Damon",
+      "Jack Nicholson",
+      "Mark Wahlberg"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Lies. Betrayal. Sacrifice. How far will you take it?",
+    "awards": "Won 4 Oscars. 98 wins & 143 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=iojhqm0JTW4"
   },
   {
     "rank": 41,
@@ -658,8 +1328,25 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BMDFjOWFkYzktYzhhMC00NmYyLTkwY2EtYjViMDhmNzg0OGFkXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt2582802/",
     "genres": [
-      "Drama"
-    ]
+      "Drama",
+      "Music"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 106,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Damien Chazelle",
+    "cast": [
+      "Miles Teller",
+      "J.K. Simmons",
+      "Paul Reiser",
+      "Melissa Benoist"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "The road to greatness can take you to the edge.",
+    "awards": "Won 3 Oscars. 97 wins & 141 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=7d_jQycdQGo"
   },
   {
     "rank": 42,
@@ -673,10 +1360,27 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BMTM3MzQ5MjQ5OF5BMl5BanBnXkFtZTcwMTQ3NzMzMw@@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0482571/",
     "genres": [
-      "Adventure",
       "Drama",
-      "Fantasy"
-    ]
+      "Mystery",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 130,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Hugh Jackman",
+      "Christian Bale",
+      "Michael Caine",
+      "Scarlett Johansson"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Are you watching closely?",
+    "awards": "Nominated for 2 Oscars. 7 wins & 42 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ijXruSzfGEc"
   },
   {
     "rank": 43,
@@ -691,7 +1395,23 @@
     "imdb_url": "https://www.imdb.com/title/tt0120586/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 119,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Tony Kaye",
+    "cast": [
+      "Edward Norton",
+      "Edward Furlong",
+      "Beverly D'Angelo",
+      "Jennifer Lien"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Some legacies must end.",
+    "awards": "Nominated for 1 Oscar. 4 wins & 16 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=XPvnqZdoGgs"
   },
   {
     "rank": 44,
@@ -705,8 +1425,27 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BNGRkYTNhOWQtYmI0Ni00MjZhLWJmMzAtMTA2Mjg4NGNiNDU0XkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0110413/",
     "genres": [
-      "Drama"
-    ]
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 110,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Luc Besson",
+    "cast": [
+      "Jean Reno",
+      "Gary Oldman",
+      "Natalie Portman",
+      "Danny Aiello"
+    ],
+    "language": "English",
+    "country": "France",
+    "tagline": "If you want a job done well, hire a professional.",
+    "awards": "12 wins & 21 nominations",
+    "trailer_url": "https://www.youtube.com/watch?v=pTYCJXlLaHg"
   },
   {
     "rank": 45,
@@ -720,8 +1459,26 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BNThiZjA3MjItZGY5Ni00ZmJhLWEwN2EtOTBlYTA4Y2E0M2ZmXkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt9362722/",
     "genres": [
-      "Drama"
-    ]
+      "Animation",
+      "Action",
+      "Adventure"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 140,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Joaquim Dos Santos, Kemp Powers, Justin K. Thompson",
+    "cast": [
+      "Shameik Moore",
+      "Hailee Steinfeld",
+      "Oscar Isaac",
+      "Jake Johnson"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "It's how you wear the mask that matters.",
+    "awards": "Nominated for 1 Oscar. 73 wins & 172 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=cqGjhVJWtEg"
   },
   {
     "rank": 46,
@@ -735,8 +1492,25 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BMTljNzc4YWEtYTZlMS00ODMyLWIwMTAtNWQxY2VkMDEwYTk5XkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0095765/",
     "genres": [
-      "Drama"
-    ]
+      "Drama",
+      "Romance"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 155,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Giuseppe Tornatore",
+    "cast": [
+      "Philippe Noiret",
+      "Enzo Cannavale",
+      "Antonella Attili",
+      "Isa Danieli"
+    ],
+    "language": "Italian",
+    "country": "Italy",
+    "tagline": "A celebration of youth, friendship, and the everlasting magic of the movies.",
+    "awards": "Won 1 Oscar. 27 wins & 29 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=8IAuraPckh8"
   },
   {
     "rank": 47,
@@ -753,7 +1527,23 @@
       "Drama",
       "Romance",
       "War"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 102,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Michael Curtiz",
+    "cast": [
+      "Humphrey Bogart",
+      "Ingrid Bergman",
+      "Paul Henreid",
+      "Claude Rains"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "They had a date with fate in Casablanca!",
+    "awards": "Won 3 Oscars. 10 wins & 8 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=BkL9l7qovsE"
   },
   {
     "rank": 48,
@@ -767,8 +1557,26 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt1675434/",
     "genres": [
+      "Biography",
+      "Comedy",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 112,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Olivier Nakache, Éric Toledano",
+    "cast": [
+      "François Cluzet",
+      "Omar Sy",
+      "Anne Le Ny",
+      "Audrey Fleurot"
+    ],
+    "language": "French",
+    "country": "France",
+    "tagline": "Sometimes you have to reach into someone else's world to find out what's missing in your own.",
+    "awards": "37 wins & 47 nominations",
+    "trailer_url": "https://www.youtube.com/watch?v=34WIbmXkewU"
   },
   {
     "rank": 49,
@@ -784,8 +1592,25 @@
     "genres": [
       "Crime",
       "Drama",
-      "Mystery"
-    ]
+      "Mystery",
+      "Thriller"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 106,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Bryan Singer",
+    "cast": [
+      "Kevin Spacey",
+      "Gabriel Byrne",
+      "Chazz Palminteri",
+      "Benicio del Toro"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Five Criminals. One Line Up. No Coincidence.",
+    "awards": "Won 2 Oscars. 37 wins & 28 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=oiXdPolca5w"
   },
   {
     "rank": 50,
@@ -799,8 +1624,25 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt1853728/",
     "genres": [
-      "Drama"
-    ]
+      "Drama",
+      "Western"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 165,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Quentin Tarantino",
+    "cast": [
+      "Jamie Foxx",
+      "Christoph Waltz",
+      "Leonardo DiCaprio",
+      "Kerry Washington"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "Life, liberty and the pursuit of vengeance.",
+    "awards": "Won 2 Oscars. 60 wins & 167 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=0fUCuvNlOCg"
   },
   {
     "rank": 51,
@@ -816,7 +1658,23 @@
     "genres": [
       "Horror",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 117,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Ridley Scott",
+    "cast": [
+      "Sigourney Weaver",
+      "Tom Skerritt",
+      "John Hurt",
+      "Ian Holm"
+    ],
+    "language": "English",
+    "country": "UK",
+    "tagline": "In space no one can hear you scream.",
+    "awards": "Won 1 Oscar. 16 wins & 22 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=jQ5lPt9edzQ"
   },
   {
     "rank": 52,
@@ -833,7 +1691,23 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 112,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Alfred Hitchcock",
+    "cast": [
+      "James Stewart",
+      "Grace Kelly",
+      "Wendell Corey",
+      "Thelma Ritter"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "It only takes one witness to spoil the perfect crime.",
+    "awards": "Nominated for 4 Oscars. 6 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=6kCcZCMYw38"
   },
   {
     "rank": 53,
@@ -847,8 +1721,27 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BMjA4MDU2NDQwN15BMl5BanBnXkFtZTgwODUwNDI2MzE@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0027977/",
     "genres": [
-      "Drama"
-    ]
+      "Comedy",
+      "Drama",
+      "Family",
+      "Romance"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 87,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Charles Chaplin",
+    "cast": [
+      "Charles Chaplin",
+      "Paulette Goddard",
+      "Henry Bergman",
+      "Stanley Sandford"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "The whole world laughs again!",
+    "awards": "3 wins & 1 nomination",
+    "trailer_url": "https://www.youtube.com/watch?v=GU_XXEra3wI"
   },
   {
     "rank": 54,
@@ -863,7 +1756,23 @@
     "imdb_url": "https://www.imdb.com/title/tt0064116/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 165,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Sergio Leone",
+    "cast": [
+      "Henry Fonda",
+      "Charles Bronson",
+      "Claudia Cardinale",
+      "Jason Robards"
+    ],
+    "language": "Italian",
+    "country": "Italy",
+    "tagline": "There were three men in her life. One to take her… one to love her — and one to kill her.",
+    "awards": "6 wins & 5 nominations",
+    "trailer_url": "https://www.youtube.com/watch?v=wfYm0L_jB9E"
   },
   {
     "rank": 55,
@@ -877,8 +1786,26 @@
     "image_url": "https://m.media-amazon.com/images/M/MV5BM2U4NjgzODUtODkyOC00YTE2LTlhNTItYzFlYmM1NTEzZDA2XkEyXkFqcGc@._V1_.jpg",
     "imdb_url": "https://www.imdb.com/title/tt0021749/",
     "genres": [
-      "Drama"
-    ]
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "media_type": "movie",
+    "runtime_minutes": 87,
+    "episodes": null,
+    "release_status": "Released",
+    "director": "Charles Chaplin",
+    "cast": [
+      "Charles Chaplin",
+      "Virginia Cherrill",
+      "Florence Lee",
+      "Harry Myers"
+    ],
+    "language": "English",
+    "country": "USA",
+    "tagline": "A comedy romance in pantomime.",
+    "awards": "3 wins",
+    "trailer_url": "https://www.youtube.com/watch?v=yQoEyakUJrY"
   },
   {
     "rank": 56,
@@ -893,7 +1820,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0078788/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 57,
@@ -908,7 +1846,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0910970/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 58,
@@ -923,7 +1872,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0209144/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 59,
@@ -938,7 +1898,18 @@
     "imdb_url": "https://www.imdb.com/title/tt15239678/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 60,
@@ -955,7 +1926,18 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 61,
@@ -970,7 +1952,18 @@
     "imdb_url": "https://www.imdb.com/title/tt4154756/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 62,
@@ -985,7 +1978,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0405094/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 63,
@@ -1000,7 +2004,18 @@
     "imdb_url": "https://www.imdb.com/title/tt4633694/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 64,
@@ -1015,7 +2030,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0043014/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 65,
@@ -1030,7 +2056,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0051201/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 66,
@@ -1046,7 +2083,18 @@
     "genres": [
       "Comedy",
       "Family"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 67,
@@ -1062,7 +2110,18 @@
     "genres": [
       "Horror",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 68,
@@ -1077,7 +2136,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0032553/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 69,
@@ -1092,7 +2162,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0361748/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 70,
@@ -1107,7 +2188,18 @@
     "imdb_url": "https://www.imdb.com/title/tt23849204/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 71,
@@ -1122,7 +2214,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0090605/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 72,
@@ -1137,7 +2240,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0057565/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 73,
@@ -1152,7 +2266,18 @@
     "imdb_url": "https://www.imdb.com/title/tt4154796/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 74,
@@ -1168,7 +2293,18 @@
     "genres": [
       "Drama",
       "Romance"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 75,
@@ -1185,7 +2321,18 @@
       "Action",
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 76,
@@ -1200,7 +2347,18 @@
     "imdb_url": "https://www.imdb.com/title/tt2380307/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 77,
@@ -1216,7 +2374,18 @@
     "genres": [
       "Biography",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 78,
@@ -1231,7 +2400,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0114709/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 79,
@@ -1246,7 +2426,18 @@
     "imdb_url": "https://www.imdb.com/title/tt5311514/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 80,
@@ -1261,7 +2452,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0082096/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 81,
@@ -1276,7 +2478,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0112573/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 82,
@@ -1291,7 +2504,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0364569/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 83,
@@ -1307,7 +2531,18 @@
     "genres": [
       "Action",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 84,
@@ -1322,7 +2557,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0057012/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 85,
@@ -1337,7 +2583,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1187043/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 86,
@@ -1352,7 +2609,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0169547/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 87,
@@ -1367,7 +2635,18 @@
     "imdb_url": "https://www.imdb.com/title/tt8267604/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 88,
@@ -1382,7 +2661,18 @@
     "imdb_url": "https://www.imdb.com/title/tt12042730/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 89,
@@ -1399,7 +2689,18 @@
       "Comedy",
       "Musical",
       "Romance"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 90,
@@ -1414,7 +2715,18 @@
     "imdb_url": "https://www.imdb.com/title/tt7286456/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 91,
@@ -1429,7 +2741,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0087843/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 92,
@@ -1445,7 +2768,18 @@
     "genres": [
       "Action",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 93,
@@ -1460,7 +2794,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0091251/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 94,
@@ -1477,7 +2822,18 @@
       "Animation",
       "Adventure",
       "Fantasy"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 95,
@@ -1492,7 +2848,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0435761/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 96,
@@ -1507,7 +2874,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0044741/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 97,
@@ -1522,7 +2900,18 @@
     "imdb_url": "https://www.imdb.com/title/tt2106476/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 98,
@@ -1537,7 +2926,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1255953/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 99,
@@ -1554,7 +2954,18 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 100,
@@ -1569,7 +2980,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0053604/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 101,
@@ -1584,7 +3006,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0056172/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 102,
@@ -1599,7 +3032,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0113277/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 103,
@@ -1614,7 +3058,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0086250/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 104,
@@ -1630,7 +3085,18 @@
     "genres": [
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 105,
@@ -1645,7 +3111,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0105236/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 106,
@@ -1660,7 +3137,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1049413/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 107,
@@ -1675,7 +3163,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0036775/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 108,
@@ -1692,7 +3191,18 @@
       "Comedy",
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 109,
@@ -1707,7 +3217,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0986264/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 110,
@@ -1724,7 +3245,18 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 111,
@@ -1739,7 +3271,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0022100/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 112,
@@ -1754,7 +3297,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0211915/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 113,
@@ -1770,7 +3324,18 @@
     "genres": [
       "Adventure",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 114,
@@ -1786,7 +3351,18 @@
     "genres": [
       "Adventure",
       "Romance"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 115,
@@ -1801,7 +3377,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1832382/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 116,
@@ -1816,7 +3403,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0095016/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 117,
@@ -1832,7 +3430,18 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 118,
@@ -1847,7 +3456,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0097576/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 119,
@@ -1862,7 +3482,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0070735/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 120,
@@ -1878,7 +3509,18 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 121,
@@ -1893,7 +3535,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0017136/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 122,
@@ -1908,7 +3561,18 @@
     "imdb_url": "https://www.imdb.com/title/tt8579674/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 123,
@@ -1923,7 +3587,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0208092/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 124,
@@ -1938,7 +3613,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0993846/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 125,
@@ -1953,7 +3639,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0119488/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 126,
@@ -1968,7 +3665,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0363163/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 127,
@@ -1983,7 +3691,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0120382/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 128,
@@ -1998,7 +3717,18 @@
     "imdb_url": "https://www.imdb.com/title/tt5074352/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 129,
@@ -2013,7 +3743,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0040522/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 130,
@@ -2028,7 +3769,18 @@
     "imdb_url": "https://www.imdb.com/title/tt6966692/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 131,
@@ -2043,7 +3795,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1130884/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 132,
@@ -2058,7 +3821,18 @@
     "imdb_url": "https://www.imdb.com/title/tt15398776/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 133,
@@ -2073,7 +3847,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0055031/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 134,
@@ -2088,7 +3873,18 @@
     "imdb_url": "https://www.imdb.com/title/tt31514146/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 135,
@@ -2103,7 +3899,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0372784/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 136,
@@ -2118,7 +3925,18 @@
     "imdb_url": "https://www.imdb.com/title/tt8503618/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 137,
@@ -2133,7 +3951,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0059578/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 138,
@@ -2150,7 +3979,18 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 139,
@@ -2165,7 +4005,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0075314/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 140,
@@ -2180,7 +4031,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0053291/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 141,
@@ -2195,7 +4057,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0469494/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 142,
@@ -2210,7 +4083,18 @@
     "imdb_url": "https://www.imdb.com/title/tt10272386/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 143,
@@ -2225,7 +4109,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0012349/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 144,
@@ -2240,7 +4135,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0042192/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 145,
@@ -2255,7 +4161,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0167404/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 146,
@@ -2270,7 +4187,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0089881/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 147,
@@ -2285,7 +4213,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0112641/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 148,
@@ -2301,7 +4240,18 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 149,
@@ -2316,7 +4266,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0084787/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 150,
@@ -2331,7 +4292,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1392214/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 151,
@@ -2346,7 +4318,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1745960/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 152,
@@ -2361,7 +4344,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0266697/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 153,
@@ -2376,7 +4370,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0457430/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 154,
@@ -2391,7 +4396,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0105695/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 155,
@@ -2406,7 +4422,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0268978/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 156,
@@ -2421,7 +4448,18 @@
     "imdb_url": "https://www.imdb.com/title/tt33175825/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 157,
@@ -2436,7 +4474,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0347149/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 158,
@@ -2451,7 +4500,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0040897/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 159,
@@ -2466,7 +4526,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0266543/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 160,
@@ -2481,7 +4552,18 @@
     "imdb_url": "https://www.imdb.com/title/tt4729430/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 161,
@@ -2496,7 +4578,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0055630/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 162,
@@ -2511,7 +4604,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0057115/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 163,
@@ -2526,7 +4630,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0080678/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 164,
@@ -2542,7 +4657,18 @@
     "genres": [
       "Drama",
       "Horror"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 165,
@@ -2557,7 +4683,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0046912/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 166,
@@ -2572,7 +4709,18 @@
     "imdb_url": "https://www.imdb.com/title/tt32820897/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 167,
@@ -2587,7 +4735,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1305806/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 168,
@@ -2602,7 +4761,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0346336/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 169,
@@ -2617,7 +4787,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0031381/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 170,
@@ -2632,7 +4813,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0120735/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 171,
@@ -2647,7 +4839,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0071315/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 172,
@@ -2662,7 +4865,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0434409/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 173,
@@ -2677,7 +4891,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0264464/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 174,
@@ -2692,7 +4917,18 @@
     "imdb_url": "https://www.imdb.com/title/tt2096673/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 175,
@@ -2707,7 +4943,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0042876/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 176,
@@ -2722,7 +4969,18 @@
     "imdb_url": "https://www.imdb.com/title/tt5027774/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 177,
@@ -2737,7 +4995,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0117951/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 178,
@@ -2752,7 +5021,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0050212/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 179,
@@ -2767,7 +5047,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0097165/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 180,
@@ -2784,7 +5075,18 @@
       "Adventure",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 181,
@@ -2799,7 +5101,18 @@
     "imdb_url": "https://www.imdb.com/title/tt29623480/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 182,
@@ -2814,7 +5127,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1291584/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 183,
@@ -2829,7 +5153,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0072684/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 184,
@@ -2844,7 +5179,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0052618/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 185,
@@ -2859,7 +5205,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0116282/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 186,
@@ -2874,7 +5231,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0405159/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 187,
@@ -2889,7 +5257,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1392190/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 188,
@@ -2904,7 +5283,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0081398/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 189,
@@ -2919,7 +5309,18 @@
     "imdb_url": "https://www.imdb.com/title/tt2119532/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 190,
@@ -2934,7 +5335,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0118849/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 191,
@@ -2949,7 +5361,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0096283/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 192,
@@ -2964,7 +5387,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1205489/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 193,
@@ -2979,7 +5413,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0382932/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 194,
@@ -2994,7 +5439,18 @@
     "imdb_url": "https://www.imdb.com/title/tt2024544/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 195,
@@ -3009,7 +5465,18 @@
     "imdb_url": "https://www.imdb.com/title/tt2278388/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 196,
@@ -3024,7 +5491,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0112471/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 197,
@@ -3039,7 +5517,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0353969/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 198,
@@ -3054,7 +5543,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0892769/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 199,
@@ -3070,7 +5570,18 @@
     "genres": [
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 200,
@@ -3085,7 +5596,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0252488/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 201,
@@ -3100,7 +5622,18 @@
     "imdb_url": "https://www.imdb.com/title/tt2267998/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 202,
@@ -3115,7 +5648,18 @@
     "imdb_url": "https://www.imdb.com/title/tt10872600/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 203,
@@ -3130,7 +5674,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0198781/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 204,
@@ -3146,7 +5701,18 @@
     "genres": [
       "Adventure",
       "Thriller"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 205,
@@ -3161,7 +5727,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1950186/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 206,
@@ -3176,7 +5753,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0107207/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 207,
@@ -3191,7 +5779,18 @@
     "imdb_url": "https://www.imdb.com/title/tt3011894/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 208,
@@ -3206,7 +5805,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0015864/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 209,
@@ -3221,7 +5831,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0015324/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 210,
@@ -3236,7 +5857,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0978762/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 211,
@@ -3251,7 +5883,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0077416/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 212,
@@ -3266,7 +5909,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0046268/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 213,
@@ -3281,7 +5935,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0017925/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 214,
@@ -3296,7 +5961,18 @@
     "imdb_url": "https://www.imdb.com/title/tt3315342/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 215,
@@ -3311,7 +5987,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0075148/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 216,
@@ -3326,7 +6013,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0031679/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 217,
@@ -3343,7 +6041,18 @@
       "Adventure",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 218,
@@ -3358,7 +6067,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0046438/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 219,
@@ -3375,7 +6095,18 @@
       "Comedy",
       "Drama",
       "Romance"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 220,
@@ -3390,7 +6121,18 @@
     "imdb_url": "https://www.imdb.com/title/tt5323662/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 221,
@@ -3405,7 +6147,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0113247/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 222,
@@ -3420,7 +6173,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1895587/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 223,
@@ -3435,7 +6199,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0050986/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 224,
@@ -3450,7 +6225,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0088247/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 225,
@@ -3465,7 +6251,18 @@
     "imdb_url": "https://www.imdb.com/title/tt15097216/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 226,
@@ -3480,7 +6277,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0059742/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 227,
@@ -3495,7 +6303,18 @@
     "imdb_url": "https://www.imdb.com/title/tt26548265/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 228,
@@ -3510,7 +6329,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0041959/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 229,
@@ -3525,7 +6355,18 @@
     "imdb_url": "https://www.imdb.com/title/tt30472557/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 230,
@@ -3540,7 +6381,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0118715/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 231,
@@ -3555,7 +6407,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0036868/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 232,
@@ -3570,7 +6433,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0381681/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 233,
@@ -3585,7 +6459,18 @@
     "imdb_url": "https://www.imdb.com/title/tt3170832/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 234,
@@ -3600,7 +6485,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0050976/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 235,
@@ -3615,7 +6511,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0395169/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 236,
@@ -3630,7 +6537,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0317705/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 237,
@@ -3645,7 +6563,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1028532/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 238,
@@ -3662,7 +6591,18 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 239,
@@ -3677,7 +6617,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0070047/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 240,
@@ -3692,7 +6643,18 @@
     "imdb_url": "https://www.imdb.com/title/tt1979320/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 241,
@@ -3707,7 +6669,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0129167/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 242,
@@ -3722,7 +6695,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0032138/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 243,
@@ -3737,7 +6721,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0092005/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 244,
@@ -3752,7 +6747,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0476735/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 245,
@@ -3767,7 +6773,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0058946/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 246,
@@ -3782,7 +6799,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0019254/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 247,
@@ -3797,7 +6825,18 @@
     "imdb_url": "https://www.imdb.com/title/tt4016934/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 248,
@@ -3812,7 +6851,18 @@
     "imdb_url": "https://www.imdb.com/title/tt0074958/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 249,
@@ -3827,7 +6877,18 @@
     "imdb_url": "https://www.imdb.com/title/tt4430212/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   },
   {
     "rank": 250,
@@ -3842,6 +6903,17 @@
     "imdb_url": "https://www.imdb.com/title/tt3417422/",
     "genres": [
       "Drama"
-    ]
+    ],
+    "media_type": "movie",
+    "runtime_minutes": null,
+    "episodes": null,
+    "release_status": null,
+    "director": null,
+    "cast": null,
+    "language": null,
+    "country": null,
+    "tagline": null,
+    "awards": null,
+    "trailer_url": null
   }
 ]

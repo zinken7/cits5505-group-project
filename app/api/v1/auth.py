@@ -3,20 +3,21 @@ from flask import request
 from flask_login import current_user, login_user, logout_user
 
 from app.api.v1 import bp
-from app.api.v1.common import api_response, validation_error
+from app.api.v1.common import api_response, validate_body, validation_error
+from app.api.v1.schemas.auth import LoginSchema, RegisterSchema
+from app.extensions import limiter
 from app.services.auth_service import authenticate_user, register_user
 
 
 @bp.route("/auth/register", methods=["POST"])
+@limiter.limit("3 per minute")
+@validate_body(RegisterSchema)
 def api_register():
     data = request.get_json(silent=True) or {}
     username = (data.get("username") or "").strip()
     email = (data.get("email") or "").strip()
     password = data.get("password") or ""
     display_name = (data.get("displayName") or "").strip() or None
-
-    if not username or not email or not password:
-        return validation_error("username, email, and password are required")
 
     user, err = register_user(username, email, password, display_name=display_name)
     if err:
@@ -26,12 +27,12 @@ def api_register():
 
 
 @bp.route("/auth/login", methods=["POST"])
+@limiter.limit("5 per minute")
+@validate_body(LoginSchema)
 def api_login():
     data = request.get_json(silent=True) or {}
     login = (data.get("login") or "").strip()
     password = data.get("password") or ""
-    if not login or not password:
-        return validation_error("login and password are required")
 
     user = authenticate_user(login, password)
     if not user:

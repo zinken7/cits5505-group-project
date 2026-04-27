@@ -1,0 +1,13 @@
+@reference "../../../frontend/src/style.css";
+/* Dashboard page — layout grids */
+.hero-grid {
+  @apply grid gap-5 mb-8;
+  grid-template-columns: minmax(0, 1.6fr) 1fr;
+}
+.stat-grid {
+  @apply grid grid-cols-2 gap-3;
+}
+
+@media (max-width: 900px) {
+  .hero-grid { @apply grid-cols-1; }
+}

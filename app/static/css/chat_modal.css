@@ -1,0 +1,184 @@
+@reference "../../../frontend/src/style.css";
+
+/* ── Sidebar friends list ────────────────────────────────────── */
+.sidebar-friend {
+  @apply flex items-center gap-2.5 cursor-pointer no-underline text-inherit rounded-lg transition-[background] duration-120;
+  padding: 6px 12px;
+  margin: 1px 4px;
+}
+.sidebar-friend:hover { @apply bg-card-2; }
+.sidebar-friend__av {
+  @apply flex items-center justify-center rounded-full font-bold text-white shrink-0 bg-accent;
+  width: 30px; height: 30px;
+  font-size: 0.75rem;
+}
+.sidebar-friend__name {
+  @apply flex-1 truncate;
+  font-size: 0.8125rem;
+}
+.sidebar-friend__dot {
+  @apply shrink-0 rounded-full transition-opacity duration-200;
+  width: 8px; height: 8px;
+  background: #22c55e;
+  box-shadow: 0 0 0 2px var(--card-bg);
+}
+.sidebar-friend__dot--hidden { @apply opacity-0; }
+
+/* ── Friend request items in sidebar ────────────────────────── */
+.sidebar-req {
+  padding: 7px 12px;
+  margin: 1px 4px;
+  border-radius: 8px;
+}
+.sidebar-req__info {
+  @apply flex items-center gap-2;
+  margin-bottom: 5px;
+}
+.sidebar-req__av {
+  @apply flex items-center justify-center rounded-full font-bold text-white shrink-0;
+  width: 26px; height: 26px;
+  font-size: 0.7rem;
+}
+.sidebar-req__name {
+  @apply text-foreground font-medium truncate flex-1;
+  font-size: 0.8rem;
+}
+.sidebar-req__actions {
+  @apply flex gap-1.5;
+}
+.sidebar-req__btn {
+  @apply flex-1 border-0 cursor-pointer rounded-md font-medium;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  transition: opacity .15s;
+}
+.sidebar-req__btn:hover { opacity: .8; }
+.sidebar-req__btn--accept { @apply bg-accent text-white; }
+.sidebar-req__btn--reject { @apply bg-card-2 text-foreground; }
+
+/* ── Icon-only sidebar (901–1024px): avatar + dot only ────────── */
+@media (min-width: 901px) and (max-width: 1024px) {
+  #sidebar-requests-wrap { display: none !important; }
+  .sidebar-friend {
+    position: relative;
+    justify-content: center;
+    padding: 4px 0;
+    margin: 1px auto;
+    width: 44px;
+  }
+  .sidebar-friend__name { display: none; }
+  .sidebar-friend__dot {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 9px;
+    height: 9px;
+    box-shadow: 0 0 0 2px var(--page-bg);
+  }
+}
+
+/* ── Chat panels (Facebook-style floating) ───────────────────── */
+#chat-panels {
+  @apply fixed bottom-0 right-5 flex gap-2.5 items-end z-500;
+  pointer-events: none;
+}
+.chat-panel {
+  @apply flex flex-col bg-card border border-border border-b-0;
+  width: 300px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: var(--shadow-md);
+  pointer-events: all;
+  transition: height 0.18s ease;
+}
+.chat-panel__head {
+  @apply flex items-center gap-2 cursor-pointer border-b border-border bg-card select-none;
+  padding: 10px 12px;
+  border-radius: 12px 12px 0 0;
+}
+.chat-panel__av {
+  @apply flex items-center justify-center rounded-full font-bold text-white bg-accent shrink-0;
+  width: 28px; height: 28px;
+  font-size: 0.7rem;
+}
+.chat-panel__name {
+  @apply flex-1 font-semibold text-foreground truncate;
+  font-size: 0.8125rem;
+}
+.chat-panel__btn {
+  @apply flex items-center justify-center bg-transparent border-0 cursor-pointer text-muted rounded;
+  padding: 2px 4px;
+  font-size: 14px;
+  line-height: 1;
+}
+.chat-panel__btn:hover                     { @apply bg-card-2 text-foreground; }
+.chat-panel__body                          { @apply flex flex-col; height: 340px; }
+.chat-panel.is-minimized .chat-panel__body { @apply hidden; }
+.chat-panel__msgs {
+  @apply flex-1 overflow-y-auto flex flex-col gap-1.5;
+  padding: 10px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+.chat-panel__msgs::-webkit-scrollbar       { width: 3px; }
+.chat-panel__msgs::-webkit-scrollbar-thumb { background: var(--rule); }
+
+/* ── Chat bubbles ────────────────────────────────────────────── */
+.cp-msg         { @apply flex flex-col; max-width: 78%; }
+.cp-msg--mine   { @apply self-end items-end; }
+.cp-msg--theirs { @apply self-start items-start; }
+.cp-bubble {
+  padding: 7px 11px;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  word-break: break-word;
+  border-radius: 16px;
+}
+.cp-msg--mine .cp-bubble   { @apply bg-accent text-white; border-bottom-right-radius: 4px; }
+.cp-msg--theirs .cp-bubble { @apply bg-card-2 text-foreground; border-bottom-left-radius: 4px; }
+.cp-time {
+  @apply text-muted font-mono;
+  font-size: 0.6375rem;
+  margin-top: 3px;
+  padding: 0 3px;
+}
+.cp-empty { @apply m-auto text-muted text-center; font-size: 0.8rem; }
+
+/* ── Chat input bar ──────────────────────────────────────────── */
+.chat-panel__input-bar {
+  @apply flex items-center gap-1.5 border-t border-border;
+  padding: 8px 10px;
+}
+.chat-panel__input {
+  @apply flex-1 bg-card-2 border border-border outline-none text-foreground;
+  font: inherit;
+  border-radius: 18px;
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+}
+.chat-panel__input:focus { @apply border-accent; }
+.chat-panel__send {
+  @apply flex items-center justify-center bg-accent text-white border-0 cursor-pointer shrink-0 rounded-full transition-opacity duration-150;
+  width: 30px; height: 30px;
+}
+.chat-panel__send:hover { opacity: 0.85; }
+
+/* ── Media tag + popover (inside chat bubbles) ───────────────── */
+.cp-tag {
+  @apply relative inline-block font-semibold cursor-pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  color: inherit;
+}
+.cp-tag-popover {
+  @apply absolute bg-card border border-border overflow-hidden rounded-[10px] z-600;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 160px;
+  box-shadow: var(--shadow-md);
+  display: none;
+  pointer-events: none;
+}
+.cp-tag:hover .cp-tag-popover    { display: block; }
+.cp-msg--mine .cp-tag-popover    { left: auto; right: 0; }
+.cp-tag-popover img              { @apply w-full block object-cover; aspect-ratio: 2/3; }
+.cp-tag-popover__title           { @apply text-foreground; font-size: 0.7rem; font-weight: 500; padding: 6px 8px; }

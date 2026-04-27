@@ -52,6 +52,31 @@ def parse_user_id(user_id_str):
         return None
 
 
+def parse_id(raw, field="id"):
+    """Convert a path parameter to int; returns None on failure."""
+    try:
+        return int(raw)
+    except (TypeError, ValueError):
+        return None
+
+
+def validate_body(schema_cls):
+    """Decorator: parse JSON body, run schema.validate(), return 422 on errors."""
+
+    def decorator(fn):
+        @wraps(fn)
+        def wrapper(*args, **kwargs):
+            data = request.get_json(silent=True) or {}
+            errors = schema_cls.validate(data)
+            if errors:
+                return validation_error("; ".join(errors))
+            return fn(*args, **kwargs)
+
+        return wrapper
+
+    return decorator
+
+
 def api_login_required(fn):
     """Return JSON 401 instead of redirecting to HTML login."""
 

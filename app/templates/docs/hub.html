@@ -9,17 +9,17 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/docs_nav.css') }}">
 {% endblock %}
 
-{# Docs hub: no app navbar — subnav + main only (extends base, not layout). #}
+{# Docs hub: no app shell — subnav + main only (extends base.html). #}
 {% block body %}
 {% include "components/docs_subnav.html" %}
 <main id="app" class="container mx-auto px-4 py-8 flex-1">
 <div class="max-w-3xl mx-auto space-y-8">
     <div>
         <h1 class="text-3xl font-bold text-foreground tracking-tight">Documentation</h1>
-        <p class="text-muted mt-2">Pick a doc type — UI components (mini framework) or REST APIs (OpenAPI).</p>
+        <p class="text-muted mt-2">UI Lite, REST (<code>/api/v1</code>) aligned with the Flask app, and a route map for HTML pages.</p>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-2">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <a href="{{ url_for('docs.ui') }}"
            class="surface-card p-6 block hover:border-primary/40 transition-colors group">
             <div class="text-2xl mb-3" aria-hidden="true">🧩</div>
@@ -35,15 +35,27 @@
             <div class="text-2xl mb-3" aria-hidden="true">📡</div>
             <h2 class="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">REST APIs</h2>
             <p class="text-sm text-muted mt-2 leading-relaxed">
-                OpenAPI 3.1, Swagger UI (Try it out), spec at <code class="text-xs bg-page px-1 py-0.5 rounded border border-border">/openapi.json</code>
-                — <span class="text-foreground font-medium">/docs/apis</span>
+                OpenAPI 3.1 lists live handlers: auth, catalog, items by IMDb id, watchlist, friends, messages, admin, …
+                <span class="text-foreground font-medium">/docs/apis</span>
+            </p>
+        </a>
+
+        <a href="{{ url_for('docs.routes') }}"
+           class="surface-card p-6 block hover:border-primary/40 transition-colors group">
+            <div class="text-2xl mb-3" aria-hidden="true">🗺️</div>
+            <h2 class="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">Site routes</h2>
+            <p class="text-sm text-muted mt-2 leading-relaxed">
+                All server-rendered URLs (dashboard, explore, chat, profiles, …). Does not list <code class="text-xs">/api/v1</code>.
+                <span class="text-foreground font-medium">/docs/routes</span>
             </p>
         </a>
     </div>
 
     <p class="text-sm text-muted border-t border-border pt-6">
-        Prefer reading docs? Try ReDoc:
+        ReDoc (same spec):
         <a href="{{ url_for('docs.apis_redoc') }}" class="text-primary font-medium hover:underline">/docs/apis/redoc</a>
+        · Raw spec:
+        <a href="{{ url_for('docs.openapi_json') }}" class="text-primary font-medium hover:underline">/openapi.json</a>
     </p>
 </div>
 </main>

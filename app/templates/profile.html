@@ -1,35 +1,469 @@
-{% extends "layout.html" %}
+{% extends "app_layout.html" %}
+{% from "components/mcard.html" import mcard %}
 
 {% block title %}{{ profile_user.username }}'s Profile — WatchList Hub{% endblock %}
 
-{% block content %}
-<div data-page="profile" data-watchlist='{{ watchlist | tojson }}'>
+{% block head %}
+{{ super() }}
+{% endblock %}
 
-    {# ── Profile Header ── #}
-    <div class="text-center py-8">
-        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-            {{ profile_user.username[0] | upper }}
-        </div>
-        <h1 class="text-2xl font-bold text-gray-900">{{ profile_user.username }}</h1>
-        <p class="text-gray-500 mt-1">{{ watchlist | length }} items in watchlist</p>
+{% block vite_page %}{{ vite_page_entry('src/pages/profile.js') }}{% endblock %}
+
+{% block content %}
+{%- set is_me = current_user.is_authenticated and current_user.id == profile_user.id -%}
+{%- set watching = watchlist | selectattr('status', 'equalto', 'watching') | list -%}
+{%- set planned = watchlist | selectattr('status', 'equalto', 'planned') | list -%}
+{%- set completed = watchlist | selectattr('status', 'equalto', 'completed') | list -%}
+
+{# Taste map: count genres from completed items #}
+{%- set taste_map = namespace(data={}) -%}
+{%- for item in completed -%}
+{%- set media = item.get('media') or {} -%}
+{%- for g in (media.get('genres') or []) -%}
+{%- if g in taste_map.data -%}
+{# Jinja can't mutate dicts in loops, so we'll compute taste in JS #}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+
+{# Pick accent color deterministically from username #}
+{%- set accent_colors = ['#7c3aed','#0ea5a5','#d97706','#16a34a','#dc2626','#2563eb'] -%}
+{%- set user_color = accent_colors[profile_user.id % (accent_colors | length)] -%}
+
+{# ── Hero banner + avatar + info (Facebook/LinkedIn style) ───── #}
+<div class="relative mb-10">
+  {# Cover image #}
+  <div class="overflow-hidden relative"
+    style="height:clamp(140px,22vw,200px);background:linear-gradient(120deg,{{ user_color }} 0%,var(--sea) 92%)">
+    <div class="absolute inset-0 opacity-[.18]"
+      style="background:repeating-linear-gradient(-45deg,rgba(255,255,255,.15) 0 2px,transparent 2px 18px)"></div>
+  </div>
+
+  {# Avatar + info row — avatar overlaps the banner #}
+  <div
+    class="relative z-10 flex items-end gap-5 px-6 -mt-14 max-[520px]:-mt-10 max-[520px]:flex-col max-[520px]:items-center max-[520px]:px-3">
+
+    {# Avatar — overlapping cover #}
+    <div class="shrink-0">
+      <div class="avatar avatar--xl ring-4 ring-page rounded-full"
+        style="background:{{ user_color }};box-shadow:var(--shadow-md);width:7rem;height:7rem;font-size:2.75rem">
+        {{ (profile_user.display_name or profile_user.username)[0] | upper }}
+      </div>
     </div>
 
-    {# ── Watchlist Sections ── #}
-    {% for status, label in [('watching', '👀 Watching'), ('planned', '📋 Planned'), ('completed', '✅ Completed')] %}
-    <section class="mb-8">
-        <h2 class="text-xl font-bold text-gray-900 mb-4">{{ label }}</h2>
-        {% set items = watchlist | selectattr('status', 'equalto', status) | list %}
-        {% if items %}
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {% for item in items %}
-                {% include "components/media_card.html" %}
-            {% endfor %}
+    {# Name + handle + bio #}
+    <div class="flex-1 min-w-0 pb-1 max-[520px]:text-center">
+      <div class="font-display" style="font-size:clamp(28px,4vw,42px);line-height:1;letter-spacing:-.02em">
+        {{ profile_user.display_name or profile_user.username }}
+      </div>
+      <div
+        class="flex gap-2.5 items-center mt-1.5 text-muted text-[0.8125rem] uppercase tracking-[.1em] max-[520px]:justify-center"
+        style="font-family:var(--font-mono)">
+        <span>@{{ profile_user.username }}</span>
+        {% if profile_user.bio %}<span>·</span><span class="tracking-normal lowercase">{{ profile_user.bio
+          | truncate(80) }}</span>{% endif %}
+      </div>
+    </div>
+
+    {# Action buttons #}
+    <div class="flex gap-2 shrink-0 pb-1 flex-wrap max-[520px]:justify-center" id="profile-actions">
+      {% if is_me %}
+      <button class="btn btn--sm rounded-full" id="share-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/>
+        </svg>
+        Share
+      </button>
+      <a href="{{ url_for('main.profile_edit') }}" class="btn btn--primary btn--sm rounded-full">Edit Profile</a>
+      {% elif friendship_status == 'accepted' %}
+      <button class="btn btn--sm rounded-full flex items-center gap-1.5" disabled>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"/>
+        </svg>
+        Friend
+      </button>
+      <button class="btn btn--sm rounded-full" id="unfriend-btn"
+        data-friendship-id="{{ friendship_id }}"
+        style="color:var(--bad)">
+        Unfriend
+      </button>
+      {% elif friendship_status == 'pending' and is_friendship_requester %}
+      <button class="btn btn--sm rounded-full" disabled>Pending…</button>
+      {% elif friendship_status == 'pending' and not is_friendship_requester %}
+      <button class="btn btn--primary btn--sm rounded-full" id="accept-req-btn"
+        data-friendship-id="{{ friendship_id }}">Accept</button>
+      <button class="btn btn--sm rounded-full" id="reject-req-btn"
+        data-friendship-id="{{ friendship_id }}"
+        style="color:var(--bad)">Reject</button>
+      {% else %}
+      <button class="btn btn--sm rounded-full" id="share-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/>
+        </svg>
+        Share
+      </button>
+      {% if profile_user.allow_friend_requests %}
+      <div class="flex flex-col items-end gap-1">
+        <button class="btn btn--primary btn--sm rounded-full" id="add-friend-btn"
+          data-user-id="{{ profile_user.id }}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          Add Friend
+        </button>
+        <span id="add-friend-err" style="font-size:.72rem;color:var(--bad);display:none"></span>
+      </div>
+      {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="page pt-0">
+  {# ── Stat row ─────────────────────────────────────────────────── #}
+  <div class="grid grid-cols-6 my-5 mb-8 max-[900px]:grid-cols-3 max-[520px]:grid-cols-2">
+    {% for label, value in [
+    ('Completed', completed | length),
+    ('Watching', watching | length),
+    ('Planned', planned | length),
+    ('Total', watchlist | length),
+    ('Reviews', 0),
+    ('Following' if is_me else 'Followers', 0),
+    ] %}
+    <div class="py-[22px] px-5">
+      <div class="upper text-muted">{{ label }}</div>
+      <div class="display mt-2" style="font-size:40px;line-height:.95;font-variant-numeric:tabular-nums">{{ value }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {# ── Two-column: lists + sidebar ──────────────────────────────── #}
+  <div class="grid grid-cols-[minmax(0,2fr)_1fr] gap-8 max-[900px]:grid-cols-1">
+
+    {# Lists #}
+    <div class="min-w-0">
+      <div class="flex items-center justify-between mb-[18px]">
+        <div class="md:w-16 lg:w-full">
+          <div class="hidden md:block">
+            <h2 class="h-section">{{ profile_user.display_name.split(' ')[0] + "'s lists" if not is_me else "My lists" }}</h2>
+          </div>
+        </div>
+        <div class="tabs" id="profile-tabs">
+          <div class="tab is-on flex items-center gap-1.5" data-tab="watching">
+            <span class="pill pill--watching" style="font-size:9px;padding:3px 7px">watching</span>
+            <span class="tabular">{{ watching | length }}</span>
+          </div>
+          <div class="tab flex items-center gap-1.5" data-tab="planned">
+            <span class="pill pill--planned" style="font-size:9px;padding:3px 7px">planned</span>
+            <span class="tabular">{{ planned | length }}</span>
+          </div>
+          <div class="tab flex items-center gap-1.5" data-tab="completed">
+            <span class="pill pill--completed" style="font-size:9px;padding:3px 7px">completed</span>
+            <span class="tabular">{{ completed | length }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-panel="watching">
+        {% if watching %}
+        <div class="grid-posters" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))">
+          {% for item in watching %}{{ mcard(item.get('media') or {}, 'watching' if is_me else '') }}{% endfor %}
         </div>
         {% else %}
-        <p class="text-gray-400 text-sm">No items.</p>
+        <div class="card p-10 text-center text-muted">Nothing watching yet.</div>
         {% endif %}
-    </section>
-    {% endfor %}
+      </div>
+      <div data-panel="planned" class="hidden">
+        {% if planned %}
+        <div class="grid-posters" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))">
+          {% for item in planned %}{{ mcard(item.get('media') or {}, 'planned' if is_me else '') }}{% endfor %}
+        </div>
+        {% else %}
+        <div class="card p-10 text-center text-muted">Nothing planned yet.</div>
+        {% endif %}
+      </div>
+      <div data-panel="completed" class="hidden">
+        {% if completed %}
+        <div class="grid-posters" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))">
+          {% for item in completed %}{{ mcard(item.get('media') or {}, 'completed' if is_me else '') }}{% endfor %}
+        </div>
+        {% else %}
+        <div class="card p-10 text-center text-muted">Nothing completed yet.</div>
+        {% endif %}
+      </div>
+    </div>
+
+    {# Right sidebar #}
+    <aside class="flex flex-col gap-5">
+
+      {# Taste profile — computed via JS from inline data #}
+      <div class="card p-[22px]">
+        <div class="h-eyebrow">Taste profile</div>
+        <h3 class="display mt-2.5 mb-3.5" style="font-size:26px;letter-spacing:-.015em">Top genres</h3>
+        <div id="taste-bars" class="flex flex-col gap-3">
+          <p class="text-[0.8125rem] text-muted">Complete items to build your taste profile.</p>
+        </div>
+      </div>
+
+      {# Recent activity #}
+      <div class="card p-[22px]">
+        <div class="h-eyebrow">Recent activity</div>
+        <h3 class="display mt-2.5 mb-2" style="font-size:26px;letter-spacing:-.015em">Last added</h3>
+        <div class="flex flex-col">
+          {% for item in (watchlist | sort(attribute='created_at', reverse=True))[:5] %}
+          {%- set m = item.get('media') or {} -%}
+          <a href="{{ url_for('main.item_detail', imdb_id=m.get('imdb_id','')) }}"
+            class="flex gap-2.5 py-3 items-baseline no-underline text-inherit"
+            style="border-top:{{ '1px solid var(--rule)' if not loop.first else 'none' }}">
+            <span class="upper text-accent min-w-[78px]">{{ item.get('status', '') | capitalize }}</span>
+            <div class="flex-1 min-w-0">
+              <div class="text-sm font-medium truncate">{{ m.get('title', '—') }}</div>
+              <div class="text-[0.6875rem] text-muted uppercase tracking-[.1em] mt-0.5"
+                style="font-family:var(--font-mono)">
+                {{ m.get('media_type', '') | upper }}{% if m.get('year') %} · {{ m.year }}{% endif %}
+              </div>
+            </div>
+          </a>
+          {% else %}
+          <p class="text-[0.8125rem] text-muted">No activity yet.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+
+    </aside>
+  </div>
 
 </div>
+
+{# ── Unfriend confirm modal ───────────────────────────────────── #}
+<div id="unfriend-modal" class="confirm-modal" hidden>
+  <div class="confirm-modal__box">
+    <div class="confirm-modal__title">Remove friend?</div>
+    <p class="confirm-modal__msg" id="unfriend-modal-msg"></p>
+    <div class="confirm-modal__actions">
+      <button class="btn btn--sm" id="unfriend-cancel">Cancel</button>
+      <button class="btn btn--sm confirm-modal__danger" id="unfriend-confirm">Unfriend</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  /* ── Profile action buttons — real-time + custom modal ─────────── */
+  (function () {
+    var _pid   = {{ profile_user.id | tojson }};       // profile user id
+    var _fid   = {{ friendship_id | tojson }};          // current friendship id (or null)
+    var _allowFR = {{ profile_user.allow_friend_requests | tojson }};
+    var _dname = {{ (profile_user.display_name or profile_user.username) | tojson }};
+
+    /* SVG snippets */
+    var SVG_SHARE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>';
+    var SVG_CHECK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+    var SVG_PLUS  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+
+    /* HTML builders for each friendship state */
+    function htmlFriends(friendshipId) {
+      return '<button class="btn btn--sm rounded-full flex items-center gap-1.5" disabled>' + SVG_CHECK + ' Friend</button>' +
+             '<button class="btn btn--sm rounded-full" id="unfriend-btn" data-friendship-id="' + friendshipId + '" style="color:var(--bad)">Unfriend</button>';
+    }
+    function htmlAddFriend() {
+      var s = '<button class="btn btn--sm rounded-full" id="share-btn">' + SVG_SHARE + ' Share</button>';
+      if (_allowFR) {
+        s += '<div class="flex flex-col items-end gap-1">' +
+             '<button class="btn btn--primary btn--sm rounded-full" id="add-friend-btn" data-user-id="' + _pid + '">' + SVG_PLUS + ' Add Friend</button>' +
+             '<span id="add-friend-err" style="font-size:.72rem;color:var(--bad);display:none"></span>' +
+             '</div>';
+      }
+      return s;
+    }
+    function htmlPending() {
+      return '<button class="btn btn--sm rounded-full" id="share-btn">' + SVG_SHARE + ' Share</button>' +
+             '<button class="btn btn--sm rounded-full" disabled>Pending…</button>';
+    }
+
+    function setActions(html) {
+      var el = document.getElementById('profile-actions');
+      if (el) el.innerHTML = html;
+    }
+
+    /* ── Single delegated handler on the stable #profile-actions div ── */
+    var _inFlight = false;
+    var actionsEl = document.getElementById('profile-actions');
+    if (actionsEl) {
+      actionsEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('button');
+        if (!btn || btn.disabled) return;
+
+        /* Share */
+        if (btn.id === 'share-btn') {
+          if (navigator.share) {
+            navigator.share({ title: document.title, url: location.href });
+          } else {
+            navigator.clipboard.writeText(location.href).then(function () {
+              btn.textContent = 'Copied!';
+              setTimeout(function () { btn.innerHTML = SVG_SHARE + ' Share'; }, 1500);
+            });
+          }
+          return;
+        }
+
+        /* Add Friend */
+        if (btn.id === 'add-friend-btn') {
+          if (_inFlight) return;
+          _inFlight = true;
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          window.apiFetch('/api/v1/friends/requests', {
+            method: 'POST', body: JSON.stringify({ targetUserId: _pid }),
+          }).then(function () {
+            _inFlight = false;
+            setActions(htmlPending());
+          }).catch(function (err) {
+            _inFlight = false;
+            var msg = (err && err.message) ? err.message : '';
+            if (msg === 'Friend request already pending') { setActions(htmlPending()); return; }
+            if (msg === 'Already friends' && _fid)        { setActions(htmlFriends(_fid)); return; }
+            btn.disabled = false;
+            btn.innerHTML = SVG_PLUS + ' Add Friend';
+            var errEl = document.getElementById('add-friend-err');
+            if (errEl) { errEl.textContent = msg || 'Failed to send request'; errEl.style.display = ''; }
+          });
+          return;
+        }
+
+        /* Unfriend */
+        if (btn.id === 'unfriend-btn') {
+          var unfriendId = btn.dataset.friendshipId;
+          openUnfriendModal(_dname, function () {
+            if (_inFlight) return;
+            _inFlight = true;
+            btn.disabled = true;
+            window.apiFetch('/api/v1/friends/' + unfriendId, { method: 'DELETE' })
+              .then(function () {
+                _inFlight = false;
+                _fid = null;
+                setActions(htmlAddFriend());
+              })
+              .catch(function (err) {
+                _inFlight = false;
+                var msg = err && err.message ? err.message : '';
+                if (msg === 'Friendship not found') { _fid = null; setActions(htmlAddFriend()); return; }
+                btn.disabled = false;
+              });
+          });
+          return;
+        }
+
+        /* Accept incoming request */
+        if (btn.id === 'accept-req-btn') {
+          var acceptId = btn.dataset.friendshipId;
+          btn.disabled = true;
+          window.apiFetch('/api/v1/friends/requests/' + acceptId, {
+            method: 'PATCH', body: JSON.stringify({ action: 'accept' }),
+          }).then(function (data) {
+            _fid = (data && data.id) ? data.id : acceptId;
+            setActions(htmlFriends(_fid));
+          }).catch(function () { btn.disabled = false; });
+          return;
+        }
+
+        /* Reject incoming request */
+        if (btn.id === 'reject-req-btn') {
+          var rejectId = btn.dataset.friendshipId;
+          btn.disabled = true;
+          window.apiFetch('/api/v1/friends/requests/' + rejectId, {
+            method: 'PATCH', body: JSON.stringify({ action: 'reject' }),
+          }).then(function () { _fid = null; setActions(htmlAddFriend()); })
+            .catch(function () { btn.disabled = false; });
+          return;
+        }
+      });
+    }
+
+    /* ── Real-time updates via socket DOM events ──────────────────── */
+    document.addEventListener('wh:friend_accepted', function (e) {
+      if (e.detail.accepter_id === _pid) {
+        _fid = e.detail.friendship_id;
+        setActions(htmlFriends(_fid));
+      }
+    });
+
+    document.addEventListener('wh:friend_removed', function (e) {
+      if (e.detail.other_id === _pid) {
+        _fid = null;
+        setActions(htmlAddFriend());
+      }
+    });
+
+    /* ── Custom unfriend modal ────────────────────────────────────── */
+    var _onConfirm = null;
+
+    function openUnfriendModal(name, callback) {
+      _onConfirm = callback;
+      var msgEl = document.getElementById('unfriend-modal-msg');
+      if (msgEl) msgEl.textContent = 'Remove ' + name + ' from your friends?';
+      document.getElementById('unfriend-modal').removeAttribute('hidden');
+    }
+
+    document.getElementById('unfriend-cancel').addEventListener('click', function () {
+      document.getElementById('unfriend-modal').setAttribute('hidden', '');
+      _onConfirm = null;
+    });
+
+    document.getElementById('unfriend-confirm').addEventListener('click', function () {
+      document.getElementById('unfriend-modal').setAttribute('hidden', '');
+      if (_onConfirm) { _onConfirm(); _onConfirm = null; }
+    });
+
+    document.getElementById('unfriend-modal').addEventListener('click', function (e) {
+      if (e.target === this) { this.setAttribute('hidden', ''); _onConfirm = null; }
+    });
+  })();
+
+  /* ── Tabs + taste profile ────────────────────────────────────────── */
+  (function () {
+    var tabs   = document.querySelectorAll('#profile-tabs .tab');
+    var panels = document.querySelectorAll('[data-panel]');
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('is-on'); });
+        t.classList.add('is-on');
+        panels.forEach(function (p) { p.classList.add('hidden'); });
+        var target = document.querySelector('[data-panel="' + t.dataset.tab + '"]');
+        if (target) target.classList.remove('hidden');
+      });
+    });
+
+    var completed = {{ (completed | map(attribute="media") | list) | tojson }};
+    var tmap = {};
+    completed.forEach(function (m) {
+      if (!m) return;
+      (m.genres || []).forEach(function (g) { tmap[g] = (tmap[g] || 0) + 1; });
+    });
+    var taste = Object.entries(tmap).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 6);
+    var tmax  = taste.length ? taste[0][1] : 1;
+    var container = document.getElementById('taste-bars');
+    if (taste.length && container) {
+      container.innerHTML = '';
+      taste.forEach(function (entry) {
+        var g = entry[0], n = entry[1], pct = Math.round(n / tmax * 100);
+        container.insertAdjacentHTML('beforeend',
+          '<div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">' +
+          '<span style="font-weight:600">' + g + '</span>' +
+          '<span class="mono tabular" style="color:var(--muted)">' + n + '</span></div>' +
+          '<div class="bar"><div class="bar__fill" style="width:' + pct + '%"></div></div></div>'
+        );
+      });
+    }
+  })();
+</script>
 {% endblock %}

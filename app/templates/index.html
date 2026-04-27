@@ -7,11 +7,12 @@
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 {% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/landing.js') }}{% endblock %}
 
 {% block body %}
 {# ── Loading Screen ── #}
@@ -40,11 +41,13 @@
     {# Top-right auth buttons — fade in after explosion #}
     <nav id="landing-nav" class="landing-nav" aria-label="Authentication">
         {% if current_user.is_authenticated %}
-        <a href="{{ url_for('main.dashboard') }}" class="nav-btn nav-btn--primary" id="nav-dashboard">Dashboard</a>
-        <a href="{{ url_for('auth.logout') }}" class="nav-btn nav-btn--ghost" id="nav-logout">Log Out</a>
+        <a href="{{ url_for('main.explore') }}" class="landing-nav__link" id="nav-explore">Explore</a>
+        <a href="{{ url_for('main.dashboard') }}" class="landing-nav__link" id="nav-dashboard">Dashboard</a>
+        <!-- <a href="{{ url_for('auth.logout') }}" class="" id="nav-logout">Log Out</a> -->
         {% else %}
-        <a href="{{ url_for('auth.login') }}" class="nav-btn nav-btn--ghost" id="nav-login">Log In</a>
-        <a href="{{ url_for('auth.register') }}" class="nav-btn nav-btn--primary" id="nav-signup">Sign Up</a>
+        <a href="{{ url_for('main.explore') }}" class="landing-nav__link" id="nav-explore">Explore</a>
+        <a href="{{ url_for('auth.login') }}" class="landing-nav__link" id="nav-login">Log In</a>
+        <a href="{{ url_for('auth.register') }}" class="landing-nav__link landing-nav__link--cta" id="nav-signup">Start tracking</a>
         {% endif %}
     </nav>
 

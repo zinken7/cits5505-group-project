@@ -1,12 +1,1 @@
-/**
- * Team / page-level CSS (layout pages only)
- * -----------------------------------------
- * Loaded after the Vite + Tailwind bundle so you can override or add rules.
- * Prefer Tailwind utilities in Jinja templates; use this file for one-off
- * styles or third-party widgets.
- *
- * Tokens available (from frontend/src/style.css):
- *   --color-bg, --color-surface, --color-fg, --color-muted,
- *   --color-primary, --color-accent-secondary, --color-border,
- *   --color-success, --color-danger
- */
+/* Styles moved to frontend/src/style.css @layer components */

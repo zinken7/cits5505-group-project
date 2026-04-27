@@ -19,6 +19,9 @@ class User(UserMixin, db.Model):
     favorite_genres = db.Column(db.JSON, nullable=True)
     watchlist_visibility = db.Column(db.String(20), nullable=False, default="public")
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
+    date_of_birth = db.Column(db.Date, nullable=True)
+    profile_public = db.Column(db.Boolean, nullable=False, default=True)
+    allow_friend_requests = db.Column(db.Boolean, nullable=False, default=True)
 
     # Relationship
     watchlist_items = db.relationship(
@@ -41,6 +44,9 @@ class User(UserMixin, db.Model):
             "favoriteGenres": self.favorite_genres or [],
             "visibility": {"watchlist": self.watchlist_visibility},
             "isAdmin": self.is_admin,
+            "dateOfBirth": self.date_of_birth.isoformat() if self.date_of_birth else None,
+            "profilePublic": self.profile_public,
+            "allowFriendRequests": self.allow_friend_requests,
         }
 
     def to_public_dict(self):

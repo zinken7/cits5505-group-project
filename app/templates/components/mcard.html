@@ -1,0 +1,60 @@
+{# ── Media Card (Design System) ──────────────────────────────────
+   Usage:  {% from "components/mcard.html" import mcard %}
+           {{ mcard(media_dict, status='watching') }}
+
+   media_dict: Media.to_dict() keys —
+     id, title, media_type, year, image_url, imdb_id, rating, genres,
+     watching_count, completed_count, planned_count  (optional)
+   status: 'watching' | 'planned' | 'completed' | '' (optional)
+#}
+
+{% macro mcard(media, status='') %}
+  {%- set imdb_id = media.get('imdb_id') or '' -%}
+  {%- set detail_url = url_for('main.item_detail', imdb_id=imdb_id) if imdb_id else '#' -%}
+  {%- set mtype = media.get('media_type') or 'movie' -%}
+  {%- set type_label = {'movie': 'Movie', 'anime': 'Anime', 'tvshow': 'TV Show'}.get(mtype, mtype | capitalize) -%}
+  {%- set genres = media.get('genres') or [] -%}
+  {%- set rating = media.get('rating') -%}
+  {%- set w = (media.get('watching_count') or 0) | int -%}
+  {%- set c = (media.get('completed_count') or 0) | int -%}
+  {%- set p = (media.get('planned_count') or 0) | int -%}
+  {%- set tracking = w + c + p -%}
+<a href="{{ detail_url }}" class="mcard">
+  <div class="mcard__poster">
+    {% if media.get('image_url') %}
+    <img src="{{ media.image_url }}" alt="{{ media.title | e }}" loading="lazy"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="items-center justify-center h-full" style="display:none;font-size:3rem;background:var(--card-bg-2)">
+      {{ '🎬' if mtype == 'movie' else '📺' }}
+    </div>
+    {% else %}
+    <div class="flex items-center justify-center h-full" style="font-size:3rem;background:var(--card-bg-2)">
+      {{ '🎬' if mtype == 'movie' else '📺' }}
+    </div>
+    {% endif %}
+    <div class="mcard__badge">
+      <span class="pill text-white" style="background:rgba(0,0,0,.72);border:0">{{ type_label }}</span>
+    </div>
+    {% if status %}
+    <div class="mcard__status">
+      <span class="pill pill--{{ status }}">{{ status }}</span>
+    </div>
+    {% endif %}
+    <div class="mcard__rating">★ {{ '%.1f' | format(rating) if rating is not none and rating != '' else '—' }}</div>
+    <div class="mcard__hover">
+      <div class="mcard__hover__inner">
+        {% if tracking > 0 %}
+        <div class="text-[0.6875rem]" style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;opacity:.8">
+          {{ tracking }} tracking
+        </div>
+        {% endif %}
+        <button class="mcard__hover__btn" onclick="event.preventDefault();event.stopPropagation();window.location.href='{{ detail_url }}'">View details →</button>
+      </div>
+    </div>
+  </div>
+  <div class="mcard__meta">
+    <div class="mcard__type">{{ genres[0] if genres else type_label }} · {{ media.get('year') or '' }}</div>
+    <div class="mcard__title">{{ media.get('title') or 'Untitled' }}</div>
+  </div>
+</a>
+{% endmacro %}

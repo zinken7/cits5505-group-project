@@ -18,17 +18,29 @@ def create_app(config_name=None):
         template_folder="templates",
         static_folder="static",
     )
-    app.config.from_object(config[config_name])
+    cfg = config[config_name]
+    app.config.from_object(cfg)
+    if hasattr(cfg, "init_app"):
+        cfg.init_app(app)
 
     # ------------------------------------------------------------------
     # Extensions
     # ------------------------------------------------------------------
-    from app.extensions import db, login_manager, csrf
+    from app.extensions import db, login_manager, csrf, migrate, limiter, socketio
 
     db.init_app(app)
+    migrate.init_app(app, db)
+    limiter.init_app(app)
     login_manager.init_app(app)
     login_manager.login_view = "auth.login"
     csrf.init_app(app)
+    socketio.init_app(app, manage_session=False)
+
+    @app.after_request
+    def _no_cache_html(response):
+        if response.content_type and response.content_type.startswith("text/html"):
+            response.headers["Cache-Control"] = "no-store"
+        return response
 
     @login_manager.unauthorized_handler
     def _unauthorized_api():
@@ -90,12 +102,80 @@ def create_app(config_name=None):
             css_files = entry.get("css", [])
             return [f"/static/dist/{css}" for css in css_files]
 
+        def vite_page_entry(entry_path):
+            """Return full HTML markup for a page-specific Vite entry.
+
+            In dev  → <link> for CSS + <script> for JS from dev server
+            In prod → <link>(s) from manifest CSS + <script> for hashed JS
+            """
+            from markupsafe import Markup
+
+            parts = []
+            if vite_dev_mode:
+                # Dev: load the entry's CSS and JS from the Vite dev server
+                # The CSS is inlined by Vite HMR via the JS module, but we
+                # also add a <link> for the source CSS for instant first-paint.
+                parts.append(
+                    f'<script type="module" src="{vite_dev_url}/{entry_path}"></script>'
+                )
+            else:
+                for css_url in vite_asset_css(entry_path):
+                    parts.append(f'<link rel="stylesheet" href="{css_url}">')
+                js_url = vite_asset(entry_path)
+                parts.append(
+                    f'<script type="module" src="{js_url}"></script>'
+                )
+            return Markup("\n    ".join(parts))
+
         return {
             "vite_dev_mode": vite_dev_mode,
             "vite_dev_url": vite_dev_url,
             "vite_asset": vite_asset,
             "vite_asset_css": vite_asset_css,
+            "vite_page_entry": vite_page_entry,
         }
+
+    # ------------------------------------------------------------------
+    # Ticker context processor — feeds live stats to app_layout.html
+    # ------------------------------------------------------------------
+    @app.context_processor
+    def inject_ticker():
+        """Build ticker items from live DB data; used by app_layout.html."""
+        try:
+            from app.models.media import Media
+            from app.models.watchlist import WatchlistItem
+            from app.services.watchlist_service import get_trending
+            from sqlalchemy import func
+
+            total_media = Media.query.count()
+            total_watchlists = WatchlistItem.query.count()
+            trending = get_trending(limit=4)
+
+            items = []
+            if total_media:
+                items.append(f"Tracking {total_media:,} titles in the catalogue")
+            if total_watchlists:
+                items.append(f"{total_watchlists:,} watchlist entries across all users")
+            for t in trending:
+                wc = t.get("watchlist_count", 0)
+                rating = t.get("rating")
+                rating_str = f" · ★{rating:.1f}" if rating else ""
+                if wc:
+                    items.append(f"Trending — {t['title']}{rating_str} · {wc} tracking")
+                else:
+                    items.append(f"Popular — {t['title']}{rating_str}")
+            items += [
+                "Rate everything after you finish",
+                "New titles added weekly — check Explore",
+                "Track movies, anime, and games in one place",
+            ]
+        except Exception:
+            items = [
+                "WatchList Hub — Track everything you love",
+                "Movies · Anime · Games",
+                "Rate everything after you finish",
+            ]
+        return dict(ticker_items=items)
 
     # ------------------------------------------------------------------
     # Blueprints
@@ -111,14 +191,28 @@ def create_app(config_name=None):
     app.register_blueprint(api_v1_bp)
 
     # ------------------------------------------------------------------
-    # Create DB tables (dev convenience)
+    # Create DB tables
+    # In production use `flask db upgrade` via Flask-Migrate instead.
     # ------------------------------------------------------------------
     with app.app_context():
-        from app.models import user, media, watchlist, items  # noqa: F401
+        from app.models import user, media, watchlist, friendship, message  # noqa: F401
 
-        # Ensure Flask's instance folder exists for SQLite
         os.makedirs(app.instance_path, exist_ok=True)
-
         db.create_all()
+
+        # Add new columns to existing DBs without dropping data
+        from sqlalchemy import text, inspect as _sa_inspect
+        _existing = {c["name"] for c in _sa_inspect(db.engine).get_columns("users")}
+        _migrations = [
+            ("date_of_birth",        "DATE"),
+            ("profile_public",       "BOOLEAN NOT NULL DEFAULT 1"),
+            ("allow_friend_requests","BOOLEAN NOT NULL DEFAULT 1"),
+        ]
+        for _col, _typedef in _migrations:
+            if _col not in _existing:
+                with db.engine.begin() as _conn:
+                    _conn.execute(text(f"ALTER TABLE users ADD COLUMN {_col} {_typedef}"))
+
+    from app.sockets import chat  # noqa: F401 — registers socket event handlers
 
     return app

@@ -1009,10 +1009,10 @@
             "Content-Type": "application/json",
             "X-CSRFToken": token
           },
-          body: JSON.stringify({ 
-            mediaId: heroMedia.id, 
-            mediaType: "movie",
-            status: "planned" 
+          body: JSON.stringify({
+            mediaId: heroMedia.id,
+            mediaType: heroMedia.media_type || "movie",
+            status: "planned"
           }),
         });
         const data = await res.json();

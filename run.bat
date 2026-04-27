@@ -13,11 +13,16 @@ set "VENV_PY=%cd%\.venv\Scripts\python.exe"
 echo Activating virtual environment...
 call .venv\Scripts\activate.bat || goto :error
 
-echo Seeding media...
-"%VENV_PY%" scripts\seed_media.py || goto :error
-
-echo Seeding items...
-"%VENV_PY%" scripts\seed_items.py || goto :error
+:: Only seed on a fresh database — skip if Media rows already exist.
+:: To force a full reseed (e.g. after JSON edits), delete instance\watchlist.db first,
+:: or run:  python scripts\seeds.py --clear
+"%VENV_PY%" -c "import sys,os; sys.path.insert(0,'.'); from app import create_app; from app.models.media import Media; app=create_app(); ctx=app.app_context(); ctx.push(); sys.exit(0 if Media.query.count()>0 else 1)"
+if %ERRORLEVEL% NEQ 0 (
+    echo Fresh database -- running scripts\seeds.py (app\data -^> DB^)...
+    "%VENV_PY%" scripts\seeds.py || goto :error
+) else (
+    echo Database already seeded -- skipping seed scripts.
+)
 
 echo Starting backend in new window...
 start "BACKEND" /D "%~dp0" cmd /k ""%VENV_PY%" run.py"

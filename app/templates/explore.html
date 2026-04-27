@@ -1,0 +1,91 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Explore — WatchList Hub{% endblock %}
+{% block meta_description %}Search and discover movies, anime, and TV shows on WatchList Hub.{% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/explore.js') }}{% endblock %}
+
+{% block content %}
+<div class="page" id="explore-page">
+
+  {# ── Page header ───────────────────────────────────────────────── #}
+  <div class="flex items-end justify-between gap-6 flex-wrap mb-7">
+    <div>
+      <div class="h-eyebrow">Explore · all media</div>
+      <h1 class="h-display">Everything <em>worth</em> tracking.</h1>
+      <p class="explore-desc max-w-[37.5rem] text-muted mt-3.5 text-[0.9375rem]">
+        Search across movies, anime series, and TV shows. Filter by type, genre, or what's trending.
+      </p>
+    </div>
+  </div>
+
+  {# ── Filters ──────────────────────────────────────────────────── #}
+  <!-- <div class="flex items-center gap-2.5 flex-wrap mb-6">
+    <div class="segmented" id="type-filter">
+      <button class="on" data-type="all">All</button>
+      <button data-type="movie">Movies</button>
+      <button data-type="anime">Anime</button>
+      <button data-type="tvshow">TV Shows</button>
+    </div>
+    <div class="explore-filter-sep w-px h-6"></div>
+    <div id="genre-chips" class="explore-genres flex flex-wrap">
+      {# Populated by JS #}
+    </div>
+    <div class="flex-1"></div>
+    <div class="segmented" id="sort-filter">
+      <button class="on" data-sort="trending">Trending</button>
+      <button data-sort="rating">Top rated</button>
+      <button data-sort="new">Newest</button>
+    </div>
+  </div> -->
+
+  {# ── Trending rail ─────────────────────────────────────────────── #}
+  <div id="trending-section" class="mb-8">
+    <div class="flex items-center justify-between mb-3.5">
+      <div>
+        <div class="h-eyebrow">Trending this week</div>
+        <h2 class="h-section mt-2">What everyone's tracking</h2>
+      </div>
+    </div>
+    <div class="rail" id="trending-rail">
+      {# Skeleton #}
+      {% for _ in range(6) %}
+      <div class="explore-skel-poster animate-pulse"></div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# ── Results ──────────────────────────────────────────────────── #}
+  <div class="flex items-center justify-between mb-4">
+    <div id="result-count" class="explore-count mono text-[0.6875rem] uppercase text-muted">
+      Loading…
+    </div>
+  </div>
+
+  <div class="grid-posters" id="results-grid">
+    {# Skeletons while loading #}
+    {% for _ in range(12) %}
+    <div class="mcard-skeleton animate-pulse">
+      <div class="mcard-skel__poster"></div>
+      <div class="mcard-skel__title mt-2.5"></div>
+      <div class="mcard-skel__subtitle mt-1.5"></div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {# No results state (hidden by default) #}
+  <div id="no-results" class="explore-no-results card hidden text-center">
+    <div class="display text-[2rem] mb-2">No matches.</div>
+    <p class="text-muted">Try a different type or clear your filters.</p>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+window._exploreInitialType = {{ request.args.get("type", "all") | tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/explore.js') }}"></script>
+{% endblock %}

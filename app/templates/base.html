@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{% block title %}WatchList Hub{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}Track your anime, games, and movies. Discover what others are watching.{% endblock %}">
 
-    {# Apply stored theme before paint (must match frontend/src/theme/theme.js key) #}
-    <script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{% block title %}WatchList Hub{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@400;500;600;700&display=swap">
+  <meta name="description"
+    content="{% block meta_description %}Track your anime, games, and movies. Discover what others are watching.{% endblock %}">
+
+  {# Apply stored theme before paint (must match frontend/src/theme/theme.js key) #}
+  <script>
     (function () {
       try {
         var k = "watchlist-theme";
@@ -18,31 +25,37 @@
           : (m === "dark" ? "dark" : "light");
         document.documentElement.dataset.theme = r;
         document.documentElement.style.colorScheme = r === "dark" ? "dark" : "light";
-      } catch (e) {}
+      } catch (e) { }
     })();
-    </script>
+  </script>
 
-    {# Vite bundle: Tailwind + main.js (theme, page bootstraps) #}
-    {% if vite_dev_mode %}
-        {# Load Tailwind in head so first paint matches final styles. Deferred main.js alone applies CSS after parse → visible flash on long pages (e.g. /docs/ui). #}
-        <link rel="stylesheet" href="{{ vite_dev_url }}/src/style.css">
-        <script type="module" src="{{ vite_dev_url }}/@vite/client"></script>
-        <script type="module" src="{{ vite_asset('src/main.js') }}"></script>
-    {% else %}
-        {% for css_url in vite_asset_css('src/main.js') %}
-        <link rel="stylesheet" href="{{ css_url }}">
-        {% endfor %}
-        <script type="module" src="{{ vite_asset('src/main.js') }}"></script>
-    {% endif %}
+  {# Vite bundle: Tailwind + main.js (theme, page bootstraps) #}
+  {% if vite_dev_mode %}
+  {# Load Tailwind in head so first paint matches final styles. Deferred main.js alone applies CSS after parse → visible
+  flash on long pages (e.g. /docs/ui). #}
+  <link rel="stylesheet" href="{{ vite_dev_url }}/src/style.css">
+  <script type="module" src="{{ vite_dev_url }}/@vite/client"></script>
+  <script type="module" src="{{ vite_asset('src/main.js') }}"></script>
+  {% else %}
+  {% for css_url in vite_asset_css('src/main.js') %}
+  <link rel="stylesheet" href="{{ css_url }}">
+  {% endfor %}
+  <script type="module" src="{{ vite_asset('src/main.js') }}"></script>
+  {% endif %}
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-            crossorigin="anonymous"></script>
+  {# Page-specific Vite entry — override in child templates.
+  Example: {% block vite_page %}{{ vite_page_entry('src/pages/dashboard.js') }}{% endblock %} #}
+  {% block vite_page %}{% endblock %}
 
-    {% block head %}{% endblock %}
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  {% block head %}{% endblock %}
 </head>
+
 <body class="{% block body_class %}bg-page text-foreground min-h-screen flex flex-col{% endblock %}">
-    {% block body %}{% endblock %}
-    {% block scripts %}{% endblock %}
+  {% block body %}{% endblock %}
+  {% block scripts %}{% endblock %}
 </body>
+
 </html>

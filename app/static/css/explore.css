@@ -1,0 +1,59 @@
+@reference "../../../frontend/src/style.css";
+
+/* ── Page header ──────────────────────────────────────────────────── */
+.explore-desc {
+  @apply leading-[1.55];
+}
+
+/* ── Filter bar ───────────────────────────────────────────────────── */
+.explore-filter-sep {
+  @apply bg-border;
+}
+
+.explore-genres {
+  @apply gap-1.5;
+}
+
+/* ── Result count ─────────────────────────────────────────────────── */
+.explore-count {
+  @apply tracking-[0.16em];
+}
+
+/* ── Skeleton loaders ─────────────────────────────────────────────── */
+.explore-skel-poster {
+  @apply aspect-2/3 rounded-[14px] bg-card-2;
+}
+
+.mcard-skel__poster {
+  @apply aspect-2/3 rounded-[14px] bg-card-2;
+}
+
+.mcard-skel__title {
+  @apply h-3 rounded bg-card-2 w-3/5;
+}
+
+.mcard-skel__subtitle {
+  @apply h-[18px] rounded bg-card-2;
+}
+
+/* ── Empty / no-results states ────────────────────────────────────── */
+.explore-no-results {
+  @apply p-15;
+}
+
+/* ── JS-rendered media card additions ────────────────────────────── */
+.mcard__poster-empty {
+  @apply flex items-center justify-center h-full text-5xl bg-card-2;
+}
+
+.mcard__type-pill {
+  @apply bg-black/72 text-white border-0;
+}
+
+.mcard__rating--rank {
+  @apply text-sm py-1 px-[9px];
+}
+
+.mcard__tracking {
+  @apply font-mono text-[11px] uppercase tracking-[0.1em] opacity-80;
+}

@@ -12,9 +12,10 @@ def list_media(media_type, q=None, genre=None, sort=None, limit=24, offset=0):
         like = f"%{q}%"
         query = query.filter(Media.title.ilike(like))
     if genre:
-        # Filter by genre in the genres JSON array using string matching
-        # JSON stores genres as ["Action", "Drama"] etc., so match the quoted genre name
-        query = query.filter(cast(Media.genres, String).like(f'%"{genre}"%'))
+        # Escape LIKE wildcards so a genre string like "%" can't match arbitrary values.
+        # Wrapping with quotes ensures only exact array-element matches (["Action"] not ["ActionHero"]).
+        safe = genre.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        query = query.filter(cast(Media.genres, String).like(f'%"{safe}"%', escape="\\"))
 
     total = query.count()
 
@@ -23,6 +24,10 @@ def list_media(media_type, q=None, genre=None, sort=None, limit=24, offset=0):
         query = query.order_by(Media.year.desc().nulls_last(), Media.title)
     elif order in ("releaseYear", "year"):
         query = query.order_by(Media.year.asc().nulls_last(), Media.title)
+    elif order == "-rating":
+        query = query.order_by(Media.rating.desc().nulls_last(), Media.title)
+    elif order == "rating":
+        query = query.order_by(Media.rating.asc().nulls_last(), Media.title)
     else:
         query = query.order_by(Media.title.asc())
 
@@ -32,6 +37,10 @@ def list_media(media_type, q=None, genre=None, sort=None, limit=24, offset=0):
 
 def get_media(media_id):
     return db.session.get(Media, media_id)
+
+
+def get_media_by_imdb_id(imdb_id):
+    return Media.query.filter_by(imdb_id=imdb_id).first()
 
 
 def create_media(title, media_type, description="", image_url="", year=None):

@@ -9,8 +9,10 @@ from app.api.v1 import auth  # noqa: E402, F401
 from app.api.v1 import users  # noqa: E402, F401
 from app.api.v1 import catalog  # noqa: E402, F401
 from app.api.v1 import watchlist  # noqa: E402, F401
-from app.api.v1 import social  # noqa: E402, F401
+from app.api.v1 import trending  # noqa: E402, F401
 from app.api.v1 import search  # noqa: E402, F401
 from app.api.v1 import admin  # noqa: E402, F401
 from app.api.v1 import landing  # noqa: E402, F401
 from app.api.v1 import items  # noqa: E402, F401
+from app.api.v1 import friends  # noqa: E402, F401
+from app.api.v1 import messages  # noqa: E402, F401

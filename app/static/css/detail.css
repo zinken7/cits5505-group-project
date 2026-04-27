@@ -1,0 +1,80 @@
+@reference "../../../frontend/src/style.css";
+/* Detail page — layout grids */
+.detail-grid {
+  @apply grid gap-9 grid-cols-[260px_1fr];
+}
+.detail-metrics {
+  @apply grid grid-cols-4 gap-4 mt-6 py-[18px] border-t border-b border-border;
+}
+
+.detail-card {
+  @apply bg-card border border-border rounded-xl px-6 py-5;
+  box-shadow: 0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.06);
+}
+
+.detail-card.overflow-hidden {
+  @apply overflow-hidden;
+}
+
+.detail-poster {
+  @apply aspect-2/3 overflow-hidden;
+  background-color: color-mix(in srgb, var(--color-muted) 15%, transparent);
+}
+
+.detail-poster img {
+  @apply block;
+}
+
+.detail-popularity {
+  @apply min-w-36 px-4 py-3 rounded-xl text-center;
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.detail-stat__label {
+  @apply text-xs tracking-[0.03em] uppercase text-muted mb-1;
+}
+
+.detail-stat__value {
+  @apply text-base font-semibold text-foreground;
+}
+
+.detail-activity {
+  @apply px-5 py-4 rounded-xl text-center;
+  background-color: color-mix(in srgb, var(--color-border) 35%, transparent);
+}
+
+.detail-activity__value {
+  @apply mt-1 text-2xl font-bold;
+}
+
+.detail-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-border text-foreground;
+  background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+}
+
+/* Inline alert (success / error messages from JS) */
+.item-detail__alert {
+  @apply mb-4 px-4 py-3 rounded-lg text-sm border;
+}
+
+.item-detail__alert--success {
+  @apply text-success;
+  border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
+  background-color: color-mix(in srgb, var(--color-success) 12%, transparent);
+}
+
+.item-detail__alert--error {
+  @apply text-danger;
+  border-color: color-mix(in srgb, var(--color-danger) 40%, transparent);
+  background-color: color-mix(in srgb, var(--color-danger) 12%, transparent);
+}
+
+@media (max-width: 900px) {
+  .detail-grid    { @apply grid-cols-1 gap-5; }
+  .detail-metrics { @apply grid-cols-2; }
+}
+
+@media (max-width: 520px) {
+  .detail-grid > div:first-child { @apply max-w-[220px] mx-auto; }
+}

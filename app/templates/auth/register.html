@@ -1,47 +1,124 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
+{% from "macros/auth_forms.html" import password_input_wrap %}
 
-{% block title %}Register — WatchList Hub{% endblock %}
+{% block title %}Create Account — WatchList Hub{% endblock %}
 
-{% block content %}
-<div class="max-w-md mx-auto py-12">
+{% block head %}
+{{ super() }}
+{% endblock %}
 
-    <h1 class="text-3xl font-bold text-gray-900 text-center mb-8">Create Account</h1>
+{% block body_class %}{% endblock %}
 
-    <form method="POST" action="{{ url_for('auth.register') }}" class="space-y-6">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+{% block body %}
+<div class="min-h-screen grid lg:grid-cols-2 bg-page text-foreground">
 
-        <div>
-            <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
-            <input type="text" id="username" name="username" required autocomplete="username"
-                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-hidden"
-                   placeholder="your_username">
+  {# ── Left panel ── #}
+  <div class="hidden lg:flex flex-col justify-between relative overflow-hidden p-10 text-white" style="background-color:#0f172a">
+    <div class="absolute inset-0 opacity-[0.06]"
+         style="background:repeating-linear-gradient(-45deg,rgba(255,255,255,.8) 0 1px,transparent 1px 22px)"></div>
+    <div class="absolute inset-0 opacity-20"
+         style="background:radial-gradient(circle at 70% 30%,var(--accent) 0%,transparent 55%)"></div>
+
+    <a href="{{ url_for('main.index') }}" class="relative flex items-center gap-3 no-underline">
+      <div class="w-10 h-10 rounded-xl bg-page text-foreground grid place-items-center font-display text-2xl">W</div>
+      <span class="font-display text-xl text-white">
+        Watchlist<em class="not-italic" style="color:var(--accent)">Hub</em>
+      </span>
+    </a>
+
+    <div class="relative">
+      <div class="font-display leading-[.96] tracking-tight mb-5 text-white"
+           style="font-size:clamp(42px,5vw,68px)">
+        Your list,<br><em style="color:var(--accent)">your rules.</em>
+      </div>
+      <p class="text-sm leading-relaxed max-w-xs" style="color:rgba(255,255,255,.55)">
+        Join thousands tracking their favourite movies, anime, and TV shows — completely free.
+      </p>
+      <div class="flex flex-col gap-4 mt-9">
+        {% for item in ['Track movies, anime & TV shows in one place',
+                        'Discover what is trending this week',
+                        'Rate and review everything you finish'] %}
+        <div class="flex items-center gap-3">
+          <div class="w-5 h-5 rounded-full grid place-items-center shrink-0"
+               style="background:var(--accent)">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"/>
+            </svg>
+          </div>
+          <span class="text-sm" style="color:rgba(255,255,255,.75)">{{ item }}</span>
         </div>
+        {% endfor %}
+      </div>
+    </div>
 
-        <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email"
-                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-hidden"
-                   placeholder="you@example.com">
-        </div>
-
-        <div>
-            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password"
-                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-hidden"
-                   placeholder="At least 8 characters">
-        </div>
-
-        <button type="submit"
-                class="w-full px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-                data-ui="button">
-            Create Account
-        </button>
-    </form>
-
-    <p class="text-center text-sm text-gray-500 mt-6">
-        Already have an account?
-        <a href="{{ url_for('auth.login') }}" class="text-blue-600 hover:underline">Log In</a>
+    <p class="relative font-mono text-[10px] tracking-widest uppercase" style="color:rgba(255,255,255,.3)">
+      &copy; 2025 WatchList Hub · CITS5505
     </p>
+  </div>
+
+  {# ── Right panel: form ── #}
+  <div class="flex flex-col items-center justify-center px-8 py-12 min-h-screen lg:min-h-0">
+
+    {# Flash messages #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="w-full max-w-sm flex flex-col gap-2 mb-5">
+      {% for category, message in messages %}
+      <div class="flash-msg flash-msg--{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="w-full max-w-sm">
+      <div class="h-eyebrow mb-2">Create your account</div>
+      <h1 class="display mb-8" style="font-size:38px;letter-spacing:-.02em">
+        Start <em style="font-style:italic;color:var(--accent)">tracking</em> today.
+      </h1>
+
+      <form method="POST" action="{{ url_for('auth.register') }}" class="flex flex-col gap-5" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="form-field">
+          {{ form.username.label(class="form-label") }}
+          {{ form.username(class="form-input", placeholder="your_username", autocomplete="username") }}
+          {% if form.username.errors %}
+          <span class="flash-msg flash-msg--error text-xs mt-1 inline-block">{{ form.username.errors[0] }}</span>
+          {% endif %}
+        </div>
+
+        <div class="form-field">
+          {{ form.email.label(class="form-label") }}
+          {{ form.email(class="form-input", placeholder="you@example.com", autocomplete="email") }}
+          {% if form.email.errors %}
+          <span class="flash-msg flash-msg--error text-xs mt-1 inline-block">{{ form.email.errors[0] }}</span>
+          {% endif %}
+        </div>
+
+        <div class="form-field">
+          {{ form.password.label(class="form-label") }}
+          {% call password_input_wrap() %}
+          {{ form.password(class="form-input", placeholder="At least 8 characters", autocomplete="new-password", minlength="8", maxlength="128") }}
+          {% endcall %}
+          <span class="form-hint">Minimum 8 characters (matches server validation).</span>
+          {% if form.password.errors %}
+          <span class="flash-msg flash-msg--error text-xs mt-1 inline-block">{{ form.password.errors[0] }}</span>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--lg w-full mt-1">
+          Create Account
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+
+      <p class="text-center text-sm mt-6" style="color:var(--muted)">
+        Already have an account?
+        <a href="{{ url_for('auth.login') }}" class="font-semibold" style="color:var(--accent)">Log in →</a>
+      </p>
+    </div>
+  </div>
 
 </div>
 {% endblock %}

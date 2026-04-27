@@ -1,0 +1,189 @@
+@reference "../../../frontend/src/style.css";
+
+/* ── Topbar inline search ─────────────────────────────────────── */
+.topbar-search {
+  @apply relative flex items-center gap-2.5 px-3.5 py-2 bg-card border border-border rounded-full text-muted text-[0.8125rem] transition-[border-color] duration-150 cursor-text;
+  min-width: 220px;
+}
+.topbar-search:focus-within { @apply border-accent; }
+.topbar-search > svg { @apply w-4 h-4 shrink-0; }
+
+.topbar-search__input {
+  @apply flex-1 border-0 outline-none bg-transparent text-foreground cursor-text;
+  font: inherit;
+  font-size: 0.8125rem;
+  min-width: 0;
+}
+.topbar-search__input::placeholder { @apply text-muted; }
+
+/* ── Inline dropdown ──────────────────────────────────────────── */
+.tsearch-drop {
+  @apply absolute left-0 right-0 bg-card border border-border rounded-2xl overflow-hidden flex flex-col;
+  top: calc(100% + 8px);
+  z-index: 400;
+  box-shadow: var(--shadow-lg);
+  max-height: 480px;
+}
+
+#tsearch-results {
+  @apply flex-1 overflow-y-auto;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+#tsearch-results::-webkit-scrollbar       { width: 3px; }
+#tsearch-results::-webkit-scrollbar-thumb { background: var(--rule); }
+
+/* ── Result item (shared by inline + modal) ───────────────────── */
+.tsearch-item {
+  @apply flex items-center gap-3 no-underline text-inherit transition-[background] duration-100;
+  padding: 8px 12px;
+}
+.tsearch-item:hover,
+.tsearch-item.is-focused { @apply bg-card-2; }
+
+.tsearch-item__poster {
+  @apply shrink-0 rounded-lg overflow-hidden bg-card-2;
+  width: 40px;
+  height: 58px;
+}
+.tsearch-item__poster img {
+  @apply w-full h-full object-cover block;
+}
+.tsearch-item__poster-placeholder {
+  @apply w-full h-full flex items-center justify-center text-muted;
+  font-size: 1.2rem;
+}
+
+.tsearch-item__body { @apply flex-1 min-w-0; }
+.tsearch-item__title {
+  @apply text-[0.875rem] font-semibold text-foreground truncate leading-snug;
+}
+.tsearch-item__meta {
+  @apply flex items-center gap-1 text-[0.75rem] text-muted mt-0.5 flex-wrap;
+}
+.tsearch-item__type {
+  @apply font-mono uppercase text-[0.6rem] tracking-[0.1em] font-semibold text-muted;
+}
+.tsearch-item__dot  { @apply text-muted; }
+.tsearch-item__year { @apply tabular-nums; }
+.tsearch-item__rating {
+  @apply font-mono text-[0.6875rem] font-semibold;
+  color: var(--warn);
+}
+
+/* ── Empty / loading states ───────────────────────────────────── */
+.tsearch-empty,
+.tsearch-loading {
+  @apply text-center text-muted py-8;
+  font-size: 0.875rem;
+}
+.tsearch-empty strong { @apply text-foreground; }
+
+/* ── Footer "see all" link ────────────────────────────────────── */
+.tsearch-footer {
+  @apply border-t border-border shrink-0;
+}
+.tsearch-footer__link {
+  @apply flex items-center justify-center gap-2 no-underline text-[0.8125rem] text-muted transition-[background,color] duration-100;
+  padding: 10px 12px;
+}
+.tsearch-footer__link:hover { @apply bg-card-2 text-foreground; }
+.tsearch-footer__link svg   { @apply w-3.5 h-3.5 shrink-0; }
+
+/* ── ⌘K Modal: backdrop ──────────────────────────────────────── */
+.tsearch-backdrop {
+  @apply fixed inset-0 bg-black/50;
+  z-index: 500;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* ── ⌘K Modal: wrapper (centers the box) ────────────────────── */
+.tsearch-modal {
+  @apply fixed inset-0 flex items-start justify-center;
+  z-index: 501;
+  padding-top: clamp(48px, 12vh, 120px);
+  padding-left: 16px;
+  padding-right: 16px;
+  pointer-events: none;
+}
+
+/* ── ⌘K Modal: box ───────────────────────────────────────────── */
+.tsearch-modal__box {
+  @apply w-full bg-card border border-border rounded-2xl overflow-hidden flex flex-col;
+  max-width: 640px;
+  max-height: min(80vh, 560px);
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+}
+
+/* ── Modal header: icon + input + close ──────────────────────── */
+.tsearch-modal__header {
+  @apply flex items-center gap-3 px-4 border-b border-border;
+  height: 56px;
+  flex-shrink: 0;
+}
+.tsearch-modal__header > svg { @apply w-4 h-4 shrink-0 text-muted; }
+
+.tsearch-modal__input {
+  @apply flex-1 border-0 outline-none bg-transparent text-foreground cursor-text;
+  font: inherit;
+  font-size: 1rem;
+  min-width: 0;
+}
+.tsearch-modal__input::placeholder { @apply text-muted; }
+
+.tsearch-modal__close {
+  @apply shrink-0 w-8 h-8 flex items-center justify-center rounded-lg text-muted transition-[background,color] duration-100 cursor-pointer;
+  border: none;
+  background: transparent;
+}
+.tsearch-modal__close:hover { @apply bg-card-2 text-foreground; }
+.tsearch-modal__close svg { @apply w-4 h-4; }
+
+/* ── Modal scrollable results ────────────────────────────────── */
+.tsearch-modal__results {
+  @apply flex-1 overflow-y-auto;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+.tsearch-modal__results::-webkit-scrollbar       { width: 3px; }
+.tsearch-modal__results::-webkit-scrollbar-thumb { background: var(--rule); }
+
+/* items inside modal get slightly more padding */
+.tsearch-modal__results .tsearch-item { padding: 8px 16px; }
+
+/* ── Responsive ───────────────────────────────────────────────── */
+
+/* Mobile: topbar becomes a plain icon button */
+@media (max-width: 639px) {
+  .topbar-search {
+    @apply p-2 rounded-lg bg-transparent border-transparent;
+    min-width: 0;
+  }
+  .topbar-search:focus-within { @apply border-transparent; }
+  .topbar-search__input,
+  .topbar-search .kbd,
+  .topbar-search .topbar__spacer { display: none; }
+
+  /* Modal slides up from bottom on mobile */
+  .tsearch-modal {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .tsearch-modal__box {
+    max-width: 100%;
+    max-height: 92vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .topbar-search { min-width: 160px; }
+  .tsearch-modal { padding-top: 48px; }
+  .tsearch-modal__box { max-width: 90%; }
+}

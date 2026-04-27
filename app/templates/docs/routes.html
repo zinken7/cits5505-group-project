@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site routes — WatchList Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/docs_nav.css') }}">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 0.875rem;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    .page { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+    h1 { font-size: 1.4rem; font-weight: 700; margin: 0 0 0.25rem; color: #f1f5f9; }
+    .subtitle { color: #94a3b8; margin: 0 0 2rem; }
+    .subtitle a { color: #a78bfa; text-decoration: none; }
+    .subtitle a:hover { text-decoration: underline; }
+
+    .section { margin-bottom: 2.5rem; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #1e293b;
+    }
+    .section-title span {
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.65rem;
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      align-items: start;
+      gap: 0.5rem 0.75rem;
+      padding: 0.6rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.1s;
+    }
+    .route:hover { background: #1e293b; }
+
+    .methods { display: flex; flex-wrap: wrap; gap: 0.25rem; padding-top: 0.1rem; }
+    .method {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+    }
+    .method-GET    { background: #064e3b; color: #6ee7b7; }
+    .method-POST   { background: #1e3a5f; color: #93c5fd; }
+    .method-PATCH  { background: #451a03; color: #fbbf24; }
+    .method-DELETE { background: #450a0a; color: #fca5a5; }
+
+    .route-body {}
+
+    .url {
+      font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      word-break: break-all;
+      margin-bottom: 0.2rem;
+    }
+    .url .param { color: #a78bfa; }
+
+    .description { color: #64748b; font-size: 0.78rem; line-height: 1.4; }
+  </style>
+</head>
+<body class="docs-standalone">
+  {% include "components/docs_subnav.html" %}
+
+  <div class="page">
+    <h1>Site routes</h1>
+    <p class="subtitle">
+      Flask server-rendered URLs (main, auth, docs blueprints). REST JSON lives under
+      <code style="color:#a78bfa">/api/v1</code> — see
+      <a href="{{ url_for('docs.apis') }}">Swagger</a> or
+      <a href="{{ url_for('docs.apis_redoc') }}">ReDoc</a> or
+      <a href="{{ url_for('docs.openapi_json') }}">openapi.json</a>.
+      App shell: <code>/dashboard</code>, <code>/explore</code>, <code>/chat</code>, profiles, categories, search.
+    </p>
+
+    {% for blueprint, rules in route_groups.items() %}
+    <div class="section">
+      <div class="section-title">
+        {{ blueprint_labels.get(blueprint, blueprint) }}
+        <span>{{ rules | length }} route{{ 's' if rules | length != 1 }}</span>
+      </div>
+
+      {% for rule in rules %}
+      <div class="route">
+        <div class="methods">
+          {% for method in rule.methods %}
+          <span class="method method-{{ method }}">{{ method }}</span>
+          {% endfor %}
+        </div>
+        <div class="route-body">
+          <div class="url">
+            {% for part in rule.url_parts %}
+              {% if part.startswith('<') %}<span class="param">{{ part }}</span>{% else %}{{ part }}{% endif %}
+            {% endfor %}
+          </div>
+          {% if rule.description %}
+          <div class="description">{{ rule.description }}</div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

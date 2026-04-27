@@ -30,7 +30,7 @@
           return;
         }
         renderItem(root, body.data);
-        wireAddToWatchlist(root, body.data, watchlistUrl);
+        wireWatchlist(root, body.data, watchlistUrl);
       })
       .catch(() => renderAlert(root, "error", "Could not load item. Please try again."));
   }
@@ -119,56 +119,137 @@
     setText(root, "planned_count", fmtInt(data.planned_count));
   }
 
-  /* ---- Watchlist action ------------------------------------------- */
-  function wireAddToWatchlist(root, data, watchlistUrl) {
-    const btn = root.querySelector('[data-action="add-to-watchlist"]');
-    if (!btn) return;
+  /* ---- Watchlist: status buttons + add/remove -------------------- */
+  function wireWatchlist(root, data, watchlistUrl) {
+    var btn        = root.querySelector('[data-action="add-to-watchlist"]');
+    var label      = btn ? btn.querySelector('[data-field="action-label"]') : null;
+    var statusBtns = [].slice.call(root.querySelectorAll('[data-status-btn]'));
 
-    btn.addEventListener("click", () => {
-      if (btn.disabled) return;
-      btn.disabled = true;
-      const label = btn.querySelector('[data-field="action-label"]');
-      const original = label ? label.textContent : btn.textContent;
-      if (label) label.textContent = "Adding…";
+    var currentEntry  = null; // { id, status } when item is already in watchlist
+    var selectedStatus = 'planned';
 
-      fetch(watchlistUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        credentials: "same-origin",
-        body: JSON.stringify({
-          mediaType: data.media_type,
-          mediaId: data.media_id,
-          status: "planned",
-        }),
-      })
-        .then((r) => r.json().then((body) => ({ status: r.status, body })))
-        .then(({ status, body }) => {
-          if (status === 201) {
-            if (label) label.textContent = "Added to Planned ✓";
-            renderAlert(root, "success", "Added to your Planned list.");
-          } else if (status === 401) {
-            if (label) label.textContent = original;
-            btn.disabled = false;
-            renderAlert(
-              root,
-              "error",
-              'You need to <a class="underline" href="/login">sign in</a> to use your watchlist.'
-            );
-          } else {
-            if (label) label.textContent = original;
-            btn.disabled = false;
-            renderAlert(root, "error", (body && body.message) || "Could not add to watchlist.");
+    // ── Load existing entry ──────────────────────────────────────
+    function loadState() {
+      if (!window._appUserId) return;
+      window.apiFetch('/api/v1/watchlist')
+        .then(function (result) {
+          var items = Array.isArray(result) ? result : [];
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].media_id === data.id) {
+              currentEntry = { id: items[i].id, status: items[i].status };
+              selectedStatus = items[i].status;
+              break;
+            }
           }
+          applyState();
         })
-        .catch(() => {
-          if (label) label.textContent = original;
-          btn.disabled = false;
-          renderAlert(root, "error", "Network error. Please try again.");
-        });
+        .catch(function () {});
+    }
+
+    // ── Reflect state in UI ──────────────────────────────────────
+    function applyState() {
+      var active = currentEntry ? currentEntry.status : null;
+      statusBtns.forEach(function (b) {
+        b.classList.toggle('on', !!active && b.dataset.statusBtn === active);
+      });
+      if (btn) {
+        if (currentEntry) {
+          if (label) label.textContent = 'Remove from Watchlist';
+          btn.classList.remove('btn--accent');
+          btn.classList.add('btn--ghost');
+        } else {
+          if (label) label.textContent = 'Add to Watchlist';
+          btn.classList.add('btn--accent');
+          btn.classList.remove('btn--ghost');
+        }
+        btn.disabled = false;
+      }
+    }
+
+    // ── Status buttons ───────────────────────────────────────────
+    statusBtns.forEach(function (statusBtn) {
+      statusBtn.addEventListener('click', function () {
+        var newStatus = statusBtn.dataset.statusBtn;
+        if (!window._appUserId) { window.location.href = '/login'; return; }
+        statusBtns.forEach(function (b) { b.disabled = true; });
+
+        if (currentEntry) {
+          // Already in list — update status
+          window.apiFetch('/api/v1/watchlist/' + currentEntry.id, {
+            method: 'PATCH',
+            body: JSON.stringify({ status: newStatus }),
+          })
+            .then(function () {
+              currentEntry.status = newStatus;
+              selectedStatus = newStatus;
+              applyState();
+              renderAlert(root, 'success', 'Status updated to ' + newStatus + '.');
+            })
+            .catch(function () { renderAlert(root, 'error', 'Could not update status.'); })
+            .finally(function () { statusBtns.forEach(function (b) { b.disabled = false; }); });
+        } else {
+          // Not in list — add with this status
+          window.apiFetch(watchlistUrl, {
+            method: 'POST',
+            body: JSON.stringify({ mediaType: data.media_type, mediaId: data.id, status: newStatus }),
+          })
+            .then(function (entry) {
+              currentEntry = { id: entry.id, status: entry.status || newStatus };
+              selectedStatus = currentEntry.status;
+              applyState();
+              renderAlert(root, 'success', 'Added to ' + currentEntry.status + ' list.');
+            })
+            .catch(function () {
+              renderAlert(root, 'error', 'Could not add to watchlist.');
+              statusBtns.forEach(function (b) { b.disabled = false; });
+            });
+        }
+      });
     });
+
+    // ── Main Add / Remove button ─────────────────────────────────
+    if (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.disabled) return;
+        if (!window._appUserId) { window.location.href = '/login'; return; }
+        btn.disabled = true;
+
+        if (currentEntry) {
+          // Remove
+          window.apiFetch('/api/v1/watchlist/' + currentEntry.id, { method: 'DELETE' })
+            .then(function () {
+              currentEntry = null;
+              selectedStatus = 'planned';
+              applyState();
+              renderAlert(root, 'success', 'Removed from your watchlist.');
+            })
+            .catch(function () {
+              btn.disabled = false;
+              renderAlert(root, 'error', 'Could not remove from watchlist.');
+            });
+        } else {
+          // Add with currently selected status
+          if (label) label.textContent = 'Adding…';
+          window.apiFetch(watchlistUrl, {
+            method: 'POST',
+            body: JSON.stringify({ mediaType: data.media_type, mediaId: data.id, status: selectedStatus }),
+          })
+            .then(function (entry) {
+              currentEntry = { id: entry.id, status: entry.status || selectedStatus };
+              selectedStatus = currentEntry.status;
+              applyState();
+              renderAlert(root, 'success', 'Added to ' + currentEntry.status + ' list.');
+            })
+            .catch(function () {
+              if (label) label.textContent = 'Add to Watchlist';
+              btn.disabled = false;
+              renderAlert(root, 'error', 'Could not add to watchlist.');
+            });
+        }
+      });
+    }
+
+    loadState();
   }
 
   /* ---- helpers ---------------------------------------------------- */

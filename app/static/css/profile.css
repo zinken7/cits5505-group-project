@@ -1,0 +1,68 @@
+@reference "../../../frontend/src/style.css";
+
+/* ── Confirm modal ───────────────────────────────────────────────── */
+.confirm-modal {
+  @apply fixed inset-0 flex items-center justify-center z-[900];
+  background: rgba(0,0,0,.5);
+}
+.confirm-modal[hidden] { display: none !important; }
+.confirm-modal__box {
+  @apply bg-card border border-border rounded-xl;
+  padding: 24px 28px;
+  max-width: 340px;
+  width: 90%;
+  box-shadow: var(--shadow-md);
+}
+.confirm-modal__title {
+  @apply font-semibold text-foreground;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.confirm-modal__msg {
+  @apply text-muted;
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+.confirm-modal__actions { @apply flex gap-2 justify-end; }
+.confirm-modal__danger  { background: var(--bad); color: #fff; border: none; }
+
+/* Profile page — layout grids */
+.profile-stats-row {
+  @apply grid grid-cols-6 gap-0 border-t border-b border-border mt-5 mb-8;
+}
+.profile-two-col {
+  @apply grid gap-8;
+  grid-template-columns: minmax(0, 2fr) 1fr;
+}
+
+@media (max-width: 900px) {
+  .profile-stats-row { @apply grid-cols-3; }
+  .profile-two-col   { @apply grid-cols-1; }
+}
+
+@media (max-width: 520px) {
+  .profile-stats-row        { @apply grid-cols-2; }
+  .profile-stats-row > div  { @apply px-3 py-[14px]; }
+}
+
+/* Profile edit — username @ prefix + date field alignment with form-input */
+.profile-edit-username__at {
+  @apply pointer-events-none absolute left-[14px] top-1/2 z-[1] -translate-y-1/2 text-[13px] font-medium text-muted-2;
+}
+
+.profile-edit-username__input {
+  padding-left: 1.875rem;
+}
+
+.profile-edit-date.form-input {
+  min-height: 42px;
+  color-scheme: light dark;
+}
+
+html[data-theme="dark"] .profile-edit-date.form-input {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] .profile-edit-date.form-input {
+  color-scheme: light;
+}

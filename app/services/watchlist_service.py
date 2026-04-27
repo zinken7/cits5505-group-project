@@ -108,6 +108,44 @@ def remove_from_watchlist(item_id, user_id):
     return True, None
 
 
+def filter_watchlist(items, status=None, media_type=None, q=None, sort="-updatedAt", limit=12, offset=0):
+    """Filter, sort, and paginate a list of watchlist item dicts."""
+    out = list(items)
+    if status:
+        out = [i for i in out if i.get("status") == status]
+    if media_type:
+        out = [i for i in out if (i.get("media") or {}).get("media_type") == media_type]
+    if q:
+        ql = q.lower()
+        out = [i for i in out if ql in (i.get("media") or {}).get("title", "").lower()]
+    reverse = sort.startswith("-")
+    sk = sort.lstrip("-")
+    if sk in ("updatedAt", "createdAt", "created_at"):
+        key = "created_at"
+        out = sorted(out, key=lambda x: x.get(key) or "", reverse=reverse)
+    total = len(out)
+    return out[offset: offset + limit], total
+
+
+def counts_for_imdb_id(imdb_id):
+    """Return live watchlist counts for a media item identified by imdb_id."""
+    media = Media.query.filter_by(imdb_id=imdb_id).first()
+    if not media:
+        return {"watching": 0, "completed": 0, "planned": 0, "total": 0}
+    rows = (
+        db.session.query(WatchlistItem.status, func.count(WatchlistItem.id))
+        .filter(WatchlistItem.media_id == media.id)
+        .group_by(WatchlistItem.status)
+        .all()
+    )
+    counts = {status: count for status, count in rows}
+    watching = counts.get("watching", 0) + counts.get("rewatching", 0) + counts.get("replaying", 0)
+    completed = counts.get("completed", 0)
+    planned = counts.get("planned", 0)
+    total = sum(counts.values())
+    return {"watching": watching, "completed": completed, "planned": planned, "total": total}
+
+
 def get_trending(media_type=None, limit=10):
     """Get the most popular media items across all users.
 

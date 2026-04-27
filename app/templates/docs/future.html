@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Features — WatchList Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/docs_nav.css') }}">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --bg:        #0f172a;
+      --surface:   #1e293b;
+      --border:    #334155;
+      --muted:     #64748b;
+      --text:      #e2e8f0;
+      --text-dim:  #94a3b8;
+      --purple:    #a78bfa;
+      --blue:      #60a5fa;
+      --green:     #34d399;
+      --yellow:    #fbbf24;
+      --red:       #f87171;
+      --orange:    #fb923c;
+      --pink:      #f472b6;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    .layout { display: flex; min-height: calc(100vh - 41px); }
+
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 41px;
+      height: calc(100vh - 41px);
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .sidebar-section { margin-bottom: 1.5rem; }
+
+    .sidebar-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.1s, background 0.1s;
+    }
+    .sidebar a:hover { color: var(--text); background: var(--surface); }
+    .sidebar a.active { color: var(--purple); font-weight: 600; }
+
+    .page { flex: 1; max-width: 820px; padding: 2rem 2rem 5rem; }
+
+    /* ── Heading ─────────────────────────────────────────── */
+    h1 { font-size: 1.5rem; font-weight: 800; margin: 0 0 0.3rem; color: #f1f5f9; }
+    h2 {
+      font-size: 1.1rem; font-weight: 700; margin: 2.5rem 0 1rem;
+      color: #f1f5f9; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+    }
+    h3 { font-size: 0.875rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+    p { margin: 0 0 0.75rem; color: var(--text-dim); }
+    code {
+      font-family: "SF Mono","Fira Code",monospace;
+      font-size: 0.78rem;
+      background: var(--surface);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      color: var(--purple);
+    }
+
+    /* ── Feature badge ───────────────────────────────────── */
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 99px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-1 { background: #1e3a5f; color: var(--blue); }
+    .badge-2 { background: #1a1a3e; color: var(--purple); }
+    .badge-3 { background: #064e3b; color: var(--green); }
+
+    /* ── Tables ──────────────────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.25rem; font-size: 0.8rem; }
+    th {
+      text-align: left;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0 0.5rem 0.4rem;
+    }
+    td {
+      padding: 0.45rem 0.5rem;
+      border-bottom: 1px solid #1e293b;
+      vertical-align: top;
+      color: var(--text-dim);
+    }
+    tr:last-child td { border-bottom: none; }
+    td code { font-size: 0.75rem; }
+    td:first-child { white-space: nowrap; }
+
+    /* ── HTTP method badges ──────────────────────────────── */
+    .m { font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.35rem; border-radius: 3px; }
+    .m-GET    { background:#064e3b; color:#6ee7b7; }
+    .m-POST   { background:#1e3a5f; color:#93c5fd; }
+    .m-PATCH  { background:#451a03; color:var(--yellow); }
+    .m-DELETE { background:#450a0a; color:var(--red); }
+
+    /* ── Field type tags ─────────────────────────────────── */
+    .type { color: var(--yellow); font-size: 0.75rem; }
+    .nullable { color: var(--muted); font-style: italic; font-size: 0.72rem; }
+    .pk   { color: var(--orange); font-size: 0.7rem; font-weight:700; }
+    .fk   { color: var(--blue);   font-size: 0.7rem; font-weight:700; }
+    .idx  { color: var(--green);  font-size: 0.7rem; }
+
+    /* ── Callout boxes ───────────────────────────────────── */
+    .callout {
+      border-left: 3px solid;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+      font-size: 0.8rem;
+    }
+    .callout-info   { border-color: var(--blue);   background: #1e293b; color: var(--text-dim); }
+    .callout-warn   { border-color: var(--yellow);  background: #1c1400; color: #fef08a; }
+    .callout-tip    { border-color: var(--green);  background: #022c22; color: #a7f3d0; }
+
+    /* ── Steps list ──────────────────────────────────────── */
+    .steps { list-style: none; padding: 0; margin: 0.5rem 0 1rem; }
+    .steps li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 1.4rem; height: 1.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim);
+      margin-top: 0.1rem;
+    }
+
+    /* ── File checklist ──────────────────────────────────── */
+    .file-list { list-style: none; padding: 0; margin: 0.5rem 0 1rem; }
+    .file-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 0.25rem 0;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .tag-new    { font-size:0.62rem; font-weight:700; background:#022c22; color:var(--green);  padding:0.1rem 0.35rem; border-radius:3px; flex-shrink:0; }
+    .tag-edit   { font-size:0.62rem; font-weight:700; background:#1c1400; color:var(--yellow); padding:0.1rem 0.35rem; border-radius:3px; flex-shrink:0; }
+    .tag-dep    { font-size:0.62rem; font-weight:700; background:#1e3a5f; color:var(--blue);   padding:0.1rem 0.35rem; border-radius:3px; flex-shrink:0; }
+    .file-desc  { color: var(--muted); font-size:0.75rem; }
+
+    /* ── Phase timeline ──────────────────────────────────── */
+    .phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .phase {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .phase-num { font-size: 0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:0.3rem; }
+    .phase-title { font-weight:700; color:var(--text); margin-bottom:0.5rem; font-size:0.875rem; }
+    .phase ul { list-style:none; padding:0; margin:0; }
+    .phase li { font-size:0.78rem; color:var(--text-dim); padding:0.15rem 0; }
+    .phase li::before { content:"·"; color:var(--muted); margin-right:0.4rem; }
+
+    /* ── Socket event box ────────────────────────────────── */
+    .events { display: flex; flex-direction: column; gap: 0.5rem; margin: 0.75rem 0; }
+    .event {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.75rem;
+      display: grid;
+      grid-template-columns: 110px 140px 1fr;
+      gap: 0.5rem;
+      align-items: start;
+      font-size: 0.8rem;
+    }
+    .event-dir {
+      font-size: 0.65rem; font-weight:700; text-transform:uppercase;
+      padding: 0.15rem 0.4rem; border-radius: 3px; align-self: center;
+    }
+    .dir-c2s { background:#1a1a3e; color:var(--purple); }
+    .dir-s2c { background:#064e3b; color:var(--green); }
+    .event-name { font-family:monospace; color:var(--blue); font-size:0.8rem; align-self:center; }
+    .event-desc { color: var(--text-dim); }
+
+    /* ── Divider ─────────────────────────────────────────── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  </style>
+</head>
+<body class="docs-standalone">
+  {% include "components/docs_subnav.html" %}
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Overview</div>
+        <a href="#overview">Introduction</a>
+        <a href="#impl-order">Implementation Order</a>
+        <a href="#dependencies">Dependencies</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Feature 1</div>
+        <a href="#f1">Friend System</a>
+        <a href="#f1-model">Model</a>
+        <a href="#f1-service">Service</a>
+        <a href="#f1-api">API Endpoints</a>
+        <a href="#f1-frontend">Frontend</a>
+        <a href="#f1-files">Files</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Feature 2</div>
+        <a href="#f2">Real-time Messaging</a>
+        <a href="#f2-model">Model</a>
+        <a href="#f2-service">Service</a>
+        <a href="#f2-socket">WebSocket Events</a>
+        <a href="#f2-api">REST Endpoints</a>
+        <a href="#f2-frontend">Frontend</a>
+        <a href="#f2-files">Files</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Feature 3</div>
+        <a href="#f3">Movie Tagging</a>
+        <a href="#f3-how">How It Works</a>
+        <a href="#f3-service">Service</a>
+        <a href="#f3-frontend">Frontend</a>
+        <a href="#f3-files">Files</a>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="page">
+
+      <!-- ── Overview ──────────────────────────────────────── -->
+      <section id="overview">
+        <h1>Planned Features</h1>
+        <p><strong>Status (2026):</strong> Friend requests, accepted friends, DMs, and Socket.IO chat are <strong>implemented</strong> (see <code>/api/v1/friends</code>, <code>/api/v1/messages</code>, <code>/chat</code>). This page keeps <strong>design notes</strong> for richer chat features (e.g. movie tagging in messages) and any follow-up polish.</p>
+        <div class="callout callout-warn">
+          <strong>Schema note:</strong> This project uses <code>db.create_all()</code> with no migrations in flight. Any new model must be imported in <code>app/__init__.py</code> before <code>db.create_all()</code>, and existing <code>instance/watchlist.db</code> must be deleted and re-seeded when adding tables.
+        </div>
+      </section>
+
+      <!-- ── Implementation Order ──────────────────────────── -->
+      <section id="impl-order">
+        <h2>Implementation Order</h2>
+        <p>Features depend on each other. Build in this sequence:</p>
+        <div class="phases">
+          <div class="phase">
+            <div class="phase-num">Phase 1</div>
+            <div class="phase-title">Friend System</div>
+            <ul>
+              <li>Friendship model</li>
+              <li>friend_service.py</li>
+              <li>REST API (/friends/*)</li>
+              <li>Friends list UI</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <div class="phase-num">Phase 2</div>
+            <div class="phase-title">Messaging</div>
+            <ul>
+              <li>Requires Phase 1</li>
+              <li>Message model</li>
+              <li>Flask-SocketIO setup</li>
+              <li>message_service.py</li>
+              <li>Chat UI</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <div class="phase-num">Phase 3</div>
+            <div class="phase-title">Movie Tagging</div>
+            <ul>
+              <li>Requires Phase 2</li>
+              <li>tag_service.py</li>
+              <li>Wire into send_message</li>
+              <li>Tag popover UI</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Dependencies ──────────────────────────────────── -->
+      <section id="dependencies">
+        <h2>New Dependencies</h2>
+        <table>
+          <tr><th>Package</th><th>Version</th><th>Used for</th><th>Add to</th></tr>
+          <tr><td><code>Flask-SocketIO</code></td><td><code>5.*</code></td><td>WebSocket server for real-time chat</td><td><code>requirements.txt</code></td></tr>
+          <tr><td><code>eventlet</code></td><td><code>0.35.*</code></td><td>Async worker required by Flask-SocketIO</td><td><code>requirements.txt</code></td></tr>
+          <tr><td><code>socket.io-client</code></td><td><code>4.*</code></td><td>Browser WebSocket client</td><td><code>frontend/package.json</code> or CDN</td></tr>
+        </table>
+        <div class="callout callout-info">
+          <code>run.py</code> must change from <code>app.run()</code> to <code>socketio.run(app)</code> once Flask-SocketIO is added.
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- ══════════════════════════════════════════════════════
+           FEATURE 1 — FRIEND SYSTEM
+           ══════════════════════════════════════════════════════ -->
+      <section id="f1">
+        <h2>
+          <div class="feature-header">
+            <span class="feature-badge badge-1">Feature 1</span>
+            Friend System
+          </div>
+        </h2>
+        <p>Mutual friendship between users: one sends a request, the other accepts or rejects. Only confirmed friends can message each other. Friendship can be removed by either party.</p>
+      </section>
+
+      <section id="f1-model">
+        <h3>Model — <code>app/models/friendship.py</code></h3>
+        <table>
+          <tr><th>Column</th><th>Type</th><th>Constraints</th><th>Notes</th></tr>
+          <tr><td><code>id</code></td><td><span class="type">Integer</span></td><td><span class="pk">PK</span></td><td></td></tr>
+          <tr><td><code>requester_id</code></td><td><span class="type">Integer</span></td><td><span class="fk">FK</span> <code>users.id</code>, NOT NULL, <span class="idx">IDX</span></td><td>User who sent the request</td></tr>
+          <tr><td><code>addressee_id</code></td><td><span class="type">Integer</span></td><td><span class="fk">FK</span> <code>users.id</code>, NOT NULL, <span class="idx">IDX</span></td><td>User who received the request</td></tr>
+          <tr><td><code>status</code></td><td><span class="type">String(20)</span></td><td>NOT NULL, default <code>"pending"</code></td><td><code>pending</code> | <code>accepted</code> | <code>rejected</code></td></tr>
+          <tr><td><code>created_at</code></td><td><span class="type">DateTime</span></td><td>default UTC now</td><td>When the request was sent</td></tr>
+          <tr><td><code>updated_at</code></td><td><span class="type">DateTime</span></td><td>default + onupdate UTC now</td><td>When status last changed</td></tr>
+        </table>
+        <div class="callout callout-info">
+          Add a <code>UniqueConstraint("requester_id", "addressee_id")</code> so duplicate requests are impossible at the DB level. To check friendship in either direction, query both <code>(a, b)</code> and <code>(b, a)</code>.
+        </div>
+        <p>Register in <code>app/__init__.py</code>:</p>
+        <code>from app.models import user, media, watchlist, friendship  # noqa</code>
+      </section>
+
+      <section id="f1-service">
+        <h3>Service — <code>app/services/friend_service.py</code></h3>
+        <table>
+          <tr><th>Function</th><th>Parameters</th><th>Returns</th><th>Description</th></tr>
+          <tr><td><code>send_request</code></td><td><code>requester_id, addressee_id</code></td><td><code>(friendship, None) | (None, err)</code></td><td>Create a pending Friendship. Fails if already friends, request already pending, or users are the same.</td></tr>
+          <tr><td><code>respond_to_request</code></td><td><code>friendship_id, user_id, action</code></td><td><code>(friendship, None) | (None, err)</code></td><td><code>action</code> is <code>"accept"</code> or <code>"reject"</code>. Only the addressee can respond.</td></tr>
+          <tr><td><code>remove_friend</code></td><td><code>friendship_id, user_id</code></td><td><code>(True, None) | (False, err)</code></td><td>Either party can remove. Deletes the row entirely.</td></tr>
+          <tr><td><code>get_friends</code></td><td><code>user_id</code></td><td><code>list[User]</code></td><td>All users with an <code>accepted</code> friendship with this user (either direction).</td></tr>
+          <tr><td><code>get_pending_received</code></td><td><code>user_id</code></td><td><code>list[Friendship]</code></td><td>Incoming requests where this user is the addressee and status is <code>pending</code>.</td></tr>
+          <tr><td><code>get_pending_sent</code></td><td><code>user_id</code></td><td><code>list[Friendship]</code></td><td>Outgoing requests where this user is the requester and status is <code>pending</code>.</td></tr>
+          <tr><td><code>are_friends</code></td><td><code>user_id_a, user_id_b</code></td><td><code>bool</code></td><td>Quick check used by the messaging gate. Returns <code>True</code> only for <code>accepted</code> status.</td></tr>
+        </table>
+      </section>
+
+      <section id="f1-api">
+        <h3>API Endpoints — <code>app/api/v1/friends.py</code></h3>
+        <table>
+          <tr><th>Method</th><th>URL</th><th>Auth</th><th>Body / Params</th><th>Description</th></tr>
+          <tr>
+            <td><span class="m m-GET">GET</span></td>
+            <td><code>/api/v1/friends</code></td>
+            <td>required</td>
+            <td>—</td>
+            <td>List all confirmed friends of the current user.</td>
+          </tr>
+          <tr>
+            <td><span class="m m-GET">GET</span></td>
+            <td><code>/api/v1/friends/requests</code></td>
+            <td>required</td>
+            <td>—</td>
+            <td>List pending incoming friend requests.</td>
+          </tr>
+          <tr>
+            <td><span class="m m-POST">POST</span></td>
+            <td><code>/api/v1/friends/requests</code></td>
+            <td>required</td>
+            <td><code>{ "targetUserId": int }</code></td>
+            <td>Send a friend request to another user.</td>
+          </tr>
+          <tr>
+            <td><span class="m m-PATCH">PATCH</span></td>
+            <td><code>/api/v1/friends/requests/&lt;id&gt;</code></td>
+            <td>required</td>
+            <td><code>{ "action": "accept"|"reject" }</code></td>
+            <td>Accept or reject an incoming request. Only the addressee may call this.</td>
+          </tr>
+          <tr>
+            <td><span class="m m-DELETE">DELETE</span></td>
+            <td><code>/api/v1/friends/&lt;id&gt;</code></td>
+            <td>required</td>
+            <td>—</td>
+            <td>Remove a confirmed friendship. Either party can call this.</td>
+          </tr>
+        </table>
+        <div class="callout callout-tip">
+          Import <code>friends</code> in <code>app/api/v1/__init__.py</code> or the routes won't register.
+        </div>
+      </section>
+
+      <section id="f1-frontend">
+        <h3>Frontend</h3>
+        <ul class="steps">
+          <li><span class="step-num">1</span>Add a <strong>Friends</strong> section to <code>dashboard.html</code>: pending requests (accept / reject buttons) + confirmed friend list with a "Remove" button.</li>
+          <li><span class="step-num">2</span>On <code>profile.html</code>: show an <strong>Add Friend / Pending / Friends</strong> button depending on current friendship status. Call the API on click.</li>
+          <li><span class="step-num">3</span>Use <code>apiFetch()</code> (already in <code>main.js</code>) for all API calls — CSRF and envelope unwrapping are handled automatically.</li>
+          <li><span class="step-num">4</span>Badge the nav with a pending-request count (optional) — poll <code>GET /api/v1/friends/requests</code> on dashboard load.</li>
+        </ul>
+      </section>
+
+      <section id="f1-files">
+        <h3>Files to Create / Edit</h3>
+        <ul class="file-list">
+          <li><span class="tag-new">NEW</span><code>app/models/friendship.py</code> <span class="file-desc">Friendship model</span></li>
+          <li><span class="tag-new">NEW</span><code>app/services/friend_service.py</code> <span class="file-desc">All friendship business logic</span></li>
+          <li><span class="tag-new">NEW</span><code>app/api/v1/friends.py</code> <span class="file-desc">REST endpoints</span></li>
+          <li><span class="tag-new">NEW</span><code>app/api/v1/schemas/friends.py</code> <span class="file-desc">Request validation schemas</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/api/v1/__init__.py</code> <span class="file-desc">Import friends module</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/__init__.py</code> <span class="file-desc">Import friendship model before db.create_all()</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/templates/dashboard.html</code> <span class="file-desc">Add friend requests + friend list panels</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/templates/profile.html</code> <span class="file-desc">Add Add Friend / Pending / Remove button</span></li>
+        </ul>
+      </section>
+
+      <hr class="divider">
+
+      <!-- ══════════════════════════════════════════════════════
+           FEATURE 2 — REAL-TIME MESSAGING
+           ══════════════════════════════════════════════════════ -->
+      <section id="f2">
+        <h2>
+          <div class="feature-header">
+            <span class="feature-badge badge-2">Feature 2</span>
+            Real-time Messaging
+          </div>
+        </h2>
+        <p>Friends-only chat via WebSockets (Flask-SocketIO). Messages are persisted to the database. History is loadable via a REST endpoint. The friendship gate in <code>friend_service.are_friends()</code> must pass before any message is delivered.</p>
+      </section>
+
+      <section id="f2-model">
+        <h3>Model — <code>app/models/message.py</code></h3>
+        <table>
+          <tr><th>Column</th><th>Type</th><th>Constraints</th><th>Notes</th></tr>
+          <tr><td><code>id</code></td><td><span class="type">Integer</span></td><td><span class="pk">PK</span></td><td></td></tr>
+          <tr><td><code>sender_id</code></td><td><span class="type">Integer</span></td><td><span class="fk">FK</span> <code>users.id</code>, NOT NULL, <span class="idx">IDX</span></td><td></td></tr>
+          <tr><td><code>recipient_id</code></td><td><span class="type">Integer</span></td><td><span class="fk">FK</span> <code>users.id</code>, NOT NULL, <span class="idx">IDX</span></td><td></td></tr>
+          <tr><td><code>body</code></td><td><span class="type">Text</span></td><td>NOT NULL</td><td>Raw message text including <code>#Tag</code> references</td></tr>
+          <tr><td><code>created_at</code></td><td><span class="type">DateTime</span></td><td>default UTC now, <span class="idx">IDX</span></td><td>Used for pagination (cursor-based or offset)</td></tr>
+          <tr><td><code>read_at</code></td><td><span class="type">DateTime</span></td><td><span class="nullable">nullable</span></td><td><code>NULL</code> = unread. Set when recipient opens the conversation.</td></tr>
+        </table>
+        <div class="callout callout-info">
+          Add a composite index on <code>(sender_id, recipient_id)</code> and <code>(recipient_id, sender_id)</code> for fast conversation queries.
+        </div>
+        <p>The private room name for a conversation between users A and B should be deterministic and order-independent:</p>
+        <code>room = f"chat_{ min(a, b) }_{ max(a, b) }"</code>
+      </section>
+
+      <section id="f2-service">
+        <h3>Service — <code>app/services/message_service.py</code></h3>
+        <table>
+          <tr><th>Function</th><th>Parameters</th><th>Returns</th><th>Description</th></tr>
+          <tr><td><code>send_message</code></td><td><code>sender_id, recipient_id, body</code></td><td><code>(message, None) | (None, err)</code></td><td>Validates friendship via <code>are_friends()</code>, validates body is non-empty, persists row, returns dict for SocketIO broadcast.</td></tr>
+          <tr><td><code>get_conversation</code></td><td><code>user_a, user_b, limit, offset</code></td><td><code>list[dict]</code></td><td>Messages in both directions between the two users, ordered by <code>created_at</code> ascending. Used to load history.</td></tr>
+          <tr><td><code>mark_read</code></td><td><code>reader_id, sender_id</code></td><td><code>int</code> (rows updated)</td><td>Sets <code>read_at = now</code> on all unread messages where <code>sender_id = sender_id</code> and <code>recipient_id = reader_id</code>.</td></tr>
+          <tr><td><code>unread_count</code></td><td><code>user_id</code></td><td><code>int</code></td><td>Total unread messages for this user across all conversations. Used for nav badge.</td></tr>
+        </table>
+      </section>
+
+      <section id="f2-socket">
+        <h3>WebSocket Events — <code>app/sockets/chat.py</code></h3>
+        <p>All events require an authenticated session. Use <code>@login_required</code> style check at the top of each handler.</p>
+        <div class="events">
+          <div class="event">
+            <span class="event-dir dir-c2s">Client → Server</span>
+            <span class="event-name">join_chat</span>
+            <span class="event-desc">Payload: <code>{ "friend_id": int }</code>. Server verifies friendship, then calls <code>join_room(room_name)</code>. Emits <code>chat_history</code> back to the joining client only.</span>
+          </div>
+          <div class="event">
+            <span class="event-dir dir-c2s">Client → Server</span>
+            <span class="event-name">send_message</span>
+            <span class="event-desc">Payload: <code>{ "recipient_id": int, "body": str }</code>. Server calls <code>message_service.send_message()</code>, then emits <code>new_message</code> to both users in the room.</span>
+          </div>
+          <div class="event">
+            <span class="event-dir dir-s2c">Server → Client</span>
+            <span class="event-name">new_message</span>
+            <span class="event-desc">Payload: message dict with <code>id, sender_id, body, created_at, tags[]</code>. Broadcast to the private room. Frontend appends to chat window.</span>
+          </div>
+          <div class="event">
+            <span class="event-dir dir-s2c">Server → Client</span>
+            <span class="event-name">chat_history</span>
+            <span class="event-desc">Payload: <code>{ "messages": list[dict] }</code>. Sent once on <code>join_chat</code> so the client can render prior messages without a separate HTTP request.</span>
+          </div>
+          <div class="event">
+            <span class="event-dir dir-s2c">Server → Client</span>
+            <span class="event-name">message_error</span>
+            <span class="event-desc">Payload: <code>{ "error": str }</code>. Sent to the emitting client only when validation fails (not friends, empty body, etc.).</span>
+          </div>
+        </div>
+        <div class="callout callout-warn">
+          Flask-SocketIO must be initialised in <code>app/extensions.py</code> and wired into <code>create_app()</code>. The <code>socketio</code> object — not <code>app</code> — must be passed to <code>run.py</code>.
+        </div>
+      </section>
+
+      <section id="f2-api">
+        <h3>REST Endpoints — <code>app/api/v1/messages.py</code></h3>
+        <p>These handle history loading and read receipts — not real-time delivery (that is WebSocket only).</p>
+        <table>
+          <tr><th>Method</th><th>URL</th><th>Auth</th><th>Params</th><th>Description</th></tr>
+          <tr>
+            <td><span class="m m-GET">GET</span></td>
+            <td><code>/api/v1/messages/&lt;user_id&gt;</code></td>
+            <td>required</td>
+            <td><code>limit</code>, <code>offset</code></td>
+            <td>Paginated message history between the current user and <code>user_id</code>. Validates friendship first.</td>
+          </tr>
+          <tr>
+            <td><span class="m m-PATCH">PATCH</span></td>
+            <td><code>/api/v1/messages/&lt;user_id&gt;/read</code></td>
+            <td>required</td>
+            <td>—</td>
+            <td>Mark all messages from <code>user_id</code> to current user as read. Returns <code>{ "updated": int }</code>.</td>
+          </tr>
+          <tr>
+            <td><span class="m m-GET">GET</span></td>
+            <td><code>/api/v1/messages/unread</code></td>
+            <td>required</td>
+            <td>—</td>
+            <td>Returns <code>{ "count": int }</code>. Used to drive the unread badge in the nav.</td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="f2-frontend">
+        <h3>Frontend</h3>
+        <ul class="steps">
+          <li><span class="step-num">1</span>Create <code>app/templates/chat.html</code> (new page). Route: <code>GET /chat</code> in <code>routes/main.py</code>. Requires login.</li>
+          <li><span class="step-num">2</span>Left panel: friend list loaded from <code>GET /api/v1/friends</code>. Clicking a friend selects the conversation.</li>
+          <li><span class="step-num">3</span>Right panel: chat window. On friend select → emit <code>join_chat</code> → receive <code>chat_history</code> → render messages.</li>
+          <li><span class="step-num">4</span>Message input: on submit → emit <code>send_message</code>. Listen for <code>new_message</code> to append the sent/received bubble in real time.</li>
+          <li><span class="step-num">5</span>Load Socket.IO client from CDN or <code>npm</code>. Connect with <code>const socket = io()</code> — Flask-SocketIO serves the client automatically at <code>/socket.io/socket.io.js</code>.</li>
+          <li><span class="step-num">6</span>Create <code>app/static/js/chat.js</code> for all socket and DOM logic. Load it only on the chat page via <code>{% raw %}{% block scripts %}{% endraw %}</code>.</li>
+        </ul>
+      </section>
+
+      <section id="f2-files">
+        <h3>Files to Create / Edit</h3>
+        <ul class="file-list">
+          <li><span class="tag-new">NEW</span><code>app/models/message.py</code> <span class="file-desc">Message model</span></li>
+          <li><span class="tag-new">NEW</span><code>app/services/message_service.py</code> <span class="file-desc">send, history, mark_read, unread_count</span></li>
+          <li><span class="tag-new">NEW</span><code>app/sockets/chat.py</code> <span class="file-desc">SocketIO event handlers</span></li>
+          <li><span class="tag-new">NEW</span><code>app/sockets/__init__.py</code> <span class="file-desc">Register socket handlers on the socketio instance</span></li>
+          <li><span class="tag-new">NEW</span><code>app/api/v1/messages.py</code> <span class="file-desc">REST endpoints (history, read receipts, unread count)</span></li>
+          <li><span class="tag-new">NEW</span><code>app/templates/chat.html</code> <span class="file-desc">Chat page template</span></li>
+          <li><span class="tag-new">NEW</span><code>app/static/js/chat.js</code> <span class="file-desc">Socket.IO client + DOM logic</span></li>
+          <li><span class="tag-dep">DEP</span><code>requirements.txt</code> <span class="file-desc">Add Flask-SocketIO, eventlet</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/extensions.py</code> <span class="file-desc">Add <code>socketio = SocketIO()</code></span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/__init__.py</code> <span class="file-desc">Init socketio, import message model, register socket module</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/api/v1/__init__.py</code> <span class="file-desc">Import messages module</span></li>
+          <li><span class="tag-edit">EDIT</span><code>run.py</code> <span class="file-desc">Change to <code>socketio.run(app)</code></span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/routes/main.py</code> <span class="file-desc">Add <code>GET /chat</code> route</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/templates/components/navbar.html</code> <span class="file-desc">Add Chat link + unread badge</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/__init__.py</code> <span class="file-desc">Import message model before db.create_all()</span></li>
+        </ul>
+      </section>
+
+      <hr class="divider">
+
+      <!-- ══════════════════════════════════════════════════════
+           FEATURE 3 — MOVIE TAGGING
+           ══════════════════════════════════════════════════════ -->
+      <section id="f3">
+        <h2>
+          <div class="feature-header">
+            <span class="feature-badge badge-3">Feature 3</span>
+            Movie Tagging in Messages
+          </div>
+        </h2>
+        <p>Users can reference any media item inside a chat message with a <code>#Title</code> hashtag. When the tag matches a title in the database, it becomes an interactive element showing a hover/click preview card. No new DB table needed — tags are resolved at read time.</p>
+      </section>
+
+      <section id="f3-how">
+        <h3>How It Works</h3>
+        <ul class="steps">
+          <li><span class="step-num">1</span><strong>User types</strong> a message containing <code>#Inception</code> or <code>#Spirited Away</code> (multi-word tags use spaces).</li>
+          <li><span class="step-num">2</span><strong>Server</strong> (inside <code>message_service.send_message</code>) calls <code>tag_service.resolve_tags(body)</code> which extracts <code>#...</code> patterns and looks each one up in <code>Media.title</code> (case-insensitive).</li>
+          <li><span class="step-num">3</span>Resolved tags are returned alongside the message body in the <code>new_message</code> event payload and REST history response — the raw body is preserved unchanged in the DB.</li>
+          <li><span class="step-num">4</span><strong>Frontend</strong> receives <code>{ body: "...", tags: [{text, media_id, imdb_id, title, image_url}] }</code> and replaces each <code>#Tag</code> span in the rendered message with a hoverable element.</li>
+          <li><span class="step-num">5</span>Unmatched tags (no Media row found) remain as plain <code>#text</code> — no error, no special styling.</li>
+        </ul>
+        <div class="callout callout-tip">
+          Storing the raw body and resolving tags at read time means tag data stays accurate even if a media item is renamed or added later — it will match on the next message load.
+        </div>
+      </section>
+
+      <section id="f3-service">
+        <h3>Service — <code>app/services/tag_service.py</code></h3>
+        <table>
+          <tr><th>Function</th><th>Parameters</th><th>Returns</th><th>Description</th></tr>
+          <tr>
+            <td><code>resolve_tags</code></td>
+            <td><code>body: str</code></td>
+            <td><code>list[dict]</code></td>
+            <td>
+              Extract all <code>#Word</code> and <code>#Multi Word</code> patterns from the body.
+              For each, query <code>Media.title ILIKE tag_text</code>.
+              Return list of <code>{ text, media_id, imdb_id, title, image_url }</code> for matched tags only.
+              Unmatched tags are not in the list — frontend falls back to plain text for those.
+            </td>
+          </tr>
+        </table>
+        <p><strong>Regex pattern</strong> for extraction (captures single-word and quoted multi-word tags):</p>
+        <code>#([A-Za-z0-9][A-Za-z0-9 ]{0,48}[A-Za-z0-9]|[A-Za-z0-9]+)</code>
+        <div class="callout callout-warn">
+          Multi-word tag matching is greedy — <code>#The Dark Knight Rises</code> could match <code>The Dark Knight</code>. Strategy: try the longest possible match first, then progressively shorter. Or restrict to single-word tags only and require CamelCase (<code>#TheDarkKnight</code>) for simplicity.
+        </div>
+        <p>Wire into <code>message_service.send_message</code>:</p>
+        <code>tags = tag_service.resolve_tags(body)</code><br>
+        <code># Include tags in the return dict for broadcast; body stored as-is in DB.</code>
+      </section>
+
+      <section id="f3-frontend">
+        <h3>Frontend</h3>
+        <ul class="steps">
+          <li><span class="step-num">1</span>In <code>chat.js</code>, add a <code>renderMessage(msg)</code> function. For each item in <code>msg.tags</code>, replace the matching <code>#Text</code> substring in the displayed body with <code>&lt;span class="media-tag" data-media-id="..." data-imdb-id="..."&gt;#Text&lt;/span&gt;</code>.</li>
+          <li><span class="step-num">2</span>On <strong>desktop hover</strong> over <code>.media-tag</code>: show a floating popover with the poster image (<code>image_url</code>), title, and a link to <code>/items/&lt;imdb_id&gt;</code>.</li>
+          <li><span class="step-num">3</span>On <strong>mobile tap</strong>: toggle the same content as an inline card below the message (no hover on touch screens).</li>
+          <li><span class="step-num">4</span>The popover content is already in <code>msg.tags</code> — no extra API request needed to display it.</li>
+          <li><span class="step-num">5</span>Style with <code>data-ui="popover"</code> if the UI Kit supports it, otherwise build a lightweight CSS tooltip. Add styles to <code>app/static/css/chat.css</code> (new file).</li>
+        </ul>
+        <div class="callout callout-info">
+          The poster URL in <code>tags[].image_url</code> is the same value from <code>Media.to_dict()</code>. If a local poster file exists at <code>/static/posters/&lt;imdb_id&gt;.jpg</code> it will be served from there; otherwise the CDN URL is used — this is already handled by <code>_resolve_image()</code> in the items API.
+        </div>
+      </section>
+
+      <section id="f3-files">
+        <h3>Files to Create / Edit</h3>
+        <ul class="file-list">
+          <li><span class="tag-new">NEW</span><code>app/services/tag_service.py</code> <span class="file-desc">resolve_tags() — extract and look up #tags</span></li>
+          <li><span class="tag-new">NEW</span><code>app/static/css/chat.css</code> <span class="file-desc">Chat page and tag popover styles</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/services/message_service.py</code> <span class="file-desc">Call tag_service.resolve_tags() in send_message; include tags in return dict</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/static/js/chat.js</code> <span class="file-desc">renderMessage() with tag replacement + popover logic</span></li>
+          <li><span class="tag-edit">EDIT</span><code>app/templates/chat.html</code> <span class="file-desc">Load chat.css</span></li>
+        </ul>
+      </section>
+
+    </div><!-- .page -->
+  </div><!-- .layout -->
+
+  <script>
+    // Highlight active sidebar link based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.sidebar a');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -75% 0px' });
+    sections.forEach(s => obs.observe(s));
+  </script>
+</body>
+</html>

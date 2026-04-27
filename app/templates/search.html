@@ -1,0 +1,123 @@
+{% extends "app_layout.html" %}
+
+{% block title %}{% if q %}{{ q }} — Search{% else %}Search{% endif %} · WatchList Hub{% endblock %}
+{% block meta_description %}Search results for {{ q }} on WatchList Hub.{% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/search.js') }}{% endblock %}
+
+{% block content %}
+<div class="page" id="search-page">
+
+  {# ── Page header ───────────────────────────────────────────────── #}
+  <div class="flex items-end justify-between gap-6 flex-wrap mb-7">
+    <div class="flex-1 min-w-0">
+      <div class="h-eyebrow">Search results</div>
+      <h1 class="h-display" id="search-heading">
+        {% if q %}Results for <em>{{ q | e }}</em>{% else %}Search everything.{% endif %}
+      </h1>
+    </div>
+    <div class="search-refine" id="search-refine-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+      </svg>
+      <input id="search-q" type="text" class="search-refine__input"
+             value="{{ q | e }}" placeholder="Refine your search…"
+             autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  {# ── Sort control + total count ───────────────────────────────── #}
+  <div class="flex items-center justify-between gap-4 mb-8 flex-wrap">
+    <div id="result-count" class="explore-count mono text-[0.6875rem] uppercase text-muted">
+      {% if q %}Searching…{% endif %}
+    </div>
+    <div class="segmented" id="sort-filter">
+      <button class="on" data-sort="relevant">Relevant</button>
+      <button data-sort="rating">Top rated</button>
+      <button data-sort="new">Newest</button>
+    </div>
+  </div>
+
+  {# ── Movies section ────────────────────────────────────────────── #}
+  <div class="mb-10" id="section-movie">
+    <div class="cat-section-header">
+      <div class="cat-section-title">
+        <span class="cat-section-emoji">🎬</span>
+        <span class="cat-section-name">Movies</span>
+      </div>
+      <a class="cat-see-all" id="seeall-movie"
+         href="{{ url_for('main.explore') }}?type=movie">See all →</a>
+    </div>
+    <div class="cat-rail" id="rail-movie">
+      {% if q %}
+      {% for _ in range(6) %}
+      <div class="mcard-skeleton animate-pulse" style="width:160px">
+        <div class="mcard-skel__poster"></div>
+        <div class="mcard-skel__title mt-2.5"></div>
+        <div class="mcard-skel__subtitle mt-1.5"></div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  {# ── Anime section ─────────────────────────────────────────────── #}
+  <div class="mb-10" id="section-anime">
+    <div class="cat-section-header">
+      <div class="cat-section-title">
+        <span class="cat-section-emoji">📺</span>
+        <span class="cat-section-name">Anime</span>
+      </div>
+      <a class="cat-see-all" id="seeall-anime"
+         href="{{ url_for('main.explore') }}?type=anime">See all →</a>
+    </div>
+    <div class="cat-rail" id="rail-anime">
+      {% if q %}
+      {% for _ in range(6) %}
+      <div class="mcard-skeleton animate-pulse" style="width:160px">
+        <div class="mcard-skel__poster"></div>
+        <div class="mcard-skel__title mt-2.5"></div>
+        <div class="mcard-skel__subtitle mt-1.5"></div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  {# ── TV Shows section ──────────────────────────────────────────── #}
+  <div class="mb-10" id="section-tvshow">
+    <div class="cat-section-header">
+      <div class="cat-section-title">
+        <span class="cat-section-emoji">📡</span>
+        <span class="cat-section-name">TV Shows</span>
+      </div>
+      <a class="cat-see-all" id="seeall-tvshow"
+         href="{{ url_for('main.explore') }}?type=tvshow">See all →</a>
+    </div>
+    <div class="cat-rail" id="rail-tvshow">
+      {% if q %}
+      {% for _ in range(6) %}
+      <div class="mcard-skeleton animate-pulse" style="width:160px">
+        <div class="mcard-skel__poster"></div>
+        <div class="mcard-skel__title mt-2.5"></div>
+        <div class="mcard-skel__subtitle mt-1.5"></div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  {# ── No results ────────────────────────────────────────────────── #}
+  <div id="no-results" class="explore-no-results card hidden text-center">
+    <div class="display text-[2rem] mb-2">No matches.</div>
+    <p class="text-muted">Try a different query.</p>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>window._searchInitialQ = {{ q | tojson }};</script>
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+{% endblock %}

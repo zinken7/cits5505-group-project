@@ -1,0 +1,68 @@
+[
+  {
+    "username": "alice",
+    "email": "alice@test.com",
+    "password": "Pass1234!",
+    "display_name": "Alice Chen",
+    "bio": "Anime & sci-fi fanatic 🚀",
+    "favorite_genres": ["Sci-Fi", "Animation", "Fantasy"],
+    "date_of_birth": "1998-03-15",
+    "profile_public": true,
+    "allow_friend_requests": true
+  },
+  {
+    "username": "bob",
+    "email": "bob@test.com",
+    "password": "Pass1234!",
+    "display_name": "Bob Nguyen",
+    "bio": "Crime dramas and thrillers only.",
+    "favorite_genres": ["Crime", "Thriller", "Drama"],
+    "date_of_birth": "1995-11-22",
+    "profile_public": true,
+    "allow_friend_requests": true
+  },
+  {
+    "username": "carol",
+    "email": "carol@test.com",
+    "password": "Pass1234!",
+    "display_name": "Carol Park",
+    "bio": "I rate everything 10/10 ⭐",
+    "favorite_genres": ["Comedy", "Romance", "Drama"],
+    "date_of_birth": "2000-07-04",
+    "profile_public": true,
+    "allow_friend_requests": true
+  },
+  {
+    "username": "dave",
+    "email": "dave@test.com",
+    "password": "Pass1234!",
+    "display_name": "Dave Tran",
+    "bio": "History buff and documentary lover.",
+    "favorite_genres": ["History", "Documentary", "War"],
+    "date_of_birth": "1992-02-29",
+    "profile_public": false,
+    "allow_friend_requests": true
+  },
+  {
+    "username": "eve",
+    "email": "eve@test.com",
+    "password": "Pass1234!",
+    "display_name": "Eve Sharma",
+    "bio": "Horror movies at 3am 👻",
+    "favorite_genres": ["Horror", "Mystery", "Thriller"],
+    "date_of_birth": "1997-10-31",
+    "profile_public": true,
+    "allow_friend_requests": false
+  },
+  {
+    "username": "frank",
+    "email": "frank@test.com",
+    "password": "Pass1234!",
+    "display_name": "Frank Liu",
+    "bio": "Action junkie. Explosions > plot.",
+    "favorite_genres": ["Action", "Adventure", "Fantasy"],
+    "date_of_birth": "1990-06-18",
+    "profile_public": true,
+    "allow_friend_requests": true
+  }
+]

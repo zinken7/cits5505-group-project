@@ -17,7 +17,19 @@ export default defineConfig({
     emptyOutDir: true,
     manifest: true,
     rollupOptions: {
-      input: "./src/main.js",
+      input: {
+        main:          "./src/main.js",
+        topbar_search: "./src/pages/topbar_search.js",
+        chat_modal:    "./src/pages/chat_modal.js",
+        dashboard:   "./src/pages/dashboard.js",
+        explore:     "./src/pages/explore.js",
+        profile:     "./src/pages/profile.js",
+        detail:      "./src/pages/detail.js",
+        categories:  "./src/pages/categories.js",
+        landing:     "./src/pages/landing.js",
+        chat:        "./src/pages/chat.js",
+        search:      "./src/pages/search.js",
+      },
     },
   },
 });

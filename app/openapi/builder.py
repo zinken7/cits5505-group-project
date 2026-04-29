@@ -60,7 +60,7 @@ def _paths():
 
     p = {}
 
-    p["/api/v1"] = op("Search", "API root / health check", "get")
+    p["/api/v1"] = op("System", "API root / health check", "get")
 
     p["/api/v1/auth/register"] = {
         "post": {
@@ -158,38 +158,10 @@ def _paths():
         }
     }
 
-    for sub, summ in (
-        ("reviews", "Get reviews written by a user"),
-        ("followers", "Get followers of a user"),
-        ("following", "Get who a user is following"),
-    ):
-        p[f"/api/v1/users/{{user_id}}/{sub}"] = {
-            "get": {
-                "tags": ["Users"],
-                "summary": summ,
-                "parameters": [uid],
-                "responses": _ok_response(),
-            }
-        }
-
     p["/api/v1/users/me/watchlist"] = {
         "get": {
             "tags": ["Users"],
             "summary": "Get the current user's watchlist",
-            "responses": _only_200(),
-        }
-    }
-    p["/api/v1/users/me/reviews"] = {
-        "get": {
-            "tags": ["Users"],
-            "summary": "Get the current user's reviews",
-            "responses": _only_200(),
-        }
-    }
-    p["/api/v1/users/me/notifications"] = {
-        "get": {
-            "tags": ["Users"],
-            "summary": "Get the current user's notifications",
             "responses": _only_200(),
         }
     }
@@ -201,14 +173,6 @@ def _paths():
         {"name": "limit", "in": "query", "schema": {"type": "integer", "default": 24}},
         {"name": "offset", "in": "query", "schema": {"type": "integer", "default": 0}},
     ]
-    game_q = [
-        {"name": "q", "in": "query", "schema": {"type": "string"}},
-        {"name": "platform", "in": "query", "schema": {"type": "string"}},
-        {"name": "sort", "in": "query", "schema": {"type": "string"}},
-        {"name": "limit", "in": "query", "schema": {"type": "integer", "default": 24}},
-        {"name": "offset", "in": "query", "schema": {"type": "integer", "default": 0}},
-    ]
-
     p["/api/v1/anime"] = {
         "get": {
             "tags": ["Anime"],
@@ -232,13 +196,21 @@ def _paths():
             "responses": _ok_response(),
         }
     }
-    p["/api/v1/anime/{anime_id}/reviews"] = {
+    p["/api/v1/tvshows"] = {
         "get": {
-            "tags": ["Anime"],
-            "summary": "Get reviews for an anime",
+            "tags": ["TV Shows"],
+            "summary": "List TV shows",
+            "parameters": media_q,
+            "responses": _ok_response(),
+        }
+    }
+    p["/api/v1/tvshows/{tvshow_id}"] = {
+        "get": {
+            "tags": ["TV Shows"],
+            "summary": "Get TV show details",
             "parameters": [
                 {
-                    "name": "anime_id",
+                    "name": "tvshow_id",
                     "in": "path",
                     "required": True,
                     "schema": {"type": "string"},
@@ -247,46 +219,6 @@ def _paths():
             "responses": _ok_response(),
         }
     }
-
-    p["/api/v1/games"] = {
-        "get": {
-            "tags": ["Games"],
-            "summary": "List games",
-            "parameters": game_q,
-            "responses": _ok_response(),
-        }
-    }
-    p["/api/v1/games/{game_id}"] = {
-        "get": {
-            "tags": ["Games"],
-            "summary": "Get game details",
-            "parameters": [
-                {
-                    "name": "game_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
-            "responses": _ok_response(),
-        }
-    }
-    p["/api/v1/games/{game_id}/reviews"] = {
-        "get": {
-            "tags": ["Games"],
-            "summary": "Get reviews for a game",
-            "parameters": [
-                {
-                    "name": "game_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
-            "responses": _ok_response(),
-        }
-    }
-
     p["/api/v1/movies"] = {
         "get": {
             "tags": ["Movies"],
@@ -310,22 +242,6 @@ def _paths():
             "responses": _ok_response(),
         }
     }
-    p["/api/v1/movies/{movie_id}/reviews"] = {
-        "get": {
-            "tags": ["Movies"],
-            "summary": "Get reviews for a movie",
-            "parameters": [
-                {
-                    "name": "movie_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
-            "responses": _ok_response(),
-        }
-    }
-
     wl_q = [
         {"name": "status", "in": "query", "schema": {"type": "string"}},
         {"name": "mediaType", "in": "query", "schema": {"type": "string"}},
@@ -397,117 +313,6 @@ def _paths():
         },
     }
 
-    p["/api/v1/reviews"] = {
-        "post": {
-            "tags": ["Reviews"],
-            "summary": "Create a review",
-            "requestBody": {
-                "required": True,
-                "content": {"application/json": {"schema": _ref("ReviewRequest")}},
-            },
-            "responses": _created_response(),
-        }
-    }
-    p["/api/v1/reviews/{review_id}"] = {
-        "patch": {
-            "tags": ["Reviews"],
-            "summary": "Update a review",
-            "parameters": [
-                {
-                    "name": "review_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
-            "requestBody": {
-                "required": True,
-                "content": {"application/json": {"schema": _ref("ReviewUpdateRequest")}},
-            },
-            "responses": _ok_response(),
-        },
-        "delete": {
-            "tags": ["Reviews"],
-            "summary": "Delete a review",
-            "parameters": [
-                {
-                    "name": "review_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
-            "responses": _ok_response(),
-        },
-    }
-
-    p["/api/v1/follows"] = {
-        "post": {
-            "tags": ["Follows"],
-            "summary": "Follow a user",
-            "requestBody": {
-                "required": True,
-                "content": {"application/json": {"schema": _ref("FollowRequest")}},
-            },
-            "responses": _created_response(),
-        }
-    }
-    p["/api/v1/follows/{follow_id}"] = {
-        "delete": {
-            "tags": ["Follows"],
-            "summary": "Unfollow a user",
-            "parameters": [
-                {
-                    "name": "follow_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
-            "responses": _ok_response(),
-        }
-    }
-
-    p["/api/v1/notifications"] = {
-        "get": {
-            "tags": ["Notifications"],
-            "summary": "Get notifications",
-            "parameters": [
-                {"name": "limit", "in": "query", "schema": {"type": "integer", "default": 20}},
-                {"name": "offset", "in": "query", "schema": {"type": "integer", "default": 0}},
-            ],
-            "responses": _ok_response(),
-        }
-    }
-    p["/api/v1/notifications/{notification_id}"] = {
-        "patch": {
-            "tags": ["Notifications"],
-            "summary": "Update a notification",
-            "parameters": [
-                {
-                    "name": "notification_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
-            "requestBody": {
-                "required": True,
-                "content": {
-                    "application/json": {"schema": _ref("NotificationUpdateRequest")}
-                },
-            },
-            "responses": _ok_response(),
-        }
-    }
-    p["/api/v1/notifications/read-all"] = {
-        "patch": {
-            "tags": ["Notifications"],
-            "summary": "Mark all notifications as read",
-            "responses": _only_200(),
-        }
-    }
-
     p["/api/v1/trending"] = {
         "get": {
             "tags": ["Leaderboards"],
@@ -516,7 +321,7 @@ def _paths():
                 {
                     "name": "type",
                     "in": "query",
-                    "schema": {"type": "string", "enum": ["anime", "game", "movie"]},
+                    "schema": {"type": "string", "enum": ["anime", "movie", "tvshow"]},
                 },
                 {"name": "limit", "in": "query", "schema": {"type": "integer", "default": 10}},
             ],
@@ -528,7 +333,7 @@ def _paths():
         {
             "name": "type",
             "in": "query",
-            "schema": {"type": "string", "enum": ["anime", "game", "movie"], "default": "anime"},
+            "schema": {"type": "string", "enum": ["anime", "movie", "tvshow"], "default": "anime"},
         },
         {"name": "status", "in": "query", "schema": {"type": "string", "default": "watching"}},
         {"name": "window", "in": "query", "schema": {"type": "string", "default": "monthly"}},
@@ -544,7 +349,7 @@ def _paths():
     }
     for seg, title in (
         ("anime", "Get anime leaderboard"),
-        ("games", "Get games leaderboard"),
+        ("tvshows", "Get TV shows leaderboard"),
         ("movies", "Get movies leaderboard"),
     ):
         p[f"/api/v1/leaderboards/{seg}"] = {
@@ -569,11 +374,152 @@ def _paths():
                 {
                     "name": "type",
                     "in": "query",
-                    "schema": {"type": "string", "enum": ["anime", "game", "movie"]},
+                    "schema": {"type": "string", "enum": ["anime", "movie", "tvshow"]},
                 },
                 {"name": "limit", "in": "query", "schema": {"type": "integer", "default": 12}},
                 {"name": "offset", "in": "query", "schema": {"type": "integer", "default": 0}},
             ],
+            "responses": _ok_response(),
+        }
+    }
+
+    p["/api/v1/landing/posters"] = {
+        "get": {
+            "tags": ["Landing"],
+            "summary": "Random poster payloads for the Three.js landing page",
+            "responses": _ok_response(),
+        }
+    }
+
+    p["/api/v1/items/{imdb_id}"] = {
+        "get": {
+            "tags": ["Items"],
+            "summary": "Unified media detail by IMDb id (detail + watchlist counts)",
+            "parameters": [
+                {
+                    "name": "imdb_id",
+                    "in": "path",
+                    "required": True,
+                    "schema": {"type": "string", "example": "tt0111161"},
+                }
+            ],
+            "responses": _ok_response(),
+        }
+    }
+
+    fid = {
+        "name": "friendship_id",
+        "in": "path",
+        "required": True,
+        "schema": {"type": "integer"},
+    }
+    p["/api/v1/friends"] = {
+        "get": {
+            "tags": ["Friends"],
+            "summary": "List accepted friends (session)",
+            "responses": _ok_response(),
+        }
+    }
+    p["/api/v1/friends/requests"] = {
+        "get": {
+            "tags": ["Friends"],
+            "summary": "List pending friend requests (received + sent)",
+            "responses": _ok_response(),
+        },
+        "post": {
+            "tags": ["Friends"],
+            "summary": "Send a friend request",
+            "requestBody": {
+                "required": True,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "required": ["targetUserId"],
+                            "properties": {"targetUserId": {"type": "integer"}},
+                        }
+                    }
+                },
+            },
+            "responses": _created_response(),
+        },
+    }
+    p["/api/v1/friends/requests/{friendship_id}"] = {
+        "patch": {
+            "tags": ["Friends"],
+            "summary": "Accept or reject an incoming friend request",
+            "parameters": [fid],
+            "requestBody": {
+                "required": True,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "required": ["action"],
+                            "properties": {
+                                "action": {"type": "string", "enum": ["accept", "reject"]}
+                            },
+                        }
+                    }
+                },
+            },
+            "responses": _ok_response(),
+        }
+    }
+    p["/api/v1/friends/{friendship_id}"] = {
+        "delete": {
+            "tags": ["Friends"],
+            "summary": "Remove an accepted friendship",
+            "parameters": [fid],
+            "responses": _ok_response(),
+        }
+    }
+    p["/api/v1/friends/status/{user_id}"] = {
+        "get": {
+            "tags": ["Friends"],
+            "summary": "Friendship status with another user",
+            "parameters": [
+                {
+                    "name": "user_id",
+                    "in": "path",
+                    "required": True,
+                    "schema": {"type": "integer"},
+                }
+            ],
+            "responses": _ok_response(),
+        }
+    }
+
+    msg_peer = {
+        "name": "user_id",
+        "in": "path",
+        "required": True,
+        "schema": {"type": "integer", "title": "Peer user id"},
+    }
+    p["/api/v1/messages/{user_id}"] = {
+        "get": {
+            "tags": ["Messages"],
+            "summary": "Paginated conversation with another user",
+            "parameters": [
+                msg_peer,
+                {"name": "limit", "in": "query", "schema": {"type": "integer", "default": 50}},
+                {"name": "offset", "in": "query", "schema": {"type": "integer", "default": 0}},
+            ],
+            "responses": _ok_response(),
+        }
+    }
+    p["/api/v1/messages/{user_id}/read"] = {
+        "patch": {
+            "tags": ["Messages"],
+            "summary": "Mark messages from this user as read",
+            "parameters": [msg_peer],
+            "responses": _ok_response(),
+        }
+    }
+    p["/api/v1/messages/unread"] = {
+        "get": {
+            "tags": ["Messages"],
+            "summary": "Unread DM count",
             "responses": _ok_response(),
         }
     }
@@ -609,87 +555,48 @@ def _paths():
         },
     }
 
-    for kind, label in (("anime", "anime"), ("games", "game"), ("movies", "movie")):
-        pid = "anime_id" if kind == "anime" else ("game_id" if kind == "games" else "movie_id")
-        base = f"/api/v1/admin/{kind}"
-        p[base] = {
-            "post": {
-                "tags": ["Admin"],
-                "summary": f"Create {label} (admin)",
-                "requestBody": {
-                    "required": True,
-                    "content": {
-                        "application/json": {
-                            "schema": {"type": "object", "additionalProperties": True}
-                        }
-                    },
-                },
-                "responses": _created_response(),
-            }
-        }
-        p[f"{base}/{{{pid}}}"] = {
-            "patch": {
-                "tags": ["Admin"],
-                "summary": f"Update {label} (admin)",
-                "parameters": [
-                    {"name": pid, "in": "path", "required": True, "schema": {"type": "string"}}
-                ],
-                "requestBody": {
-                    "required": True,
-                    "content": {
-                        "application/json": {
-                            "schema": {"type": "object", "additionalProperties": True}
-                        }
-                    },
-                },
-                "responses": _ok_response(),
-            },
-            "delete": {
-                "tags": ["Admin"],
-                "summary": f"Delete {label} (admin)",
-                "parameters": [
-                    {"name": pid, "in": "path", "required": True, "schema": {"type": "string"}}
-                ],
-                "responses": _ok_response(),
-            },
-        }
-
-    p["/api/v1/admin/reviews/pending"] = {
-        "get": {
+    media_admin_id = {
+        "name": "media_id",
+        "in": "path",
+        "required": True,
+        "schema": {"type": "string", "title": "Internal media id"},
+    }
+    p["/api/v1/admin/media"] = {
+        "post": {
             "tags": ["Admin"],
-            "summary": "List pending reviews (admin)",
-            "responses": _only_200(),
+            "summary": "Create media row (admin)",
+            "requestBody": {
+                "required": True,
+                "content": {
+                    "application/json": {
+                        "schema": {"type": "object", "additionalProperties": True}
+                    }
+                },
+            },
+            "responses": _created_response(),
         }
     }
-    p["/api/v1/admin/reviews/{review_id}/approve"] = {
+    p["/api/v1/admin/media/{media_id}"] = {
         "patch": {
             "tags": ["Admin"],
-            "summary": "Approve a review (admin)",
-            "parameters": [
-                {
-                    "name": "review_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
+            "summary": "Update media (admin)",
+            "parameters": [media_admin_id],
+            "requestBody": {
+                "required": True,
+                "content": {
+                    "application/json": {
+                        "schema": {"type": "object", "additionalProperties": True}
+                    }
+                },
+            },
             "responses": _ok_response(),
-        }
-    }
-    p["/api/v1/admin/reviews/{review_id}"] = {
+        },
         "delete": {
             "tags": ["Admin"],
-            "summary": "Delete a review (admin)",
-            "parameters": [
-                {
-                    "name": "review_id",
-                    "in": "path",
-                    "required": True,
-                    "schema": {"type": "string"},
-                }
-            ],
+            "summary": "Delete media (admin)",
+            "parameters": [media_admin_id],
             "responses": _ok_response(),
-        }
+        },
     }
 
     return p
@@ -788,7 +695,7 @@ def _schemas():
             "type": "object",
             "required": ["mediaType", "mediaId", "status", "progress"],
             "properties": {
-                "mediaType": {"type": "string", "enum": ["anime", "game", "movie"]},
+                "mediaType": {"type": "string", "enum": ["anime", "movie", "tvshow"]},
                 "mediaId": {"type": "string"},
                 "status": {"type": "string"},
                 "progress": {"$ref": "#/components/schemas/Progress"},
@@ -815,7 +722,7 @@ def _schemas():
             "type": "object",
             "required": ["mediaType", "mediaId", "rating", "title", "body"],
             "properties": {
-                "mediaType": {"type": "string", "enum": ["anime", "game", "movie"]},
+                "mediaType": {"type": "string", "enum": ["anime", "movie", "tvshow"]},
                 "mediaId": {"type": "string"},
                 "rating": {"type": "integer", "minimum": 1, "maximum": 10},
                 "title": {"type": "string"},
@@ -848,30 +755,37 @@ def build_openapi_spec():
     return {
         "openapi": "3.1.0",
         "info": {
-            "title": "Watchlist Hub API",
+            "title": "WatchList Hub API",
             "version": "1.0.0",
-            "summary": "OpenAPI for the Watchlist Hub Flask backend",
+            "summary": "CITS5505 — REST surface under /api/v1",
             "description": (
-                "Session-based auth, media discovery, watchlists, and admin endpoints. "
-                "Some features return placeholder data until models are implemented."
+                "**WatchList Hub** — session-based JSON API backing the Flask app. "
+                "**Implemented in this repo:** auth, users & profiles, watchlists, catalog "
+                "(anime / TV / movies by internal id), **unified item detail** by IMDb id, "
+                "search, trending & leaderboards, landing posters, **friends** (requests, "
+                "accept/reject, unfriend, status), **direct messages**, and **admin** user list "
+                "plus generic **media** create/update/delete. "
+                "Most routes return the shared `{ success, message, data, meta }` envelope."
             ),
-            "contact": {"name": "Watchlist Hub Team", "email": "team@example.com"},
+            "contact": {"name": "WatchList Hub Team", "email": "team@example.com"},
             "license": {"name": "MIT"},
         },
-        "servers": [{"url": "/", "description": "Current server"}],
+        "servers": [{"url": "/", "description": "Current server (e.g. http://127.0.0.1:5002)"}],
         "tags": [
-            {"name": "Auth", "description": "Authentication and session endpoints."},
-            {"name": "Users", "description": "Public profiles and current-user endpoints."},
-            {"name": "Anime", "description": "Anime discovery and detail endpoints."},
-            {"name": "Games", "description": "Game discovery and detail endpoints."},
-            {"name": "Movies", "description": "Movie discovery and detail endpoints."},
-            {"name": "Watchlist", "description": "Private watchlist management endpoints."},
-            {"name": "Reviews", "description": "Create, update, and delete reviews."},
-            {"name": "Follows", "description": "Follow relationships between users."},
-            {"name": "Notifications", "description": "User notifications."},
-            {"name": "Leaderboards", "description": "Trending leaderboard endpoints."},
-            {"name": "Search", "description": "Mixed search endpoint."},
-            {"name": "Admin", "description": "Admin-only moderation and catalog endpoints."},
+            {"name": "System", "description": "Health / API root."},
+            {"name": "Auth", "description": "Register, login, logout, session."},
+            {"name": "Users", "description": "Profiles, current user, public watchlists."},
+            {"name": "Anime", "description": "List and get anime (internal numeric id)."},
+            {"name": "TV Shows", "description": "List and get TV shows (internal numeric id)."},
+            {"name": "Movies", "description": "List and get movies (internal numeric id)."},
+            {"name": "Items", "description": "Single title by IMDb id (detail page + counts)."},
+            {"name": "Watchlist", "description": "Signed-in user's watchlist CRUD."},
+            {"name": "Friends", "description": "Friends list, requests, accept/reject, remove, status."},
+            {"name": "Messages", "description": "Direct messages between users."},
+            {"name": "Leaderboards", "description": "Trending and leaderboard slices."},
+            {"name": "Landing", "description": "Public assets for the marketing landing page."},
+            {"name": "Search", "description": "Search media catalogue."},
+            {"name": "Admin", "description": "Admin-only users and media catalogue edits."},
         ],
         "paths": _paths(),
         "components": {"schemas": _schemas()},

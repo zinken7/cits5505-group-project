@@ -3,23 +3,17 @@ from flask import request
 from flask_login import current_user
 
 from app.api.v1 import bp
-from app.api.v1.common import api_login_required, api_response, parse_pagination, validation_error
-from app.api.v1.users import _filter_watchlist
+from app.api.v1.common import api_login_required, api_response, parse_id, parse_pagination, validate_body, validation_error
+from app.api.v1.schemas.watchlist import WatchlistCreateSchema, WatchlistPatchSchema
 from app.services.media_service import get_media
 from app.services.watchlist_service import (
     add_to_watchlist,
+    filter_watchlist,
     get_user_watchlist,
     get_watchlist_item,
     patch_watchlist_item,
     remove_from_watchlist,
 )
-
-
-def _entry_id(eid):
-    try:
-        return int(eid)
-    except (TypeError, ValueError):
-        return None
 
 
 @bp.route("/watchlist", methods=["GET"])
@@ -31,7 +25,7 @@ def watchlist_list():
     sort = request.args.get("sort") or "-updatedAt"
     limit, offset = parse_pagination(limit_default=20, max_limit=100)
     raw = get_user_watchlist(current_user.id, status=None)
-    items, total = _filter_watchlist(
+    items, total = filter_watchlist(
         raw,
         status=status,
         media_type=media_type,
@@ -48,19 +42,13 @@ def watchlist_list():
 
 @bp.route("/watchlist", methods=["POST"])
 @api_login_required
+@validate_body(WatchlistCreateSchema)
 def watchlist_create():
     data = request.get_json(silent=True) or {}
     media_type = data.get("mediaType")
     media_id_raw = data.get("mediaId")
     status = data.get("status") or "planned"
-    if media_type not in ("anime", "game", "movie"):
-        return validation_error("mediaType must be anime, game, or movie")
-    if media_id_raw is None:
-        return validation_error("mediaId is required")
-    try:
-        media_id = int(str(media_id_raw))
-    except ValueError:
-        return validation_error("mediaId must be numeric")
+    media_id = int(str(media_id_raw))
 
     media = get_media(media_id)
     if not media or media.media_type != media_type:
@@ -80,7 +68,7 @@ def watchlist_create():
 @bp.route("/watchlist/<entry_id>", methods=["GET"])
 @api_login_required
 def watchlist_one_get(entry_id):
-    eid = _entry_id(entry_id)
+    eid = parse_id(entry_id)
     if eid is None:
         return validation_error("Invalid entry id")
     item, err = get_watchlist_item(eid, current_user.id)
@@ -91,14 +79,13 @@ def watchlist_one_get(entry_id):
 
 @bp.route("/watchlist/<entry_id>", methods=["PATCH"])
 @api_login_required
+@validate_body(WatchlistPatchSchema)
 def watchlist_one_patch(entry_id):
-    eid = _entry_id(entry_id)
+    eid = parse_id(entry_id)
     if eid is None:
         return validation_error("Invalid entry id")
     data = request.get_json(silent=True) or {}
     status = data.get("status")
-    if status is None:
-        return validation_error("status is required")
     item, err = patch_watchlist_item(eid, current_user.id, status=status)
     if err:
         code = 404 if "not found" in err.lower() else 400
@@ -109,7 +96,7 @@ def watchlist_one_patch(entry_id):
 @bp.route("/watchlist/<entry_id>", methods=["DELETE"])
 @api_login_required
 def watchlist_one_delete(entry_id):
-    eid = _entry_id(entry_id)
+    eid = parse_id(entry_id)
     if eid is None:
         return validation_error("Invalid entry id")
     ok, err = remove_from_watchlist(eid, current_user.id)

@@ -30,6 +30,12 @@ export function syncThemeToggleUi() {
     label.textContent = dark ? "Switch to light mode" : "Switch to dark mode";
   }
   btn.title = dark ? "Switch to light mode" : "Switch to dark mode";
+
+  // Sync moon/sun icons (app_layout.html topbar)
+  const moon = btn.querySelector(".theme-icon-moon");
+  const sun = btn.querySelector(".theme-icon-sun");
+  if (moon) moon.style.display = dark ? "none" : "";
+  if (sun) sun.style.display = dark ? "" : "none";
 }
 
 /** Apply resolved light|dark to document (updates CSS variables via [data-theme]). */

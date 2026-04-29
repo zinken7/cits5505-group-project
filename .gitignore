@@ -32,3 +32,10 @@ instance/
 
 # Flask
 *.pyc
+*.log
+
+# Scripts
+# scripts/*.py
+
+# Downloaded poster images (run scripts/download_posters.py to fetch)
+app/static/posters/

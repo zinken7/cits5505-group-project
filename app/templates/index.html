@@ -1,50 +1,84 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
-{% block title %}WatchList Hub — Discover Anime, Games & Movies{% endblock %}
-{% block meta_description %}Discover the most popular anime, games, and movies. Track your watchlist and see what others are enjoying.{% endblock %}
+{% block title %}WatchList Hub — Discover Your Next Favorite{% endblock %}
+{% block meta_description %}Explore the world of cinema. Track your watchlist and discover what others are watching.{% endblock %}
 
-{% block content %}
-<div data-page="index" data-trending='{{ trending | tojson }}'>
+{% block body_class %}landing-body{% endblock %}
 
-    {# ── Hero Section ── #}
-    <section class="text-center py-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
-            Track. Discover. Share.
-        </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Your personal watchlist for anime, games, and movies.
-            See what's trending and discover what others are enjoying.
-        </p>
-        {% if not current_user.is_authenticated %}
-        <div class="flex justify-center gap-4">
-            <a href="{{ url_for('auth.register') }}"
-               class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
-                Get Started
-            </a>
-            <a href="{{ url_for('auth.login') }}"
-               class="px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
-                Log In
-            </a>
+{% block head %}
+{{ super() }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/landing.js') }}{% endblock %}
+
+{% block body %}
+{# ── Loading Screen ── #}
+<div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+        <div class="loading-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" opacity="0.2"/>
+                <path d="M12 2a10 10 0 0 1 10 10" class="loading-arc"/>
+            </svg>
         </div>
-        {% endif %}
-    </section>
-
-    {# ── Trending Section ── #}
-    <section class="py-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">🔥 Trending Now</h2>
-
-        {% if trending %}
-        <div id="trending-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {% for item in trending %}
-                {% include "components/media_card.html" %}
-            {% endfor %}
+        <p class="loading-text">Loading cinematic experience</p>
+        <div class="loading-bar-track">
+            <div id="loading-bar" class="loading-bar-fill"></div>
         </div>
+        <p class="loading-percent" id="loading-percent">0%</p>
+    </div>
+</div>
+
+{# ── Three.js canvas (full-screen background) ── #}
+<canvas id="landing-canvas"></canvas>
+
+{# ── Overlay UI — hidden until explosion completes ── #}
+<div id="landing-overlay" class="landing-overlay">
+
+    {# Top-right auth buttons — fade in after explosion #}
+    <nav id="landing-nav" class="landing-nav" aria-label="Authentication">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('main.explore') }}" class="landing-nav__link" id="nav-explore">Explore</a>
+        <a href="{{ url_for('main.dashboard') }}" class="landing-nav__link" id="nav-dashboard">Dashboard</a>
+        <!-- <a href="{{ url_for('auth.logout') }}" class="" id="nav-logout">Log Out</a> -->
         {% else %}
-        <p class="text-gray-500 text-center py-12">
-            No trending items yet. Be the first to add something to your watchlist!
-        </p>
+        <a href="{{ url_for('main.explore') }}" class="landing-nav__link" id="nav-explore">Explore</a>
+        <a href="{{ url_for('auth.login') }}" class="landing-nav__link" id="nav-login">Log In</a>
+        <a href="{{ url_for('auth.register') }}" class="landing-nav__link landing-nav__link--cta" id="nav-signup">Start tracking</a>
         {% endif %}
-    </section>
+    </nav>
+
+    {# Center hero info — text and buttons below the Three.js poster #}
+    <div id="hero-card" class="hero-card">
+        <div class="hero-info">
+            <p class="hero-tagline" id="hero-tagline">Have you watched this?</p>
+            <h2 class="hero-title" id="hero-title"></h2>
+            <div class="hero-meta">
+                <span class="hero-year" id="hero-year"></span>
+                <span class="hero-rating" id="hero-rating"></span>
+            </div>
+            <button class="btn-watchlist" id="btn-add-watchlist">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add to Watchlist
+            </button>
+        </div>
+    </div>
+
+    {# Brand watermark #}
+    <div id="landing-brand" class="landing-brand">
+        <span class="brand-name">WatchList Hub</span>
+    </div>
 
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 {% endblock %}

@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watchlist Hub API — ReDoc</title>
+  <title>WatchList Hub — REST API (ReDoc)</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/docs_nav.css') }}">
   <style> body { margin: 0; padding: 0; } </style>
 </head>
 <body class="docs-standalone">
   {% include "components/docs_subnav.html" %}
+  <p class="docs-api-intro">
+    <strong>WatchList Hub</strong> — same OpenAPI as <a href="{{ url_for('docs.apis') }}">Swagger</a>.
+    Includes friends, DMs, items by IMDb id, and admin media. Try requests against
+    <a href="http://127.0.0.1:5002">http://127.0.0.1:5002</a> (session cookie after login in the browser).
+    Site URLs: <a href="{{ url_for('docs.routes') }}">Routes</a>.
+  </p>
   <redoc spec-url="/openapi.json"></redoc>
   <script src="https://unpkg.com/redoc@2/bundles/redoc.standalone.js" crossorigin="anonymous"></script>
 </body>

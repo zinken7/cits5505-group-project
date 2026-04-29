@@ -15,7 +15,7 @@ def search_media():
     limit, offset = parse_pagination(limit_default=12, max_limit=100)
 
     query = Media.query.filter(Media.title.ilike(f"%{q}%"))
-    if mtype in ("anime", "game", "movie"):
+    if mtype in ("anime", "movie", "tvshow"):
         query = query.filter_by(media_type=mtype)
 
     total = query.count()

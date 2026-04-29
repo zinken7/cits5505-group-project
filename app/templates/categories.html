@@ -1,0 +1,99 @@
+{% extends "app_layout.html" %}
+{% from "components/mcard.html" import mcard %}
+
+{% block title %}{{ selected_genre }} — Categories · WatchList Hub{% endblock %}
+{% block meta_description %}Browse {{ selected_genre }} movies, anime, and TV shows on WatchList Hub.{% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/categories.js') }}{% endblock %}
+
+{% block content %}
+<div class="page" id="cat-page">
+
+  {# ── Page header ───────────────────────────────────────────────── #}
+  <div class="mb-6">
+    <div class="h-eyebrow">Browse by genre</div>
+    <h1 class="h-display" id="cat-heading">{{ selected_genre }}</h1>
+    <p class="text-muted mt-2 text-[0.9375rem]" style="line-height:1.55">
+      Top-rated titles across movies, anime, and TV shows.
+    </p>
+  </div>
+
+  {# ── Genre cloud ───────────────────────────────────────────────── #}
+  <div class="mb-8"">
+    <div class="cat-genre-cloud" id="cat-genre-cloud">
+      {% for g in genres %}
+      <button type="button"
+              class="cat-genre-btn {{ 'cat-genre-btn--active' if g == selected_genre else 'cat-genre-btn--idle' }}"
+              data-genre="{{ g }}">
+        {{ g }}
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# ── Movies rail ───────────────────────────────────────────────── #}
+  <div class="mb-8">
+    <div class="cat-section-header">
+      <div class="cat-section-title">
+        <span class="cat-section-emoji">🎬</span>
+        <span class="cat-section-name">Movies</span>
+        <span class="cat-section-count" id="count-movie">{{ movie_total }} titles</span>
+      </div>
+      <a href="{{ url_for('main.explore') }}?type=movie&genre={{ selected_genre | urlencode }}"
+         class="cat-see-all" id="seeall-movie">See all →</a>
+    </div>
+    <div class="cat-rail" id="rail-movie">
+      {% if movies %}
+        {% for item in movies %}{{ mcard(item) }}{% endfor %}
+      {% else %}
+      <div class="cat-empty">No movies tagged {{ selected_genre | lower }} yet.</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {# ── Anime rail ────────────────────────────────────────────────── #}
+  <div class="mb-8">
+    <div class="cat-section-header">
+      <div class="cat-section-title">
+        <span class="cat-section-emoji">📺</span>
+        <span class="cat-section-name">Anime</span>
+        <span class="cat-section-count" id="count-anime">{{ anime_total }} titles</span>
+      </div>
+      <a href="{{ url_for('main.explore') }}?type=anime&genre={{ selected_genre | urlencode }}"
+         class="cat-see-all" id="seeall-anime">See all →</a>
+    </div>
+    <div class="cat-rail" id="rail-anime">
+      {% if anime %}
+        {% for item in anime %}{{ mcard(item) }}{% endfor %}
+      {% else %}
+      <div class="cat-empty">No anime tagged {{ selected_genre | lower }} yet.</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {# ── TV Shows rail ─────────────────────────────────────────────── #}
+  <div class="mb-8">
+    <div class="cat-section-header">
+      <div class="cat-section-title">
+        <span class="cat-section-emoji">📡</span>
+        <span class="cat-section-name">TV Shows</span>
+        <span class="cat-section-count" id="count-tvshow">{{ tvshow_total }} titles</span>
+      </div>
+      <a href="{{ url_for('main.explore') }}?type=tvshow&genre={{ selected_genre | urlencode }}"
+         class="cat-see-all" id="seeall-tvshow">See all →</a>
+    </div>
+    <div class="cat-rail" id="rail-tvshow">
+      {% if tvshows %}
+        {% for item in tvshows %}{{ mcard(item) }}{% endfor %}
+      {% else %}
+      <div class="cat-empty">No TV shows tagged {{ selected_genre | lower }} yet.</div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/categories.js') }}"></script>
+{% endblock %}

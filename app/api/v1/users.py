@@ -8,59 +8,20 @@ from app.api.v1.common import (
     api_response,
     parse_pagination,
     parse_user_id,
-    validation_error,
+    validate_body,
 )
-from app.extensions import db
-from app.models.user import User
-from app.services.watchlist_service import get_user_watchlist
+from app.api.v1.schemas.users import UserMePatchSchema
+from app.services.user_service import get_user, update_user
+from app.services.watchlist_service import filter_watchlist, get_user_watchlist
 
 
-def _can_view_watchlist(profile: User, viewer) -> bool:
+def _can_view_watchlist(profile, viewer) -> bool:
     vis = profile.watchlist_visibility or "public"
     if vis == "public":
         return True
     if vis == "private":
         return viewer.is_authenticated and viewer.id == profile.id
-    # followers — not implemented; treat as public for demo
     return True
-
-
-def _filter_watchlist(
-    items,
-    status=None,
-    media_type=None,
-    q=None,
-    sort="-updatedAt",
-    limit=12,
-    offset=0,
-):
-    out = list(items)
-    if status:
-        out = [i for i in out if i.get("status") == status]
-    if media_type:
-        out = [
-            i
-            for i in out
-            if (i.get("media") or {}).get("media_type") == media_type
-        ]
-    if q:
-        ql = q.lower()
-        out = [
-            i
-            for i in out
-            if ql in (i.get("media") or {}).get("title", "").lower()
-        ]
-    reverse = sort.startswith("-")
-    sk = sort.lstrip("-")
-    if sk in ("updatedAt", "createdAt", "created_at"):
-        key = "created_at"
-
-        def sort_key(x):
-            return x.get(key) or ""
-
-        out = sorted(out, key=sort_key, reverse=reverse)
-    total = len(out)
-    return out[offset : offset + limit], total
 
 
 @bp.route("/users/me", methods=["GET"])
@@ -71,20 +32,51 @@ def users_me_get():
 
 @bp.route("/users/me", methods=["PATCH"])
 @api_login_required
+@validate_body(UserMePatchSchema)
 def users_me_patch():
+    from datetime import date as _date
+    from app.models.user import User as _User
+
     data = request.get_json(silent=True) or {}
-    if "displayName" in data and data["displayName"] is not None:
-        current_user.display_name = (data["displayName"] or "").strip() or None
+    kwargs = {}
+
+    if "displayName" in data:
+        kwargs["display_name"] = (data["displayName"] or "").strip() or None
     if "bio" in data:
-        current_user.bio = data.get("bio")
+        kwargs["bio"] = data["bio"]
     if "favoriteGenres" in data:
-        current_user.favorite_genres = data.get("favoriteGenres")
+        kwargs["favorite_genres"] = data["favoriteGenres"]
     if "visibility" in data and isinstance(data["visibility"], dict):
         w = data["visibility"].get("watchlist")
         if w in ("public", "followers", "private"):
-            current_user.watchlist_visibility = w
-    db.session.commit()
+            kwargs["watchlist_visibility"] = w
+
+    if "username" in data:
+        new_username = str(data["username"]).strip().lower()
+        if new_username != current_user.username:
+            if _User.query.filter_by(username=new_username).first():
+                return api_response(data=None, message="Username already taken", success=False, status=409)
+            kwargs["username"] = new_username
+
+    if "dateOfBirth" in data:
+        dob = data["dateOfBirth"]
+        kwargs["date_of_birth"] = _date.fromisoformat(str(dob)) if dob else None
+
+    if "profilePublic" in data:
+        kwargs["profile_public"] = bool(data["profilePublic"])
+
+    if "allowFriendRequests" in data:
+        kwargs["allow_friend_requests"] = bool(data["allowFriendRequests"])
+
+    update_user(current_user, **kwargs)
     return api_response(data=current_user.to_dict(), message="Updated")
+
+
+@bp.route("/users/me/watchlist", methods=["GET"])
+@api_login_required
+def users_me_watchlist_get():
+    items = get_user_watchlist(current_user.id)
+    return api_response(data=items)
 
 
 @bp.route("/users/<user_id>", methods=["GET"])
@@ -92,7 +84,7 @@ def users_public_get(user_id):
     uid = parse_user_id(user_id)
     if uid is None:
         return api_response(data=None, message="Invalid user id", success=False, status=400)
-    user = db.session.get(User, uid)
+    user = get_user(uid)
     if not user:
         return api_response(data=None, message="User not found", success=False, status=404)
     return api_response(data=user.to_public_dict())
@@ -103,7 +95,7 @@ def users_watchlist_get(user_id):
     uid = parse_user_id(user_id)
     if uid is None:
         return api_response(data=None, message="Invalid user id", success=False, status=400)
-    profile = db.session.get(User, uid)
+    profile = get_user(uid)
     if not profile:
         return api_response(data=None, message="User not found", success=False, status=404)
     if not _can_view_watchlist(profile, current_user):
@@ -116,69 +108,5 @@ def users_watchlist_get(user_id):
     limit, offset = parse_pagination(limit_default=12, max_limit=100)
 
     raw = get_user_watchlist(uid, status=None)
-    items, total = _filter_watchlist(
-        raw,
-        status=status,
-        media_type=media_type,
-        q=q,
-        sort=sort,
-        limit=limit,
-        offset=offset,
-    )
-    return api_response(
-        data=items,
-        meta={"limit": limit, "offset": offset, "total": total},
-    )
-
-
-@bp.route("/users/<user_id>/reviews", methods=["GET"])
-def users_reviews_get(user_id):
-    uid = parse_user_id(user_id)
-    if uid is None:
-        return validation_error("Invalid user id")
-    if not db.session.get(User, uid):
-        return api_response(data=None, message="User not found", success=False, status=404)
-    return api_response(
-        data=[],
-        meta={"limit": 0, "offset": 0, "total": 0},
-        message="Reviews not implemented yet",
-    )
-
-
-@bp.route("/users/<user_id>/followers", methods=["GET"])
-def users_followers_get(user_id):
-    uid = parse_user_id(user_id)
-    if uid is None:
-        return validation_error("Invalid user id")
-    if not db.session.get(User, uid):
-        return api_response(data=None, message="User not found", success=False, status=404)
-    return api_response(data=[], message="Followers not implemented yet")
-
-
-@bp.route("/users/<user_id>/following", methods=["GET"])
-def users_following_get(user_id):
-    uid = parse_user_id(user_id)
-    if uid is None:
-        return validation_error("Invalid user id")
-    if not db.session.get(User, uid):
-        return api_response(data=None, message="User not found", success=False, status=404)
-    return api_response(data=[], message="Following not implemented yet")
-
-
-@bp.route("/users/me/watchlist", methods=["GET"])
-@api_login_required
-def users_me_watchlist_get():
-    items = get_user_watchlist(current_user.id)
-    return api_response(data=items)
-
-
-@bp.route("/users/me/reviews", methods=["GET"])
-@api_login_required
-def users_me_reviews_get():
-    return api_response(data=[], message="Reviews not implemented yet")
-
-
-@bp.route("/users/me/notifications", methods=["GET"])
-@api_login_required
-def users_me_notifications_get():
-    return api_response(data=[], message="Notifications not implemented yet")
+    items, total = filter_watchlist(raw, status=status, media_type=media_type, q=q, sort=sort, limit=limit, offset=offset)
+    return api_response(data=items, meta={"limit": limit, "offset": offset, "total": total})

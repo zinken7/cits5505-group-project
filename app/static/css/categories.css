@@ -1,0 +1,87 @@
+@reference "../../../frontend/src/style.css";
+
+/* ── Genre cloud ──────────────────────────────────────────────── */
+.cat-genre-cloud {
+  @apply flex flex-wrap gap-2;
+}
+
+.cat-genre-btn {
+  @apply cursor-pointer rounded-full border text-[0.8125rem] font-medium
+         px-4 py-1.5 transition-all duration-150 no-underline select-none;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.cat-genre-btn--idle {
+  @apply border-border text-muted bg-transparent;
+}
+
+.cat-genre-btn--idle:hover {
+  @apply border-border-strong text-foreground;
+}
+
+.cat-genre-btn--active {
+  @apply border-accent text-accent;
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+/* ── Section header ───────────────────────────────────────────── */
+.cat-section-header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.cat-section-title {
+  @apply flex items-center gap-2.5;
+}
+
+.cat-section-emoji {
+  @apply text-[1.375rem] leading-none;
+}
+
+.cat-section-name {
+  @apply font-display text-[1.375rem] tracking-tight text-foreground;
+  letter-spacing: -0.015em;
+}
+
+.cat-section-count {
+  @apply text-[0.6875rem] uppercase text-muted tabular-nums;
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+}
+
+.cat-see-all {
+  @apply text-[0.8125rem] text-accent no-underline transition-opacity duration-150;
+}
+
+.cat-see-all:hover {
+  @apply opacity-70;
+}
+
+/* ── Horizontal scroll rail ───────────────────────────────────── */
+.cat-rail {
+  @apply flex gap-4 overflow-x-auto pb-3;
+  scrollbar-width: none;
+}
+
+.cat-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-rail .mcard {
+  @apply shrink-0;
+  width: 160px;
+}
+
+@media (max-width: 480px) {
+  .cat-rail .mcard { width: 140px; }
+}
+
+/* ── Loading skeleton ─────────────────────────────────────────── */
+.cat-rail--loading {
+  @apply pointer-events-none opacity-40;
+}
+
+/* ── Empty state ──────────────────────────────────────────────── */
+.cat-empty {
+  @apply bg-card border border-border rounded-2xl p-8 text-center text-muted text-[0.875rem];
+}

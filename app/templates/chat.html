@@ -1,0 +1,84 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Chat — WatchList Hub{% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/chat.js') }}{% endblock %}
+
+{% block content %}
+<div class="page" style="padding-bottom:0">
+  <div class="chat-layout">
+
+    {# ── Friend list ────────────────────────────────────────── #}
+    <div class="chat-sidebar">
+      <div class="chat-sidebar__header">
+        <div class="h-eyebrow">Messages</div>
+      </div>
+      <div id="friend-list">
+        {# Populated by inline script below #}
+        <div class="px-4 py-3 text-muted text-[0.8125rem]">Loading friends…</div>
+      </div>
+    </div>
+
+    {# ── Chat window ─────────────────────────────────────────── #}
+    <div class="chat-window">
+
+      {# Placeholder when no friend selected #}
+      <div id="chat-placeholder" class="chat-placeholder" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:.75rem">
+        <div style="font-size:2.5rem">💬</div>
+        <div class="text-muted text-[0.875rem]">Select a friend to start chatting</div>
+      </div>
+
+      {# Actual window (hidden until friend selected) #}
+      <div id="chat-window" style="display:none;flex-direction:column;height:100%">
+        <div class="chat-window__header">
+          <div class="chat-friend-avatar" id="chat-header-avatar">?</div>
+          <span class="font-medium text-foreground" id="chat-header-name"></span>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <form class="chat-input-bar" id="msg-form" autocomplete="off">
+          <input type="text" class="chat-input" id="msg-input"
+                 placeholder="Type a message… use #Title to tag a movie" maxlength="1000">
+          <button type="submit" class="btn btn--primary btn--sm">Send</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>window._chatUserId = {{ current_user.id | tojson }};</script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+// Load friend list on page boot
+window.apiFetch('/api/v1/friends').then(function (friends) {
+  var list = document.getElementById('friend-list');
+  if (!friends || !friends.length) {
+    list.innerHTML = '<div class="px-4 py-3 text-muted text-[0.8125rem]">No friends yet.</div>';
+    return;
+  }
+  list.innerHTML = friends.map(function (f) {
+    var initials = (f.displayName || f.username || '?')[0].toUpperCase();
+    return '<div class="chat-friend-item" data-friend-id="' + f.id + '" data-friend-name="' + esc(f.displayName || f.username) + '">' +
+      '<div class="chat-friend-avatar">' + initials + '</div>' +
+      '<div class="min-w-0"><div class="chat-friend-name">' + esc(f.displayName || f.username) + '</div></div>' +
+    '</div>';
+  }).join('');
+  // Update header avatar when a friend is selected
+  document.getElementById('friend-list').addEventListener('click', function (e) {
+    var item = e.target.closest('[data-friend-id]');
+    if (!item) return;
+    var av = document.getElementById('chat-header-avatar');
+    if (av) av.textContent = (item.dataset.friendName || '?')[0].toUpperCase();
+  });
+}).catch(function () {
+  document.getElementById('friend-list').innerHTML = '<div class="px-4 py-3 text-muted text-[0.8125rem]">Failed to load.</div>';
+});
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

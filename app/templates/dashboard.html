@@ -1,54 +1,196 @@
-{% extends "layout.html" %}
+{% extends "app_layout.html" %}
+{% from "components/mcard.html" import mcard %}
 
 {% block title %}Dashboard — WatchList Hub{% endblock %}
 
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/dashboard.js') }}{% endblock %}
+
 {% block content %}
-<div data-page="dashboard" data-watchlist='{{ watchlist | tojson }}'>
+{%- set watching  = watchlist | selectattr('status', 'equalto', 'watching')  | list -%}
+{%- set planned   = watchlist | selectattr('status', 'equalto', 'planned')   | list -%}
+{%- set completed = watchlist | selectattr('status', 'equalto', 'completed') | list -%}
+{%- set hero_item = watching[0] if watching else (watchlist[0] if watchlist else none) -%}
 
-    <h1 class="text-3xl font-bold text-gray-900 mb-8">
-        My Dashboard
-    </h1>
+<div class="page">
 
-    {# ── Status Tabs ── #}
-    <div class="flex gap-4 mb-8 border-b border-gray-200">
-        <button class="tab-btn px-4 py-2 font-medium text-blue-600 border-b-2 border-blue-600"
-                data-status="watching">
-            👀 Watching
-        </button>
-        <button class="tab-btn px-4 py-2 font-medium text-gray-500 hover:text-gray-700"
-                data-status="planned">
-            📋 Planned
-        </button>
-        <button class="tab-btn px-4 py-2 font-medium text-gray-500 hover:text-gray-700"
-                data-status="completed">
-            ✅ Completed
-        </button>
+  {# ── Page header ───────────────────────────────────────────────── #}
+  <div class="flex items-end justify-between gap-6 flex-wrap mb-7">
+    <div>
+      <div class="h-eyebrow">Welcome back, {{ current_user.display_name or current_user.username }}</div>
+      <h1 class="h-display">Your <em>lists</em>, your pace.</h1>
+      <p class="max-w-[35rem] text-muted mt-3.5 text-[0.9375rem]" style="line-height:1.55">
+        {{ watchlist | length }} title{{ 's' if watchlist | length != 1 else '' }} tracked
+        · {{ watching | length }} watching · {{ completed | length }} completed
+      </p>
     </div>
+    <div class="flex gap-2">
+      <a href="{{ url_for('main.explore') }}" class="btn btn--primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add title
+      </a>
+    </div>
+  </div>
 
-    {# ── Watchlist Panels ── #}
-    <div id="watchlist-panels">
-        {% for status in ['watching', 'planned', 'completed'] %}
-        <div class="watchlist-panel {% if status != 'watching' %}hidden{% endif %}"
-             data-status="{{ status }}">
+  {# ── Hero + stat grid ─────────────────────────────────────────── #}
+  <div class="grid grid-cols-[minmax(0,1.6fr)_1fr] gap-5 mb-8 max-[900px]:grid-cols-1">
 
-            {% set items = watchlist | selectattr('status', 'equalto', status) | list %}
-
-            {% if items %}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {% for item in items %}
-                    {% set media_item = item %}
-                    {% include "components/media_card.html" %}
-                {% endfor %}
-            </div>
-            {% else %}
-            <p class="text-gray-500 text-center py-12">
-                No items in your {{ status }} list yet.
-            </p>
-            {% endif %}
-
+    {# Hero card #}
+    {% if hero_item %}
+    {%- set hm = hero_item.get('media') or {} -%}
+    <a href="{{ url_for('main.item_detail', imdb_id=hm.get('imdb_id', '')) }}"
+       class="card overflow-hidden relative block no-underline p-0 min-h-[320px]">
+      <div class="absolute inset-0" style="background:linear-gradient(110deg,rgba(13,12,10,.94) 0%,rgba(13,12,10,.72) 42%,rgba(13,12,10,.2) 100%){{ (',url(' + hm.get('image_url') + ')') if hm.get('image_url') else '' }};background-size:cover;background-position:center;filter:saturate(1.05)"></div>
+      <div class="relative flex flex-col h-full gap-3.5 min-h-[320px]" style="padding:32px 36px;color:#f5f1e8">
+        <div class="flex gap-2 items-center">
+          <span class="pill pill--acid">● {{ hero_item.get('status') | capitalize }}</span>
+          <span class="pill" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.16)">
+            {{ {'movie':'Movie','anime':'Anime','tvshow':'TV Show'}.get(hm.get('media_type'), hm.get('media_type', '')) }}
+          </span>
         </div>
-        {% endfor %}
+        <div class="mt-auto">
+          <div class="mono text-[0.6875rem] uppercase" style="letter-spacing:.2em;opacity:.7">
+            {{ hm.get('year', '') }}{% if hm.get('year') %} · {% endif %}{{ hm.get('media_type', '') | upper }}
+          </div>
+          <div class="display mt-2 max-w-[35rem]" style="font-size:clamp(32px,4vw,52px);line-height:.98;letter-spacing:-.02em">
+            {{ hm.get('title', 'Untitled') }}
+          </div>
+          {% if hm.get('description') %}
+          <p class="max-w-[32.5rem] text-sm mt-3" style="color:rgba(255,255,255,.76);line-height:1.55">
+            {{ hm.get('description', '') | truncate(160) }}
+          </p>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+    {% else %}
+    <a href="{{ url_for('main.explore') }}" class="card overflow-hidden relative flex items-center justify-center p-0 min-h-[320px] no-underline"
+       style="background:var(--card-bg-2)">
+      <div class="text-center" style="padding:32px">
+        <div class="display text-[2.25rem] mb-3">Nothing watching yet.</div>
+        <p class="text-muted">Browse Explore to find something.</p>
+        <div class="mt-5"><span class="btn btn--accent">Explore now →</span></div>
+      </div>
+    </a>
+    {% endif %}
+
+    {# Stat grid #}
+    <div class="grid grid-cols-2 gap-3">
+      <div class="stat stat--ink col-span-2">
+        <div class="stat__label">Total tracked</div>
+        <div class="stat__value">{{ watchlist | length }}<span class="ml-2" style="font-size:.4em;opacity:.7">titles</span></div>
+        <div class="stat__sub">across all lists</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Completed</div>
+        <div class="stat__value">{{ completed | length }}</div>
+        <div class="stat__sub">finished</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">In flight</div>
+        <div class="stat__value">{{ watching | length }}</div>
+        <div class="stat__sub">now watching</div>
+      </div>
+      <div class="stat stat--accent col-span-2">
+        <div class="stat__label">Planned</div>
+        <div class="stat__value">{{ planned | length }}<span class="ml-2" style="font-size:.4em;opacity:.7">up next</span></div>
+        <div class="stat__sub">Ready to start</div>
+      </div>
     </div>
+  </div>
+
+  {# ── Lists with tabs ──────────────────────────────────────────── #}
+  <div class="flex items-center justify-between gap-3.5 mb-[1.125rem]">
+    <div class="md:w-16 lg:w-full">
+      <div class="hidden md:block">
+        <h2 class="h-section">My lists</h2>
+        <p class="text-muted mt-1.5 mb-0 text-[0.8125rem]">Open any title to view details or change status.</p>
+      </div>
+    </div>
+    <div class="tabs" id="wl-tabs">
+      <div class="tab is-on flex items-center gap-2" data-tab="watching">
+        <span class="pill pill--watching" style="font-size:9px;padding:3px 7px">watching</span>
+        <span class="tabular">{{ watching | length }}</span>
+      </div>
+      <div class="tab flex items-center gap-2" data-tab="planned">
+        <span class="pill pill--planned" style="font-size:9px;padding:3px 7px">planned</span>
+        <span class="tabular">{{ planned | length }}</span>
+      </div>
+      <div class="tab flex items-center gap-2" data-tab="completed">
+        <span class="pill pill--completed" style="font-size:9px;padding:3px 7px">completed</span>
+        <span class="tabular">{{ completed | length }}</span>
+      </div>
+    </div>
+  </div>
+
+  {# Watching panel #}
+  <div data-panel="watching">
+    {% if watching %}
+    <div class="grid-posters">
+      {% for item in watching %}
+        {{ mcard(item.get('media') or {}, 'watching') }}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="card text-center" style="grid-column:1/-1;padding:48px">
+      <div class="display text-[1.75rem] mb-2">Nothing watching yet.</div>
+      <p class="text-muted">Browse <a href="{{ url_for('main.explore') }}" class="text-accent">Explore</a> or <a href="{{ url_for('main.categories') }}" class="text-accent">Categories</a> to add something.</p>
+    </div>
+    {% endif %}
+  </div>
+
+  {# Planned panel #}
+  <div data-panel="planned" class="hidden">
+    {% if planned %}
+    <div class="grid-posters">
+      {% for item in planned %}
+        {{ mcard(item.get('media') or {}, 'planned') }}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="card text-center" style="padding:48px">
+      <div class="display text-[1.75rem] mb-2">Nothing planned yet.</div>
+      <p class="text-muted">Add titles you want to watch.</p>
+    </div>
+    {% endif %}
+  </div>
+
+  {# Completed panel #}
+  <div data-panel="completed" class="hidden">
+    {% if completed %}
+    <div class="grid-posters">
+      {% for item in completed %}
+        {{ mcard(item.get('media') or {}, 'completed') }}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="card text-center" style="padding:48px">
+      <div class="display text-[1.75rem] mb-2">Nothing completed yet.</div>
+      <p class="text-muted">Mark items as completed when you finish them.</p>
+    </div>
+    {% endif %}
+  </div>
 
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var tabs = document.querySelectorAll('#wl-tabs .tab');
+  var panels = document.querySelectorAll('[data-panel]');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.classList.remove('is-on'); });
+      t.classList.add('is-on');
+      panels.forEach(function (p) { p.classList.add('hidden'); });
+      var target = document.querySelector('[data-panel="' + t.dataset.tab + '"]');
+      if (target) target.classList.remove('hidden');
+    });
+  });
+})();
+</script>
 {% endblock %}

@@ -37,8 +37,8 @@
           <p class="text-xs font-semibold text-foreground mb-1">Surfaces &amp; text</p>
           <p class="text-xs text-muted mb-2"><code class="bg-muted/15 px-1 rounded">bg-page</code> · <code class="bg-muted/15 px-1 rounded">bg-card</code> · <code class="bg-muted/15 px-1 rounded">text-foreground</code> · <code class="bg-muted/15 px-1 rounded">text-muted</code> · <code class="bg-muted/15 px-1 rounded">border-border</code></p>
           <div class="flex flex-wrap gap-1.5">
-            <span class="inline-block h-6 flex-1 min-w-[3rem] rounded bg-page border border-border" title="page"></span>
-            <span class="inline-block h-6 flex-1 min-w-[3rem] rounded bg-card border border-border" title="card"></span>
+            <span class="inline-block h-6 flex-1 min-w-12 rounded bg-page border border-border" title="page"></span>
+            <span class="inline-block h-6 flex-1 min-w-12 rounded bg-card border border-border" title="card"></span>
           </div>
         </div>
         <div class="rounded-lg border border-border p-3">
@@ -985,7 +985,7 @@ table.getSelectedValues(); // ["1", "3"] — checked row values
 &lt;script&gt;
 // window.UI.toast is auto-instantiated (Singleton)
 window.UI.toast.show('Saved!', 'Your changes have been saved.', 'success', 3000);
-window.UI.toast.show('Error', 'Something went wrong.', 'error', 5000);
+window.UI.toast.show('Error', 'Something went wrong.', 'error', 5002);
 window.UI.toast.show('Heads up', 'New version available.', 'info', 4000);
 
 // Parameters:
@@ -1009,7 +1009,7 @@ window.UI.toast.show('Heads up', 'New version available.', 'info', 4000);
               window.UI.toast.show('Saved successfully!', 'Your profile has been updated.', 'success', 3000);
             });
             $('#demo-toast-error').on('click', function() {
-              window.UI.toast.show('Upload failed', 'File size exceeds the 10MB limit.', 'error', 5000);
+              window.UI.toast.show('Upload failed', 'File size exceeds the 10MB limit.', 'error', 5002);
             });
             $('#demo-toast-info').on('click', function() {
               window.UI.toast.show('New update', 'Version 2.1 is now available.', 'info', 4000);

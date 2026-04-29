@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watchlist Hub API — Swagger UI</title>
+  <title>WatchList Hub — REST API (Swagger)</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/docs_nav.css') }}">
   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" crossorigin="anonymous">
   <style>
@@ -14,6 +14,13 @@
 </head>
 <body class="docs-standalone">
   {% include "components/docs_subnav.html" %}
+  <p class="docs-api-intro">
+    <strong>WatchList Hub</strong> — OpenAPI reflects the live Flask routes under <code>/api/v1</code>
+    (auth, users, catalog, items by IMDb id, watchlist, search, trending, landing posters,
+    <strong>friends</strong>, <strong>messages</strong>, admin). Default dev base:
+    <a href="http://127.0.0.1:5002">http://127.0.0.1:5002</a>.
+    HTML pages are listed on <a href="{{ url_for('docs.routes') }}">Routes</a>.
+  </p>
   <div id="swagger-ui"></div>
   <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js" crossorigin="anonymous"></script>
   <script>

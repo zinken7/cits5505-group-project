@@ -4,52 +4,72 @@
         <div class="flex items-center justify-between h-16">
 
             {# Logo #}
-            <a href="{{ url_for('main.index') }}" class="text-xl font-bold text-foreground hover:text-primary transition-colors">
+            <a href="{{ url_for('main.index') }}"
+                class="text-xl font-bold text-foreground hover:text-primary transition-colors">
                 📺 WatchList Hub
             </a>
 
             {# Navigation Links #}
             <div class="flex items-center gap-4 sm:gap-6">
                 <a href="{{ url_for('main.index') }}"
-                   class="text-sm font-medium text-muted hover:text-foreground transition-colors">
+                    class="text-sm font-medium text-muted hover:text-foreground transition-colors">
                     Home
                 </a>
                 <a href="{{ url_for('docs.hub') }}"
-                   class="text-sm font-medium text-muted hover:text-foreground transition-colors">
+                    class="text-sm font-medium text-muted hover:text-foreground transition-colors">
                     Docs
+                </a>
+                <a href="{{ url_for('main.categories') }}"
+                    class="text-sm font-medium text-muted hover:text-foreground transition-colors">
+                    Categories
                 </a>
 
                 {% if current_user.is_authenticated %}
-                    <a href="{{ url_for('main.dashboard') }}"
-                       class="text-sm font-medium text-muted hover:text-foreground transition-colors">
-                        Dashboard
-                    </a>
-                    <a href="{{ url_for('main.profile', username=current_user.username) }}"
-                       class="text-sm font-medium text-muted hover:text-foreground transition-colors">
-                        {{ current_user.username }}
-                    </a>
-                    <a href="{{ url_for('auth.logout') }}"
-                       class="text-sm font-medium text-danger hover:opacity-90 transition-colors">
-                        Logout
-                    </a>
+                <a href="{{ url_for('main.dashboard') }}"
+                    class="text-sm font-medium text-muted hover:text-foreground transition-colors">
+                    Dashboard
+                </a>
+                <a href="{{ url_for('main.profile', username=current_user.username) }}"
+                    class="text-sm font-medium text-muted hover:text-foreground transition-colors">
+                    {{ current_user.username }}
+                </a>
+                <a href="{{ url_for('auth.logout') }}"
+                    class="text-sm font-medium text-danger hover:opacity-90 transition-colors">
+                    Logout
+                </a>
                 {% else %}
-                    <a href="{{ url_for('auth.login') }}"
-                       class="text-sm font-medium text-muted hover:text-foreground transition-colors">
-                        Log In
-                    </a>
-                    <a href="{{ url_for('auth.register') }}"
-                       class="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:opacity-95 transition-opacity">
-                        Sign Up
-                    </a>
+                <a href="{{ url_for('auth.login') }}"
+                    class="text-sm font-medium text-muted hover:text-foreground transition-colors">
+                    Log In
+                </a>
+                <a href="{{ url_for('auth.register') }}"
+                    class="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:opacity-95 transition-opacity">
+                    Sign Up
+                </a>
                 {% endif %}
 
                 <button type="button" id="theme-toggle"
-                        class="theme-toggle-btn p-2 text-muted transition-colors hover:text-foreground hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page rounded"
-                        title="Switch theme">
-                    {# Lucide sun / moon — inline SVG (lucide.dev, ISC) #}
+                    class="theme-toggle-btn p-2 text-muted transition-colors hover:text-foreground hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page rounded"
+                    title="Switch theme">
                     <span class="sr-only" data-theme-toggle-label>Switch to dark mode</span>
-                    <svg class="theme-icon-moon w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                    <svg class="theme-icon-sun w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg class="theme-icon-moon w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                    </svg>
+                    <svg class="theme-icon-sun w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2" />
+                        <path d="M12 20v2" />
+                        <path d="m4.93 4.93 1.41 1.41" />
+                        <path d="m17.66 17.66 1.41 1.41" />
+                        <path d="M2 12h2" />
+                        <path d="M20 12h2" />
+                        <path d="m6.34 17.66-1.41 1.41" />
+                        <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
                 </button>
             </div>
 

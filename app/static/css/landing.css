@@ -1,0 +1,246 @@
+@reference "../../../frontend/src/style.css";
+/* ============================================================
+   Landing Page — Three.js Cinematic Experience
+   ============================================================ */
+
+/* ── Reset for full-screen canvas ── */
+.landing-body {
+  @apply m-0 p-0 overflow-hidden h-screen w-screen text-white bg-[#050507] font-sans;
+}
+
+/* ── Canvas ── */
+#landing-canvas {
+  @apply fixed inset-0 w-screen h-screen z-0;
+}
+
+/* ── Loading Screen ── */
+.loading-screen {
+  @apply fixed inset-0 z-100 flex items-center justify-center bg-[#050507];
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loading-screen.fade-out {
+  @apply opacity-0 invisible;
+}
+
+.loading-content {
+  @apply flex flex-col items-center gap-5;
+}
+
+.loading-icon {
+  @apply text-[#8b5cf6] animate-none;
+}
+
+.loading-icon svg {
+  @apply block;
+}
+
+.loading-arc {
+  @apply stroke-[#8b5cf6] stroke-2 origin-center;
+  animation: spinArc 1s linear infinite;
+}
+
+@keyframes spinArc {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  @apply text-[0.85rem] font-medium tracking-[0.12em] uppercase text-white/40 m-0;
+}
+
+.loading-bar-track {
+  @apply w-[240px] h-[3px] bg-white/8 rounded overflow-hidden;
+}
+
+.loading-bar-fill {
+  @apply h-full w-0 rounded transition-[width] duration-150 ease-out;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+}
+
+.loading-percent {
+  @apply text-xs font-semibold text-white/30 tabular-nums m-0;
+}
+
+/* ── Overlay container ── */
+.landing-overlay {
+  @apply fixed inset-0 z-10 flex items-center justify-center pointer-events-none;
+}
+
+/* ── Navigation (top-right) ── */
+.landing-nav {
+  @apply absolute top-7 right-8 flex gap-5 sm:gap-6 opacity-0 pointer-events-none -translate-y-5;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landing-nav.visible {
+  @apply opacity-100 pointer-events-auto translate-y-0;
+}
+
+/* Nav links — display serif, slim text (not chunky buttons) */
+
+.landing-nav__link {
+  @apply inline-flex items-center no-underline cursor-pointer;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: color-mix(in oklab, white 78%, transparent);
+  text-shadow: 0 1px 14px rgb(0 0 0 / 50%);
+  padding: 0.2rem 0;
+  border: none;
+  background: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.landing-nav__link:hover {
+  color: white;
+  border-bottom-color: color-mix(in oklab, white 32%, transparent);
+}
+
+.landing-nav__link:focus-visible {
+  outline: 1px solid color-mix(in oklab, #8b5cf6 70%, white);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.landing-nav__link--cta:hover {
+  color: white;
+  border-bottom-color: #c4b5fd;
+}
+
+/* Nav buttons */
+.nav-btn {
+  @apply inline-flex items-center px-6 py-2.5 text-sm font-semibold tracking-[0.02em] rounded-[10px] no-underline cursor-pointer backdrop-blur-[12px];
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn--ghost {
+  @apply bg-transparent border border-white/20 rounded-full px-5 py-2 text-white/75 text-sm;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn--ghost:hover {
+  @apply border-white/50 text-white bg-white/6;
+}
+
+.nav-btn--primary {
+  @apply bg-white text-[#0a0a0a] rounded-full px-5 py-2 text-sm font-semibold;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn--primary:hover {
+  @apply bg-[#e8e8f0];
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+}
+
+/* ── Hero Card (text below Three.js poster) ── */
+.hero-card {
+  @apply absolute bottom-[12%] left-1/2 flex flex-col items-center gap-3 opacity-0 pointer-events-none -translate-x-1/2 translate-y-5;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-card.visible {
+  @apply opacity-100 pointer-events-auto -translate-x-1/2 translate-y-0;
+}
+
+/* ── Hero Info ── */
+.hero-info {
+  @apply text-center flex flex-col items-center gap-2.5;
+}
+
+.hero-tagline {
+  @apply text-[0.85rem] font-medium tracking-[0.15em] uppercase text-white/50 m-0;
+}
+
+.hero-title {
+  @apply text-[1.6rem] font-extrabold m-0 tracking-[-0.01em] bg-clip-text;
+  background: linear-gradient(135deg, #fff 40%, rgba(139, 92, 246, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-meta {
+  @apply flex gap-4 text-[0.9rem] text-white/50;
+}
+
+.hero-rating::before {
+  content: "⭐ ";
+}
+
+/* ── Add to Watchlist button ── */
+.btn-watchlist {
+  @apply inline-flex items-center gap-2 mt-2 text-[0.95rem] text-white border-0 rounded-full cursor-pointer tracking-[0.02em] relative overflow-hidden px-7 py-3 font-[inherit];
+  background: linear-gradient(135deg, #7c5cfc, #6366f1);
+  box-shadow: 0 0 20px rgba(124, 92, 252, 0.4);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-watchlist::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-watchlist:hover {
+  @apply -translate-y-0.5 scale-[1.02];
+  box-shadow: 0 0 32px rgba(124, 92, 252, 0.65);
+  background: linear-gradient(135deg, #8b6dfd, #7577f5);
+}
+
+.btn-watchlist:hover::before {
+  opacity: 1;
+}
+
+.btn-watchlist:active {
+  @apply translate-y-0 scale-[0.98];
+}
+
+/* ── Brand watermark (bottom-center) ── */
+.landing-brand {
+  @apply absolute bottom-7 left-1/2 opacity-0 -translate-x-1/2 translate-y-5;
+  transition: opacity 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landing-brand.visible {
+  @apply opacity-100 -translate-x-1/2 translate-y-0;
+}
+
+.brand-name {
+  @apply text-[0.8rem] font-semibold tracking-[0.2em] uppercase text-white/25;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .hero-poster-wrap {
+    @apply w-[200px];
+  }
+
+  .hero-title {
+    @apply text-xl;
+  }
+
+  .btn-watchlist {
+    @apply px-7 py-3 text-[0.85rem];
+  }
+
+  .landing-nav {
+    @apply top-4 right-4;
+  }
+
+  .landing-nav__link {
+    @apply text-[0.8125rem];
+  }
+
+  .nav-btn {
+    @apply px-4 py-2 text-[0.8rem];
+  }
+}

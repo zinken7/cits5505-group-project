@@ -1,17 +1,21 @@
 # -*- coding: utf-8 -*-
+from sqlalchemy import cast, String
 from app.extensions import db
 from app.models.media import Media
 from app.models.watchlist import WatchlistItem
 
 
 def list_media(media_type, q=None, genre=None, sort=None, limit=24, offset=0):
-    """Paginated media list. `genre` is reserved for future schema."""
+    """Paginated media list with optional genre filtering."""
     query = Media.query.filter_by(media_type=media_type)
     if q:
         like = f"%{q}%"
         query = query.filter(Media.title.ilike(like))
     if genre:
-        query = query.filter(Media.description.ilike(f"%{genre}%"))
+        # Escape LIKE wildcards so a genre string like "%" can't match arbitrary values.
+        # Wrapping with quotes ensures only exact array-element matches (["Action"] not ["ActionHero"]).
+        safe = genre.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        query = query.filter(cast(Media.genres, String).like(f'%"{safe}"%', escape="\\"))
 
     total = query.count()
 
@@ -20,6 +24,10 @@ def list_media(media_type, q=None, genre=None, sort=None, limit=24, offset=0):
         query = query.order_by(Media.year.desc().nulls_last(), Media.title)
     elif order in ("releaseYear", "year"):
         query = query.order_by(Media.year.asc().nulls_last(), Media.title)
+    elif order == "-rating":
+        query = query.order_by(Media.rating.desc().nulls_last(), Media.title)
+    elif order == "rating":
+        query = query.order_by(Media.rating.asc().nulls_last(), Media.title)
     else:
         query = query.order_by(Media.title.asc())
 
@@ -29,6 +37,10 @@ def list_media(media_type, q=None, genre=None, sort=None, limit=24, offset=0):
 
 def get_media(media_id):
     return db.session.get(Media, media_id)
+
+
+def get_media_by_imdb_id(imdb_id):
+    return Media.query.filter_by(imdb_id=imdb_id).first()
 
 
 def create_media(title, media_type, description="", image_url="", year=None):

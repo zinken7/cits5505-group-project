@@ -9,4 +9,8 @@
        class="docs-nav__link {% if path == '/docs/apis' %}docs-nav__link--active{% endif %}">APIs</a>
     <a href="{{ url_for('docs.apis_redoc') }}"
        class="docs-nav__link {% if path == '/docs/apis/redoc' %}docs-nav__link--active{% endif %}">ReDoc</a>
+    <a href="{{ url_for('docs.routes') }}"
+       class="docs-nav__link {% if path == '/docs/routes' %}docs-nav__link--active{% endif %}">Routes</a>
+    <a href="{{ url_for('docs.future') }}"
+       class="docs-nav__link {% if path == '/docs/future' %}docs-nav__link--active{% endif %}">Future</a>
 </nav>

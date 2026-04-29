@@ -1,0 +1,37 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Log Out - WatchList Hub{% endblock %}
+
+{% block content %}
+<main class="page page--narrow">
+  <section class="card" style="max-width:520px;margin:clamp(48px,10vh,96px) auto;padding:32px;text-align:center">
+    <div class="mx-auto mb-5 grid place-items-center rounded-full"
+         style="width:56px;height:56px;background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+        <polyline points="16 17 21 12 16 7"/>
+        <line x1="21" y1="12" x2="9" y2="12"/>
+      </svg>
+    </div>
+
+    <p class="h-eyebrow mb-2">Session</p>
+    <h1 class="display mb-3" style="font-size:clamp(32px,5vw,46px);letter-spacing:-.02em">
+      Log out?
+    </h1>
+    <p class="text-sm mx-auto mb-7" style="max-width:34ch;color:var(--muted);line-height:1.7">
+      You will be signed out of WatchList Hub on this device. You can log back in anytime.
+    </p>
+
+    <form method="POST" action="{{ url_for('auth.logout') }}" class="flex flex-col sm:flex-row gap-3 justify-center">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <a href="{{ url_for('main.dashboard') }}" class="btn btn--ghost btn--lg">
+        Cancel
+      </a>
+      <button type="submit" class="btn btn--primary btn--lg">
+        Log Out
+      </button>
+    </form>
+  </section>
+</main>
+{% endblock %}

@@ -91,7 +91,40 @@
         imdbLink.classList.add("hidden");
       }
     }
+ // Trailer video
+    const trailerContainer = root.querySelector('[data-field="trailer-container"]');
+    const playBtn = root.querySelector('[data-action="play-trailer"]');
 
+    if (trailerContainer && playBtn && data.trailer_url) {
+
+      function toEmbedUrl(url) {
+        if (!url) return "";
+
+        const match = url.match(/[?&]v=([^&]+)/);
+        if (!match) return "";
+
+        const videoId = match[1];
+
+        return `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0`;
+      }
+
+      const embedUrl = toEmbedUrl(data.trailer_url);
+
+      playBtn.addEventListener("click", function () {
+        if (!embedUrl) return;
+
+        trailerContainer.innerHTML = `
+          <iframe
+            class="w-full h-full"
+            src="${embedUrl}"
+            title="Trailer"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    }
     // Genres — render as badges
     const genresHost = root.querySelector('[data-field="genres"]');
     if (genresHost) {

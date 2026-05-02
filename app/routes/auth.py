@@ -115,10 +115,13 @@ def reset_password(token):
     return render_template("auth/reset_password.html", form=form, token=token)
 
 
-@bp.route("/logout")
+@bp.route("/logout", methods=["GET", "POST"])
 @login_required
 def logout():
-    """Log the user out and redirect to landing page."""
+    """Confirm logout on GET, then log the user out on POST."""
+    if request.method == "GET":
+        return render_template("auth/logout.html")
+
     logout_user()
     flash("You have been logged out.", "info")
     return redirect(url_for("main.explore"))

@@ -1,15 +1,23 @@
 # -*- coding: utf-8 -*-
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField
+from wtforms import BooleanField, PasswordField, StringField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 
 class LoginForm(FlaskForm):
     email = StringField(
         "Email",
-        validators=[DataRequired(), Email(), Length(max=120)],
+        validators=[
+            DataRequired(message="Email is required."),
+            Email(message="Enter a valid email address."),
+            Length(max=120),
+        ],
     )
-    password = PasswordField("Password", validators=[DataRequired()])
+    password = PasswordField(
+        "Password",
+        validators=[DataRequired(message="Password is required.")],
+    )
+    remember = BooleanField("Remember me")
 
 
 class RegisterForm(FlaskForm):

@@ -19,7 +19,26 @@
       "Drama",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 68,
+    "release_status": "Released",
+    "director": "Hiromu Arakawa",
+    "cast": [
+      "Kent Williams",
+      "Iemasa Kayumi",
+      "Romi Park",
+      "Muriel Hofmann",
+      "Lili Troncale",
+      "Rie Kugimiya",
+      "Maxey Whitehead",
+      "Travis Willingham"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "3 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-GoNo0DGroU"
   },
   {
     "rank": 2,
@@ -39,7 +58,26 @@
       "Drama",
       "Sci-Fi",
       "War"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 110,
+    "release_status": "Released",
+    "director": "Yoshiki Tanaka",
+    "cast": [
+      "Yûsaku Yara",
+      "Ryô Horikawa",
+      "Katsuji Mori",
+      "Nozomu Sasaki",
+      "Kei Tomiyama",
+      "Yoshiko Sakakibara",
+      "Norio Wakamoto",
+      "Kazuhiko Inoue"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=Ou37P25tjJY"
   },
   {
     "rank": 3,
@@ -60,7 +98,26 @@
       "Fantasy",
       "Mystery",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 37,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Mamoru Miyano",
+      "Brad Swaile",
+      "Vincent Tong",
+      "Ryô Naitô",
+      "Trevor Devall",
+      "Brian Drummond",
+      "Naoya Uchida",
+      "Keiji Fujiwara"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=NlJZ-YgAt-c"
   },
   {
     "rank": 4,
@@ -80,7 +137,26 @@
       "Fantasy",
       "Mystery",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 23,
+    "release_status": "Released",
+    "director": "Yuki Urushibara",
+    "cast": [
+      "Yûto Nakano",
+      "Mika Doi",
+      "Miyuki Sawashiro",
+      "Tomomi Saito",
+      "Kôki Uchiyama",
+      "Yûto Uemura",
+      "Yôko Hikasa",
+      "Haruka Shiraishi"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=MCfARhvKE3A"
   },
   {
     "rank": 5,
@@ -101,7 +177,26 @@
       "Drama",
       "Fantasy",
       "Horror"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 98,
+    "release_status": "Released",
+    "director": "Yasuko Kobayashi, Hiroshi Seko",
+    "cast": [
+      "Jessie James Grelle",
+      "Bryce Papenbrook",
+      "Trina Nishimura",
+      "Yûki Kaji",
+      "Yui Ishikawa",
+      "Marina Inoue",
+      "Clifford Chapin",
+      "Kishô Taniyama"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "42 wins & 88 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=LV-nazLVmgo"
   },
   {
     "rank": 6,
@@ -121,7 +216,26 @@
       "Adventure",
       "Comedy",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 148,
+    "release_status": "Released",
+    "director": "Yoshihiro Togashi",
+    "cast": [
+      "Issei Futamata",
+      "Megumi Han",
+      "Cristina Valenzuela",
+      "Mariya Ise",
+      "Michael McConnohie",
+      "Erica Mendez",
+      "Erika Harlacher",
+      "Miyuki Sawashiro"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=d6kBeJjTGnY"
   },
   {
     "rank": 7,
@@ -142,7 +256,26 @@
       "Drama",
       "Horror",
       "War"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 21,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Eiko Yamada",
+      "Keiichi Noda",
+      "Hideyuki Tanaka",
+      "Toshiko Fujita",
+      "Ryôichi Tanaka",
+      "Kyôko Tongû",
+      "Kôji Yada",
+      "Kôji Totani"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=drv_tfMjN4w"
   },
   {
     "rank": 8,
@@ -163,7 +296,26 @@
       "Comedy",
       "Drama",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Shin'ichirô Watanabe",
+    "cast": [
+      "Kôichi Yamadera",
+      "Unshô Ishizuka",
+      "Megumi Hayashibara",
+      "Steve Blum",
+      "Beau Billingslea",
+      "Kevin Seymour",
+      "Wendee Lee",
+      "Isshin Chiba"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=OhNwckCLzis"
   },
   {
     "rank": 9,
@@ -183,7 +335,26 @@
       "Comedy",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 51,
+    "release_status": "Released",
+    "director": "Yusuke Murata",
+    "cast": [
+      "Makoto Furukawa",
+      "Kaito Ishikawa",
+      "Max Mittelman",
+      "Zach Aguilar",
+      "Hikaru Midorikawa",
+      "Hiromichi Tezuka",
+      "Shôta Yamamoto",
+      "Robbie Daymond"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "3 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=YUH1mfV3IEU"
   },
   {
     "rank": 10,
@@ -205,7 +376,26 @@
       "Romance",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Chiyomaru Shikura",
+    "cast": [
+      "Mamoru Miyano",
+      "Asami Imai",
+      "Kana Hanazawa",
+      "Ashly Burch",
+      "J. Michael Tatum",
+      "Trina Nishimura",
+      "Tomokazu Seki",
+      "Tyson Rinehart"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=uMYhjVwp0Fk"
   },
   {
     "rank": 11,
@@ -225,7 +415,26 @@
       "Adventure",
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 48,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Shin'ya Takahashi",
+      "Yûto Uemura",
+      "Mike Haimoto",
+      "Hiroki Gotô",
+      "Tsuguo Mogami",
+      "Aleks Le",
+      "Kenshô Ono",
+      "Naoya Uchida"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "10 wins & 40 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=H3fS-bZ4e2E"
   },
   {
     "rank": 12,
@@ -244,7 +453,26 @@
       "Action",
       "Comedy",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 76,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Rikiya Koyama",
+      "Kôhei Kiyasu",
+      "Steve Staley",
+      "Richard Epcar",
+      "Wataru Takagi",
+      "Katsuyuki Konishi",
+      "Tomokazu Seki",
+      "Kenji Utsumi"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=a94NcwNgPdo"
   },
   {
     "rank": 13,
@@ -265,7 +493,26 @@
       "Comedy",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 1181,
+    "release_status": "Released",
+    "director": "Eiichirô Oda",
+    "cast": [
+      "Mayumi Tanaka",
+      "Akemi Okamura",
+      "Tony Beck",
+      "Laurent Vernin",
+      "Kazuya Nakai",
+      "Kappei Yamaguchi",
+      "Hiroaki Hirata",
+      "Colleen Clinkenbeard"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "7 wins & 21 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=MCb13lbVGE0"
   },
   {
     "rank": 14,
@@ -285,7 +532,26 @@
       "Adventure",
       "Fantasy",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": "Koyoharu Gotouge",
+    "cast": [
+      "Natsuki Hanae",
+      "Zach Aguilar",
+      "Abby Trott",
+      "Akari Kitô",
+      "Yoshitsugu Matsuoka",
+      "Hiro Shimono",
+      "Aleks Le",
+      "Bryce Papenbrook"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "29 wins & 55 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=VQGCKyvzIM4"
   },
   {
     "rank": 15,
@@ -304,7 +570,26 @@
       "Action",
       "Comedy",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 20,
+    "episodes": 25,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Wataru Takagi",
+      "Daisuke Namikawa",
+      "Yûya Murakami",
+      "Hidenobu Kiuchi",
+      "Kôichi Yamadera",
+      "Mamoru Miyano",
+      "Jûrôta Kosugi",
+      "Yû Kobayashi"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=a94NcwNgPdo"
   },
   {
     "rank": 16,
@@ -323,7 +608,26 @@
       "Comedy",
       "Drama",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 89,
+    "release_status": "Released",
+    "director": "Haruichi Furudate",
+    "cast": [
+      "Ayumu Murase",
+      "Kaito Ishikawa",
+      "Yu Hayashi",
+      "Satoshi Hino",
+      "Miyu Irino",
+      "Kôki Uchiyama",
+      "Sôma Saitô",
+      "Nobuhiko Okamoto"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "10 wins & 20 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=JOGp2c7-cKc"
   },
   {
     "rank": 17,
@@ -343,7 +647,26 @@
       "Comedy",
       "Drama",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": null,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Kôhei Kiyasu",
+      "Rikiya Koyama",
+      "Keiji Fujiwara",
+      "Kenji Utsumi",
+      "Daisuke Namikawa",
+      "Tomokazu Seki",
+      "Masaki Aizawa",
+      "Akio Ôtsuka"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=F6kuCWVJ8Ns"
   },
   {
     "rank": 18,
@@ -363,7 +686,26 @@
       "Adventure",
       "Fantasy",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jun'ya Enoki",
+      "Adam McArthur",
+      "Yuma Uchida",
+      "Yûichi Nakamura",
+      "Asami Seto",
+      "Mikako Komatsu",
+      "Takahiro Sakurai",
+      "Nobunaga Shimazaki"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "33 wins & 43 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=pkKu9hLT-t8"
   },
   {
     "rank": 19,
@@ -382,7 +724,26 @@
       "Comedy",
       "Drama",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 102,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Eriko Hara",
+      "Akiko Hiramatsu",
+      "Takeshi Kusao",
+      "Hikaru Midorikawa",
+      "Hideyuki Tanaka",
+      "Hisao Egawa",
+      "Yukimasa Kishino",
+      "Toshiyuki Morikawa"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=l4nP-Zm9YAs"
   },
   {
     "rank": 20,
@@ -404,7 +765,26 @@
       "Drama",
       "Fantasy",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 8,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Junko Takeuchi",
+      "Hozumi Gôda",
+      "Kanako Mitsuhashi",
+      "Yoshikazu Nagano",
+      "Takashi Matsuyama",
+      "Noriko Namiki",
+      "Yuki Kaida",
+      "Tarako"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=d6kBeJjTGnY"
   },
   {
     "rank": 21,
@@ -426,7 +806,26 @@
       "Fantasy",
       "Horror",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 25,
+    "release_status": "Released",
+    "director": "Kentaro Miura",
+    "cast": [
+      "Marc Diraison",
+      "Nobutoshi Canna",
+      "Carrie Keranen",
+      "Unshô Ishizuka",
+      "Carla Tassara",
+      "Jon Avner",
+      "Yûko Miyamura",
+      "Akira Ishida"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=0MIw4xzxcTU"
   },
   {
     "rank": 22,
@@ -447,7 +846,26 @@
       "Fantasy",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 277,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Doc Harris",
+      "Christopher Sabat",
+      "Scott McNeil",
+      "Sean Schemmel",
+      "Terry Klassen",
+      "Brian Drummond",
+      "Sonny Strait",
+      "Stephanie Nadolny"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=sxufB6DxXk0"
   },
   {
     "rank": 23,
@@ -468,7 +886,26 @@
       "Family",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 28,
+    "episodes": 39,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Shiraz Adam",
+      "Janice Chaikelson",
+      "Adrian Knight",
+      "Michael Rudder",
+      "Howard Ryshpan",
+      "Terrence Labrosse",
+      "Vlasta Vrana",
+      "Matt Birman"
+    ],
+    "language": "French",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=_ycG-xe1uSM"
   },
   {
     "rank": 24,
@@ -490,7 +927,26 @@
       "Drama",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 291,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Masako Nozawa",
+      "Jôji Yanami",
+      "Mayumi Tanaka",
+      "Stephanie Nadolny",
+      "Ryô Horikawa",
+      "Toshio Furukawa",
+      "Hiromi Tsuru",
+      "Tiffany Vollmer"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=sxufB6DxXk0"
   },
   {
     "rank": 25,
@@ -512,7 +968,26 @@
       "Family",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Noriko Ohara",
+      "Sabrina Pitre",
+      "Masatô Ibu",
+      "Erin Mathews",
+      "Lili Beaudoin",
+      "Mieko Nobusawa",
+      "Kazuyo Aoki",
+      "Ichirô Nagai"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=QvHzWi_5Vho"
   },
   {
     "rank": 26,
@@ -536,7 +1011,26 @@
       "Mystery",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 24,
+    "release_status": "Released",
+    "director": "Kaiu Shirai",
+    "cast": [
+      "Sumire Morohoshi",
+      "Mariya Ise",
+      "Shinei Ueki",
+      "Lynn",
+      "Yuuko Mori",
+      "Yoshino Aoyama",
+      "Hiyori Kono",
+      "Mari Hino"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "8 wins & 21 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=CV0p9X8878k"
   },
   {
     "rank": 27,
@@ -556,7 +1050,26 @@
       "Drama",
       "Music",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 23,
+    "release_status": "Released",
+    "director": "Naoshi Arakawa",
+    "cast": [
+      "Natsuki Hanae",
+      "Risa Taneda",
+      "Ayane Sakura",
+      "Ryôta Ôsaka",
+      "Erika Harlacher",
+      "Bennett Abara",
+      "Julie Ann Taylor",
+      "Erik Scott Kimerer"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "11 wins & 12 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=3aL0gDZtFbE"
   },
   {
     "rank": 28,
@@ -574,7 +1087,26 @@
       "Animation",
       "Drama",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 11,
+    "release_status": "Released",
+    "director": "Taiyô Matsumoto",
+    "cast": [
+      "Kôki Uchiyama",
+      "Aaron Dismuke",
+      "Micah Solusod",
+      "Tyson Rinehart",
+      "Mark Stoddard",
+      "Alan Chow",
+      "Yûsaku Yara",
+      "Fukujurou Katayama"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ItlDaDfLBn8"
   },
   {
     "rank": 29,
@@ -596,7 +1128,26 @@
       "Drama",
       "Fantasy",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Kappei Yamaguchi",
+      "Satsuki Yukino",
+      "Kumiko Watanabe",
+      "Kôji Tsujitani",
+      "Houko Kuwashima",
+      "Kelly Sheridan",
+      "Kirby Morrow",
+      "Richard Ian Cox"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": "1 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ShcO-Uy-1Z0"
   },
   {
     "rank": 30,
@@ -617,7 +1168,26 @@
       "Fantasy",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 54,
+    "release_status": "Released",
+    "director": "Ichirô Ôkouchi, Gorô Taniguchi",
+    "cast": [
+      "Jun Fukuyama",
+      "Takahiro Sakurai",
+      "Johnny Yong Bosch",
+      "Yukana",
+      "Ami Koshimizu",
+      "Yuri Lowenthal",
+      "Kate Higgins",
+      "Karen Strassman"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "4 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=DR1d_Pm729o"
   },
   {
     "rank": 31,
@@ -638,7 +1208,26 @@
       "Comedy",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 501,
+    "release_status": "Released",
+    "director": "Masashi Kishimoto",
+    "cast": [
+      "Alexandre Crepet",
+      "Junko Takeuchi",
+      "Maile Flanagan",
+      "Chie Nakamura",
+      "Kate Higgins",
+      "Dave Wittenberg",
+      "Kazuhiko Inoue",
+      "Kyle Hebert"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 10 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ccSl6ek33qg"
   },
   {
     "rank": 32,
@@ -657,7 +1246,26 @@
       "Action",
       "Comedy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 375,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Tomokazu Sugita",
+      "Daisuke Sakaguchi",
+      "Rie Kugimiya",
+      "Kazuya Nakai",
+      "Susumu Chiba",
+      "Ken'ichi Suzumura",
+      "Satsuki Yukino",
+      "Akira Ishida"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": "1 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=YQC3ot0IjiA"
   },
   {
     "rank": 33,
@@ -677,7 +1285,26 @@
       "Drama",
       "Mystery",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 75,
+    "release_status": "Released",
+    "director": "Naoki Urasawa",
+    "cast": [
+      "Hidenobu Kiuchi",
+      "Liam O'Brien",
+      "Eiji Hanawa",
+      "Mamiko Noto",
+      "Yasushi Miyabayashi",
+      "Nozomu Sasaki",
+      "Karen Strassman",
+      "Tsutomu Isobe"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=9aS-EgdAq6U"
   },
   {
     "rank": 34,
@@ -697,7 +1324,26 @@
       "Adventure",
       "Comedy",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 62,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Junko Takeuchi",
+      "Yuki Kaida",
+      "Cheryl McMaster",
+      "Kanako Mitsuhashi",
+      "Annika Odegard",
+      "Hozumi Gôda",
+      "Jonathan Love",
+      "Hiroki Takahashi"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=d6kBeJjTGnY"
   },
   {
     "rank": 35,
@@ -716,7 +1362,26 @@
       "Comedy",
       "Drama",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 43,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Steve Blum",
+      "Kirk Thornton",
+      "Jun'ichi Suwabe",
+      "Wataru Takagi",
+      "Tom Fahn",
+      "Russell Wait",
+      "Tony Oliver",
+      "Dorothy Elias-Fahn"
+    ],
+    "language": "French",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=HS2n3-e_0PE"
   },
   {
     "rank": 36,
@@ -737,7 +1402,26 @@
       "Drama",
       "History",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 4,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Mayo Suzukaze",
+      "Junko Iwao",
+      "Nozomu Sasaki",
+      "Masami Suzuki",
+      "Shûichi Ikeda",
+      "Tomokazu Seki",
+      "Wataru Takagi",
+      "Ryûsei Nakao"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=MhKyFMKVtBk"
   },
   {
     "rank": 37,
@@ -759,7 +1443,26 @@
       "Music",
       "Romance",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 37,
+    "release_status": "Released",
+    "director": "Shôji Kawamori, Ken'ichi Matsuzaki",
+    "cast": [
+      "Vic Mignogna",
+      "Monica Rial",
+      "John Swasey",
+      "Arihiro Hase",
+      "Mari Iijima",
+      "Show Hayami",
+      "Junie Hoang",
+      "Hilary Haag"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=2FYi2gt76os"
   },
   {
     "rank": 38,
@@ -779,7 +1482,26 @@
       "Drama",
       "Fantasy",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Manaka Iwami",
+      "Laura Bailey",
+      "Nobunaga Shimazaki",
+      "Eric Vale",
+      "Jerry Jewell",
+      "Yuma Uchida",
+      "Yûichi Nakamura",
+      "John Burgmeier"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "13 wins & 49 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=5FtA7oiHhNI"
   },
   {
     "rank": 39,
@@ -801,7 +1523,26 @@
       "Fantasy",
       "Horror",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 37,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Setsuo Ito",
+      "Takahiro Sakurai",
+      "Miyu Irino",
+      "Akio Ôtsuka",
+      "Ryûnosuke Watanuki",
+      "Yoshitsugu Matsuoka",
+      "Chris Niosi",
+      "Daiki Hamano"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "13 wins & 40 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=nTze7vAdRpM"
   },
   {
     "rank": 40,
@@ -820,7 +1561,26 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 182,
+    "release_status": "Released",
+    "director": "Kôhei Horikoshi",
+    "cast": [
+      "Daiki Yamashita",
+      "Justin Briner",
+      "Nobuhiko Okamoto",
+      "Ayane Sakura",
+      "Yûki Kaji",
+      "Kaito Ishikawa",
+      "Toshiki Masuda",
+      "Jun'ichi Suwabe"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "37 wins & 74 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=pxbEWUjh6E4"
   },
   {
     "rank": 41,
@@ -842,7 +1602,26 @@
       "Mystery",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 13,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Shinnosuke Mitsushima",
+      "Tao Tsuchiya",
+      "Minami Takayama",
+      "Ayaka Asai",
+      "Ben Diskin",
+      "Michelle Ruff",
+      "Stephanie Sheh",
+      "David W. Collins"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "9 wins & 15 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=DwmxEAWjTQQ"
   },
   {
     "rank": 42,
@@ -862,7 +1641,26 @@
       "Comedy",
       "Fantasy",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Nisio Isin",
+    "cast": [
+      "Kana Hanazawa",
+      "Miyuki Sawashiro",
+      "Yôji Ueda",
+      "Saori Hayami",
+      "Kaori Mizuhashi",
+      "Ken Narita",
+      "Shin'ichirô Miki",
+      "Fumihiko Tachiki"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-c__dc_csNo"
   },
   {
     "rank": 43,
@@ -882,7 +1680,26 @@
       "Drama",
       "Mystery",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 11,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Shintarô Asanuma",
+      "Hiroyuki Yoshino",
+      "Ako Mayama",
+      "Maaya Sakamoto",
+      "Jun'ichi Suwabe",
+      "Yûko Kaida",
+      "Keiji Fujiwara",
+      "Setsuji Sato"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "1 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=y8ax2FIa_cM"
   },
   {
     "rank": 44,
@@ -903,7 +1720,26 @@
       "Horror",
       "Mystery",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 27,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Yûto Nakano",
+      "Travis Willingham",
+      "Kôjun Itô",
+      "Jennifer Seman",
+      "Mika Doi",
+      "Hiroshi Shimozaki",
+      "Ryô Naitô",
+      "Brina Palencia"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=MCfARhvKE3A"
   },
   {
     "rank": 45,
@@ -922,7 +1758,26 @@
       "Action",
       "Adventure",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 32,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Takumi Yamazaki",
+      "Maaya Sakamoto",
+      "Katsuyuki Konishi",
+      "Masakazu Morita",
+      "Takahiro Sakurai",
+      "Yûta Kasuya",
+      "Hiroaki Miura",
+      "Fumiko Orikasa"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=42Bp50xpeWY"
   },
   {
     "rank": 46,
@@ -942,7 +1797,26 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 8,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Junko Takeuchi",
+      "Kanako Mitsuhashi",
+      "Kimiyoshi Kibe",
+      "Ryuji Mizuki",
+      "Chieko Higuchi",
+      "Hozumi Gôda",
+      "Yasuhiro Takato",
+      "Takaya Miyano"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=LpkrH00zpow"
   },
   {
     "rank": 47,
@@ -960,7 +1834,23 @@
       "Animation",
       "Short",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 14,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Junko Takeuchi",
+      "Kanako Mitsuhashi",
+      "Takashi Matsuyama",
+      "Hozumi Gôda",
+      "Yuki Kaida"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=b2a70U4MHq0"
   },
   {
     "rank": 48,
@@ -981,7 +1871,26 @@
       "Comedy",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Shin'ichirô Watanabe",
+    "cast": [
+      "Kazuya Nakai",
+      "Ginpei Sato",
+      "Ayako Kawasumi",
+      "Steve Blum",
+      "Kirk Thornton",
+      "Kari Wahlgren",
+      "Doug Stone",
+      "Erik Davies"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=xWKzbhAUeZE"
   },
   {
     "rank": 49,
@@ -1003,7 +1912,26 @@
       "Drama",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 51,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Aaron Dismuke",
+      "Romi Park",
+      "Rie Kugimiya",
+      "Vic Mignogna",
+      "Travis Willingham",
+      "Tôru Ôkawa",
+      "Caitlin Glass",
+      "Colleen Clinkenbeard"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "3 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-GoNo0DGroU"
   },
   {
     "rank": 50,
@@ -1023,7 +1951,26 @@
       "Crime",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 52,
+    "release_status": "Released",
+    "director": "Shirow Masamune",
+    "cast": [
+      "Atsuko Tanaka",
+      "Osamu Saka",
+      "Shirô Saitô",
+      "Mary Elizabeth McGlynn",
+      "William Frederick Knight",
+      "Richard Epcar",
+      "Crispin Freeman",
+      "Peggy O'Neal"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "1 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Gf6YFrV7zes"
   },
   {
     "rank": 51,
@@ -1044,7 +1991,26 @@
       "Fantasy",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 154,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Brice Armstrong",
+      "Steve Olson",
+      "Stephanie Nadolny",
+      "Zoe Slusar",
+      "Christopher Sabat",
+      "Tiffany Vollmer",
+      "Leda Davies",
+      "Mike McFarland"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=-NekKfJN614"
   },
   {
     "rank": 52,
@@ -1066,7 +2032,26 @@
       "Drama",
       "Fantasy",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 112,
+    "release_status": "Released",
+    "director": "Yoshihiro Togashi",
+    "cast": [
+      "Nozomu Sasaki",
+      "Justin Cook",
+      "Christopher Sabat",
+      "Cynthia Cranz",
+      "Kent Williams",
+      "Shigeru Chiba",
+      "Tomomichi Nishimura",
+      "Sanae Miyuki"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=bGc1Na8mlw0"
   },
   {
     "rank": 53,
@@ -1088,7 +2073,26 @@
       "Drama",
       "History",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 95,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Mayo Suzukaze",
+      "Dorothy Elias-Fahn",
+      "Richard Cansino",
+      "Rebecca Forstadt",
+      "Fuminori Morisada",
+      "Mîna Tominaga",
+      "Lex Lang",
+      "Steve Prince"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=V83Kxuvt9Jc"
   },
   {
     "rank": 54,
@@ -1109,7 +2113,26 @@
       "Drama",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 114,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Hideyuki Tanaka",
+      "Patrick Poole",
+      "Tôru Furuya",
+      "Blake Shepard",
+      "Ryô Horikawa",
+      "Kôichi Hashimoto",
+      "Emily Neves",
+      "Hirotaka Suzuoki"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=RAy5Ft1RRK4"
   },
   {
     "rank": 55,
@@ -1129,7 +2152,26 @@
       "Adventure",
       "Sci-Fi",
       "Western"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 52,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Rob Paulsen",
+      "Townsend Coleman",
+      "Pat Fraley",
+      "Pat Musick",
+      "Peter Cullen",
+      "B.J. Ward",
+      "Hiroshi Ito",
+      "Seizô Katô"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=zWK8TVTTMAI"
   },
   {
     "rank": 56,
@@ -1148,7 +2190,26 @@
       "Action",
       "Drama",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Hideaki Anno",
+    "cast": [
+      "Megumi Ogata",
+      "Megumi Hayashibara",
+      "Kotono Mitsuishi",
+      "Casey Mongillo",
+      "Carrie Keranen",
+      "Erica Lindbeck",
+      "Ryan Bartley",
+      "Pedro D'Aguillón Jr."
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=13nSISwxrY4"
   },
   {
     "rank": 57,
@@ -1167,7 +2228,26 @@
       "Action",
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 85,
+    "release_status": "Released",
+    "director": "Carl Macek",
+    "cast": [
+      "Steve Kramer",
+      "Tom Wyner",
+      "Robert Axelrod",
+      "Bill Capizzi",
+      "Alexandra Kenworthy",
+      "Frank Catalano",
+      "Eddie Frierson",
+      "Melanie MacQueen"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=roo3CBhbrc8"
   },
   {
     "rank": 58,
@@ -1187,7 +2267,26 @@
       "Adventure",
       "Comedy",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 153,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Masako Nozawa",
+      "Jôji Yanami",
+      "Hiromi Tsuru",
+      "Mayumi Tanaka",
+      "Kôhei Miyauchi",
+      "Naoko Watanabe",
+      "Tôru Furuya",
+      "Naoki Tatsuta"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=-NekKfJN614"
   },
   {
     "rank": 59,
@@ -1206,7 +2305,26 @@
       "Comedy",
       "Drama",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 43,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Aaron Dismuke",
+      "Aoi Koga",
+      "Makoto Furukawa",
+      "Konomi Kohara",
+      "Yutaka Aoyama",
+      "Ian Sinclair",
+      "Alexis Tipton",
+      "Jad Saxton"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "26 wins & 47 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=rZ95aZmQu_8"
   },
   {
     "rank": 60,
@@ -1226,7 +2344,26 @@
       "Adventure",
       "Fantasy",
       "Horror"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 24,
+    "release_status": "Released",
+    "director": "Osamu Tezuka",
+    "cast": [
+      "Jason Douglas",
+      "Rio Suzuki",
+      "Mugihito",
+      "Chaney Moore",
+      "Adam Gibbs",
+      "Hiroki Suzuki",
+      "Ty Mahany",
+      "Mutsumi Sasaki"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "3 wins & 12 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=YgHPBwLu0BA"
   },
   {
     "rank": 61,
@@ -1245,7 +2382,26 @@
       "Short",
       "Comedy",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 12,
+    "episodes": 13,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Veronica Taylor",
+      "Abby Trott",
+      "Barbara Goodson",
+      "Chris Hackney",
+      "David Vincent",
+      "Brianna Knickerbocker",
+      "Wendee Lee",
+      "Keith Silverstein"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=YKJf876thxw"
   },
   {
     "rank": 62,
@@ -1268,7 +2424,26 @@
       "Horror",
       "Mystery",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": null,
+    "episodes": 27,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Miyu Tomita",
+      "Mariya Ise",
+      "Luci Christian",
+      "Brittany Lauda",
+      "Shiori Izawa",
+      "Kyle Jones",
+      "Maaya Sakamoto",
+      "Natsuko Hara"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "12 wins & 28 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=kqBNQEUI8dM"
   },
   {
     "rank": 63,
@@ -1288,7 +2463,26 @@
       "Fantasy",
       "Romance",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 14,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Yui Ishikawa",
+      "Erika Harlacher",
+      "Sanshi",
+      "Raissa Bueno",
+      "Aya Endô",
+      "Reba Buhr",
+      "Takehito Koyasu",
+      "Takuya Inagaki"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "7 wins & 12 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=BUfSen2rYQs"
   },
   {
     "rank": 64,
@@ -1307,7 +2501,26 @@
       "Comedy",
       "Drama",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 45,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Kengo Kawanishi",
+      "Khoi Dao",
+      "Ai Kayano",
+      "Kana Hanazawa",
+      "Laura Post",
+      "Misaki Kuno",
+      "Kayli Mills",
+      "Nobuhiko Okamoto"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "7 wins & 20 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=XrLfN7pQL_s"
   },
   {
     "rank": 65,
@@ -1327,7 +2540,26 @@
       "Mystery",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 24,
+    "release_status": "Released",
+    "director": "Chiyomaru Shikura",
+    "cast": [
+      "Mamoru Miyano",
+      "J. Michael Tatum",
+      "Kana Hanazawa",
+      "Monica Rial",
+      "Tyson Rinehart",
+      "Cherami Leigh",
+      "Trina Nishimura",
+      "Jad Saxton"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "6 wins & 8 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=xPK3ehVMbmY"
   },
   {
     "rank": 66,
@@ -1349,7 +2581,26 @@
       "Family",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 131,
+    "release_status": "Released",
+    "director": "Akira Toriyama",
+    "cast": [
+      "Masako Nozawa",
+      "Naoki Tatsuta",
+      "Sean Schemmel",
+      "Ryô Horikawa",
+      "Doc Morgan",
+      "Masakazu Morita",
+      "Kôichi Yamadera",
+      "Christopher Sabat"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "1 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-NekKfJN614"
   },
   {
     "rank": 67,
@@ -1371,7 +2622,26 @@
       "Drama",
       "Fantasy",
       "Horror"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 193,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "David Vincent",
+      "Daisuke Ono",
+      "Matthew Mercer",
+      "Tôru Ôkawa",
+      "Unshô Ishizuka",
+      "Richard Epcar",
+      "Fuminori Komatsu",
+      "Kira Buckland"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "3 wins & 23 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=EeCX8Y0a278"
   },
   {
     "rank": 68,
@@ -1391,7 +2661,26 @@
       "Adventure",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 50,
+    "release_status": "Released",
+    "director": "Rifujin Na Magonote",
+    "cast": [
+      "Yumi Uchiyama",
+      "Tomokazu Sugita",
+      "Ai Kayano",
+      "Amber Lee Connors",
+      "Ai Kakuma",
+      "Daisuke Namikawa",
+      "Rie Tanaka",
+      "Toshiyuki Morikawa"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "11 wins & 28 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=k5VxfJpzy1Q"
   },
   {
     "rank": 69,
@@ -1410,7 +2699,26 @@
       "Drama",
       "Music",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 11,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jonah Scott",
+      "Jessie James Grelle",
+      "Yuma Uchida",
+      "Brandon McInnis",
+      "Takuya Eguchi",
+      "Yung-I Chang",
+      "Kelsey Maher",
+      "Masatomo Nakazawa"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "1 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=A7WdPUjYZoQ"
   },
   {
     "rank": 70,
@@ -1430,7 +2738,26 @@
       "Drama",
       "Music",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 21,
+    "episodes": 50,
+    "release_status": "Released",
+    "director": "Ai Yazawa",
+    "cast": [
+      "Kaori",
+      "Romi Park",
+      "Brian Drummond",
+      "Eric Vale",
+      "Alex Zahara",
+      "Ashleigh Ball",
+      "Andrew Francis",
+      "Sam Vincent"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=xXbJzu7zF8E"
   },
   {
     "rank": 71,
@@ -1450,7 +2777,26 @@
       "Drama",
       "Fantasy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": null,
+    "episodes": 14,
+    "release_status": "Released",
+    "director": "Keiichi Shigusawa",
+    "cast": [
+      "Ai Maeda",
+      "Kelli Cousins",
+      "Ryuji Aigase",
+      "Cynthia Martinez",
+      "Patrick Givens",
+      "Stacy Slanina",
+      "Kyle Jones",
+      "Jacob A. Gragard"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=kR0p2Ns7okY"
   },
   {
     "rank": 72,
@@ -1470,7 +2816,26 @@
       "Comedy",
       "Drama",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Shuichi Shigeno",
+    "cast": [
+      "Shin'ichirô Miki",
+      "Mitsuo Iwata",
+      "Kazuki Yao",
+      "Steve Blum",
+      "Ian Sinclair",
+      "Colleen Clinkenbeard",
+      "Scott Menville",
+      "J. Michael Tatum"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=sQArIPVsz78"
   },
   {
     "rank": 73,
@@ -1494,7 +2859,26 @@
       "Romance",
       "Sci-Fi",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 1203,
+    "release_status": "Released",
+    "director": "Gosho Aoyama",
+    "cast": [
+      "Minami Takayama",
+      "Wakana Yamazaki",
+      "Hoang Khuyet",
+      "Akira Kamiya",
+      "Wataru Takagi",
+      "Tran Vu",
+      "Chafûrin",
+      "Thuy Hang"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=DEtrScim2p8"
   },
   {
     "rank": 74,
@@ -1514,7 +2898,26 @@
       "Adventure",
       "Drama",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 77,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Eddie Allen",
+      "Michael Bertolini",
+      "Amy Howard Wilson",
+      "Lydia Leeds",
+      "Kenneth Meseroll",
+      "Tom Tweedy",
+      "Gordon Ramsey",
+      "Mike Czechopoulos"
+    ],
+    "language": "Spanish",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=GYWvOBTIIps"
   },
   {
     "rank": 75,
@@ -1533,6 +2936,25 @@
       "Adventure",
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 13,
+    "release_status": "Released",
+    "director": "Atsuko Ishizuka",
+    "cast": [
+      "Inori Minase",
+      "Kana Hanazawa",
+      "Yuka Iguchi",
+      "Saori Hayami",
+      "Mamiko Noto",
+      "Yôko Hikasa",
+      "Lynn",
+      "Yoshitsugu Matsuoka"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "4 wins & 10 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=V_ZCv-52Cdo"
   }
 ]

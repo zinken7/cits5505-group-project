@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime, timezone
+
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -22,6 +24,7 @@ class User(UserMixin, db.Model):
     date_of_birth = db.Column(db.Date, nullable=True)
     profile_public = db.Column(db.Boolean, nullable=False, default=True)
     allow_friend_requests = db.Column(db.Boolean, nullable=False, default=True)
+    created_at = db.Column(db.DateTime, nullable=True, default=lambda: datetime.now(timezone.utc))
 
     # Relationship
     watchlist_items = db.relationship(
@@ -47,6 +50,7 @@ class User(UserMixin, db.Model):
             "dateOfBirth": self.date_of_birth.isoformat() if self.date_of_birth else None,
             "profilePublic": self.profile_public,
             "allowFriendRequests": self.allow_friend_requests,
+            "createdAt": self.created_at.isoformat() if self.created_at else None,
         }
 
     def to_public_dict(self):

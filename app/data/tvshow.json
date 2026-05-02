@@ -15,7 +15,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 48,
+    "episodes": 62,
+    "release_status": "Released",
+    "director": "Vince Gilligan",
+    "cast": [
+      "Bryan Cranston",
+      "Aaron Paul",
+      "Anna Gunn",
+      "Dean Norris",
+      "Betsy Brandt",
+      "RJ Mitte",
+      "Bob Odenkirk",
+      "Steven Michael Quezada"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "172 wins & 269 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=HhesaQXLuRY"
   },
   {
     "rank": 2,
@@ -32,7 +51,26 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 6,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "David Attenborough",
+      "Gordon Buchanan",
+      "Mark MacEwen",
+      "Chadden Hunter",
+      "Max Hug Williams",
+      "Toby Nowlan",
+      "Michael J. Sanderson",
+      "Ed Charles"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "16 wins & 28 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=c8aFcHFu8QM"
   },
   {
     "rank": 3,
@@ -49,7 +87,26 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 11,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Sigourney Weaver",
+      "David Attenborough",
+      "Nikolay Drozdov",
+      "Thomas Anguti Johnston",
+      "Sanae Ueda",
+      "Huw Cordey",
+      "Doug Allan",
+      "Mark Linfield"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "15 wins & 15 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=I8Az_IIgw4U"
   },
   {
     "rank": 4,
@@ -67,7 +124,26 @@
       "Action",
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": "Tom Hanks",
+    "cast": [
+      "Scott Grimes",
+      "Damian Lewis",
+      "Ron Livingston",
+      "Matthew Leitch",
+      "Shane Taylor",
+      "Donnie Wahlberg",
+      "Peter Youngblood Hills",
+      "Nicholas Aaron"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "34 wins & 26 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=KKRBAFlN5ww"
   },
   {
     "rank": 5,
@@ -85,7 +161,26 @@
       "Drama",
       "History",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 5,
+    "release_status": "Released",
+    "director": "Craig Mazin",
+    "cast": [
+      "Jared Harris",
+      "Jessie Buckley",
+      "Stellan Skarsgård",
+      "Emily Watson",
+      "Adam Nagaitis",
+      "Sam Troughton",
+      "Paul Ritter",
+      "Robert Emms"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "87 wins & 60 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=s9APLXM9Ei8"
   },
   {
     "rank": 6,
@@ -103,7 +198,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 60,
+    "release_status": "Released",
+    "director": "David Simon",
+    "cast": [
+      "Dominic West",
+      "Lance Reddick",
+      "Sonja Sohn",
+      "John Doman",
+      "Dede Lovejoy",
+      "Wendell Pierce",
+      "Seth Gilliam",
+      "Domenick Lombardozzi"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "18 wins & 59 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=1S5khOZ1wBs"
   },
   {
     "rank": 7,
@@ -121,7 +235,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 62,
+    "release_status": "Released",
+    "director": "Michael Dante DiMartino, Bryan Konietzko",
+    "cast": [
+      "Dee Bradley Baker",
+      "Zach Tyler Eisen",
+      "Mae Whitman",
+      "Jack De Sena",
+      "Dante Basco",
+      "Michaela Jill Murphy",
+      "Mako",
+      "Grey DeLisle"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "9 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ooVvH2IYz0w"
   },
   {
     "rank": 8,
@@ -138,7 +271,26 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 55,
+    "episodes": 86,
+    "release_status": "Released",
+    "director": "David Chase",
+    "cast": [
+      "James Gandolfini",
+      "Lorraine Bracco",
+      "Edie Falco",
+      "Michael Imperioli",
+      "Dominic Chianese",
+      "Steven Van Zandt",
+      "Tony Sirico",
+      "Robert Iler"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "127 wins & 312 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=KMx4iFcozK0"
   },
   {
     "rank": 9,
@@ -155,7 +307,22 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 7,
+    "release_status": "Released",
+    "director": "James Honeyborne",
+    "cast": [
+      "David Attenborough",
+      "Peter Drost",
+      "Roger Horrocks",
+      "Roger Munns"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "11 wins & 13 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=kAphgHhlteM"
   },
   {
     "rank": 10,
@@ -172,7 +339,26 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 13,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Neil deGrasse Tyson",
+      "Carl Sagan",
+      "Christopher Emerson",
+      "Keythe Farley",
+      "Piotr Michael",
+      "Stoney Emshwiller",
+      "Enn Reitel",
+      "André Sogliuzzo"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "17 wins & 23 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=vbu72k7SbbE"
   },
   {
     "rank": 11,
@@ -188,7 +374,26 @@
     "media_type": "tvshow",
     "genres": [
       "Documentary"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 13,
+    "release_status": "Released",
+    "director": "Ann Druyan, Carl Sagan, Steven Soter",
+    "cast": [
+      "Carl Sagan",
+      "Jaromír Hanzlík",
+      "Jonathan Fahn",
+      "Jean Charney",
+      "Bob Hevelone",
+      "Larry Soderblom",
+      "Bill Grant",
+      "Cecilia White"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "4 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=knUke_w8Bao"
   },
   {
     "rank": 12,
@@ -205,7 +410,19 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": "Alastair Fothergill",
+    "cast": [
+      "David Attenborough"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "7 wins & 25 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=aETNYyrqNYE"
   },
   {
     "rank": 13,
@@ -223,7 +440,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 74,
+    "release_status": "Released",
+    "director": "David Benioff, D.B. Weiss",
+    "cast": [
+      "Emilia Clarke",
+      "Peter Dinklage",
+      "Kit Harington",
+      "Lena Headey",
+      "Sophie Turner",
+      "Maisie Williams",
+      "Nikolaj Coster-Waldau",
+      "Iain Glen"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "396 wins & 655 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=BpJYNVhGf1s"
   },
   {
     "rank": 14,
@@ -240,7 +476,26 @@
     "genres": [
       "Animation",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 7,
+    "episodes": 196,
+    "release_status": "Released",
+    "director": "Joe Brumm",
+    "cast": [
+      "David McCormack",
+      "Melanie Zanetti",
+      "Brad Elliott",
+      "Dan Brumm",
+      "Myf Warhurst",
+      "Meg Washington",
+      "Chris Brumm",
+      "Daley Pearson"
+    ],
+    "language": "English",
+    "country": "AU",
+    "tagline": null,
+    "awards": "26 wins & 15 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ZrR9ML0sxEE"
   },
   {
     "rank": 15,
@@ -258,7 +513,26 @@
       "Documentary",
       "History",
       "War"
-    ]
+    ],
+    "runtime_minutes": 52,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Laurence Olivier",
+      "Averell Harriman",
+      "Albert Speer",
+      "Anthony Eden",
+      "Franklin D. Roosevelt",
+      "Siegfried Westphal",
+      "Wynford Vaughan-Thomas",
+      "Lawrence Durrell"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "2 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=0b4g4ZZNC1E"
   },
   {
     "rank": 16,
@@ -276,7 +550,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 68,
+    "release_status": "Released",
+    "director": "Hiromu Arakawa",
+    "cast": [
+      "Kent Williams",
+      "Iemasa Kayumi",
+      "Romi Park",
+      "Muriel Hofmann",
+      "Lili Troncale",
+      "Rie Kugimiya",
+      "Maxey Whitehead",
+      "Travis Willingham"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "3 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-GoNo0DGroU"
   },
   {
     "rank": 17,
@@ -294,7 +587,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 98,
+    "release_status": "Released",
+    "director": "Yasuko Kobayashi, Hiroshi Seko",
+    "cast": [
+      "Jessie James Grelle",
+      "Bryce Papenbrook",
+      "Trina Nishimura",
+      "Yûki Kaji",
+      "Yui Ishikawa",
+      "Marina Inoue",
+      "Clifford Chapin",
+      "Kishô Taniyama"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "42 wins & 88 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=LV-nazLVmgo"
   },
   {
     "rank": 18,
@@ -310,7 +622,26 @@
     "media_type": "tvshow",
     "genres": [
       "Documentary"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 11,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Oprah Winfrey",
+      "David Attenborough",
+      "Doug Allan",
+      "Roger Munns",
+      "Neil Lucas",
+      "Michael Pitts",
+      "Jonathan Smith",
+      "Barrie Britton"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "4 wins & 11 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=IBws4yj7W1A"
   },
   {
     "rank": 19,
@@ -328,7 +659,26 @@
       "Documentary",
       "Biography",
       "History"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Michael Jordan",
+      "Phil Jackson",
+      "Scottie Pippen",
+      "David Aldridge",
+      "Steve Kerr",
+      "Michael Wilbon",
+      "Jerry Krause",
+      "Deloris Jordan"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "10 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=N9Z9JtNcCWY"
   },
   {
     "rank": 20,
@@ -346,7 +696,26 @@
       "Drama",
       "Fantasy",
       "Horror"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 156,
+    "release_status": "Released",
+    "director": "Rod Serling",
+    "cast": [
+      "Rod Serling",
+      "Robert McCord",
+      "Jay Overholts",
+      "James Turley",
+      "Vaughn Taylor",
+      "David Armstrong",
+      "Jack Klugman",
+      "Burgess Meredith"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "12 wins & 14 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ZfBs1VZFssM"
   },
   {
     "rank": 21,
@@ -364,7 +733,26 @@
       "Documentary",
       "History",
       "War"
-    ]
+    ],
+    "runtime_minutes": 100,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Peter Coyote",
+      "Le Duan",
+      "James Willbanks",
+      "Huy Duc",
+      "Duong Van Mai Elliott",
+      "Joachim Król",
+      "Ernst August Schepmann",
+      "Simon Roden"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "5 wins & 10 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=iWFzaUlZz-k"
   },
   {
     "rank": 22,
@@ -382,7 +770,26 @@
       "Animation",
       "Adventure",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 85,
+    "release_status": "Released",
+    "director": "Dan Harmon, Justin Roiland",
+    "cast": [
+      "Chris Parnell",
+      "Spencer Grammer",
+      "Sarah Chalke",
+      "Justin Roiland",
+      "Kari Wahlgren",
+      "Maurice LaMarche",
+      "Tom Kenny",
+      "Dan Harmon"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "18 wins & 41 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=WNhH00OIPP0"
   },
   {
     "rank": 23,
@@ -400,7 +807,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 15,
+    "release_status": "Released",
+    "director": "Mark Gatiss, Steven Moffat",
+    "cast": [
+      "Benedict Cumberbatch",
+      "Martin Freeman",
+      "Una Stubbs",
+      "Rupert Graves",
+      "Louise Brealey",
+      "Mark Gatiss",
+      "Andrew Scott",
+      "Amanda Abbington"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "95 wins & 185 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=IrBKwzL3K7s"
   },
   {
     "rank": 24,
@@ -418,7 +844,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 85,
+    "release_status": "Released",
+    "director": "Bill Finger, Carmine Infantino, Robert Kanigher",
+    "cast": [
+      "Kevin Conroy",
+      "Loren Lester",
+      "Efrem Zimbalist Jr.",
+      "Bob Hastings",
+      "Robert Costanzo",
+      "Mari Devon",
+      "Mark Hamill",
+      "Richard Moll"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "6 wins & 19 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=rrmUk2YUm14"
   },
   {
     "rank": 25,
@@ -435,7 +880,26 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": "Vince Gilligan, Peter Gould",
+    "cast": [
+      "Bob Odenkirk",
+      "Rhea Seehorn",
+      "Jonathan Banks",
+      "Patrick Fabian",
+      "Michael Mando",
+      "Giancarlo Esposito",
+      "Michael McKean",
+      "Tony Dalton"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "66 wins & 317 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=PjElOuIECdE"
   },
   {
     "rank": 26,
@@ -453,7 +917,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 40,
+    "episodes": 18,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Kevin Alejandro",
+      "Hailee Steinfeld",
+      "Ella Purnell",
+      "Katie Leung",
+      "Harry Lloyd",
+      "Toks Olagundoye",
+      "Terri Douglas",
+      "JB Blanc"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "41 wins & 13 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=fXmAurh012s"
   },
   {
     "rank": 27,
@@ -469,7 +952,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 191,
+    "release_status": "Released",
+    "director": "Greg Daniels",
+    "cast": [
+      "Steve Carell",
+      "Jenna Fischer",
+      "John Krasinski",
+      "Rainn Wilson",
+      "Leslie David Baker",
+      "Brian Baumgartner",
+      "Angela Kinsey",
+      "Kate Flannery"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "61 wins & 211 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-C2z-nshFts"
   },
   {
     "rank": 28,
@@ -486,7 +988,21 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 8,
+    "release_status": "Released",
+    "director": "Alastair Fothergill",
+    "cast": [
+      "David Attenborough",
+      "Pierce Brosnan",
+      "Peter Scoones"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "6 wins & 12 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=wLYCPzdcZtk"
   },
   {
     "rank": 29,
@@ -504,7 +1020,26 @@
       "Documentary",
       "Comedy",
       "Reality-TV"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 40,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jeremy Clarkson",
+      "Kaleb Cooper",
+      "Charlie Ireland",
+      "Lisa Hogan",
+      "Gerald Cooper",
+      "Alan Townsend",
+      "Dilwyn Evans",
+      "Tim Coles"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "0 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=pW-iVG0_D34"
   },
   {
     "rank": 30,
@@ -522,7 +1057,26 @@
       "Biography",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Pratik Gandhi",
+      "Shreya Dhanwanthary",
+      "Hemant Kher",
+      "Anjali Barot",
+      "Chirag Vohra",
+      "Brinda Trivedi",
+      "Kumkum Das",
+      "Jay Upadhyay"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "53 wins & 18 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=NGjpp-hVM_k"
   },
   {
     "rank": 31,
@@ -540,7 +1094,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 148,
+    "release_status": "Released",
+    "director": "Yoshihiro Togashi",
+    "cast": [
+      "Issei Futamata",
+      "Megumi Han",
+      "Cristina Valenzuela",
+      "Mariya Ise",
+      "Michael McConnohie",
+      "Erica Mendez",
+      "Erika Harlacher",
+      "Miyuki Sawashiro"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=d6kBeJjTGnY"
   },
   {
     "rank": 32,
@@ -557,7 +1130,26 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "David Attenborough",
+      "Alec Baldwin",
+      "Chadden Hunter",
+      "Ted Giffords",
+      "Michael Kelem",
+      "Doug Allan",
+      "Jamie McPherson",
+      "Mark Linfield"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "13 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=yNiBL8Jok4s"
   },
   {
     "rank": 33,
@@ -573,7 +1165,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 95,
+    "episodes": 64,
+    "release_status": "Released",
+    "director": "John Sullivan",
+    "cast": [
+      "David Jason",
+      "Nicholas Lyndhurst",
+      "Roger Lloyd Pack",
+      "Buster Merryfield",
+      "John Challis",
+      "Kenneth MacDonald",
+      "Lennard Pearce",
+      "Gwyneth Strong"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "17 wins & 15 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=q2_I2gYVbns"
   },
   {
     "rank": 34,
@@ -590,7 +1201,26 @@
     "genres": [
       "Documentary",
       "Music"
-    ]
+    ],
+    "runtime_minutes": 67,
+    "episodes": 9,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "John Lennon",
+      "Paul McCartney",
+      "George Harrison",
+      "The Beatles",
+      "Ringo Starr",
+      "George Martin",
+      "Neil Aspinall",
+      "Derek Taylor"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "2 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=UpCwdkGby6E"
   },
   {
     "rank": 35,
@@ -606,7 +1236,20 @@
     "media_type": "tvshow",
     "genres": [
       "Documentary"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 8,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "John Hurt",
+      "Roger Munns"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "2 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=GmfvOEjXWe4"
   },
   {
     "rank": 36,
@@ -624,7 +1267,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 20,
+    "release_status": "Released",
+    "director": "Clyde Phillips",
+    "cast": [
+      "Michael C. Hall",
+      "Uma Thurman",
+      "James Remar",
+      "Jack Alcott",
+      "Ntare Guma Mbaho Mwine",
+      "David Zayas",
+      "Kadia Saraf",
+      "Dominic Fumusa"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "3 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=84o1Q6fB20k"
   },
   {
     "rank": 37,
@@ -642,7 +1304,26 @@
       "Documentary",
       "History",
       "War"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 9,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "David McCullough",
+      "Sam Waterston",
+      "Julie Harris",
+      "Jason Robards",
+      "Morgan Freeman",
+      "Paul Roebling",
+      "Garrison Keillor",
+      "George Black"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "14 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=vz2Gic5SZxg"
   },
   {
     "rank": 38,
@@ -658,7 +1339,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 45,
+    "release_status": "Released",
+    "director": "R. Scott Gemmill",
+    "cast": [
+      "Noah Wyle",
+      "Patrick Ball",
+      "Katherine LaNasa",
+      "Supriya Ganesh",
+      "Fiona Dourif",
+      "Taylor Dearden",
+      "Isa Briones",
+      "Gerran Howell"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "44 wins & 46 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ufR_08V38sQ"
   },
   {
     "rank": 39,
@@ -675,7 +1375,26 @@
     "genres": [
       "Adventure",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 14,
+    "release_status": "Released",
+    "director": "Joss Whedon",
+    "cast": [
+      "Nathan Fillion",
+      "Gina Torres",
+      "Alan Tudyk",
+      "Morena Baccarin",
+      "Adam Baldwin",
+      "Jewel Staite",
+      "Sean Maher",
+      "Summer Glau"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "5 wins & 8 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=oBZrZij2-g8"
   },
   {
     "rank": 40,
@@ -691,7 +1410,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 68,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Feyyaz Yigit",
+      "Kivanç Kilinç",
+      "Ahmet Kürsat Öçalan",
+      "Ümran Sakir",
+      "Ezgi Ay",
+      "Celal Öztürk",
+      "Nebi Tolga Yilmaz",
+      "Fatih Aker"
+    ],
+    "language": "Turkish",
+    "country": "TR",
+    "tagline": null,
+    "awards": "2 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=IyjaP4MexsI"
   },
   {
     "rank": 41,
@@ -709,7 +1447,26 @@
       "Animation",
       "Adventure",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 41,
+    "release_status": "Released",
+    "director": "Alex Hirsch",
+    "cast": [
+      "Jason Ritter",
+      "Alex Hirsch",
+      "Kristen Schaal",
+      "Linda Cardellini",
+      "Kevin Michael Richardson",
+      "Matt Chapman",
+      "Kari Wahlgren",
+      "John DiMaggio"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "13 wins & 38 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=yfUDIPUETUg"
   },
   {
     "rank": 42,
@@ -727,7 +1484,26 @@
       "Animation",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 37,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Mamoru Miyano",
+      "Brad Swaile",
+      "Vincent Tong",
+      "Ryô Naitô",
+      "Trevor Devall",
+      "Brian Drummond",
+      "Naoya Uchida",
+      "Keiji Fujiwara"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=mdZQ-_GLzYs"
   },
   {
     "rank": 43,
@@ -745,7 +1521,26 @@
       "Animation",
       "Adventure",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 39,
+    "release_status": "Released",
+    "director": "Tsukasa Abe, Kanehito Yamada",
+    "cast": [
+      "Atsumi Tanezaki",
+      "Kana Ichinose",
+      "Mallorie Rodak",
+      "Jill Harris",
+      "Nobuhiko Okamoto",
+      "Clifford Chapin",
+      "Chiaki Kobayashi",
+      "Hiroki Tôchi"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "21 wins & 35 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Iwr1aLEDpe4"
   },
   {
     "rank": 44,
@@ -762,7 +1557,26 @@
     "genres": [
       "Comedy",
       "Game-Show"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 205,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Greg Davies",
+      "Alex Horne",
+      "Kerry Godliman",
+      "Ed Gamble",
+      "Maisie Adam",
+      "Sarah Kendall",
+      "Mathew Baynton",
+      "James Acaster"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "4 wins & 17 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=hiutY6RDZHg"
   },
   {
     "rank": 45,
@@ -778,7 +1592,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 172,
+    "release_status": "Released",
+    "director": "Larry David, Jerry Seinfeld",
+    "cast": [
+      "Jerry Seinfeld",
+      "Julia Louis-Dreyfus",
+      "Michael Richards",
+      "Jason Alexander",
+      "Ruth Cohen",
+      "Wayne Knight",
+      "Norman Brenner",
+      "Heidi Swedberg"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "81 wins & 197 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=hQXKyIG_NS4"
   },
   {
     "rank": 46,
@@ -794,7 +1627,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Artur Barcis",
+      "Olgierd Łukaszewicz",
+      "Krystyna Janda",
+      "Henryk Baranowski",
+      "Olaf Lubaszenko",
+      "Aleksander Bardini",
+      "Piotr Machalica",
+      "Jan Tesarz"
+    ],
+    "language": "Polish",
+    "country": "PL",
+    "tagline": null,
+    "awards": "10 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=OYg5zswGG8Y"
   },
   {
     "rank": 47,
@@ -812,7 +1664,26 @@
       "Documentary",
       "Biography",
       "History"
-    ]
+    ],
+    "runtime_minutes": 150,
+    "episodes": 3,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "The Beatles",
+      "John Lennon",
+      "Paul McCartney",
+      "George Harrison",
+      "Ringo Starr",
+      "Mal Evans",
+      "Michael Lindsay-Hogg",
+      "George Martin"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "19 wins & 13 nominations total",
+    "trailer_url": null
   },
   {
     "rank": 48,
@@ -829,7 +1700,26 @@
     "genres": [
       "Documentary",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 32,
+    "release_status": "Released",
+    "director": "Nathan Fielder, Michael Koman",
+    "cast": [
+      "Nathan Fielder",
+      "Anthony Filosa",
+      "Salomon Flores",
+      "Brian S. Wolfe",
+      "William Heath",
+      "James Bailey",
+      "Simon Kellog",
+      "Tony Napoli"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "3 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Sx8cRWbGlNo"
   },
   {
     "rank": 49,
@@ -847,7 +1737,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Shin'ichirô Watanabe",
+    "cast": [
+      "Kôichi Yamadera",
+      "Unshô Ishizuka",
+      "Megumi Hayashibara",
+      "Steve Blum",
+      "Beau Billingslea",
+      "Kevin Seymour",
+      "Wendee Lee",
+      "Isshin Chiba"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=OhNwckCLzis"
   },
   {
     "rank": 50,
@@ -865,7 +1774,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 31,
+    "release_status": "Released",
+    "director": "Nic Pizzolatto, Issa López",
+    "cast": [
+      "Vince Vaughn",
+      "Colin Farrell",
+      "Rachel McAdams",
+      "Matthew McConaughey",
+      "Mahershala Ali",
+      "Woody Harrelson",
+      "Carmen Ejogo",
+      "Michelle Monaghan"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "48 wins & 171 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=fVQUcaO4AvE"
   },
   {
     "rank": 51,
@@ -883,7 +1811,26 @@
       "Documentary",
       "History",
       "War"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 6,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Mathieu Kassovitz",
+      "Martin Sheen",
+      "Adolf Hitler",
+      "Winston Churchill",
+      "Hermann Göring",
+      "Joseph Stalin",
+      "Charles de Gaulle",
+      "Benito Mussolini"
+    ],
+    "language": "French",
+    "country": "FR",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=w9A1elwb_J4"
   },
   {
     "rank": 52,
@@ -901,7 +1848,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 51,
+    "release_status": "Released",
+    "director": "Noah Hawley",
+    "cast": [
+      "Billy Bob Thornton",
+      "Martin Freeman",
+      "Allison Tolman",
+      "Colin Hanks",
+      "Jason Schwartzman",
+      "Russell Harvard",
+      "Bokeem Woodbine",
+      "Brad Mann"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "73 wins & 322 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=xZCiyw1ZfB0"
   },
   {
     "rank": 53,
@@ -919,7 +1885,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 22,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Haluk Bilginer",
+      "Şebnem Bozoklu",
+      "Recep Usta",
+      "Cansu Dere",
+      "Necip Memili",
+      "Metin Akdülger",
+      "Hüseyin Avni Danyal",
+      "Senay Gürler"
+    ],
+    "language": "Turkish",
+    "country": "TR",
+    "tagline": null,
+    "awards": "5 wins & 10 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=bm1QlbYbhzM"
   },
   {
     "rank": 54,
@@ -936,7 +1921,26 @@
     "genres": [
       "Documentary",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 7,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "David Attenborough",
+      "Simon Blakeney",
+      "Mark MacEwen",
+      "Martyn Colbeck",
+      "Bill Rudolph",
+      "Mike Fox",
+      "Mark Deeble",
+      "Warwick Sloss"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "2 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=8kEr3f7QbGM"
   },
   {
     "rank": 55,
@@ -954,7 +1958,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 1181,
+    "release_status": "Released",
+    "director": "Eiichirô Oda",
+    "cast": [
+      "Mayumi Tanaka",
+      "Akemi Okamura",
+      "Tony Beck",
+      "Laurent Vernin",
+      "Kazuya Nakai",
+      "Kappei Yamaguchi",
+      "Hiroaki Hirata",
+      "Colleen Clinkenbeard"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "7 wins & 21 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=LHTYpWI3S6Q"
   },
   {
     "rank": 56,
@@ -970,7 +1993,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 42,
+    "episodes": 155,
+    "release_status": "Released",
+    "director": "Aaron Sorkin",
+    "cast": [
+      "Martin Sheen",
+      "Rob Lowe",
+      "Allison Janney",
+      "John Spencer",
+      "Bradley Whitford",
+      "Janel Moloney",
+      "Richard Schiff",
+      "Dulé Hill"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "123 wins & 264 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=F7SIftJMHjc"
   },
   {
     "rank": 57,
@@ -987,7 +2029,26 @@
     "genres": [
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 50,
+    "release_status": "Released",
+    "director": "Dallas Jenkins",
+    "cast": [
+      "Elizabeth Tabish",
+      "Shahar Isaac",
+      "George H. Xanthis",
+      "Jonathan Roumie",
+      "Paras Patel",
+      "Noah James",
+      "Shaan Sharma",
+      "Jordan Walker Ross"
+    ],
+    "language": "English",
+    "country": "CA",
+    "tagline": null,
+    "awards": "7 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=K1-FoFj8Jbo"
   },
   {
     "rank": 58,
@@ -1005,7 +2066,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 42,
+    "release_status": "Released",
+    "director": "Tite Kubo",
+    "cast": [
+      "Johnny Yong Bosch",
+      "Masakazu Morita",
+      "Takayuki Sugô",
+      "Richard Epcar",
+      "Ryûsei Nakao",
+      "Terrence Stone",
+      "Stephanie Sheh",
+      "Doug Erholtz"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 16 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=78WIYzX_m98"
   },
   {
     "rank": 59,
@@ -1022,7 +2102,26 @@
     "genres": [
       "Comedy",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 234,
+    "release_status": "Released",
+    "director": "David Crane, Marta Kauffman",
+    "cast": [
+      "Jennifer Aniston",
+      "Courteney Cox",
+      "Lisa Kudrow",
+      "Matt LeBlanc",
+      "Matthew Perry",
+      "David Schwimmer",
+      "James Michael Tyler",
+      "Elliott Gould"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "79 wins & 231 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=8wThS5WCzs4"
   },
   {
     "rank": 60,
@@ -1040,7 +2139,26 @@
       "Biography",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 75,
+    "episodes": 4,
+    "release_status": "Released",
+    "director": "Ava DuVernay",
+    "cast": [
+      "Asante Blackk",
+      "Caleel Harris",
+      "Ethan Herisse",
+      "Marquis Rodriguez",
+      "Marsha Stephanie Blake",
+      "Kylie Bunbury",
+      "John Leguizamo",
+      "Niecy Nash"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "31 wins & 78 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=YyoSErErnCE"
   },
   {
     "rank": 61,
@@ -1056,7 +2174,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 178,
+    "release_status": "Released",
+    "director": "Rob Mac, Glenn Howerton",
+    "cast": [
+      "Charlie Day",
+      "Glenn Howerton",
+      "Rob Mac",
+      "Kaitlin Olson",
+      "Danny DeVito",
+      "Mary Elizabeth Ellis",
+      "David Hornsby",
+      "Lynne Marie Stewart"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "4 wins & 17 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=VnXC3BAGR5s"
   },
   {
     "rank": 62,
@@ -1074,7 +2211,26 @@
       "Drama",
       "History",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 16,
+    "release_status": "Released",
+    "director": "Kim Won-seok",
+    "cast": [
+      "IU",
+      "Park Bo-gum",
+      "Moon So-ri",
+      "Park Hae-joon",
+      "Rich Ting",
+      "Jang Hye-jin",
+      "Kate Marley",
+      "Elyse Dinh"
+    ],
+    "language": "Korean",
+    "country": "KR",
+    "tagline": null,
+    "awards": "11 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=4ECAaQkNAbc"
   },
   {
     "rank": 63,
@@ -1092,7 +2248,26 @@
       "Comedy",
       "News",
       "Talk-Show"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 415,
+    "release_status": "Released",
+    "director": "John Oliver",
+    "cast": [
+      "John Oliver",
+      "David Kaye",
+      "Donald Trump",
+      "Ryan Barger",
+      "Noel MacNeal",
+      "Jim Cramer",
+      "Joe Biden",
+      "John Kennedy"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "99 wins & 129 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=s3gUpyEI_rQ"
   },
   {
     "rank": 64,
@@ -1109,7 +2284,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 40,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": "Arunabh Kumar",
+    "cast": [
+      "Naveen Kasturia",
+      "Arunabh Kumar",
+      "Abhay Mahajan",
+      "Gopal Datt",
+      "Pranav Bhasin",
+      "Jasmeet Singh Bhatia",
+      "Jitendra Kumar",
+      "Arpan Das"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "8 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=4UfVwBBtBCk"
   },
   {
     "rank": 65,
@@ -1126,7 +2320,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 39,
+    "release_status": "Released",
+    "director": "Jesse Armstrong",
+    "cast": [
+      "Nicholas Braun",
+      "Brian Cox",
+      "Kieran Culkin",
+      "Peter Friedman",
+      "Matthew Macfadyen",
+      "Alan Ruck",
+      "Sarah Snook",
+      "Jeremy Strong"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "142 wins & 265 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=OzYxJV_rmE8"
   },
   {
     "rank": 66,
@@ -1142,7 +2355,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 120,
+    "release_status": "Released",
+    "director": "Larry David",
+    "cast": [
+      "Larry David",
+      "Cheryl Hines",
+      "Jeff Garlin",
+      "Susie Essman",
+      "J.B. Smoove",
+      "Richard Lewis",
+      "Ted Danson",
+      "Bob Einstein"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "22 wins & 186 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=U0xlTkznkak"
   },
   {
     "rank": 67,
@@ -1159,7 +2391,26 @@
     "genres": [
       "Drama",
       "War"
-    ]
+    ],
+    "runtime_minutes": 98,
+    "episodes": 3,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jürgen Prochnow",
+      "Herbert Grönemeyer",
+      "Klaus Wennemann",
+      "Hubertus Bengsch",
+      "Martin Semmelrogge",
+      "Bernd Tauber",
+      "Erwin Leder",
+      "Martin May"
+    ],
+    "language": "German",
+    "country": "XWG",
+    "tagline": null,
+    "awards": "3 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=KhNnU4h1Q50"
   },
   {
     "rank": 68,
@@ -1177,7 +2428,26 @@
       "Animation",
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 76,
+    "release_status": "Released",
+    "director": "Raphael Bob-Waksberg",
+    "cast": [
+      "Will Arnett",
+      "Amy Sedaris",
+      "Alison Brie",
+      "Aaron Paul",
+      "Paul F. Tompkins",
+      "Adam Conover",
+      "Keith Olbermann",
+      "Diedrich Bader"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "35 wins & 43 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=i1eJMig5Ik4"
   },
   {
     "rank": 69,
@@ -1193,7 +2463,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 45,
+    "release_status": "Released",
+    "director": "Graham Chapman, John Cleese, Terry Gilliam",
+    "cast": [
+      "Graham Chapman",
+      "John Cleese",
+      "Terry Gilliam",
+      "Eric Idle",
+      "Terry Jones",
+      "Michael Palin",
+      "Carol Cleveland",
+      "John Hughman"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "4 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=eaN92lbb3dE"
   },
   {
     "rank": 70,
@@ -1210,7 +2499,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": null,
+    "episodes": 33,
+    "release_status": "Released",
+    "director": "Chandan Kumar, Deepak Kumar Mishra",
+    "cast": [
+      "Jitendra Kumar",
+      "Raghubir Yadav",
+      "Chandan Roy",
+      "Faisal Malik",
+      "Neena Gupta",
+      "Sanvikaa",
+      "Durgesh Kumar",
+      "Ashok Pathak"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "84 wins & 109 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=mojZJ7oeD_g"
   },
   {
     "rank": 71,
@@ -1228,7 +2536,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 48,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Shin'ya Takahashi",
+      "Yûto Uemura",
+      "Mike Haimoto",
+      "Hiroki Gotô",
+      "Tsuguo Mogami",
+      "Aleks Le",
+      "Kenshô Ono",
+      "Naoya Uchida"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "10 wins & 40 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=H3fS-bZ4e2E"
   },
   {
     "rank": 72,
@@ -1244,7 +2571,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": "Connie Booth, John Cleese",
+    "cast": [
+      "John Cleese",
+      "Prunella Scales",
+      "Andrew Sachs",
+      "Connie Booth",
+      "Ballard Berkeley",
+      "Gilly Flower",
+      "Renee Roberts",
+      "Brian Hall"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "7 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=vqdpLnbTWg0"
   },
   {
     "rank": 73,
@@ -1262,7 +2608,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 277,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Doc Harris",
+      "Christopher Sabat",
+      "Scott McNeil",
+      "Sean Schemmel",
+      "Terry Klassen",
+      "Brian Drummond",
+      "Sonny Strait",
+      "Stephanie Nadolny"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=hg9T05VeEPg"
   },
   {
     "rank": 74,
@@ -1280,7 +2645,26 @@
       "Comedy",
       "Drama",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 20,
+    "release_status": "Released",
+    "director": "Shreyansh Pandey",
+    "cast": [
+      "Jameel Khan",
+      "Geetanjali Kulkarni",
+      "Vaibhav Raj Gupta",
+      "Harsh Mayar",
+      "Shivankit Singh Parihar",
+      "Sunita Rajwar",
+      "Saad Bilgrami",
+      "Gaurav Sarathe"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "29 wins & 49 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=cs4rnylG7Fc"
   },
   {
     "rank": 75,
@@ -1297,7 +2681,26 @@
     "genres": [
       "Comedy",
       "War"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 6,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Rowan Atkinson",
+      "Tony Robinson",
+      "Stephen Fry",
+      "Hugh Laurie",
+      "Tim McInnerny",
+      "Gabrielle Glaister",
+      "Miranda Richardson",
+      "Rik Mayall"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "3 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=PWh1CWqLKaA"
   },
   {
     "rank": 76,
@@ -1315,7 +2718,26 @@
       "Adventure",
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 144,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Ali Atay",
+      "Cengiz Bozkurt",
+      "Serkan Keskin",
+      "Osman Sonant",
+      "Ahmet Mümtaz Taylan",
+      "Köksal Engür",
+      "Ege Tanman",
+      "Nalan Kuruçim"
+    ],
+    "language": "Turkish",
+    "country": "TR",
+    "tagline": null,
+    "awards": "4 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=hcsksVE_hZk"
   },
   {
     "rank": 77,
@@ -1333,7 +2755,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 291,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Masako Nozawa",
+      "Jôji Yanami",
+      "Mayumi Tanaka",
+      "Stephanie Nadolny",
+      "Ryô Horikawa",
+      "Toshio Furukawa",
+      "Hiromi Tsuru",
+      "Tiffany Vollmer"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=tloraopWVuk"
   },
   {
     "rank": 78,
@@ -1350,7 +2791,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 18,
+    "release_status": "Released",
+    "director": "Paul Feig",
+    "cast": [
+      "Linda Cardellini",
+      "John Francis Daley",
+      "James Franco",
+      "Samm Levine",
+      "Seth Rogen",
+      "Jason Segel",
+      "Martin Starr",
+      "Becky Ann Baker"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "4 wins & 16 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=E0oJ-uYWakw"
   },
   {
     "rank": 79,
@@ -1367,7 +2827,26 @@
     "genres": [
       "Comedy",
       "Music"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 33,
+    "release_status": "Released",
+    "director": "Neal Brennan, Dave Chappelle",
+    "cast": [
+      "Dave Chappelle",
+      "Donnell Rawlings",
+      "Neal Brennan",
+      "Rudy Rush",
+      "Charlie Murphy",
+      "Yasiin Bey",
+      "Randy Pearlstein",
+      "Melle Powers"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "7 wins & 16 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-IGtEOMsWoc"
   },
   {
     "rank": 80,
@@ -1384,7 +2863,26 @@
     "genres": [
       "Drama",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 6,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Colin Firth",
+      "Jennifer Ehle",
+      "Alison Steadman",
+      "Julia Sawalha",
+      "Benjamin Whitrow",
+      "Susannah Harker",
+      "Polly Maberly",
+      "Crispin Bonham-Carter"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "9 wins & 13 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=P5MmcT_vcBU"
   },
   {
     "rank": 81,
@@ -1402,7 +2900,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 30,
+    "release_status": "Released",
+    "director": "Mark Frost, David Lynch",
+    "cast": [
+      "Kyle MacLachlan",
+      "Michael Ontkean",
+      "Mädchen Amick",
+      "Dana Ashbrook",
+      "Richard Beymer",
+      "Lara Flynn Boyle",
+      "Sherilyn Fenn",
+      "Warren Frost"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "19 wins & 45 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=rFuKtJjhBCQ"
   },
   {
     "rank": 82,
@@ -1420,7 +2937,26 @@
       "Biography",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 30,
+    "release_status": "Released",
+    "director": "Carlo Bernard, Chris Brancato, Doug Miro",
+    "cast": [
+      "Pedro Pascal",
+      "Wagner Moura",
+      "Boyd Holbrook",
+      "Alberto Ammann",
+      "Paulina Gaitan",
+      "Juan Murcia",
+      "Jorge Monterrosa",
+      "Damián Alcázar"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "8 wins & 22 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=xl8zdCY-abw"
   },
   {
     "rank": 83,
@@ -1438,7 +2974,26 @@
       "Comedy",
       "Drama",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 20,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Lee Hyeri",
+      "Park Bo-gum",
+      "Ryu Jun-yeol",
+      "Go Kyung-pyo",
+      "Lee Dong-hwi",
+      "Ryu Hye-young",
+      "Sung Dong-il",
+      "Lee Il-hwa"
+    ],
+    "language": "Korean",
+    "country": "KR",
+    "tagline": null,
+    "awards": "8 wins & 19 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=c-EMf3JdxUA"
   },
   {
     "rank": 84,
@@ -1456,7 +3011,26 @@
       "Biography",
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 13,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Derek Jacobi",
+      "John Hurt",
+      "Siân Phillips",
+      "George Baker",
+      "Margaret Tyzack",
+      "Brian Blessed",
+      "James Faulkner",
+      "Patricia Quinn"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "7 wins & 5 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=T40mDHDKqWM"
   },
   {
     "rank": 85,
@@ -1473,7 +3047,26 @@
     "genres": [
       "Animation",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 334,
+    "release_status": "Released",
+    "director": "Trey Parker, Matt Stone, Brian Graden",
+    "cast": [
+      "Trey Parker",
+      "Matt Stone",
+      "Isaac Hayes",
+      "Mona Marshall",
+      "April Stewart",
+      "Adrien Beard",
+      "Eliza Schneider",
+      "Jennifer Howell"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "22 wins & 95 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=uLrlLDLJpMo"
   },
   {
     "rank": 86,
@@ -1490,7 +3083,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 40,
+    "episodes": 15,
+    "release_status": "Released",
+    "director": "Saurabh Khanna, Arunabh Kumar, Raghav Subbu",
+    "cast": [
+      "Mayur More",
+      "Jitendra Kumar",
+      "Ranjan Raj",
+      "Alam Khan",
+      "Harish Peddinti",
+      "Ahsaas Channa",
+      "Urvi Singh",
+      "Revathi Pillai"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "18 wins & 31 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=pNZQ6msbOvM"
   },
   {
     "rank": 87,
@@ -1508,7 +3120,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 25,
+    "release_status": "Released",
+    "director": "Kentaro Miura",
+    "cast": [
+      "Marc Diraison",
+      "Nobutoshi Canna",
+      "Carrie Keranen",
+      "Unshô Ishizuka",
+      "Carla Tassara",
+      "Jon Avner",
+      "Yûko Miyamura",
+      "Akira Ishida"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=IXL5r3n862U"
   },
   {
     "rank": 88,
@@ -1526,7 +3157,26 @@
       "Comedy",
       "Drama",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 44,
+    "release_status": "Released",
+    "director": "Jason Sudeikis, Brendan Hunt, Joe Kelly",
+    "cast": [
+      "Hannah Waddingham",
+      "Brendan Hunt",
+      "Jason Sudeikis",
+      "Jeremy Swift",
+      "Brett Goldstein",
+      "Juno Temple",
+      "Phil Dunster",
+      "Nick Mohammed"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "73 wins & 213 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=3u7EIiohs6U"
   },
   {
     "rank": 89,
@@ -1544,7 +3194,26 @@
       "Animation",
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Chiyomaru Shikura",
+    "cast": [
+      "Mamoru Miyano",
+      "Asami Imai",
+      "Kana Hanazawa",
+      "Ashly Burch",
+      "J. Michael Tatum",
+      "Trina Nishimura",
+      "Tomokazu Seki",
+      "Tyson Rinehart"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=uMYhjVwp0Fk"
   },
   {
     "rank": 90,
@@ -1562,7 +3231,26 @@
       "Animation",
       "Short",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 11,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": "Katie Krentz, Patrick McHale",
+    "cast": [
+      "Elijah Wood",
+      "Collin Dean",
+      "Melanie Lynskey",
+      "Christopher Lloyd",
+      "Samuel Ramey",
+      "Jack Jones",
+      "John Cleese",
+      "Emily Brundige"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "4 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=36mAsVSH_-s"
   },
   {
     "rank": 91,
@@ -1579,7 +3267,26 @@
     "genres": [
       "Drama",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 70,
+    "episodes": 16,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Lee Sun-kyun",
+      "IU",
+      "Lee Ji-ah",
+      "Park Ho-san",
+      "Shin Goo",
+      "Jeon Gook-hwan",
+      "Song Sae-byeok",
+      "Ko Du-shim"
+    ],
+    "language": "Korean",
+    "country": "KR",
+    "tagline": null,
+    "awards": "4 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=f-Eaa3f3gDo"
   },
   {
     "rank": 92,
@@ -1596,7 +3303,26 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 36,
+    "release_status": "Released",
+    "director": "Steven Knight",
+    "cast": [
+      "Cillian Murphy",
+      "Paul Anderson",
+      "Sophie Rundle",
+      "Helen McCrory",
+      "Ned Dennehy",
+      "Natasha O'Keeffe",
+      "Finn Cole",
+      "Ian Peck"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "25 wins & 56 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=EM12mcTEI88"
   },
   {
     "rank": 93,
@@ -1614,7 +3340,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 34,
+    "release_status": "Released",
+    "director": "Charlie Brooker",
+    "cast": [
+      "Anjana Vasan",
+      "Cristin Milioti",
+      "Jesse Plemons",
+      "Aaron Paul",
+      "Jimmi Simpson",
+      "Hannah John-Kamen",
+      "Billy Magnussen",
+      "Wunmi Mosaku"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "48 wins & 186 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=jROLrhQkK78"
   },
   {
     "rank": 94,
@@ -1631,7 +3376,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": "Alan Ball",
+    "cast": [
+      "Peter Krause",
+      "Michael C. Hall",
+      "Frances Conroy",
+      "Lauren Ambrose",
+      "Freddy Rodríguez",
+      "Mathew St. Patrick",
+      "Rachel Griffiths",
+      "Justina Machado"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "62 wins & 165 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=nrQuTD9u2K0"
   },
   {
     "rank": 95,
@@ -1649,7 +3413,26 @@
       "Action",
       "Drama",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 22,
+    "release_status": "Released",
+    "director": "Bruno Heller, William J. MacDonald, John Milius",
+    "cast": [
+      "Kevin McKidd",
+      "Ray Stevenson",
+      "Polly Walker",
+      "Kerry Condon",
+      "James Purefoy",
+      "Ian McNeice",
+      "Coral Amiga",
+      "Lindsay Duncan"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "19 wins & 36 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Qcz189fJt0U"
   },
   {
     "rank": 96,
@@ -1667,7 +3450,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 56,
+    "release_status": "Released",
+    "director": "Tom Fontana",
+    "cast": [
+      "Ernie Hudson",
+      "Terry Kinney",
+      "J.K. Simmons",
+      "Lee Tergesen",
+      "Dean Winters",
+      "George Morfogen",
+      "Rita Moreno",
+      "Harold Perrineau"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "16 wins & 56 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=h9_7kF-ctEo"
   },
   {
     "rank": 97,
@@ -1685,7 +3487,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Baran bo Odar, Jantje Friese",
+    "cast": [
+      "Louis Hofmann",
+      "Karoline Eichhorn",
+      "Lisa Vicari",
+      "Maja Schöne",
+      "Stephan Kampwirth",
+      "Jördis Triebel",
+      "Andreas Pietschmann",
+      "Paul Lux"
+    ],
+    "language": "German",
+    "country": "DE",
+    "tagline": null,
+    "awards": "8 wins & 23 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=rrwycJ08PSA"
   },
   {
     "rank": 98,
@@ -1703,7 +3524,26 @@
       "Animation",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 75,
+    "release_status": "Released",
+    "director": "Naoki Urasawa",
+    "cast": [
+      "Hidenobu Kiuchi",
+      "Liam O'Brien",
+      "Eiji Hanawa",
+      "Mamiko Noto",
+      "Yasushi Miyabayashi",
+      "Nozomu Sasaki",
+      "Karen Strassman",
+      "Tsutomu Isobe"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=9aS-EgdAq6U"
   },
   {
     "rank": 99,
@@ -1721,7 +3561,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": "Stan Lee, Beau DeMayo",
+    "cast": [
+      "Holly Chou",
+      "Cal Dodd",
+      "George Buza",
+      "Ray Chase",
+      "Jennifer Hale",
+      "Lenore Zann",
+      "JP Karliak",
+      "Ross Marquand"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "6 wins & 15 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=pv3Ss8o9gGQ"
   },
   {
     "rank": 100,
@@ -1739,7 +3598,26 @@
       "Adventure",
       "Comedy",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 47,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jeremy Clarkson",
+      "James May",
+      "Richard Hammond",
+      "Abbie Eaton",
+      "Mike Skinner",
+      "Simon Pegg",
+      "David Hasselhoff",
+      "Kiefer Sutherland"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "0 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=kLtpcxtk4HI"
   },
   {
     "rank": 101,
@@ -1757,7 +3635,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 501,
+    "release_status": "Released",
+    "director": "Masashi Kishimoto",
+    "cast": [
+      "Alexandre Crepet",
+      "Junko Takeuchi",
+      "Maile Flanagan",
+      "Chie Nakamura",
+      "Kate Higgins",
+      "Dave Wittenberg",
+      "Kazuhiko Inoue",
+      "Kyle Hebert"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "2 wins & 10 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=13SfqrH9lDA"
   },
   {
     "rank": 102,
@@ -1775,7 +3672,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 89,
+    "release_status": "Released",
+    "director": "Shawn Ryan",
+    "cast": [
+      "Michael Chiklis",
+      "Michael Jace",
+      "Jay Karnes",
+      "CCH Pounder",
+      "Benito Martinez",
+      "Walton Goggins",
+      "Catherine Dent",
+      "Cathy Cahlin Ryan"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "15 wins & 62 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=klSVH4dJrGU"
   },
   {
     "rank": 103,
@@ -1792,7 +3708,26 @@
     "genres": [
       "Drama",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 52,
+    "release_status": "Released",
+    "director": "Julian Fellowes",
+    "cast": [
+      "Hugh Bonneville",
+      "Phyllis Logan",
+      "Elizabeth McGovern",
+      "Laura Carmichael",
+      "Jim Carter",
+      "Brendan Coyle",
+      "Michelle Dockery",
+      "Joanne Froggatt"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "61 wins & 231 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=EOM3y4P8TEM"
   },
   {
     "rank": 104,
@@ -1810,7 +3745,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 33,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Steven Yeun",
+      "J.K. Simmons",
+      "Sandra Oh",
+      "Gillian Jacobs",
+      "Grey DeLisle",
+      "Walton Goggins",
+      "Chris Diamantopoulos",
+      "Ross Marquand"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "5 wins & 20 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-bfAVpuko5o"
   },
   {
     "rank": 105,
@@ -1827,7 +3781,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": "Phoebe Waller-Bridge",
+    "cast": [
+      "Phoebe Waller-Bridge",
+      "Sian Clifford",
+      "Olivia Colman",
+      "Jenny Rainsford",
+      "Bill Paterson",
+      "Brett Gelman",
+      "Andrew Scott",
+      "Hugh Skinner"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "70 wins & 71 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Nd3Qlo0qspU"
   },
   {
     "rank": 106,
@@ -1845,7 +3818,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 74,
+    "release_status": "Released",
+    "director": "Ronald D. Moore, Glen A. Larson",
+    "cast": [
+      "Edward James Olmos",
+      "Mary McDonnell",
+      "Jamie Bamber",
+      "James Callis",
+      "Tricia Helfer",
+      "Grace Park",
+      "Katee Sackhoff",
+      "Michael Hogan"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "43 wins & 114 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=FAJbR0xad2U"
   },
   {
     "rank": 107,
@@ -1861,7 +3853,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 54,
+    "release_status": "Released",
+    "director": "Andrew O'Connor, Jesse Armstrong, Sam Bain",
+    "cast": [
+      "David Mitchell",
+      "Robert Webb",
+      "Matt King",
+      "Olivia Colman",
+      "Neil Fitzmaurice",
+      "Isy Suttie",
+      "Paterson Joseph",
+      "Sophie Winkleman"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "9 wins & 37 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=uonrtGIick4"
   },
   {
     "rank": 108,
@@ -1879,7 +3890,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 176,
+    "release_status": "Released",
+    "director": "Gene Roddenberry",
+    "cast": [
+      "Patrick Stewart",
+      "Brent Spiner",
+      "Jonathan Frakes",
+      "LeVar Burton",
+      "Michael Dorn",
+      "Marina Sirtis",
+      "Gates McFadden",
+      "Majel Barrett"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "40 wins & 62 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=uxJdH1eR1ck"
   },
   {
     "rank": 109,
@@ -1895,7 +3925,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 92,
+    "release_status": "Released",
+    "director": "Matthew Weiner",
+    "cast": [
+      "Jon Hamm",
+      "Elisabeth Moss",
+      "Vincent Kartheiser",
+      "January Jones",
+      "Christina Hendricks",
+      "Aaron Staton",
+      "Rich Sommer",
+      "Kiernan Shipka"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "167 wins & 450 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=m7NChV93LBw"
   },
   {
     "rank": 110,
@@ -1911,7 +3960,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 29,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Ford Kiernan",
+      "Greg Hemphill",
+      "Paul Riley",
+      "Gavin Mitchell",
+      "Mark Cox",
+      "Jane McCarry",
+      "Sanjeev Kohli",
+      "James Martin"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "6 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=MvEANFfYHSc"
   },
   {
     "rank": 111,
@@ -1929,7 +3997,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 9,
+    "release_status": "Released",
+    "director": "Michael Green, Amber Noizumi",
+    "cast": [
+      "Maya Erskine",
+      "George Takei",
+      "Masi Oka",
+      "Brenda Song",
+      "Darren Barnet",
+      "Randall Park",
+      "Kenneth Branagh",
+      "Cary-Hiroyuki Tagawa"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "16 wins & 10 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=2rrRToCVm4I"
   },
   {
     "rank": 112,
@@ -1947,7 +4034,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 94,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Harish Bhimani",
+      "Nitish Bharadwaj",
+      "Mukesh Khanna",
+      "Gajendra Chauhan",
+      "Praveen Kumar Sobti",
+      "Feroz Khan",
+      "Roopa Ganguly",
+      "Pankaj Dheer"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "2 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=HnXkv_ozPQw"
   },
   {
     "rank": 113,
@@ -1964,7 +4070,26 @@
     "genres": [
       "Animation",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 855,
+    "release_status": "Released",
+    "director": "James L. Brooks, Matt Groening, Sam Simon",
+    "cast": [
+      "Dan Castellaneta",
+      "Nancy Cartwright",
+      "Julie Kavner",
+      "Harry Shearer",
+      "Yeardley Smith",
+      "Hank Azaria",
+      "Pamela Hayden",
+      "Tress MacNeille"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "187 wins & 384 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Amhoummv4r0"
   },
   {
     "rank": 114,
@@ -1980,7 +4105,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 177,
+    "release_status": "Released",
+    "director": "David Shore",
+    "cast": [
+      "Hugh Laurie",
+      "Omar Epps",
+      "Robert Sean Leonard",
+      "Jesse Spencer",
+      "Lisa Edelstein",
+      "Bobbin Bergstrom",
+      "Jennifer Morrison",
+      "Peter Jacobson"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "58 wins & 140 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=MczMB8nU1sY"
   },
   {
     "rank": 115,
@@ -1998,7 +4142,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 39,
+    "release_status": "Released",
+    "director": "Jack Kirby",
+    "cast": [
+      "George Newbern",
+      "Kevin Conroy",
+      "Phil LaMarr",
+      "Susan Eisenberg",
+      "Carl Lumbly",
+      "Michael Rosenbaum",
+      "Clancy Brown",
+      "Maria Canals-Barrera"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=17j-_SEuiXM"
   },
   {
     "rank": 116,
@@ -2016,7 +4179,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 13,
+    "release_status": "Released",
+    "director": "John Hawkesworth",
+    "cast": [
+      "Jeremy Brett",
+      "David Burke",
+      "Rosalie Williams",
+      "Eric Porter",
+      "Gayle Hunnicutt",
+      "Jeremy Kemp",
+      "Rosalind Knight",
+      "Norman Jones"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=iBtR0N0cSkw"
   },
   {
     "rank": 117,
@@ -2034,7 +4216,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 42,
+    "release_status": "Released",
+    "director": "Jed Mercurio",
+    "cast": [
+      "Martin Compston",
+      "Vicky McClure",
+      "Adrian Dunbar",
+      "Craig Parkinson",
+      "Gregory Piper",
+      "Owen Teale",
+      "Perry Fitzpatrick",
+      "Maya Sondhi"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "21 wins & 64 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=yXJPo_4k6hY"
   },
   {
     "rank": 118,
@@ -2052,7 +4253,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": "George R.R. Martin, Ira Parker",
+    "cast": [
+      "Peter Claffey",
+      "Dexter Sol Ansell",
+      "Daniel Ings",
+      "Shaun Thomas",
+      "Danny Webb",
+      "Finn Bennett",
+      "Daniel Monks",
+      "Ross Anderson"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "0 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=9QTAVN2u1q4"
   },
   {
     "rank": 119,
@@ -2070,7 +4290,26 @@
       "Adventure",
       "Comedy",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 328,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jeremy Clarkson",
+      "Richard Hammond",
+      "James May",
+      "The Stig",
+      "Ben Collins",
+      "Chris Harris",
+      "Andrew Flintoff",
+      "Paddy McGuinness"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "12 wins & 22 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Jig_s1VK4Vw"
   },
   {
     "rank": 120,
@@ -2088,7 +4327,26 @@
       "Drama",
       "Mystery",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 25,
+    "release_status": "Released",
+    "director": "Dan Erickson",
+    "cast": [
+      "Adam Scott",
+      "Britt Lower",
+      "Zach Cherry",
+      "Tramell Tillman",
+      "Jen Tullock",
+      "Dichen Lachman",
+      "Patricia Arquette",
+      "Michael Chernus"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "51 wins & 202 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=xEQP4VVuyrY"
   },
   {
     "rank": 121,
@@ -2104,7 +4362,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 84,
+    "release_status": "Released",
+    "director": "Mitchell Hurwitz",
+    "cast": [
+      "Jason Bateman",
+      "Michael Cera",
+      "Portia de Rossi",
+      "Will Arnett",
+      "Alia Shawkat",
+      "Tony Hale",
+      "David Cross",
+      "Jeffrey Tambor"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "62 wins & 123 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=3AszWG7TAqs"
   },
   {
     "rank": 122,
@@ -2121,7 +4398,26 @@
     "genres": [
       "Drama",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 76,
+    "release_status": "Released",
+    "director": "Peter Berg",
+    "cast": [
+      "Kyle Chandler",
+      "Connie Britton",
+      "Zach Gilford",
+      "Aimee Teegarden",
+      "Brad Leland",
+      "Taylor Kitsch",
+      "Jesse Plemons",
+      "Derek Phillips"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "22 wins & 122 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=AG37AylK1_s"
   },
   {
     "rank": 123,
@@ -2139,7 +4435,26 @@
       "Adventure",
       "Drama",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 78,
+    "release_status": "Released",
+    "director": "Ramanand Sagar",
+    "cast": [
+      "Arun Govil",
+      "Deepika Chikhalia",
+      "Sunil Lahri",
+      "Arvind Trivedi",
+      "Dara Singh Randhawa",
+      "Sanjay Jog",
+      "Sameer Rajda",
+      "Shyamsundar Kalani"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "1 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=3-wSEehDBVk"
   },
   {
     "rank": 124,
@@ -2157,7 +4472,26 @@
       "Animation",
       "Action",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 54,
+    "release_status": "Released",
+    "director": "Ichirô Ôkouchi, Gorô Taniguchi",
+    "cast": [
+      "Jun Fukuyama",
+      "Takahiro Sakurai",
+      "Johnny Yong Bosch",
+      "Yukana",
+      "Ami Koshimizu",
+      "Yuri Lowenthal",
+      "Kate Higgins",
+      "Karen Strassman"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "4 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=DR1d_Pm729o"
   },
   {
     "rank": 125,
@@ -2175,7 +4509,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 105,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Erdal Besikçioglu",
+      "Inanç Konukçu",
+      "Ege Aydan",
+      "Berkan Sal",
+      "Ayça Eren",
+      "Fatih Artman",
+      "Seda Bakan",
+      "Eray Eserol"
+    ],
+    "language": "Turkish",
+    "country": "TR",
+    "tagline": null,
+    "awards": "3 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=LVepmvL_9j8"
   },
   {
     "rank": 126,
@@ -2192,7 +4545,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 43,
+    "release_status": "Released",
+    "director": "Amy Sherman-Palladino",
+    "cast": [
+      "Rachel Brosnahan",
+      "Alex Borstein",
+      "Michael Zegen",
+      "Marin Hinkle",
+      "Tony Shalhoub",
+      "Kevin Pollak",
+      "Matilda Szydagis",
+      "Caroline Aaron"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "98 wins & 256 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=fOmwkTrW4OQ"
   },
   {
     "rank": 127,
@@ -2209,7 +4581,26 @@
     "genres": [
       "Documentary",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 18,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "John Wilson",
+      "Kyle MacLachlan",
+      "Justin A. Martell",
+      "Yanjaa Wintersoul",
+      "Niko Nelson",
+      "Ron Low",
+      "Cynthia Larson",
+      "Liz Schack"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "4 wins & 13 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=w7aSybHRa6s"
   },
   {
     "rank": 128,
@@ -2227,7 +4618,26 @@
       "Comedy",
       "Drama",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 106,
+    "release_status": "Released",
+    "director": "Dan Fogelman",
+    "cast": [
+      "Milo Ventimiglia",
+      "Mandy Moore",
+      "Sterling K. Brown",
+      "Chrissy Metz",
+      "Justin Hartley",
+      "Susan Kelechi Watson",
+      "Chris Sullivan",
+      "Eris Baker"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "67 wins & 276 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=xLLQT3ooASI"
   },
   {
     "rank": 129,
@@ -2243,7 +4653,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 24,
+    "release_status": "Released",
+    "director": "Armando Iannucci",
+    "cast": [
+      "Chris Addison",
+      "James Smith",
+      "Peter Capaldi",
+      "Joanna Scanlan",
+      "Rebecca Front",
+      "Roger Allam",
+      "Will Smith",
+      "Olivia Poulet"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "22 wins & 28 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=F1N6mGk3ec8"
   },
   {
     "rank": 130,
@@ -2259,7 +4688,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 15,
+    "release_status": "Released",
+    "director": "Arunabh Kumar, Shreyansh Pandey, Deepesh Sumitra Jagdish",
+    "cast": [
+      "Naveen Kasturia",
+      "Shivankit Singh Parihar",
+      "Sunny Hinduja",
+      "Abhilash Thapliyal",
+      "Namita Dubey",
+      "Mallika Prasad",
+      "Tengam Celine",
+      "Abhishek Sonpaliya"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "8 wins & 17 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ViOutJ0kuJY"
   },
   {
     "rank": 131,
@@ -2275,7 +4723,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 25,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Dermot Morgan",
+      "Ardal O'Hanlon",
+      "Frank Kelly",
+      "Pauline McLynn",
+      "Tony Guilfoyle",
+      "Patrick Drury",
+      "Rynagh O'Grady",
+      "Maurice O'Donoghue"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "15 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=B2uVflMOKRQ"
   },
   {
     "rank": 132,
@@ -2293,7 +4760,26 @@
       "Animation",
       "Action",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 76,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Rikiya Koyama",
+      "Kôhei Kiyasu",
+      "Steve Staley",
+      "Richard Epcar",
+      "Wataru Takagi",
+      "Katsuyuki Konishi",
+      "Tomokazu Seki",
+      "Kenji Utsumi"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=a94NcwNgPdo"
   },
   {
     "rank": 133,
@@ -2311,7 +4797,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 289,
+    "release_status": "Released",
+    "director": "Pendleton Ward",
+    "cast": [
+      "John DiMaggio",
+      "Jeremy Shada",
+      "Tom Kenny",
+      "Hynden Walch",
+      "Niki Yang",
+      "Pendleton Ward",
+      "Dee Bradley Baker",
+      "Maria Bamford"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "26 wins & 50 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=qGBTmGMADDQ"
   },
   {
     "rank": 134,
@@ -2329,7 +4834,26 @@
       "Comedy",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Scott Ryan",
+    "cast": [
+      "Scott Ryan",
+      "Justin Rosniak",
+      "Chika Yasumura",
+      "Damon Herriman",
+      "Brooke Satchwell",
+      "Nicholas Cassim",
+      "Natalie Tran",
+      "Matt Nable"
+    ],
+    "language": "English",
+    "country": "AU",
+    "tagline": null,
+    "awards": "9 wins & 22 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=EooRG3QhQOY"
   },
   {
     "rank": 135,
@@ -2347,7 +4871,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 96,
+    "release_status": "Released",
+    "director": "James Manos Jr.",
+    "cast": [
+      "Michael C. Hall",
+      "Jennifer Carpenter",
+      "David Zayas",
+      "James Remar",
+      "C.S. Lee",
+      "Luna Lauren Velez",
+      "Desmond Harrington",
+      "Julie Benz"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "56 wins & 202 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=YQeUmSD1c3g"
   },
   {
     "rank": 136,
@@ -2365,7 +4908,26 @@
       "Biography",
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 31,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Samer Ismail",
+      "Assad Khalifa",
+      "Mehyar Khaddour",
+      "Ghassan Massoud",
+      "Fethi Haddaoui",
+      "Qasim Milho",
+      "Faisal Al-Ameeri",
+      "Abdeslam Bouhcini"
+    ],
+    "language": "Arabic",
+    "country": "AE",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=Um7I66zYd1k"
   },
   {
     "rank": 137,
@@ -2383,7 +4945,26 @@
       "Action",
       "Comedy",
       "Crime"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 40,
+    "release_status": "Released",
+    "director": "Eric Kripke",
+    "cast": [
+      "Karl Urban",
+      "Jack Quaid",
+      "Antony Starr",
+      "Erin Moriarty",
+      "Jessie T. Usher",
+      "Laz Alonso",
+      "Chace Crawford",
+      "Tomer Capone"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "26 wins & 97 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=M1bhOaLV4FU"
   },
   {
     "rank": 138,
@@ -2401,7 +4982,26 @@
       "Adventure",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 218,
+    "release_status": "Released",
+    "director": "Chris Carter",
+    "cast": [
+      "David Duchovny",
+      "Gillian Anderson",
+      "Mitch Pileggi",
+      "William B. Davis",
+      "Robert Patrick",
+      "Tom Braidwood",
+      "Bruce Harwood",
+      "Dean Haglund"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "105 wins & 217 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=8HKAR9MYvsQ"
   },
   {
     "rank": 139,
@@ -2417,7 +5017,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 124,
+    "release_status": "Released",
+    "director": "Greg Daniels, Michael Schur",
+    "cast": [
+      "Amy Poehler",
+      "Jim O'Heir",
+      "Nick Offerman",
+      "Aubrey Plaza",
+      "Aziz Ansari",
+      "Retta",
+      "Chris Pratt",
+      "Rashida Jones"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "36 wins & 182 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=5IZWeAwdJ-s"
   },
   {
     "rank": 140,
@@ -2434,7 +5053,26 @@
     "genres": [
       "Drama",
       "Western"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": "Taylor Sheridan",
+    "cast": [
+      "Tim McGraw",
+      "Sam Elliott",
+      "Faith Hill",
+      "Isabel May",
+      "LaMonica Garrett",
+      "Audie Rick",
+      "Marc Rissmann",
+      "James Landry Hébert"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "6 wins & 18 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=WQXM8zzc9SQ"
   },
   {
     "rank": 141,
@@ -2450,7 +5088,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 79,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Satish Shah",
+      "Ratna Pathak Shah",
+      "Sumeet Raghavan",
+      "Rupali Ganguly",
+      "Rajesh Kumar",
+      "Arvind Vaidya",
+      "Deven Bhojani",
+      "Ghanshyam Nayak"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "11 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Bv3UV97GqRU"
   },
   {
     "rank": 142,
@@ -2468,7 +5125,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 100,
+    "episodes": 70,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "David Suchet",
+      "Hugh Fraser",
+      "Philip Jackson",
+      "Pauline Moran",
+      "David Yelland",
+      "Zoë Wanamaker",
+      "Richard Bebb",
+      "George Little"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "7 wins & 17 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=HUZfKF8SwEw"
   },
   {
     "rank": 143,
@@ -2486,7 +5162,26 @@
       "Crime",
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 36,
+    "release_status": "Released",
+    "director": "David Milch",
+    "cast": [
+      "Timothy Olyphant",
+      "Ian McShane",
+      "Molly Parker",
+      "W. Earl Brown",
+      "Brad Dourif",
+      "John Hawkes",
+      "Dayton Callie",
+      "Paula Malcomson"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "28 wins & 85 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Ix61iFpceM4"
   },
   {
     "rank": 144,
@@ -2504,7 +5199,26 @@
       "Comedy",
       "Drama",
       "Music"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 41,
+    "release_status": "Released",
+    "director": "Donald Glover",
+    "cast": [
+      "Donald Glover",
+      "Brian Tyree Henry",
+      "LaKeith Stanfield",
+      "Zazie Beetz",
+      "Khris Davis",
+      "RJ Walker",
+      "Harold House Moore",
+      "Matthew Barnes"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "64 wins & 147 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=CetGXHU5aOA"
   },
   {
     "rank": 145,
@@ -2522,7 +5236,26 @@
       "Biography",
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 60,
+    "release_status": "Released",
+    "director": "Peter Morgan",
+    "cast": [
+      "Claire Foy",
+      "Olivia Colman",
+      "Imelda Staunton",
+      "Matt Smith",
+      "Tobias Menzies",
+      "Dominic West",
+      "Charles Edwards",
+      "Jonathan Pryce"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "158 wins & 432 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=JWtnJjn6ng0"
   },
   {
     "rank": 146,
@@ -2540,7 +5273,26 @@
       "Action",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 39,
+    "release_status": "Released",
+    "director": "Drew Goddard",
+    "cast": [
+      "Charlie Cox",
+      "Vincent D'Onofrio",
+      "Deborah Ann Woll",
+      "Elden Henson",
+      "Royce Johnson",
+      "Geoffrey Cantor",
+      "Jay Ali",
+      "Jon Bernthal"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "10 wins & 43 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=jAy6NJ_D5vU"
   },
   {
     "rank": 147,
@@ -2557,7 +5309,26 @@
     "genres": [
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 73,
+    "release_status": "Released",
+    "director": "Beau Willimon",
+    "cast": [
+      "Kevin Spacey",
+      "Michel Gill",
+      "Robin Wright",
+      "Michael Kelly",
+      "Justin Doescher",
+      "Derek Cecil",
+      "Jayne Atkinson",
+      "Nathan Darrow"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "35 wins & 220 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=8QnMmpfKWvo"
   },
   {
     "rank": 148,
@@ -2575,7 +5346,26 @@
       "Crime",
       "Mystery",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 38,
+    "release_status": "Released",
+    "director": "Måns Mårlind, Hans Rosenfeldt, Björn Stein",
+    "cast": [
+      "Sofia Helin",
+      "Rafael Pettersson",
+      "Sarah Boberg",
+      "Candice van Litsenborgh",
+      "Dag Malmberg",
+      "Kim Bodnia",
+      "Puk Scharbau",
+      "Thure Lindhardt"
+    ],
+    "language": "Swedish",
+    "country": "SE",
+    "tagline": null,
+    "awards": "9 wins & 21 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=_qGK1ETb-38"
   },
   {
     "rank": 149,
@@ -2591,7 +5381,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 5,
+    "release_status": "Released",
+    "director": "Russell T. Davies",
+    "cast": [
+      "Olly Alexander",
+      "Nathaniel Curtis",
+      "Shaun Dooley",
+      "Omari Douglas",
+      "Lydia West",
+      "Keeley Hawes",
+      "Neil Ashton",
+      "Callum Scott Howells"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "25 wins & 50 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=hnR5DxP2e2g"
   },
   {
     "rank": 150,
@@ -2609,7 +5418,26 @@
       "Action",
       "Adventure",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 40,
+    "episodes": 24,
+    "release_status": "Released",
+    "director": "Jon Favreau",
+    "cast": [
+      "Pedro Pascal",
+      "Chris Bartlett",
+      "Katee Sackhoff",
+      "Carl Weathers",
+      "Emily Swallow",
+      "Giancarlo Esposito",
+      "Misty Rosas",
+      "Brendan Wayne"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "62 wins & 157 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=aOC8E8z_ifw"
   },
   {
     "rank": 151,
@@ -2627,7 +5455,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 19,
+    "release_status": "Released",
+    "director": "Joe Penhall",
+    "cast": [
+      "Jonathan Groff",
+      "Holt McCallany",
+      "Anna Torv",
+      "Sonny Valicenti",
+      "Stacey Roca",
+      "Joe Tuttle",
+      "Zachary Scott Ross",
+      "Hannah Gross"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "5 wins & 34 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=macTuRC1t-0"
   },
   {
     "rank": 152,
@@ -2645,7 +5492,26 @@
       "Adventure",
       "Drama",
       "Western"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 4,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Robert Duvall",
+      "Tommy Lee Jones",
+      "Danny Glover",
+      "Diane Lane",
+      "Robert Urich",
+      "Frederic Forrest",
+      "D.B. Sweeney",
+      "Ricky Schroder"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "18 wins & 17 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=bK3N5UXv4vY"
   },
   {
     "rank": 153,
@@ -2662,7 +5528,26 @@
     "genres": [
       "Comedy",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 15,
+    "release_status": "Released",
+    "director": "Rowan Atkinson, Richard Curtis",
+    "cast": [
+      "Rowan Atkinson",
+      "Matilda Ziegler",
+      "Robin Driscoll",
+      "Matthew Ashforde",
+      "Caroline Quentin",
+      "Richard Wilson",
+      "Dave O'Higgins",
+      "Roger Sloman"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "4 wins & 8 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=hSxLUd8aly4"
   },
   {
     "rank": 154,
@@ -2680,7 +5565,26 @@
       "Drama",
       "Romance",
       "Sport"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 7,
+    "release_status": "Released",
+    "director": "Jacob Tierney",
+    "cast": [
+      "Hudson Williams",
+      "Connor Storrie",
+      "François Arnaud",
+      "Franco Lo Presti",
+      "Callan Potter",
+      "Ksenia Daniela Kharlamova",
+      "Shaun Starr",
+      "Conor McKenna"
+    ],
+    "language": "English",
+    "country": "CA",
+    "tagline": null,
+    "awards": "4 wins & 19 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ADi1iextoUM"
   },
   {
     "rank": 155,
@@ -2698,7 +5602,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 30,
+    "release_status": "Released",
+    "director": "Genndy Tartakovsky",
+    "cast": [
+      "Aaron LaPlante",
+      "Laëtitia Eïdo",
+      "Fred Tatasciore",
+      "Imari Williams",
+      "Jon Olson",
+      "Debra Wilson",
+      "Tre Mosley",
+      "Amina Koroma"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "7 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=MLSaNBuKOXk"
   },
   {
     "rank": 156,
@@ -2716,7 +5639,26 @@
       "Animation",
       "Action",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 51,
+    "release_status": "Released",
+    "director": "Yusuke Murata",
+    "cast": [
+      "Makoto Furukawa",
+      "Kaito Ishikawa",
+      "Max Mittelman",
+      "Zach Aguilar",
+      "Hikaru Midorikawa",
+      "Hiromichi Tezuka",
+      "Shôta Yamamoto",
+      "Robbie Daymond"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "3 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Poo5lqoWSGw"
   },
   {
     "rank": 157,
@@ -2732,7 +5674,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 6,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Rowan Atkinson",
+      "Tony Robinson",
+      "Tim McInnerny",
+      "Miranda Richardson",
+      "Stephen Fry",
+      "Patsy Byrne",
+      "Tony Aitken",
+      "Hugh Laurie"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "1 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=xa57yG_SbE8"
   },
   {
     "rank": 158,
@@ -2750,7 +5711,26 @@
       "Animation",
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 89,
+    "release_status": "Released",
+    "director": "Haruichi Furudate",
+    "cast": [
+      "Ayumu Murase",
+      "Kaito Ishikawa",
+      "Yu Hayashi",
+      "Satoshi Hino",
+      "Miyu Irino",
+      "Kôki Uchiyama",
+      "Sôma Saitô",
+      "Nobuhiko Okamoto"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "10 wins & 20 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=JOGp2c7-cKc"
   },
   {
     "rank": 159,
@@ -2768,7 +5748,26 @@
       "Adventure",
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 70,
+    "episodes": 19,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Hyun Bin",
+      "Son Ye-jin",
+      "Seo Ji-hye",
+      "Kim Jung-hyun",
+      "Yang Kyung-won",
+      "Yoo Su-bin",
+      "Lee Sin-young",
+      "Tang Joon-sang"
+    ],
+    "language": "Korean",
+    "country": "KR",
+    "tagline": null,
+    "awards": "4 wins & 9 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=GVQGWgeVc4k"
   },
   {
     "rank": 160,
@@ -2785,7 +5784,26 @@
     "genres": [
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 50,
+    "release_status": "Released",
+    "director": "Eric Rochant",
+    "cast": [
+      "Mathieu Kassovitz",
+      "Florence Loiret Caille",
+      "Jonathan Zaccaï",
+      "Sara Giraudeau",
+      "Jules Sagot",
+      "Zineb Triki",
+      "Jean-Pierre Darroussin",
+      "Irina Muluile"
+    ],
+    "language": "French",
+    "country": "FR",
+    "tagline": null,
+    "awards": "6 wins & 19 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=DceoS_1QfuM"
   },
   {
     "rank": 161,
@@ -2803,7 +5821,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Cosmo Jarvis",
+      "Hiroyuki Sanada",
+      "Anna Sawai",
+      "Tadanobu Asano",
+      "Yûki Kedôin",
+      "Akiko Kobayashi",
+      "Eushin Lee",
+      "Takehiro Hira"
+    ],
+    "language": "Japanese",
+    "country": "US",
+    "tagline": null,
+    "awards": "93 wins & 75 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=yAN5uspO_hk"
   },
   {
     "rank": 162,
@@ -2821,7 +5858,26 @@
       "Biography",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": "Leslie Greif, Michael Tolkin",
+    "cast": [
+      "Miles Teller",
+      "Matthew Goode",
+      "Dan Fogler",
+      "Burn Gorman",
+      "Colin Hanks",
+      "Giovanni Ribisi",
+      "Juno Temple",
+      "Jake Cannavale"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "3 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=iowLzO9-aew"
   },
   {
     "rank": 163,
@@ -2837,7 +5893,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Steven Canals, Brad Falchuk, Ryan Murphy",
+    "cast": [
+      "Michaela Jaé (MJ) Rodriguez",
+      "Dominique Jackson",
+      "Indya Moore",
+      "Angel Bismark",
+      "Billy Porter",
+      "Hailie Sahar",
+      "Dyllon Burnside",
+      "Jason A. Rodriguez"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "41 wins & 128 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=_t4YuPXdLZw"
   },
   {
     "rank": 164,
@@ -2853,7 +5928,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 22,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Paul Eddington",
+      "Nigel Hawthorne",
+      "Derek Fowlds",
+      "Diana Hoddinott",
+      "John Nettleton",
+      "Neil Fitzwiliam",
+      "Arthur Cox",
+      "John Savident"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "6 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=hBYFacK6mbw"
   },
   {
     "rank": 165,
@@ -2871,7 +5965,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 11,
+    "release_status": "Released",
+    "director": "John Hawkesworth",
+    "cast": [
+      "Jeremy Brett",
+      "Edward Hardwicke",
+      "Rosalie Williams",
+      "Colin Jeavons",
+      "Denis Lill",
+      "Harry Andrews",
+      "Alan Howard",
+      "Eric Sykes"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=I47tddDo8UA"
   },
   {
     "rank": 166,
@@ -2888,7 +6001,26 @@
     "genres": [
       "Comedy",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 356,
+    "release_status": "Released",
+    "director": "Roberto Gómez Bolaños",
+    "cast": [
+      "Roberto Gómez Bolaños",
+      "Ramón Valdés",
+      "Florinda Meza",
+      "Carlos Villagrán",
+      "María Antonieta de las Nieves",
+      "Rubén Aguirre",
+      "Edgar Vivar",
+      "Angelines Fernández"
+    ],
+    "language": "Spanish",
+    "country": "MX",
+    "tagline": null,
+    "awards": "1 wins & 5 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=oCxZftau104"
   },
   {
     "rank": 167,
@@ -2906,7 +6038,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 24,
+    "release_status": "Released",
+    "director": "Tony Gilroy",
+    "cast": [
+      "Diego Luna",
+      "Denise Gough",
+      "Stellan Skarsgård",
+      "Kyle Soller",
+      "Adria Arjona",
+      "Anton Lesser",
+      "Genevieve O'Reilly",
+      "Elizabeth Dulau"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "42 wins & 136 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=cKOegEuCcfw"
   },
   {
     "rank": 168,
@@ -2924,7 +6075,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 58,
+    "release_status": "Released",
+    "director": "Leonardo Fasoli, Stefano Bises, Roberto Saviano",
+    "cast": [
+      "Salvatore Esposito",
+      "Marco D'Amore",
+      "Cristiana Dell'Anna",
+      "Ivana Lotito",
+      "Alessandro Palladino",
+      "Fortunato Cerlino",
+      "Arturo Muselli",
+      "Roberto Oliveri"
+    ],
+    "language": "Neapolitan",
+    "country": "IT",
+    "tagline": null,
+    "awards": "10 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-4QORgagblU"
   },
   {
     "rank": 169,
@@ -2942,7 +6112,26 @@
       "Documentary",
       "History",
       "War"
-    ]
+    ],
+    "runtime_minutes": 50,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Derek Jacobi",
+      "Adolf Hitler",
+      "Geoffrey Wawro",
+      "Franklin D. Roosevelt",
+      "James Holland",
+      "Winston Churchill",
+      "Saul David",
+      "Phillips O'Brien"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=7BhIVn311dU"
   },
   {
     "rank": 170,
@@ -2960,7 +6149,26 @@
       "Documentary",
       "Biography",
       "Crime"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Robert Durst",
+      "Andrew Jarecki",
+      "Charles Bagli",
+      "Kathie Durst",
+      "Dick DeGuerin",
+      "Susan Berman",
+      "Debrah Lee Charatan",
+      "John Lewin"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "8 wins & 14 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=8ZabDYB7ijM"
   },
   {
     "rank": 171,
@@ -2976,7 +6184,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 6,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Rowan Atkinson",
+      "Tony Robinson",
+      "Hugh Laurie",
+      "Helen Atkinson Wood",
+      "Robbie Coltrane",
+      "Hugh Paddick",
+      "Stephen Fry",
+      "Miranda Richardson"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "3 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=umUss0IopnE"
   },
   {
     "rank": 172,
@@ -2994,7 +6221,26 @@
       "Drama",
       "Fantasy",
       "Horror"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 42,
+    "release_status": "Released",
+    "director": "Matt Duffer, Ross Duffer",
+    "cast": [
+      "Millie Bobby Brown",
+      "Finn Wolfhard",
+      "Winona Ryder",
+      "David Harbour",
+      "Gaten Matarazzo",
+      "Caleb McLaughlin",
+      "Natalia Dyer",
+      "Charlie Heaton"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "122 wins & 335 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=b9EkMc79ZSU"
   },
   {
     "rank": 173,
@@ -3011,7 +6257,26 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 8,
+    "release_status": "Released",
+    "director": "Lauren LeFranc",
+    "cast": [
+      "Colin Farrell",
+      "Cristin Milioti",
+      "Rhenzy Feliz",
+      "Deirdre O'Connell",
+      "Carmen Ejogo",
+      "Theo Rossi",
+      "Clancy Brown",
+      "Daniel J. Watts"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "56 wins & 65 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=sfJG6IiA_s8"
   },
   {
     "rank": 174,
@@ -3027,7 +6292,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 25,
+    "release_status": "Released",
+    "director": "Aaron Sorkin",
+    "cast": [
+      "Jeff Daniels",
+      "Emily Mortimer",
+      "John Gallagher Jr.",
+      "Alison Pill",
+      "Thomas Sadoski",
+      "Dev Patel",
+      "Olivia Munn",
+      "Sam Waterston"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "10 wins & 34 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=lB944ODCK24"
   },
   {
     "rank": 175,
@@ -3044,7 +6328,26 @@
     "genres": [
       "Drama",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 27,
+    "release_status": "Released",
+    "director": "Moira Walley-Beckett",
+    "cast": [
+      "Amybeth McNulty",
+      "Geraldine James",
+      "R.H. Thomson",
+      "Andrea Arruti",
+      "Dalila Bela",
+      "Lucas Jade Zumann",
+      "Corrine Koslo",
+      "Helen Johns"
+    ],
+    "language": "English",
+    "country": "CA",
+    "tagline": null,
+    "awards": "24 wins & 54 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=S5qJXYNNINo"
   },
   {
     "rank": 176,
@@ -3062,7 +6365,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 122,
+    "release_status": "Released",
+    "director": "Paul Attanasio",
+    "cast": [
+      "Richard Belzer",
+      "Clark Johnson",
+      "Yaphet Kotto",
+      "Kyle Secor",
+      "Andre Braugher",
+      "Melissa Leo",
+      "Reed Diamond",
+      "Sharon Ziman"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "25 wins & 82 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=yZqrli-8xkk"
   },
   {
     "rank": 177,
@@ -3079,7 +6401,26 @@
     "genres": [
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 56,
+    "release_status": "Released",
+    "director": "Terence Winter",
+    "cast": [
+      "Steve Buscemi",
+      "Kelly Macdonald",
+      "Michael Shannon",
+      "Shea Whigham",
+      "Stephen Graham",
+      "Vincent Piazza",
+      "Michael Kenneth Williams",
+      "Paul Sparks"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "64 wins & 186 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=qRpqQsdU-dg"
   },
   {
     "rank": 178,
@@ -3096,7 +6437,26 @@
     "genres": [
       "Adventure",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 120,
+    "episodes": 398,
+    "release_status": "Released",
+    "director": "Critical Role",
+    "cast": [
+      "Matthew Mercer",
+      "Liam O'Brien",
+      "Taliesin Jaffe",
+      "Marisha Ray",
+      "Ashley Johnson",
+      "Travis Willingham",
+      "Laura Bailey",
+      "Sam Riegel"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "2 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=jgK_qRwpygA"
   },
   {
     "rank": 179,
@@ -3114,7 +6474,26 @@
       "Animation",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": "Joseph Bennett, Charles Huettner",
+    "cast": [
+      "Sunita Mani",
+      "Wunmi Mosaku",
+      "Bob Stephenson",
+      "Alia Shawkat",
+      "Pollyanna McIntosh",
+      "Ted Travelstead",
+      "Dash Williams",
+      "Sepideh Moafi"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "1 wins & 5 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=NWQH8cMpWTU"
   },
   {
     "rank": 180,
@@ -3132,7 +6511,26 @@
       "Animation",
       "Action",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 143,
+    "release_status": "Released",
+    "director": "Adam Reed",
+    "cast": [
+      "H. Jon Benjamin",
+      "Judy Greer",
+      "Amber Nash",
+      "Chris Parnell",
+      "Aisha Tyler",
+      "Lucky Yates",
+      "Jessica Walter",
+      "Adam Reed"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "15 wins & 81 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=WIfnM9ntFc8"
   },
   {
     "rank": 181,
@@ -3148,7 +6546,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 8,
+    "release_status": "Released",
+    "director": "Danny Strong",
+    "cast": [
+      "Michael Keaton",
+      "Peter Sarsgaard",
+      "Michael Stuhlbarg",
+      "Will Poulter",
+      "John Hoogenakker",
+      "Kaitlyn Dever",
+      "Rosario Dawson",
+      "Will Chase"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "18 wins & 48 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=lUVR63ZHLV4"
   },
   {
     "rank": 182,
@@ -3165,7 +6582,26 @@
     "genres": [
       "Comedy",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 199,
+    "release_status": "Released",
+    "director": "Joel Hodgson",
+    "cast": [
+      "Joel Hodgson",
+      "Michael J. Nelson",
+      "Trace Beaulieu",
+      "Kevin Murphy",
+      "Jim Mallon",
+      "Frank Conniff",
+      "Mary Jo Pehl",
+      "Bill Corbett"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "8 wins & 16 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=aJJ8RLi73xI"
   },
   {
     "rank": 183,
@@ -3183,7 +6619,26 @@
       "Comedy",
       "Drama",
       "Family"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 22,
+    "release_status": "Released",
+    "director": "Sameer Saxena",
+    "cast": [
+      "Hetal Gada",
+      "Rajesh Kumar",
+      "Anngad Raaj",
+      "Juhi Parmar",
+      "Veena Mehta",
+      "Jinal Dakalia",
+      "Pravin Waghmare",
+      "Subhashis Chakraborty"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "14 wins & 8 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=-8RHxGQy7H8"
   },
   {
     "rank": 184,
@@ -3201,7 +6656,26 @@
       "Action",
       "Crime",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 78,
+    "release_status": "Released",
+    "director": "Graham Yost",
+    "cast": [
+      "Timothy Olyphant",
+      "Nick Searcy",
+      "Joelle Carter",
+      "Jacob Pitts",
+      "Erica Tazel",
+      "Walton Goggins",
+      "Natalie Zea",
+      "Jere Burns"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "14 wins & 86 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=86zzu8wz0-U"
   },
   {
     "rank": 185,
@@ -3218,7 +6692,25 @@
     "genres": [
       "Animation",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 78,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Mel Blanc",
+      "June Foray",
+      "Daws Butler",
+      "Bea Benaderet",
+      "Arthur Q. Bryan",
+      "Marian Richman",
+      "Nicolai Shutorev"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "1 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=aFTTB6gOAJA"
   },
   {
     "rank": 186,
@@ -3235,7 +6727,26 @@
     "genres": [
       "Comedy",
       "Game-Show"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 374,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Alan Davies",
+      "Stephen Fry",
+      "Sandi Toksvig",
+      "Jimmy Carr",
+      "Jo Brand",
+      "Phill Jupitus",
+      "Bill Bailey",
+      "David Mitchell"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "3 wins & 12 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=n-x9InR8RDE"
   },
   {
     "rank": 187,
@@ -3253,7 +6764,26 @@
       "Action",
       "Adventure",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 2,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Edward James Olmos",
+      "Mary McDonnell",
+      "Katee Sackhoff",
+      "Jamie Bamber",
+      "James Callis",
+      "Tricia Helfer",
+      "Callum Keith Rennie",
+      "Grace Park"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "5 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=k3CN-wR05pY"
   },
   {
     "rank": 188,
@@ -3271,7 +6801,26 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 36,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Shaun Evans",
+      "Roger Allam",
+      "James Bradshaw",
+      "Anton Lesser",
+      "Sean Rigby",
+      "Caroline O'Neill",
+      "Abigail Thaw",
+      "Sara Vickers"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "0 wins & 5 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Njj6I6f-fCA"
   },
   {
     "rank": 189,
@@ -3289,7 +6838,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 98,
+    "release_status": "Released",
+    "director": "Brandon Vietti, Greg Weisman, John Broome",
+    "cast": [
+      "Nolan North",
+      "Danica McKellar",
+      "Jesse McCartney",
+      "Stephanie Lemelin",
+      "Khary Payton",
+      "Jason Spisak",
+      "Kevin Michael Richardson",
+      "Zehra Fazal"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "9 wins & 30 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=SqBTQtwWMDE"
   },
   {
     "rank": 190,
@@ -3307,7 +6875,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 153,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Masako Nozawa",
+      "Jôji Yanami",
+      "Hiromi Tsuru",
+      "Mayumi Tanaka",
+      "Kôhei Miyauchi",
+      "Naoko Watanabe",
+      "Tôru Furuya",
+      "Naoki Tatsuta"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=gqIEgmqljM8"
   },
   {
     "rank": 191,
@@ -3325,7 +6912,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 86,
+    "release_status": "Released",
+    "director": "Christopher McCulloch",
+    "cast": [
+      "Christopher McCulloch",
+      "James Urbaniak",
+      "Doc Hammer",
+      "Michael Sinterniklaas",
+      "Patrick Warburton",
+      "Steven Rattazzi",
+      "Paul Boocock",
+      "Soul-Bot"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "0 wins & 5 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=VQJCMMZLpoA"
   },
   {
     "rank": 192,
@@ -3343,7 +6949,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 52,
+    "release_status": "Released",
+    "director": "Bob Kane, William Moulton Marston, Joe Shuster",
+    "cast": [
+      "Carl Lumbly",
+      "Phil LaMarr",
+      "Michael Rosenbaum",
+      "George Newbern",
+      "Maria Canals-Barrera",
+      "Kevin Conroy",
+      "Susan Eisenberg",
+      "Jason Marsden"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "0 wins & 11 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=SrFkhQtZ_04"
   },
   {
     "rank": 193,
@@ -3361,7 +6986,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": "Koyoharu Gotouge",
+    "cast": [
+      "Natsuki Hanae",
+      "Zach Aguilar",
+      "Abby Trott",
+      "Akari Kitô",
+      "Yoshitsugu Matsuoka",
+      "Hiro Shimono",
+      "Aleks Le",
+      "Bryce Papenbrook"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "29 wins & 55 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=VQGCKyvzIM4"
   },
   {
     "rank": 194,
@@ -3379,7 +7023,26 @@
       "Comedy",
       "Fantasy",
       "Horror"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 61,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Kayvan Novak",
+      "Matt Berry",
+      "Natasia Demetriou",
+      "Harvey Guillén",
+      "Mark Proksch",
+      "Kristen Schaal",
+      "Anthony Atamanuik",
+      "Doug Jones"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "28 wins & 213 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=mfBbSwX6kEk"
   },
   {
     "rank": 195,
@@ -3395,7 +7058,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 16,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Paul Eddington",
+      "Nigel Hawthorne",
+      "Derek Fowlds",
+      "Diana Hoddinott",
+      "Deborah Norton",
+      "John Nettleton",
+      "Peter Cellier",
+      "Miranda Forbes"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "5 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=n0FhlQHWSTI"
   },
   {
     "rank": 196,
@@ -3413,7 +7095,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 29,
+    "release_status": "Released",
+    "director": "Dragan Bjelogrlic",
+    "cast": [
+      "Dragan Bjelogrlic",
+      "Andrija Kuzmanovic",
+      "Goran Bogdan",
+      "Marija Bergam",
+      "Nenad Jezdic",
+      "Aleksandar Gligoric",
+      "Jovana Stojiljkovic",
+      "Slobodan 'Boda' Ninkovic"
+    ],
+    "language": "Serbian",
+    "country": "RS",
+    "tagline": null,
+    "awards": "10 wins & 7 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=CA8cuo1KoxY"
   },
   {
     "rank": 197,
@@ -3431,7 +7132,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 154,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Brice Armstrong",
+      "Steve Olson",
+      "Stephanie Nadolny",
+      "Zoe Slusar",
+      "Christopher Sabat",
+      "Tiffany Vollmer",
+      "Leda Davies",
+      "Mike McFarland"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=_ORbo5QBHHc"
   },
   {
     "rank": 198,
@@ -3449,7 +7169,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Shin'ichirô Watanabe",
+    "cast": [
+      "Kazuya Nakai",
+      "Ginpei Sato",
+      "Ayako Kawasumi",
+      "Steve Blum",
+      "Kirk Thornton",
+      "Kari Wahlgren",
+      "Doug Stone",
+      "Erik Davies"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=xWKzbhAUeZE"
   },
   {
     "rank": 199,
@@ -3467,7 +7206,26 @@
       "Drama",
       "Horror",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": "Mike Flanagan",
+    "cast": [
+      "Michiel Huisman",
+      "Carla Gugino",
+      "Henry Thomas",
+      "Elizabeth Reaser",
+      "Oliver Jackson-Cohen",
+      "Kate Siegel",
+      "Victoria Pedretti",
+      "Lulu Wilson"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "9 wins & 36 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=3eqxXqJDmcY"
   },
   {
     "rank": 200,
@@ -3485,7 +7243,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 244,
+    "release_status": "Released",
+    "director": "J.G. Quintel",
+    "cast": [
+      "J.G. Quintel",
+      "William Salyers",
+      "Sam Marin",
+      "Mark Hamill",
+      "Roger Craig Smith",
+      "Minty Lewis",
+      "Janie Haddad Tompkins",
+      "Courtenay Taylor"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "7 wins & 21 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=1i3ufVR4AXg"
   },
   {
     "rank": 201,
@@ -3501,7 +7278,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 20,
+    "release_status": "Released",
+    "director": "Mackenzie Crook",
+    "cast": [
+      "Mackenzie Crook",
+      "Toby Jones",
+      "Rachael Stirling",
+      "Pearce Quigley",
+      "Gerard Horan",
+      "Divian Ladwa",
+      "Laura Checkley",
+      "Sophie Thompson"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "7 wins & 8 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=NgN7z0SD8v8"
   },
   {
     "rank": 202,
@@ -3517,7 +7313,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 25,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Chris O'Dowd",
+      "Richard Ayoade",
+      "Katherine Parkinson",
+      "Matt Berry",
+      "Christopher Morris",
+      "Noel Fielding",
+      "Graham Linehan",
+      "Tom Binns"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "9 wins & 18 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=MwwTfkXk7U0"
   },
   {
     "rank": 203,
@@ -3535,7 +7350,26 @@
       "Comedy",
       "Music",
       "Musical"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 22,
+    "release_status": "Released",
+    "director": "James Bobin, Jemaine Clement, Bret McKenzie",
+    "cast": [
+      "Jemaine Clement",
+      "Bret McKenzie",
+      "Rhys Darby",
+      "Kristen Schaal",
+      "Arj Barker",
+      "Frank Wood",
+      "Eugene Mirman",
+      "David Costabile"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "3 wins & 28 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Cfga_er1_WU"
   },
   {
     "rank": 204,
@@ -3553,7 +7387,26 @@
       "Action",
       "Comedy",
       "Crime"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Krishna D.K., Raj Nidimoru",
+    "cast": [
+      "Manoj Bajpayee",
+      "Samantha Ruth Prabhu",
+      "Priyamani",
+      "Sharib Hashmi",
+      "Vedant Sinha",
+      "Ashlesha Thakur",
+      "Shreya Dhanwanthary",
+      "Darshan Kumaar"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "71 wins & 63 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=XatRGut65VI"
   },
   {
     "rank": 205,
@@ -3571,7 +7424,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 45,
+    "release_status": "Released",
+    "director": "Sam Esmail",
+    "cast": [
+      "Rami Malek",
+      "Christian Slater",
+      "Carly Chaikin",
+      "Martin Wallström",
+      "Portia Doubleday",
+      "Michael Cristofer",
+      "Grace Gummer",
+      "BD Wong"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "23 wins & 86 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=N6HGuJC--rk"
   },
   {
     "rank": 206,
@@ -3587,7 +7459,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Steve Coogan",
+      "Phil Cornwell",
+      "Simon Greenall",
+      "Felicity Montagu",
+      "Andrew Burt",
+      "Amelia Bullmore",
+      "Barbara Durkin",
+      "Sally Phillips"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "5 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=OM7TxOZYWLk"
   },
   {
     "rank": 207,
@@ -3604,7 +7495,26 @@
     "genres": [
       "Comedy",
       "Romance"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 28,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jack Davenport",
+      "Gina Bellman",
+      "Sarah Alexander",
+      "Kate Isitt",
+      "Ben Miles",
+      "Richard Coyle",
+      "Richard Mylan",
+      "Lou Gish"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "2 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=69zjYH5liRY"
   },
   {
     "rank": 208,
@@ -3621,7 +7531,26 @@
     "genres": [
       "Drama",
       "History"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 16,
+    "release_status": "Released",
+    "director": "Nikkhil Advani",
+    "cast": [
+      "Jim Sarbh",
+      "Saba Azad",
+      "Regena Cassandrra",
+      "Mark Bennington",
+      "Ishwak Singh",
+      "Dibyendu Bhattacharya",
+      "Namit Das",
+      "Vinita Venugopal"
+    ],
+    "language": "Hindi",
+    "country": "IN",
+    "tagline": null,
+    "awards": "43 wins & 44 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=rOD-78_0pPU"
   },
   {
     "rank": 209,
@@ -3639,7 +7568,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 71,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Kenan Imirzalioglu",
+      "Cansu Dere",
+      "Yigit Özsener",
+      "Baris Falay",
+      "Bade Iscil",
+      "Sarp Akkaya",
+      "Bayazit Gülercan",
+      "Ipek Bilgin"
+    ],
+    "language": "Turkish",
+    "country": "TR",
+    "tagline": null,
+    "awards": "5 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=2Te1BMmJypQ"
   },
   {
     "rank": 210,
@@ -3655,7 +7603,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 7,
+    "release_status": "Released",
+    "director": "Scott Frank, Allan Scott",
+    "cast": [
+      "Anya Taylor-Joy",
+      "Chloe Pirrie",
+      "Bill Camp",
+      "Marielle Heller",
+      "Marcin Dorocinski",
+      "Thomas Brodie-Sangster",
+      "Moses Ingram",
+      "Harry Melling"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "55 wins & 44 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=oZn3qSgmLqI"
   },
   {
     "rank": 211,
@@ -3673,7 +7640,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 62,
+    "release_status": "Released",
+    "director": "Genndy Tartakovsky",
+    "cast": [
+      "Phil LaMarr",
+      "Mako",
+      "Kevin Michael Richardson",
+      "Grey DeLisle",
+      "Jeff Bennett",
+      "Tara Strong",
+      "Tom Kenny",
+      "Daran Norris"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "20 wins & 13 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=EUM0K-XIb_0"
   },
   {
     "rank": 212,
@@ -3691,7 +7677,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 18,
+    "release_status": "Released",
+    "director": "Sally Wainwright",
+    "cast": [
+      "Sarah Lancashire",
+      "Siobhan Finneran",
+      "James Norton",
+      "Rhys Connah",
+      "Charlie Murphy",
+      "Shane Zaza",
+      "Ishia Bennison",
+      "Rick Warden"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "36 wins & 35 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=TXdBMaocR_E"
   },
   {
     "rank": 213,
@@ -3708,7 +7713,26 @@
     "genres": [
       "Documentary",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 12,
+    "release_status": "Released",
+    "director": "Nathan Fielder",
+    "cast": [
+      "Nathan Fielder",
+      "Journey Baker",
+      "Anna Lamadrid",
+      "Thomas McNamara",
+      "Alexander Leiss",
+      "Eric Barron",
+      "Ashleigh Morghan",
+      "Jennifer Khoe"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "3 wins & 22 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=2fjPFt8cpic"
   },
   {
     "rank": 214,
@@ -3724,7 +7748,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 19,
+    "release_status": "Released",
+    "director": "Lisa McGee",
+    "cast": [
+      "Saoirse-Monica Jackson",
+      "Louisa Harland",
+      "Tara Lynne O'Neill",
+      "Kathy Kiera Clarke",
+      "Tommy Tiernan",
+      "Ian McElhinney",
+      "Nicola Coughlan",
+      "Jamie-Lee O'Donnell"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "20 wins & 18 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=UFmFuXH0IRY"
   },
   {
     "rank": 215,
@@ -3741,7 +7784,26 @@
     "genres": [
       "Documentary",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 10,
+    "release_status": "Released",
+    "director": "David Alexanian, Charley Boorman, Russ Malkin",
+    "cast": [
+      "Ewan McGregor",
+      "Charley Boorman",
+      "David Alexanian",
+      "Russ Malkin",
+      "Claudio von Planta",
+      "Jimmy Simak",
+      "Eve Mavrakis",
+      "Doone Boorman"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=yl7MrW9Fe7Y"
   },
   {
     "rank": 216,
@@ -3758,7 +7820,26 @@
     "genres": [
       "Documentary",
       "Crime"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 20,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Steven Avery",
+      "Dolores Avery",
+      "Allan Avery",
+      "Laura Nirider",
+      "Jerry Buting",
+      "Dean Strang",
+      "Ken Kratz",
+      "Kathleen Zellner"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "15 wins & 13 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=qxgbdYaR_KQ"
   },
   {
     "rank": 217,
@@ -3776,7 +7857,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 63,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Jun'ya Enoki",
+      "Adam McArthur",
+      "Yuma Uchida",
+      "Yûichi Nakamura",
+      "Asami Seto",
+      "Mikako Komatsu",
+      "Takahiro Sakurai",
+      "Nobunaga Shimazaki"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "33 wins & 43 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=pkKu9hLT-t8"
   },
   {
     "rank": 218,
@@ -3794,7 +7894,26 @@
       "Animation",
       "Action",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 37,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Setsuo Ito",
+      "Takahiro Sakurai",
+      "Miyu Irino",
+      "Akio Ôtsuka",
+      "Ryûnosuke Watanuki",
+      "Yoshitsugu Matsuoka",
+      "Chris Niosi",
+      "Daiki Hamano"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "13 wins & 40 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=nTze7vAdRpM"
   },
   {
     "rank": 219,
@@ -3812,7 +7931,26 @@
       "Crime",
       "Drama",
       "Horror"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 18,
+    "release_status": "Released",
+    "director": "Mark Frost, David Lynch",
+    "cast": [
+      "Kyle MacLachlan",
+      "Sheryl Lee",
+      "Michael Horse",
+      "Miguel Ferrer",
+      "Chrysta Bell",
+      "David Lynch",
+      "Robert Forster",
+      "Kimmy Robertson"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "21 wins & 42 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=yEsebrBB6z4"
   },
   {
     "rank": 220,
@@ -3829,7 +7967,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": null,
+    "episodes": 45,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Nicholas Ralph",
+      "Samuel West",
+      "Anna Madeley",
+      "Rachel Shenton",
+      "Callum Woodhouse",
+      "Imogen Clawson",
+      "Tony Pitts",
+      "Mollie Winnard"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "3 wins & 16 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=MZzFjeQFpro"
   },
   {
     "rank": 221,
@@ -3845,7 +8002,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 14,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Simon Pegg",
+      "Jessica Hynes",
+      "Julia Deakin",
+      "Nick Frost",
+      "Mark Heap",
+      "Katy Carmichael",
+      "Aida the Dog",
+      "Lucy Akhurst"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "2 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=IXx0pxPD8mY"
   },
   {
     "rank": 222,
@@ -3863,7 +8039,26 @@
       "Crime",
       "Drama",
       "Thriller"
-    ]
+    ],
+    "runtime_minutes": 45,
+    "episodes": 92,
+    "release_status": "Released",
+    "director": "Kurt Sutter",
+    "cast": [
+      "Charlie Hunnam",
+      "Katey Sagal",
+      "Mark Boone Junior",
+      "Kim Coates",
+      "Tommy Flanagan",
+      "Theo Rossi",
+      "Dayton Callie",
+      "Maggie Siff"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "13 wins & 58 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=paBZJJXUEtg"
   },
   {
     "rank": 223,
@@ -3881,7 +8076,26 @@
       "Action",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 80,
+    "episodes": 30,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Lee Jae-wook",
+      "Hwang Min-hyun",
+      "Yoo Joon-sang",
+      "Oh Na-ra",
+      "Yoo In-soo",
+      "Jo Jae-yoon",
+      "Lee Do-kyung",
+      "Arin"
+    ],
+    "language": "Korean",
+    "country": "KR",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=nlRw1CGbFU0"
   },
   {
     "rank": 224,
@@ -3898,7 +8112,26 @@
     "genres": [
       "Comedy",
       "Reality-TV"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 332,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "James Murray",
+      "Brian Quinn",
+      "Sal Vulcano",
+      "Joe Gatto",
+      "Casey Jost",
+      "Cole Weber",
+      "Daniel Cast",
+      "John Szeluga"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "1 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=IQQ8_VVR4TA"
   },
   {
     "rank": 225,
@@ -3915,7 +8148,26 @@
     "genres": [
       "Comedy",
       "Game-Show"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 220,
+    "release_status": "Released",
+    "director": "Mark Leveson, Dan Patterson",
+    "cast": [
+      "Drew Carey",
+      "Ryan Stiles",
+      "Colin Mochrie",
+      "Laura Hall",
+      "Wayne Brady",
+      "Linda Taylor",
+      "Cece Worrall Rubin",
+      "Greg Proops"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "4 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=sWFkZre0VbM"
   },
   {
     "rank": 226,
@@ -3933,7 +8185,26 @@
       "Animation",
       "Action",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 24,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Hideaki Anno",
+    "cast": [
+      "Megumi Ogata",
+      "Megumi Hayashibara",
+      "Kotono Mitsuishi",
+      "Casey Mongillo",
+      "Carrie Keranen",
+      "Erica Lindbeck",
+      "Ryan Bartley",
+      "Pedro D'Aguillón Jr."
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "0 wins & 1 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=13nSISwxrY4"
   },
   {
     "rank": 227,
@@ -3949,7 +8220,26 @@
     "media_type": "tvshow",
     "genres": [
       "Documentary"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 62,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Morgan Freeman",
+      "Sean Carroll",
+      "Michio Kaku",
+      "Max Tegmark",
+      "Albert Einstein",
+      "Kip Thorne",
+      "Carlos Frenk",
+      "Andy Albrecht"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "0 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=8tst4YtKRK0"
   },
   {
     "rank": 228,
@@ -3966,7 +8256,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 61,
+    "release_status": "Released",
+    "director": "Louis C.K.",
+    "cast": [
+      "Louis C.K.",
+      "Hadley Delany",
+      "Ursula Parker",
+      "Pamela Adlon",
+      "Scott Reyns",
+      "Steve Fabricant",
+      "Susan Kelechi Watson",
+      "Nick Di Paolo"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "30 wins & 109 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=ax9ewlkKXt8"
   },
   {
     "rank": 229,
@@ -3982,7 +8291,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 42,
+    "release_status": "Released",
+    "director": "Vince Powell",
+    "cast": [
+      "Barry Evans",
+      "George Camiller",
+      "Jacki Harding",
+      "Zara Nutley",
+      "Ricardo Montez",
+      "Albert Moses",
+      "Robert Lee",
+      "Kevork Malikyan"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=tPWDioSdsHc"
   },
   {
     "rank": 230,
@@ -4000,7 +8328,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": null,
+    "episodes": 26,
+    "release_status": "Released",
+    "director": "Chugong",
+    "cast": [
+      "Taito Ban",
+      "Aleks Le",
+      "Rebecca Wang",
+      "Makoto Furukawa",
+      "SungWon Cho",
+      "Haruna Mikawa",
+      "Jimmy Tandel",
+      "Daisuke Hirakawa"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "11 wins & 29 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=LrNvF8gcJPM"
   },
   {
     "rank": 231,
@@ -4016,7 +8363,26 @@
     "media_type": "tvshow",
     "genres": [
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 34,
+    "release_status": "Released",
+    "director": "Saverio Costanzo",
+    "cast": [
+      "Alba Rohrwacher",
+      "Annarita Vitolo",
+      "Margherita Mazzucco",
+      "Gaia Girace",
+      "Luca Gallone",
+      "Alessio Gallo",
+      "Francesco Serpico",
+      "Valentina Acca"
+    ],
+    "language": "Italian",
+    "country": "IT",
+    "tagline": null,
+    "awards": "5 wins & 19 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=_MqIaSd6BH0"
   },
   {
     "rank": 232,
@@ -4033,7 +8399,26 @@
     "genres": [
       "Comedy",
       "Crime"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 116,
+    "release_status": "Released",
+    "director": "Mike Clattenburg",
+    "cast": [
+      "John Paul Tremblay",
+      "Robb Wells",
+      "Mike Smith",
+      "Patrick Roach",
+      "John Dunsworth",
+      "Sarah Dunsworth",
+      "Cory Bowles",
+      "Jeanna Harrison"
+    ],
+    "language": "English",
+    "country": "CA",
+    "tagline": null,
+    "awards": "4 wins & 22 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=35NyztskRls"
   },
   {
     "rank": 233,
@@ -4050,7 +8435,26 @@
     "genres": [
       "Comedy",
       "Talk-Show"
-    ]
+    ],
+    "runtime_minutes": 11,
+    "episodes": 68,
+    "release_status": "Released",
+    "director": "Eric André",
+    "cast": [
+      "Eric André",
+      "Hannibal Buress",
+      "Robert Smith",
+      "Tom Ato",
+      "Early McCalister",
+      "Pfelton Sutton",
+      "Jerry Wheeler",
+      "John Bueno"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "1 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=KMebqUAY-hY"
   },
   {
     "rank": 234,
@@ -4067,7 +8471,26 @@
     "genres": [
       "Drama",
       "Western"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 53,
+    "release_status": "Released",
+    "director": "John Linson, Taylor Sheridan",
+    "cast": [
+      "Kevin Costner",
+      "Luke Grimes",
+      "Kelly Reilly",
+      "Wes Bentley",
+      "Cole Hauser",
+      "Kelsey Asbille",
+      "Brecken Merrill",
+      "Jefferson White"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "11 wins & 52 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=jr32f0rnK1o"
   },
   {
     "rank": 235,
@@ -4084,7 +8507,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 14,
+    "release_status": "Released",
+    "director": "Ricky Gervais, Stephen Merchant",
+    "cast": [
+      "Ricky Gervais",
+      "Martin Freeman",
+      "Mackenzie Crook",
+      "Lucy Davis",
+      "Ewen MacIntosh",
+      "Ben Bradshaw",
+      "Jamie Deeks",
+      "Jane Lucas"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "24 wins & 18 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=piHDWVCRqu0"
   },
   {
     "rank": 236,
@@ -4100,7 +8542,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 80,
+    "release_status": "Released",
+    "director": "Dan Levy, Eugene Levy",
+    "cast": [
+      "Eugene Levy",
+      "Catherine O'Hara",
+      "Dan Levy",
+      "Annie Murphy",
+      "Chris Elliott",
+      "Emily Hampshire",
+      "Jennifer Robertson",
+      "Sarah Levy"
+    ],
+    "language": "English",
+    "country": "CA",
+    "tagline": null,
+    "awards": "112 wins & 153 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=W0uWS6CnC2o"
   },
   {
     "rank": 237,
@@ -4118,7 +8579,26 @@
       "Animation",
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 23,
+    "episodes": 23,
+    "release_status": "Released",
+    "director": "Naoshi Arakawa",
+    "cast": [
+      "Natsuki Hanae",
+      "Risa Taneda",
+      "Ayane Sakura",
+      "Ryôta Ôsaka",
+      "Erika Harlacher",
+      "Bennett Abara",
+      "Julie Ann Taylor",
+      "Erik Scott Kimerer"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "11 wins & 12 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=3aL0gDZtFbE"
   },
   {
     "rank": 238,
@@ -4136,7 +8616,26 @@
       "Animation",
       "Drama",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 6,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Kurumi Mamiya",
+      "Reina Ueda",
+      "Konomi Kohara",
+      "Anna Nagase",
+      "Colleen Clinkenbeard",
+      "Jill Harris",
+      "Trina Nishimura",
+      "Aaron Roberts"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": "5 wins & 15 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=j7dxZjwIhu0"
   },
   {
     "rank": 239,
@@ -4154,7 +8653,26 @@
       "Animation",
       "Action",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 375,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Tomokazu Sugita",
+      "Daisuke Sakaguchi",
+      "Rie Kugimiya",
+      "Kazuya Nakai",
+      "Susumu Chiba",
+      "Ken'ichi Suzumura",
+      "Satsuki Yukino",
+      "Akira Ishida"
+    ],
+    "language": "English",
+    "country": "JP",
+    "tagline": null,
+    "awards": "1 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=VU_-I1Bup-U"
   },
   {
     "rank": 240,
@@ -4171,7 +8689,26 @@
     "genres": [
       "Comedy",
       "Drama"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 301,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Nasser Al Qasabi",
+      "Abdullah Al-Sadhan",
+      "Yousef Al-Jarrah",
+      "Fahad Al-Hayyan",
+      "Abdullah Al Sinani",
+      "Abdullah Al-Mozaini",
+      "Turky Al Sadhan",
+      "Ali Al-Midfa"
+    ],
+    "language": "Arabic",
+    "country": "SA",
+    "tagline": null,
+    "awards": "1 wins & 0 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=QsT9xtwXlpQ"
   },
   {
     "rank": 241,
@@ -4189,7 +8726,26 @@
       "Animation",
       "Short",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 12,
+    "episodes": 27,
+    "release_status": "Released",
+    "director": "Michael Cusack, Zach Hadel",
+    "cast": [
+      "Michael Cusack",
+      "Zach Hadel",
+      "Marc M.",
+      "Joshua Tomar",
+      "Erica Lindbeck",
+      "David Dore",
+      "Hans Van Harken",
+      "Rodrigo Huerta"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "0 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=hPlpOXSHNa0"
   },
   {
     "rank": 242,
@@ -4205,7 +8761,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 25,
+    "episodes": 7,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Christopher Morris",
+      "Mark Heap",
+      "Kevin Eldon",
+      "Doon Mackichan",
+      "David Cann",
+      "Barbara Durkin",
+      "Amelia Bullmore",
+      "Albert Welling"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "0 wins & 3 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=L1J7N02w6HY"
   },
   {
     "rank": 243,
@@ -4223,7 +8798,26 @@
       "Drama",
       "Mystery",
       "Sci-Fi"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 62,
+    "release_status": "Released",
+    "director": "Mark Fergus, Hawk Ostby, Daniel Abraham",
+    "cast": [
+      "Steven Strait",
+      "Dominique Tipper",
+      "Wes Chatham",
+      "Shohreh Aghdashloo",
+      "Cas Anvar",
+      "Frankie Adams",
+      "Cara Gee",
+      "Shawn Doyle"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "7 wins & 32 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=M0QwBp_da28"
   },
   {
     "rank": 244,
@@ -4240,7 +8834,26 @@
     "genres": [
       "Game-Show",
       "Reality-TV"
-    ]
+    ],
+    "runtime_minutes": 60,
+    "episodes": 212,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Paul Hollywood",
+      "Prue Leith",
+      "Noel Fielding",
+      "Mary Berry",
+      "Mel Giedroyc",
+      "Sue Perkins",
+      "Matt Lucas",
+      "Sandi Toksvig"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "10 wins & 28 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=aceBovEmm3w"
   },
   {
     "rank": 245,
@@ -4258,7 +8871,26 @@
       "Animation",
       "Action",
       "Adventure"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 4,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Mayo Suzukaze",
+      "Junko Iwao",
+      "Nozomu Sasaki",
+      "Masami Suzuki",
+      "Shûichi Ikeda",
+      "Tomokazu Seki",
+      "Wataru Takagi",
+      "Ryûsei Nakao"
+    ],
+    "language": "Japanese",
+    "country": "JP",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=MhKyFMKVtBk"
   },
   {
     "rank": 246,
@@ -4274,7 +8906,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 30,
+    "episodes": 53,
+    "release_status": "Released",
+    "director": "John Altschuler, Mike Judge, Dave Krinsky",
+    "cast": [
+      "Thomas Middleditch",
+      "T.J. Miller",
+      "Josh Brener",
+      "Martin Starr",
+      "Kumail Nanjiani",
+      "Amanda Crew",
+      "Zach Woods",
+      "Matt Ross"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "16 wins & 101 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Vm4tx1O9GAc"
   },
   {
     "rank": 247,
@@ -4290,7 +8941,26 @@
     "media_type": "tvshow",
     "genres": [
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 190,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Gülse Birsel",
+      "Levent Üzümcü",
+      "Senay Gürler",
+      "Veysel Diker",
+      "Yildirim Öcek",
+      "Yavuz Seçkin",
+      "Hale Caneroglu",
+      "Gazanfer Özcan"
+    ],
+    "language": "Turkish",
+    "country": "TR",
+    "tagline": null,
+    "awards": "12 wins & 2 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=Lz5LZYMZdzo"
   },
   {
     "rank": 248,
@@ -4308,7 +8978,26 @@
       "Animation",
       "Action",
       "Comedy"
-    ]
+    ],
+    "runtime_minutes": 22,
+    "episodes": 56,
+    "release_status": "Released",
+    "director": "Aaron McGruder",
+    "cast": [
+      "Regina King",
+      "John Witherspoon",
+      "Gary Anthony Williams",
+      "Cedric Yarbrough",
+      "Jill Talley",
+      "Gabby Soleil",
+      "Jim Meskimen",
+      "Carl Jones"
+    ],
+    "language": "English",
+    "country": "US",
+    "tagline": null,
+    "awards": "5 wins & 6 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=z-7YLoqJQBg"
   },
   {
     "rank": 249,
@@ -4326,7 +9015,26 @@
       "Comedy",
       "Drama",
       "Fantasy"
-    ]
+    ],
+    "runtime_minutes": 70,
+    "episodes": 16,
+    "release_status": "Released",
+    "director": null,
+    "cast": [
+      "Seol In-ah",
+      "Ryeoun",
+      "Lee Su-Chan",
+      "Kwon Do-Hyung",
+      "Kim Ye-ji",
+      "Lee Ha-min",
+      "Choi Hyun-wook",
+      "Shin Eun-soo"
+    ],
+    "language": "Korean",
+    "country": "KR",
+    "tagline": null,
+    "awards": null,
+    "trailer_url": "https://www.youtube.com/watch?v=DqceSqn0hiA"
   },
   {
     "rank": 250,
@@ -4344,6 +9052,25 @@
       "Crime",
       "Drama",
       "Mystery"
-    ]
+    ],
+    "runtime_minutes": 90,
+    "episodes": 28,
+    "release_status": "Released",
+    "director": "Anthony Horowitz",
+    "cast": [
+      "Michael Kitchen",
+      "Honeysuckle Weeks",
+      "Anthony Howell",
+      "Ellie Haddington",
+      "Julian Ovenden",
+      "Jay Simpson",
+      "Tim McMullan",
+      "Daniel Weyman"
+    ],
+    "language": "English",
+    "country": "GB",
+    "tagline": null,
+    "awards": "1 wins & 4 nominations total",
+    "trailer_url": "https://www.youtube.com/watch?v=gqNy8vveOh8"
   }
 ]

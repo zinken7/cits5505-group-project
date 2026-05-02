@@ -14,7 +14,10 @@ class WatchlistItem(db.Model):
     media_id = db.Column(db.Integer, db.ForeignKey("media.id"), nullable=False, index=True)
     status = db.Column(
         db.String(20), nullable=False, default="planned", index=True
-    )  # watching | planned | completed
+    )  # watching | planned | completed | dropped | on-hold | rewatching | replaying
+    rating = db.Column(db.Integer, nullable=True)   # personal score 1–10
+    notes = db.Column(db.Text, nullable=True)
+    is_liked = db.Column(db.Boolean, nullable=False, default=False)
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
     # Prevent duplicate entries for the same user + media
@@ -28,6 +31,9 @@ class WatchlistItem(db.Model):
             "user_id": self.user_id,
             "media_id": self.media_id,
             "status": self.status,
+            "rating": self.rating,
+            "notes": self.notes,
+            "is_liked": self.is_liked,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "media": self.media.to_dict() if self.media else None,
         }

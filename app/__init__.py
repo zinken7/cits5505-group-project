@@ -191,27 +191,13 @@ def create_app(config_name=None):
     app.register_blueprint(api_v1_bp)
 
     # ------------------------------------------------------------------
-    # Create DB tables
-    # In production use `flask db upgrade` via Flask-Migrate instead.
+    # Import models so Alembic can detect them; schema is managed via
+    # `flask db upgrade` (Flask-Migrate / Alembic).
     # ------------------------------------------------------------------
     with app.app_context():
         from app.models import user, media, watchlist, friendship, message  # noqa: F401
 
         os.makedirs(app.instance_path, exist_ok=True)
-        db.create_all()
-
-        # Add new columns to existing DBs without dropping data
-        from sqlalchemy import text, inspect as _sa_inspect
-        _existing = {c["name"] for c in _sa_inspect(db.engine).get_columns("users")}
-        _migrations = [
-            ("date_of_birth",        "DATE"),
-            ("profile_public",       "BOOLEAN NOT NULL DEFAULT 1"),
-            ("allow_friend_requests","BOOLEAN NOT NULL DEFAULT 1"),
-        ]
-        for _col, _typedef in _migrations:
-            if _col not in _existing:
-                with db.engine.begin() as _conn:
-                    _conn.execute(text(f"ALTER TABLE users ADD COLUMN {_col} {_typedef}"))
 
     from app.sockets import chat  # noqa: F401 — registers socket event handlers
 

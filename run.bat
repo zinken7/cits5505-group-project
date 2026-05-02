@@ -13,15 +13,25 @@ set "VENV_PY=%cd%\.venv\Scripts\python.exe"
 echo Activating virtual environment...
 call .venv\Scripts\activate.bat || goto :error
 
-:: Only seed on a fresh database — skip if Media rows already exist.
-:: To force a full reseed (e.g. after JSON edits), delete instance\watchlist.db first,
-:: or run:  python scripts\seeds.py --clear
-"%VENV_PY%" -c "import sys,os; sys.path.insert(0,'.'); from app import create_app; from app.models.media import Media; app=create_app(); ctx=app.app_context(); ctx.push(); sys.exit(0 if Media.query.count()>0 else 1)"
+if not exist "migrations" (
+    echo ERROR: migrations\ folder not found.
+    echo   This folder must be committed to git.
+    echo   Run: git add migrations/ ^&^& git commit -m "add migrations"
+    goto :error
+)
+
+echo Applying database migrations...
+flask db upgrade || goto :error
+
+:: Seed only when the media table is empty (fresh DB or wiped DB)
+:: To force a full reseed: delete instance\watchlist.db first,
+:: or run: python scripts\seeds.py --clear
+"%VENV_PY%" -c "import sys; sys.path.insert(0,'.'); from app import create_app; from app.models.media import Media; app=create_app(); ctx=app.app_context(); ctx.push(); sys.exit(0 if Media.query.count()>0 else 1)"
 if %ERRORLEVEL% NEQ 0 (
-    echo Fresh database -- running scripts\seeds.py (app\data -^> DB^)...
+    echo Database empty -- seeding initial data...
     "%VENV_PY%" scripts\seeds.py || goto :error
 ) else (
-    echo Database already seeded -- skipping seed scripts.
+    echo Database already seeded -- skipping.
 )
 
 echo Starting backend in new window...

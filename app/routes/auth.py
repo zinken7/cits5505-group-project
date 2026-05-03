@@ -27,7 +27,7 @@ def login():
         email = form.email.data.strip()
         user = authenticate_user(email, form.password.data)
         if user:
-            login_user(user)
+            login_user(user, remember=form.remember.data)
             next_page = request.args.get("next")
             return redirect(next_page or url_for("main.dashboard"))
 
@@ -123,5 +123,4 @@ def logout():
         return render_template("auth/logout.html")
 
     logout_user()
-    flash("You have been logged out.", "info")
     return redirect(url_for("main.explore"))

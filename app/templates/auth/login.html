@@ -95,6 +95,11 @@
           {% endif %}
         </div>
 
+        <label class="flex items-center gap-3 text-sm select-none cursor-pointer" style="color:var(--muted)">
+          {{ form.remember(class="h-4 w-4 rounded border-border text-accent focus:ring-accent") }}
+          <span>{{ form.remember.label.text }}</span>
+        </label>
+
         <button type="submit" class="btn btn--primary btn--lg w-full mt-1">
           Log In
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

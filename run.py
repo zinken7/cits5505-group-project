@@ -2,6 +2,10 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import os
+if os.environ.get("FLASK_ENV", "").strip().lower() != "production" and os.environ.get("VITE_DEV_MODE", "").strip().lower() not in {"1", "true", "yes"}:
+    os.environ["VITE_DEV_MODE"] = "1"
+
 from app import create_app
 from app.extensions import socketio
 

@@ -35,7 +35,7 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo Starting backend in new window...
-start "BACKEND" /D "%~dp0" cmd /k ""%VENV_PY%" run.py"
+start "BACKEND" /D "%~dp0" cmd /k "set FLASK_ENV=development && set VITE_DEV_MODE=1 && "%VENV_PY%" run.py"
 
 echo Setting up frontend...
 cd frontend || goto :error

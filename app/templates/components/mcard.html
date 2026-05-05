@@ -37,7 +37,7 @@
     </div>
     {% if status %}
     <div class="mcard__status">
-      <span class="pill pill--{{ status }}">{{ status }}</span>
+      <span class="status-dot status-dot--{{ status }}"></span>
     </div>
     {% endif %}
     <div class="mcard__rating">★ {{ '%.1f' | format(rating) if rating is not none and rating != '' else '—' }}</div>

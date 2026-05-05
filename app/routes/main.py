@@ -30,9 +30,9 @@ def categories():
     if genre not in GENRES:
         genre = "Drama"
 
-    movies,  movie_total  = list_media("movie",  genre=genre, sort="-rating", limit=16)
-    anime,   anime_total  = list_media("anime",  genre=genre, sort="-rating", limit=16)
-    tvshows, tvshow_total = list_media("tvshow", genre=genre, sort="-rating", limit=16)
+    movies,  movie_total  = list_media("movie",  genre=genre, sort="-rating", limit=12)
+    anime,   anime_total  = list_media("anime",  genre=genre, sort="-rating", limit=12)
+    tvshows, tvshow_total = list_media("tvshow", genre=genre, sort="-rating", limit=12)
     return render_template(
         "categories.html",
         genres=GENRES,

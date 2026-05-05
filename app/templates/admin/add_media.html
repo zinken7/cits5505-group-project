@@ -72,7 +72,7 @@
 
         <div id="imdb-lookup-status" class="mt-4 hidden">
           <div id="imdb-lookup-msg" class="text-[0.875rem]"></div>
-          <div id="imdb-lookup-preview" class="mt-3 hidden flex gap-3">
+          <div id="imdb-lookup-preview" class="mt-3 flex gap-3">
             <img id="imdb-preview-img" src="" alt="" class="h-24 w-16 shrink-0 rounded object-cover bg-card-2">
             <div class="min-w-0">
               <div id="imdb-preview-title" class="font-semibold text-foreground"></div>
@@ -396,7 +396,7 @@
             });
           }
         } else {
-          showStatus('Got it! review the fields below then click "Create item".', false);
+          showStatus('Got it! Review the fields below then click "Create item".', false);
           fillForm(d.fields);
           showPreview(d.fields);
         }

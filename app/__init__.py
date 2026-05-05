@@ -3,6 +3,7 @@ import json
 import os
 
 from flask import Flask, redirect, request, url_for
+from flask_login import current_user, logout_user
 
 from config import config
 
@@ -56,6 +57,24 @@ def create_app(config_name=None):
         if response.content_type and response.content_type.startswith("text/html"):
             response.headers["Cache-Control"] = "no-store"
         return response
+
+    @app.before_request
+    def _logout_deactivated_user():
+        if not current_user.is_authenticated:
+            return None
+        if not getattr(current_user, "deactivated", False):
+            return None
+        logout_user()
+        if request.path.startswith("/api"):
+            from app.api.v1.common import api_response
+
+            return api_response(
+                data=None,
+                message="Account deactivated",
+                success=False,
+                status=401,
+            )
+        return redirect(url_for("auth.login"))
 
     @login_manager.unauthorized_handler
     def _unauthorized_api():
@@ -182,12 +201,12 @@ def create_app(config_name=None):
             items += [
                 "Rate everything after you finish",
                 "New titles added weekly — check Explore",
-                "Track movies, anime, and games in one place",
+                "Track movies, anime, and tvshows in one place",
             ]
         except Exception:
             items = [
                 "WatchList Hub — Track everything you love",
-                "Movies · Anime · Games",
+                "Movies · Anime · Tvshows",
                 "Rate everything after you finish",
             ]
         return dict(ticker_items=items)
@@ -198,11 +217,13 @@ def create_app(config_name=None):
     from app.routes.main import bp as main_bp
     from app.routes.auth import bp as auth_bp
     from app.routes.docs import bp as docs_bp
+    from app.routes.admin import bp as admin_bp
     from app.api.v1 import bp as api_v1_bp
 
     app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(docs_bp)
+    app.register_blueprint(admin_bp)
     app.register_blueprint(api_v1_bp)
 
     # ------------------------------------------------------------------
@@ -213,6 +234,11 @@ def create_app(config_name=None):
         from app.models import user, media, watchlist, friendship, message  # noqa: F401
 
         os.makedirs(app.instance_path, exist_ok=True)
+
+        if not app.config.get("TESTING"):
+            from app.services.root_bootstrap import ensure_root_user
+
+            ensure_root_user()
 
     from app.sockets import chat  # noqa: F401 — registers socket event handlers
 

@@ -1,0 +1,146 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Manage users — WatchList Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="mx-auto max-w-5xl">
+
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="min-w-0">
+        <h1 class="h-section m-0">Manage users</h1>
+        <p class="mt-2 max-w-2xl text-[0.875rem] leading-relaxed text-muted">
+          View and manage user accounts. You can deactivate accounts to prevent login while keeping their data intact.
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-4 grid gap-3 sm:grid-cols-3">
+      <div class="card p-4">
+        <div class="h-eyebrow">Users</div>
+        <div class="mt-2 text-3xl font-semibold text-foreground">{{ users|length }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="h-eyebrow">Active</div>
+        <div class="mt-2 text-3xl font-semibold text-foreground">{{ users|rejectattr("deactivated")|list|length }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="h-eyebrow">Deactivated</div>
+        <div class="mt-2 text-3xl font-semibold text-danger">{{ users|selectattr("deactivated")|list|length }}</div>
+      </div>
+    </div>
+
+    <div class="card overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-[0.875rem]">
+          <thead>
+            <tr class="border-b border-border bg-card-2/60">
+              <th class="px-4 py-3 font-semibold">User</th>
+              <th class="hidden px-4 py-3 font-semibold md:table-cell">Email</th>
+              <th class="px-4 py-3 font-semibold">Role</th>
+              <th class="px-4 py-3 font-semibold">Status</th>
+              <th class="w-[1%] whitespace-nowrap px-4 py-3 text-right font-semibold">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for u in users %}
+            <tr class="border-b border-border transition-colors hover:bg-card-2/50">
+              <td class="min-w-[180px] px-4 py-3">
+                <div class="font-medium text-foreground">{{ u.username }}</div>
+                {% if u.id == current_user.id %}
+                <div class="mt-1 text-[0.75rem] text-muted">Current session</div>
+                {% endif %}
+                <div class="mt-1 truncate text-[0.75rem] text-muted md:hidden">{{ u.email }}</div>
+              </td>
+              <td class="hidden px-4 py-3 text-muted md:table-cell">{{ u.email }}</td>
+              <td class="px-4 py-3">
+                {% if u.is_root %}
+                <span class="pill pill--ink">Root</span>
+                {% elif u.is_admin %}
+                <span class="pill pill--accent">Admin</span>
+                {% else %}
+                <span class="pill">Member</span>
+                {% endif %}
+              </td>
+              <td class="px-4 py-3">
+                {% if u.deactivated %}
+                <span class="pill text-danger">Deactivated</span>
+                {% else %}
+                <span class="pill pill--success">Active</span>
+                {% endif %}
+              </td>
+              <td class="whitespace-nowrap px-4 py-3 text-right">
+                {% if u.deactivated %}
+                <form method="post" class="inline" data-reactivate-user-form data-username="{{ u.username }}">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <input type="hidden" name="user_id" value="{{ u.id }}"/>
+                  <input type="hidden" name="action" value="reactivate"/>
+                  <button type="submit" class="btn btn--sm">Activate</button>
+                </form>
+                {% elif u.is_root %}
+                <span class="text-[0.8125rem] font-medium text-muted">Protected</span>
+                {% elif u.id == current_user.id %}
+                <span class="text-[0.8125rem] font-medium text-muted">Current user</span>
+                {% elif u.is_admin and not current_user.is_root %}
+                <span class="text-[0.8125rem] font-medium text-muted">Admin</span>
+                {% else %}
+                <form method="post" class="inline" data-deactivate-user-form data-username="{{ u.username }}">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <input type="hidden" name="user_id" value="{{ u.id }}"/>
+                  <input type="hidden" name="action" value="deactivate"/>
+                  <button type="submit" class="btn btn--sm text-danger">Deactivate</button>
+                </form>
+                {% endif %}
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="5" class="p-8 text-center text-muted">No users found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+(function () {
+  document.querySelectorAll('[data-deactivate-user-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var username = form.getAttribute('data-username') || 'this user';
+      window.appConfirm({
+        title: 'Deactivate user?',
+        message: 'Deactivate @' + username + '? Their data will stay in the database, but their profile and login will be disabled.',
+        confirmText: 'Deactivate',
+        cancelText: 'Cancel',
+        danger: true
+      }).then(function (confirmed) {
+        if (confirmed) form.submit();
+      });
+    });
+  });
+
+  document.querySelectorAll('[data-reactivate-user-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var username = form.getAttribute('data-username') || 'this user';
+      window.appConfirm({
+        title: 'Reactivate user?',
+        message: 'Reactivate @' + username + '? They will be able to log in again.',
+        confirmText: 'Activate',
+        cancelText: 'Cancel',
+        danger: false
+      }).then(function (confirmed) {
+        if (confirmed) form.submit();
+      });
+    });
+  });
+})();
+</script>
+{% endblock %}

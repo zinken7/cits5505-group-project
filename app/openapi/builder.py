@@ -525,17 +525,17 @@ def _paths():
     }
 
     # Admin
-    p["/api/v1/admin/users"] = {
+    p["/api/v1/management/users"] = {
         "get": {
             "tags": ["Admin"],
             "summary": "List all users (admin)",
             "responses": _only_200(),
         }
     }
-    p["/api/v1/admin/users/{user_id}"] = {
+    p["/api/v1/management/users/{user_id}"] = {
         "patch": {
             "tags": ["Admin"],
-            "summary": "Update a user role or status (admin)",
+            "summary": "Update user admin/deactivation flags",
             "parameters": [uid],
             "requestBody": {
                 "required": True,
@@ -549,7 +549,7 @@ def _paths():
         },
         "delete": {
             "tags": ["Admin"],
-            "summary": "Delete a user (admin)",
+            "summary": "Deactivate a user without deleting stored data (admin)",
             "parameters": [uid],
             "responses": _ok_response(),
         },
@@ -561,7 +561,7 @@ def _paths():
         "required": True,
         "schema": {"type": "string", "title": "Internal media id"},
     }
-    p["/api/v1/admin/media"] = {
+    p["/api/v1/management/media"] = {
         "post": {
             "tags": ["Admin"],
             "summary": "Create media row (admin)",
@@ -576,7 +576,7 @@ def _paths():
             "responses": _created_response(),
         }
     }
-    p["/api/v1/admin/media/{media_id}"] = {
+    p["/api/v1/management/media/{media_id}"] = {
         "patch": {
             "tags": ["Admin"],
             "summary": "Update media (admin)",

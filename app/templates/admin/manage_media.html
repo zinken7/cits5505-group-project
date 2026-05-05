@@ -1,0 +1,292 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Manage media — Admin · WatchList Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="mx-auto max-w-6xl">
+
+    <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+      <div class="min-w-0">
+        <h1 class="h-section m-0">Manage media</h1>
+        <p class="mt-2 max-w-2xl text-[0.875rem] leading-relaxed text-muted">
+          Add, edit, or remove titles from the catalogue. Deleting a title will also remove it from all watchlists.
+        </p>
+      </div>
+      <a href="{{ url_for('management.add_media') }}" class="btn btn--primary btn--sm">Add media</a>
+    </div>
+
+    <div class="card overflow-hidden"
+      data-admin-media-table
+      data-api-url="/api/v1/management/media"
+      data-page-size="{{ per_page }}">
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-[0.875rem]">
+          <thead>
+            <tr class="border-b border-border bg-card-2/60">
+              <th class="p-3 font-semibold">Title</th>
+              <th class="hidden whitespace-nowrap p-3 font-semibold md:table-cell">Type</th>
+              <th class="hidden whitespace-nowrap p-3 font-semibold md:table-cell">Year</th>
+              <th class="hidden whitespace-nowrap p-3 font-semibold md:table-cell">Rating</th>
+              <th class="w-[1%] whitespace-nowrap p-3 text-center font-semibold">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="media-table-body">
+            {% for m in items %}
+            <tr class="border-b border-border transition-colors hover:bg-card-2/50" data-media-row>
+              <td class="min-w-[220px] p-3 font-medium">
+                {% if m.imdb_id %}
+                <a href="{{ url_for('main.item_detail', imdb_id=m.imdb_id) }}"
+                  class="block truncate text-foreground underline decoration-border underline-offset-2 hover:text-accent hover:decoration-accent"
+                  title="View “{{ m.title }}”">{{ m.title }}</a>
+                <div class="mt-1 truncate font-mono text-[0.6875rem] text-muted md:hidden">{{ m.media_type }}{% if m.year is not none %} · {{ m.year }}{% endif %}{% if m.rating is not none %} · ★ {{ '%.1f'|format(m.rating) }}{% endif %}</div>
+                {% else %}
+                <span class="block truncate" title="{{ m.title }}">{{ m.title }}</span>
+                <div class="mt-1 truncate font-mono text-[0.6875rem] text-muted md:hidden">{{ m.media_type }}{% if m.year is not none %} · {{ m.year }}{% endif %}{% if m.rating is not none %} · ★ {{ '%.1f'|format(m.rating) }}{% endif %}</div>
+                {% endif %}
+              </td>
+              <td class="hidden whitespace-nowrap p-3 md:table-cell">
+                <span class="pill">{{ m.media_type }}</span>
+              </td>
+              <td class="hidden whitespace-nowrap p-3 text-muted md:table-cell">{{ m.year if m.year is not none else "—" }}</td>
+              <td class="hidden whitespace-nowrap p-3 text-muted md:table-cell">{% if m.rating is not none %}{{ '%.1f'|format(m.rating) }}{% else %}—{% endif %}</td>
+              <td class="w-[1%] whitespace-nowrap p-3 text-right align-middle">
+                <span class="inline-flex max-w-none flex-nowrap items-center justify-end gap-2">
+                  <a href="{{ url_for('management.edit_media', media_id=m.id) }}" class="btn btn--sm shrink-0">Edit</a>
+                  <button type="button"
+                    class="btn btn--sm shrink-0 text-danger"
+                    data-open-delete-modal
+                    data-delete-url="{{ url_for('management.remove_media', media_id=m.id) }}"
+                    data-media-title="{{ m.title }}">
+                    Delete
+                  </button>
+                </span>
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td colspan="5" class="p-8 text-center text-muted">No media yet. Add a title to get started.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-3 border-t border-border p-3">
+        <div class="font-mono text-[0.75rem] text-muted" id="media-pagination-label">
+          Page {% if total %}{{ page }}{% else %}0{% endif %} of {{ page_count }}
+        </div>
+        <div class="inline-flex items-center gap-2">
+          <button type="button" class="btn btn--sm" id="media-prev-page" {% if offset <= 0 %}disabled{% endif %}>Previous</button>
+          <button type="button" class="btn btn--sm" id="media-next-page" {% if offset + per_page >= total %}disabled{% endif %}>Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# Delete confirmation — warns about watchlist rows removed server-side #}
+  <div id="delete-media-modal"
+    class="fixed inset-0 z-200 hidden items-center justify-center bg-black/55 p-4"
+    role="dialog" aria-modal="true" aria-labelledby="delete-media-modal-title" aria-hidden="true">
+    <div class="card max-w-md border border-border p-6 shadow-lg">
+      <h2 id="delete-media-modal-title" class="h-section m-0 text-[1.1rem]">Delete this title?</h2>
+      <p class="mt-3 text-[0.875rem] leading-relaxed text-muted">
+        You are about to remove <strong id="delete-media-modal-name" class="text-foreground"></strong> from the catalogue.
+        This cannot be undone. <span class="text-danger font-medium">All watchlist entries for this title will be removed.</span>
+      </p>
+      <div class="mt-6 flex flex-wrap justify-end gap-2">
+        <button type="button" id="delete-media-cancel" class="btn btn--sm">Cancel</button>
+        <form id="delete-media-form" method="post" class="inline">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+          <button type="submit" class="btn btn--sm border-danger/40 text-danger">Delete permanently</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+(function () {
+  var shell = document.querySelector('[data-admin-media-table]');
+  var tbody = document.getElementById('media-table-body');
+  var prevBtn = document.getElementById('media-prev-page');
+  var nextBtn = document.getElementById('media-next-page');
+  var pageLabel = document.getElementById('media-pagination-label');
+  var pageSummary = document.getElementById('media-page-summary');
+  var visibleCount = document.getElementById('media-visible-count');
+  var totalCount = document.getElementById('media-total-count');
+  var modal = document.getElementById('delete-media-modal');
+  var nameEl = document.getElementById('delete-media-modal-name');
+  var form = document.getElementById('delete-media-form');
+  var cancel = document.getElementById('delete-media-cancel');
+  var pageSize = shell ? parseInt(shell.getAttribute('data-page-size') || '15', 10) : 15;
+  var apiUrl = shell ? shell.getAttribute('data-api-url') : '';
+  var offset = {{ offset|tojson }};
+  var total = {{ total|tojson }};
+  var loading = false;
+  var currentVisibleCount = {{ items|length|tojson }};
+
+  function open(url, title) {
+    form.action = url;
+    if (nameEl) nameEl.textContent = title || '';
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+  function close() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    modal.setAttribute('aria-hidden', 'true');
+    form.action = '';
+  }
+
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function mediaDetailUrl(media) {
+    return '/items/' + encodeURIComponent(media.imdb_id || '');
+  }
+
+  function editUrl(media) {
+    return '/management/media/' + encodeURIComponent(media.id) + '/edit';
+  }
+
+  function deleteUrl(media) {
+    return '/management/media/' + encodeURIComponent(media.id) + '/delete';
+  }
+
+  function renderMobileMeta(media) {
+    var parts = [];
+    if (media.media_type) parts.push(media.media_type);
+    if (media.year !== null && media.year !== undefined) parts.push(media.year);
+    if (media.rating !== null && media.rating !== undefined) parts.push('★ ' + Number(media.rating).toFixed(1));
+    return escapeHtml(parts.join(' · '));
+  }
+
+  function renderRow(media) {
+    var title = escapeHtml(media.title || 'Untitled');
+    var mobileMeta = renderMobileMeta(media);
+    var titleCell = media.imdb_id
+      ? '<a href="' + mediaDetailUrl(media) + '" class="block truncate text-foreground underline decoration-border underline-offset-2 hover:text-accent hover:decoration-accent" title="View ' + title + '">' + title + '</a>'
+      : '<span class="block truncate" title="' + title + '">' + title + '</span>';
+    return [
+      '<tr class="border-b border-border transition-colors hover:bg-card-2/50" data-media-row>',
+      '<td class="min-w-[220px] p-3 font-medium">',
+      titleCell,
+      '<div class="mt-1 truncate font-mono text-[0.6875rem] text-muted md:hidden">' + mobileMeta + '</div>',
+      '</td>',
+      '<td class="hidden whitespace-nowrap p-3 md:table-cell"><span class="pill">' + escapeHtml(media.media_type || '') + '</span></td>',
+      '<td class="hidden whitespace-nowrap p-3 text-muted md:table-cell">' + (media.year !== null && media.year !== undefined ? escapeHtml(media.year) : '—') + '</td>',
+      '<td class="hidden whitespace-nowrap p-3 text-muted md:table-cell">' + (media.rating !== null && media.rating !== undefined ? Number(media.rating).toFixed(1) : '—') + '</td>',
+      '<td class="w-[1%] whitespace-nowrap p-3 text-right align-middle">',
+      '<span class="inline-flex max-w-none flex-nowrap items-center justify-end gap-2">',
+      '<a href="' + editUrl(media) + '" class="btn btn--sm shrink-0">Edit</a>',
+      '<button type="button" class="btn btn--sm shrink-0 text-danger" data-open-delete-modal data-delete-url="' + deleteUrl(media) + '" data-media-title="' + title + '">Delete</button>',
+      '</span>',
+      '</td>',
+      '</tr>'
+    ].join('');
+  }
+
+  function renderEmpty(message) {
+    tbody.innerHTML = '<tr><td colspan="5" class="p-8 text-center text-muted">' + escapeHtml(message) + '</td></tr>';
+  }
+
+  function updatePagination(count) {
+    var currentPage = total ? Math.floor(offset / pageSize) + 1 : 0;
+    var pageCount = total ? Math.ceil(total / pageSize) : 0;
+    var start = total ? offset + 1 : 0;
+    var end = total ? Math.min(offset + count, total) : 0;
+    if (visibleCount) visibleCount.textContent = String(count);
+    if (totalCount) totalCount.textContent = String(total);
+    if (pageLabel) pageLabel.textContent = 'Page ' + currentPage + ' of ' + pageCount;
+    if (pageSummary) pageSummary.textContent = 'Showing ' + (total ? start + '-' + end : '0') + ' of ' + total + ' rows.';
+    if (prevBtn) prevBtn.disabled = loading || offset <= 0;
+    if (nextBtn) nextBtn.disabled = loading || offset + pageSize >= total;
+  }
+
+  function syncUrl() {
+    if (!window.history || !window.history.replaceState) return;
+    var page = total ? Math.floor(offset / pageSize) + 1 : 1;
+    var url = new URL(window.location.href);
+    if (page <= 1) {
+      url.searchParams.delete('page');
+    } else {
+      url.searchParams.set('page', String(page));
+    }
+    window.history.replaceState({ mediaPageOffset: offset }, '', url.toString());
+  }
+
+  function renderItems(items) {
+    if (!tbody) return;
+    currentVisibleCount = items.length;
+    if (!items.length) {
+      renderEmpty('No media yet. Add a title to get started.');
+      updatePagination(0);
+      return;
+    }
+    tbody.innerHTML = items.map(renderRow).join('');
+    updatePagination(items.length);
+  }
+
+  function loadPage(nextOffset) {
+    if (!apiUrl || loading) return;
+    loading = true;
+    updatePagination(0);
+    var params = new URLSearchParams({ limit: String(pageSize), offset: String(nextOffset) });
+    window.apiFetch(apiUrl + '?' + params.toString())
+      .then(function (payload) {
+        offset = payload.offset || 0;
+        total = payload.total || 0;
+        renderItems(payload.items || []);
+        syncUrl();
+      })
+      .catch(function (err) {
+        currentVisibleCount = 0;
+        renderEmpty(err.message || 'Could not load media.');
+      })
+      .finally(function () {
+        loading = false;
+        updatePagination(currentVisibleCount);
+      });
+  }
+
+  if (tbody && modal && form) {
+    tbody.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-open-delete-modal]');
+      if (!btn) return;
+      open(btn.getAttribute('data-delete-url'), btn.getAttribute('data-media-title') || '');
+    });
+  }
+  if (cancel) cancel.addEventListener('click', close);
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) close();
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (modal && e.key === 'Escape' && !modal.classList.contains('hidden')) close();
+  });
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      loadPage(Math.max(0, offset - pageSize));
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      if (offset + pageSize < total) loadPage(offset + pageSize);
+    });
+  }
+  updatePagination(currentVisibleCount);
+  syncUrl();
+})();
+</script>
+{% endblock %}

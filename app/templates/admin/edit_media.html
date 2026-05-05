@@ -1,0 +1,234 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Edit media — Admin · WatchList Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="mx-auto max-w-5xl">
+
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex min-w-0 items-center gap-3">
+        <div class="min-w-0">
+          <h1 class="h-section m-0 truncate">{{ media.title }}</h1>
+          <p class="mt-2 max-w-2xl text-[0.875rem] leading-relaxed text-muted">
+            Review catalogue rows, open public detail pages, edit metadata, or delete a title and its watchlist references.
+          </p>
+        </div>
+      </div>
+      {% if media.imdb_id %}
+      <a href="{{ url_for('main.item_detail', imdb_id=media.imdb_id) }}" class="btn btn--sm">View public page</a>
+      {% endif %}
+    </div>
+
+    <div class="mb-6 grid gap-3 md:grid-cols-4">
+      <div class="card p-4">
+        <div class="h-eyebrow">Internal id</div>
+        <div class="mt-2 font-mono text-[1.1rem] font-semibold text-foreground">{{ media.id }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="h-eyebrow">Type</div>
+        <div class="mt-2 text-[1.1rem] font-semibold capitalize text-foreground">{{ media.media_type }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="h-eyebrow">Year</div>
+        <div class="mt-2 text-[1.1rem] font-semibold text-foreground">{{ media.year if media.year is not none else "Unset" }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="h-eyebrow">IMDb id</div>
+        <div class="mt-2 truncate font-mono text-[1.1rem] font-semibold text-foreground">{{ media.imdb_id or "Unset" }}</div>
+      </div>
+    </div>
+
+    {% if form.errors %}
+    <div class="card mb-6 border-danger/50 p-4">
+      <div class="text-[0.8125rem] font-medium text-danger">Please fix the highlighted fields.</div>
+      <ul class="mt-2 list-disc pl-5 text-[0.8125rem] text-muted">
+        {% for field_name, errs in form.errors.items() %}
+        {% for err in errs %}
+        <li><strong>{{ field_name }}</strong>: {{ err }}</li>
+        {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <form id="media-edit-form" method="post" class="flex flex-col gap-5" novalidate>
+      {{ form.hidden_tag() }}
+
+      <div class="card p-5">
+        <div class="mb-4 border-b border-border pb-3">
+          <div class="h-eyebrow">Basics</div>
+          <h2 class="mt-1 text-[1.05rem] font-semibold text-foreground">Public catalogue identity</h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="form-field">
+            {{ form.media_type.label(class="form-label") }}
+            {{ form.media_type(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.year.label(class="form-label") }}
+            {{ form.year(class="form-input", placeholder="e.g. 2024") }}
+          </div>
+          <div class="form-field sm:col-span-2">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-input", autocomplete="off") }}
+          </div>
+          <div class="form-field sm:col-span-2">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-input min-h-[100px]", rows=5) }}
+          </div>
+          <div class="form-field sm:col-span-2">
+            {{ form.image_url.label(class="form-label") }}
+            {{ form.image_url(class="form-input", placeholder="https://...") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-5">
+        <div class="mb-4 border-b border-border pb-3">
+          <div class="h-eyebrow">IMDb &amp; ratings</div>
+          <h2 class="mt-1 text-[1.05rem] font-semibold text-foreground">External identifiers and score data</h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div class="form-field sm:col-span-3">
+            {{ form.imdb_id.label(class="form-label") }}
+            {{ form.imdb_id(class="form-input") }}
+            <p class="form-hint pt-0.5">
+              Changing this changes the public detail URL (<code class="text-[0.75rem]">/items/&lt;id&gt;</code>).
+              Leave empty to force <code class="text-[0.75rem]">manual-{{ media.id }}</code>.
+            </p>
+          </div>
+          <div class="form-field sm:col-span-3">
+            {{ form.imdb_url.label(class="form-label") }}
+            {{ form.imdb_url(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.rating.label(class="form-label") }}
+            {{ form.rating(class="form-input", step="0.1") }}
+          </div>
+          <div class="form-field">
+            {{ form.votes.label(class="form-label") }}
+            {{ form.votes(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.rank.label(class="form-label") }}
+            {{ form.rank(class="form-input") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-5">
+        <div class="mb-4 border-b border-border pb-3">
+          <div class="h-eyebrow">Genres &amp; production</div>
+          <h2 class="mt-1 text-[1.05rem] font-semibold text-foreground">Detail page metadata</h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="form-field sm:col-span-2">
+            {{ form.genres_raw.label(class="form-label") }}
+            {{ form.genres_raw(class="form-input font-mono text-[0.8125rem]") }}
+          </div>
+          <div class="form-field">
+            {{ form.runtime_minutes.label(class="form-label") }}
+            {{ form.runtime_minutes(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.episodes.label(class="form-label") }}
+            {{ form.episodes(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.release_status.label(class="form-label") }}
+            {{ form.release_status(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.language.label(class="form-label") }}
+            {{ form.language(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.country.label(class="form-label") }}
+            {{ form.country(class="form-input") }}
+          </div>
+          <div class="form-field">
+            {{ form.director.label(class="form-label") }}
+            {{ form.director(class="form-input") }}
+          </div>
+          <div class="form-field sm:col-span-2">
+            {{ form.cast_raw.label(class="form-label") }}
+            {{ form.cast_raw(class="form-input font-mono text-[0.8125rem]") }}
+          </div>
+          <div class="form-field sm:col-span-2">
+            {{ form.tagline.label(class="form-label") }}
+            {{ form.tagline(class="form-input") }}
+          </div>
+          <div class="form-field sm:col-span-2">
+            {{ form.awards.label(class="form-label") }}
+            {{ form.awards(class="form-input") }}
+          </div>
+          <div class="form-field sm:col-span-2">
+            {{ form.trailer_url.label(class="form-label") }}
+            {{ form.trailer_url(class="form-input", placeholder="https://...") }}
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky bottom-0 z-10 -mx-3 flex flex-wrap justify-end gap-3 border-t border-border bg-page/95 px-3 py-4 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-0">
+        <a href="{{ url_for('management.manage_media') }}" class="btn" id="media-edit-cancel">Cancel</a>
+        <button type="submit" class="btn btn--primary">Save changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+(function () {
+  var form = document.getElementById('media-edit-form');
+  if (!form) return;
+
+  function serializeForm(f) {
+    var fd = new FormData(f);
+    var keys = [];
+    fd.forEach(function (value, key) {
+      keys.push(key + '=' + encodeURIComponent(typeof value === 'string' ? value : ''));
+    });
+    keys.sort();
+    return keys.join('&');
+  }
+
+  var initial = serializeForm(form);
+  var dirty = false;
+
+  function check() {
+    dirty = serializeForm(form) !== initial;
+  }
+
+  form.addEventListener('input', check);
+  form.addEventListener('change', check);
+  form.addEventListener('submit', function () { dirty = false; });
+
+  window.addEventListener('beforeunload', function (e) {
+    if (!dirty) return;
+    e.preventDefault();
+    e.returnValue = '';
+  });
+
+  var cancel = document.getElementById('media-edit-cancel');
+  if (cancel) {
+    cancel.addEventListener('click', function (e) {
+      if (!dirty) return;
+      e.preventDefault();
+      window.appConfirm({
+        title: 'Leave without saving?',
+        message: 'You have unsaved changes. They will be lost if you leave this page.',
+        confirmText: 'Leave',
+        cancelText: 'Stay',
+        danger: false
+      }).then(function (confirmed) {
+        if (confirmed) window.location.href = cancel.href;
+      });
+    });
+  }
+})();
+</script>
+{% endblock %}

@@ -64,11 +64,20 @@ _ROUTE_DESCRIPTIONS = {
     "docs.openapi_json":    "OpenAPI 3.1 JSON — source for Swagger and ReDoc.",
     "docs.future":          "Roadmap / design notes (e.g. chat tagging); friends & DMs are implemented.",
     "docs.redoc_legacy":    "301 → /docs/apis/redoc.",
+    # Admin / management pages
+    "management.add_media":      "Admin form for creating catalogue items.",
+    "management.manage_media":   "Admin catalogue table for editing/deleting media.",
+    "management.edit_media":     "Admin form for editing a catalogue item.",
+    "management.remove_media":   "POST endpoint for deleting a catalogue item.",
+    "management.manage_users": "Admin user management; deactivate accounts without deleting data.",
+    "management.manage_admins": "Root-only administrator role management.",
 }
 
 _BLUEPRINT_LABELS = {
     "main": "Pages",
     "auth": "Authentication",
+    "admin": "Admin",
+    "management": "Management",
     "docs": "Documentation",
 }
 
@@ -78,7 +87,7 @@ def routes():
     """All registered URL rules rendered as an HTML page."""
     import re
     skip_blueprints = {"static", "api_v1"}
-    order = ["main", "auth", "docs"]
+    order = ["main", "auth", "admin", "management", "docs"]
     groups = {}
     for rule in sorted(current_app.url_map.iter_rules(), key=lambda r: r.rule):
         endpoint = rule.endpoint

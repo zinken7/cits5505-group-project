@@ -1,0 +1,423 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Add media — Admin · WatchList Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="mx-auto max-w-5xl">
+
+    <div class="mb-6 flex min-w-0 items-center gap-3">
+      <div class="min-w-0">
+        <h1 class="h-section m-0">Add catalogue item</h1>
+        <p class="mt-2 max-w-2xl text-[0.875rem] leading-relaxed text-muted">
+          Import a title automatically from IMDb, or fill in all fields manually.
+        </p>
+      </div>
+    </div>
+
+    {# ── Tab bar ─────────────────────────────────────────────────── #}
+    <div class="mb-5 flex gap-1 rounded-xl border border-border bg-card-2/60 p-1" role="tablist">
+      <button
+        id="tab-btn-import"
+        role="tab"
+        aria-selected="true"
+        aria-controls="tab-panel-import"
+        class="tab-switcher flex-1 rounded-lg px-4 py-2 text-[0.875rem] font-medium transition-colors is-selected"
+        data-tab="import">
+        <svg class="mr-1.5 inline-block align-text-bottom" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15">
+          <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+        </svg>
+        Import from IMDb
+      </button>
+      <button
+        id="tab-btn-manual"
+        role="tab"
+        aria-selected="false"
+        aria-controls="tab-panel-manual"
+        class="tab-switcher flex-1 rounded-lg px-4 py-2 text-[0.875rem] font-medium transition-colors"
+        data-tab="manual">
+        <svg class="mr-1.5 inline-block align-text-bottom" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Manual entry
+      </button>
+    </div>
+
+    {# ── Import tab ──────────────────────────────────────────────── #}
+    <div id="tab-panel-import" role="tabpanel" aria-labelledby="tab-btn-import">
+
+      <div class="card p-5">
+        <div class="mb-4 border-b border-border pb-3">
+          <div class="h-eyebrow">IMDb lookup</div>
+          <h2 class="mt-1 text-[1.05rem] font-semibold text-foreground">Import from IMDb URL</h2>
+          <p class="mt-1 text-[0.8125rem] leading-relaxed text-muted">
+            Paste the IMDb title URL. Fields will auto-fill in the <strong>Manual entry</strong> tab so you can review before saving.
+          </p>
+        </div>
+
+        <div class="flex gap-2">
+          <input
+            id="imdb-lookup-input"
+            type="url"
+            class="form-input flex-1 font-mono text-[0.8125rem]"
+            placeholder="https://www.imdb.com/title/tt0111161/"
+            spellcheck="false"
+            autocomplete="off">
+          <button type="button" id="imdb-lookup-btn" class="btn btn--primary btn--sm shrink-0">
+            Look up
+          </button>
+        </div>
+
+        <div id="imdb-lookup-status" class="mt-4 hidden">
+          <div id="imdb-lookup-msg" class="text-[0.875rem]"></div>
+          <div id="imdb-lookup-preview" class="mt-3 hidden flex gap-3">
+            <img id="imdb-preview-img" src="" alt="" class="h-24 w-16 shrink-0 rounded object-cover bg-card-2">
+            <div class="min-w-0">
+              <div id="imdb-preview-title" class="font-semibold text-foreground"></div>
+              <div id="imdb-preview-meta" class="mt-0.5 text-[0.8125rem] text-muted"></div>
+              <button type="button" id="imdb-goto-manual" class="btn btn--sm mt-3">
+                Review &amp; save →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {# ── Manual entry tab ────────────────────────────────────────── #}
+    <div id="tab-panel-manual" role="tabpanel" aria-labelledby="tab-btn-manual" hidden>
+
+      <div class="mb-6 grid gap-3 md:grid-cols-3">
+        <div class="card p-4">
+          <div class="h-eyebrow">Step 1</div>
+          <div class="mt-2 text-[0.95rem] font-semibold text-foreground">Basics</div>
+          <p class="mt-1 text-[0.8125rem] leading-relaxed text-muted">Type, title, year and poster.</p>
+        </div>
+        <div class="card p-4">
+          <div class="h-eyebrow">Step 2</div>
+          <div class="mt-2 text-[0.95rem] font-semibold text-foreground">Ratings</div>
+          <p class="mt-1 text-[0.8125rem] leading-relaxed text-muted">IMDb identifiers, rank, votes and score.</p>
+        </div>
+        <div class="card p-4">
+          <div class="h-eyebrow">Step 3</div>
+          <div class="mt-2 text-[0.95rem] font-semibold text-foreground">Details</div>
+          <p class="mt-1 text-[0.8125rem] leading-relaxed text-muted">Genres, people, language and trailer.</p>
+        </div>
+      </div>
+
+      {% if form.errors %}
+      <div class="card mb-6 border-danger/50 bg-danger/10 p-4">
+        <div class="text-[0.8125rem] font-semibold text-danger">Please fix the highlighted fields.</div>
+        <ul class="mt-2 list-disc pl-5 text-[0.8125rem] leading-relaxed text-muted">
+          {% for field_name, errs in form.errors.items() %}
+          {% for err in errs %}
+          <li><strong class="text-foreground">{{ field_name }}</strong>: {{ err }}</li>
+          {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <form method="post" class="flex flex-col gap-5" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="card p-5">
+          <div class="mb-4 flex items-center justify-between gap-3 border-b border-border pb-3">
+            <div>
+              <div class="h-eyebrow">Basics</div>
+              <h2 class="mt-1 text-[1.05rem] font-semibold text-foreground">Public catalogue identity</h2>
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="form-field">
+              {{ form.media_type.label(class="form-label") }}
+              {{ form.media_type(class="form-input") }}
+            </div>
+            <div class="form-field">
+              {{ form.year.label(class="form-label") }}
+              {{ form.year(class="form-input", placeholder="e.g. 2024") }}
+            </div>
+            <div class="form-field sm:col-span-2">
+              {{ form.title.label(class="form-label") }}
+              {{ form.title(class="form-input", autocomplete="off", placeholder="Title shown across search, profile and watchlist pages") }}
+            </div>
+            <div class="form-field sm:col-span-2">
+              {{ form.description.label(class="form-label") }}
+              {{ form.description(class="form-input min-h-[120px]", rows=5) }}
+            </div>
+            <div class="form-field sm:col-span-2">
+              {{ form.image_url.label(class="form-label") }}
+              {{ form.image_url(class="form-input", placeholder="https://...") }}
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5">
+          <div class="mb-4 border-b border-border pb-3">
+            <div class="h-eyebrow">IMDb &amp; ratings</div>
+            <h2 class="mt-1 text-[1.05rem] font-semibold text-foreground">External identifiers and score data</h2>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="form-field sm:col-span-3">
+              {{ form.imdb_id.label(class="form-label") }}
+              {{ form.imdb_id(class="form-input") }}
+              <p class="form-hint pt-0.5">If empty, the app assigns <code class="text-[0.75rem]">manual-&lt;id&gt;</code> so the detail page has a URL.</p>
+            </div>
+            <div class="form-field sm:col-span-3">
+              {{ form.imdb_url.label(class="form-label") }}
+              {{ form.imdb_url(class="form-input", placeholder="https://...") }}
+            </div>
+            <div class="form-field">
+              {{ form.rating.label(class="form-label") }}
+              {{ form.rating(class="form-input", step="0.1", placeholder="8.7") }}
+            </div>
+            <div class="form-field">
+              {{ form.votes.label(class="form-label") }}
+              {{ form.votes(class="form-input", placeholder="123456") }}
+            </div>
+            <div class="form-field">
+              {{ form.rank.label(class="form-label") }}
+              {{ form.rank(class="form-input", placeholder="1") }}
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5">
+          <div class="mb-4 border-b border-border pb-3">
+            <div class="h-eyebrow">Genres &amp; production</div>
+            <h2 class="mt-1 text-[1.05rem] font-semibold text-foreground">Detail page metadata</h2>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="form-field sm:col-span-2">
+              {{ form.genres_raw.label(class="form-label") }}
+              {{ form.genres_raw(class="form-input font-mono text-[0.8125rem]") }}
+            </div>
+            <div class="form-field">
+              {{ form.runtime_minutes.label(class="form-label") }}
+              {{ form.runtime_minutes(class="form-input", placeholder="142") }}
+            </div>
+            <div class="form-field">
+              {{ form.episodes.label(class="form-label") }}
+              {{ form.episodes(class="form-input", placeholder="24") }}
+            </div>
+            <div class="form-field">
+              {{ form.release_status.label(class="form-label") }}
+              {{ form.release_status(class="form-input") }}
+            </div>
+            <div class="form-field">
+              {{ form.language.label(class="form-label") }}
+              {{ form.language(class="form-input") }}
+            </div>
+            <div class="form-field">
+              {{ form.country.label(class="form-label") }}
+              {{ form.country(class="form-input") }}
+            </div>
+            <div class="form-field">
+              {{ form.director.label(class="form-label") }}
+              {{ form.director(class="form-input") }}
+            </div>
+            <div class="form-field sm:col-span-2">
+              {{ form.cast_raw.label(class="form-label") }}
+              {{ form.cast_raw(class="form-input font-mono text-[0.8125rem]") }}
+            </div>
+            <div class="form-field sm:col-span-2">
+              {{ form.tagline.label(class="form-label") }}
+              {{ form.tagline(class="form-input") }}
+            </div>
+            <div class="form-field sm:col-span-2">
+              {{ form.awards.label(class="form-label") }}
+              {{ form.awards(class="form-input") }}
+            </div>
+            <div class="form-field sm:col-span-2">
+              {{ form.trailer_url.label(class="form-label") }}
+              {{ form.trailer_url(class="form-input", placeholder="https://...") }}
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky bottom-0 z-10 -mx-3 flex flex-wrap justify-end gap-3 border-t border-border bg-page/95 px-3 py-4 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-0">
+          <a href="{{ url_for('management.manage_media') }}" class="btn">Cancel</a>
+          <button type="submit" class="btn btn--primary">Create item</button>
+        </div>
+      </form>
+
+    </div>{# /tab-panel-manual #}
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<style>
+  .tab-switcher { color: var(--text-muted); background: transparent; border: none; cursor: pointer; }
+  .tab-switcher.is-selected { background: var(--card-bg); color: var(--text-foreground); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+</style>
+<script>
+(function () {
+  var csrf = {{ csrf_token()|tojson }};
+
+  /* ── Tab switching ─────────────────────────────────────────────── */
+  var panels = { import: document.getElementById('tab-panel-import'), manual: document.getElementById('tab-panel-manual') };
+  var btns   = { import: document.getElementById('tab-btn-import'),   manual: document.getElementById('tab-btn-manual') };
+
+  function switchTab(name) {
+    Object.keys(panels).forEach(function (k) {
+      var active = k === name;
+      panels[k].hidden = !active;
+      btns[k].classList.toggle('is-selected', active);
+      btns[k].setAttribute('aria-selected', String(active));
+    });
+  }
+
+  btns.import.addEventListener('click', function () { switchTab('import'); });
+  btns.manual.addEventListener('click', function () { switchTab('manual'); });
+
+  var gotoManual = document.getElementById('imdb-goto-manual');
+  if (gotoManual) gotoManual.addEventListener('click', function () { switchTab('manual'); });
+
+  /* If the form has validation errors (server-side), start on the manual tab */
+  {% if form.errors %}switchTab('manual');{% endif %}
+
+  /* ── IMDb lookup ───────────────────────────────────────────────── */
+  var lookupInput = document.getElementById('imdb-lookup-input');
+  var lookupBtn   = document.getElementById('imdb-lookup-btn');
+  var statusEl    = document.getElementById('imdb-lookup-status');
+  var msgEl       = document.getElementById('imdb-lookup-msg');
+  var previewEl   = document.getElementById('imdb-lookup-preview');
+  var previewImg  = document.getElementById('imdb-preview-img');
+  var previewTitle= document.getElementById('imdb-preview-title');
+  var previewMeta = document.getElementById('imdb-preview-meta');
+
+  function escHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function setField(id, value) {
+    var el = document.getElementById(id);
+    if (!el || value == null || value === '') return;
+    el.value = String(value);
+  }
+
+  function fillForm(fields) {
+    /* Select fields — set .value, trigger change for any listeners */
+    var mtSelect = document.getElementById('media_type');
+    if (mtSelect && fields.media_type) {
+      mtSelect.value = fields.media_type;
+    }
+    var rsSelect = document.getElementById('release_status');
+    if (rsSelect && fields.release_status) {
+      rsSelect.value = fields.release_status;
+    }
+
+    setField('title',           fields.title);
+    setField('year',            fields.year);
+    setField('description',     fields.description);
+    setField('image_url',       fields.image_url);
+    setField('imdb_id',         fields.imdb_id);
+    setField('imdb_url',        fields.imdb_url);
+    setField('rating',          fields.rating != null ? Number(fields.rating).toFixed(1) : '');
+    setField('votes',           fields.votes);
+    setField('director',        fields.director);
+    setField('language',        fields.language);
+    setField('country',         fields.country);
+    setField('tagline',         fields.tagline);
+    setField('awards',          fields.awards);
+    setField('runtime_minutes', fields.runtime_minutes);
+    setField('episodes',        fields.episodes);
+    setField('trailer_url',     fields.trailer_url);
+
+    var genresRaw = document.getElementById('genres_raw');
+    if (genresRaw && Array.isArray(fields.genres) && fields.genres.length) {
+      genresRaw.value = fields.genres.join('\n');
+    }
+    var castRaw = document.getElementById('cast_raw');
+    if (castRaw && Array.isArray(fields.cast) && fields.cast.length) {
+      castRaw.value = fields.cast.join('\n');
+    }
+  }
+
+  function showStatus(msg, isError) {
+    statusEl.classList.remove('hidden');
+    msgEl.className = 'text-[0.875rem] ' + (isError ? 'text-danger' : 'text-muted');
+    msgEl.textContent = msg;
+  }
+
+  function showPreview(fields) {
+    previewEl.classList.remove('hidden');
+    previewEl.style.display = 'flex';
+    if (fields.image_url) {
+      previewImg.src = fields.image_url;
+      previewImg.alt = fields.title || '';
+    } else {
+      previewImg.style.display = 'none';
+    }
+    previewTitle.textContent = fields.title || '';
+    var parts = [fields.media_type];
+    if (fields.year) parts.push(String(fields.year));
+    if (fields.rating != null) parts.push('★ ' + Number(fields.rating).toFixed(1));
+    previewMeta.textContent = parts.join(' · ');
+  }
+
+  lookupBtn.addEventListener('click', function () {
+    var url = (lookupInput.value || '').trim();
+    if (!url) return;
+
+    lookupBtn.disabled = true;
+    previewEl.classList.add('hidden');
+    showStatus('Looking up…', false);
+
+    fetch('/api/v1/management/media/imdb-lookup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf },
+      body: JSON.stringify({ url: url }),
+    })
+    .then(function (res) { return res.json().then(function (d) { return { ok: res.ok, body: d }; }); })
+    .then(function (res) {
+      var body = res.body;
+      var envelope = body.success !== undefined ? body : null;
+
+      if (envelope && envelope.success && envelope.data) {
+        var d = envelope.data;
+        if (d.already_exists) {
+          showStatus(envelope.message || 'Already in catalogue.', false);
+          /* Fill form with existing data so admin can see what's there */
+          if (d.item) {
+            var item = d.item;
+            fillForm({
+              title: item.title, media_type: item.media_type, year: item.year,
+              description: item.description, image_url: item.image_url,
+              imdb_id: item.imdb_id, imdb_url: item.imdb_url,
+              rating: item.rating, votes: item.votes, genres: item.genres,
+            });
+          }
+        } else {
+          showStatus('Got it! review the fields below then click "Create item".', false);
+          fillForm(d.fields);
+          showPreview(d.fields);
+        }
+      } else {
+        var msg = (envelope && envelope.message)
+          || (body.detail && body.detail[0] && body.detail[0].msg)
+          || 'Could not find information for that URL.';
+        showStatus(msg, true);
+      }
+    })
+    .catch(function () {
+      showStatus('Network error — please try again.', true);
+    })
+    .finally(function () {
+      lookupBtn.disabled = false;
+    });
+  });
+
+  lookupInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); lookupBtn.click(); }
+  });
+})();
+</script>
+{% endblock %}

@@ -16,3 +16,4 @@ from app.api.v1 import landing  # noqa: E402, F401
 from app.api.v1 import items  # noqa: E402, F401
 from app.api.v1 import friends  # noqa: E402, F401
 from app.api.v1 import messages  # noqa: E402, F401
+from app.api.v1 import media_import  # noqa: E402, F401

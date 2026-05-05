@@ -1,0 +1,178 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Add to catalogue — WatchList Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="mx-auto max-w-2xl">
+
+    <div class="mb-6">
+      <h1 class="h-section m-0">Add a title</h1>
+      <p class="mt-2 text-[0.875rem] leading-relaxed text-muted">
+        Paste an IMDb title URL and we'll look it up and add it to the catalogue automatically.
+      </p>
+    </div>
+
+    {# Chat area #}
+    <div class="card flex flex-col overflow-hidden" style="min-height:420px">
+
+      {# Message list #}
+      <div id="chat-messages"
+           class="flex flex-1 flex-col gap-3 overflow-y-auto p-5"
+           style="min-height:300px">
+
+        {# Initial bot message #}
+        <div class="flex gap-3">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-[0.75rem] font-bold text-accent">W</div>
+          <div class="max-w-[80%] rounded-2xl rounded-tl-sm bg-card-2 px-4 py-3 text-[0.875rem] leading-relaxed text-foreground">
+            Paste an IMDb URL below — for example:<br>
+            <code class="mt-1 block font-mono text-[0.75rem] text-muted">https://www.imdb.com/title/tt0111161/</code>
+          </div>
+        </div>
+
+      </div>
+
+      {# Input bar #}
+      <div class="border-t border-border p-3">
+        <form id="import-form" class="flex gap-2" novalidate autocomplete="off">
+          <input
+            id="imdb-url-input"
+            type="url"
+            class="form-input flex-1 font-mono text-[0.8125rem]"
+            placeholder="https://www.imdb.com/title/tt…"
+            spellcheck="false"
+            required>
+          <button type="submit" id="import-btn" class="btn btn--primary btn--sm shrink-0">
+            Import
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+(function () {
+  var csrf = {{ csrf_token()|tojson }};
+  var form = document.getElementById('import-form');
+  var input = document.getElementById('imdb-url-input');
+  var btn = document.getElementById('import-btn');
+  var messages = document.getElementById('chat-messages');
+
+  function escHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function addUserMsg(text) {
+    var el = document.createElement('div');
+    el.className = 'flex justify-end';
+    el.innerHTML = '<div class="max-w-[80%] rounded-2xl rounded-tr-sm bg-accent/15 px-4 py-3 text-[0.875rem] leading-relaxed text-foreground font-mono break-all">'
+      + escHtml(text) + '</div>';
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addBotMsg(html, isError) {
+    var el = document.createElement('div');
+    el.className = 'flex gap-3';
+    var bubble = document.createElement('div');
+    bubble.className = 'max-w-[80%] rounded-2xl rounded-tl-sm px-4 py-3 text-[0.875rem] leading-relaxed '
+      + (isError ? 'bg-danger/10 text-danger' : 'bg-card-2 text-foreground');
+    bubble.innerHTML = html;
+
+    var avatar = document.createElement('div');
+    avatar.className = 'flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-[0.75rem] font-bold text-accent';
+    avatar.textContent = 'W';
+
+    el.appendChild(avatar);
+    el.appendChild(bubble);
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addBotThinking() {
+    var el = document.createElement('div');
+    el.id = 'bot-thinking';
+    el.className = 'flex gap-3';
+    el.innerHTML = '<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/15 text-[0.75rem] font-bold text-accent">W</div>'
+      + '<div class="rounded-2xl rounded-tl-sm bg-card-2 px-4 py-3 text-[0.875rem] text-muted italic">Looking up…</div>';
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+    return el;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var url = (input.value || '').trim();
+    if (!url) return;
+
+    // Basic client-side check — server does the real validation
+    if (!/tt\d{7,10}/.test(url)) {
+      addBotMsg('That doesn\'t look like an IMDb title URL. The format should be '
+        + '<code class="font-mono text-[0.75rem]">https://www.imdb.com/title/tt0111161/</code>.', true);
+      return;
+    }
+
+    addUserMsg(url);
+    input.value = '';
+    btn.disabled = true;
+
+    var thinking = addBotThinking();
+
+    fetch('/api/v1/media/import', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrf,
+      },
+      body: JSON.stringify({ url: url }),
+    })
+    .then(function (res) { return res.json().then(function(d){ return {ok: res.ok, status: res.status, body: d}; }); })
+    .then(function (res) {
+      if (thinking && thinking.parentNode) thinking.parentNode.removeChild(thinking);
+      var body = res.body;
+      var envelope = body.success !== undefined ? body : null;
+
+      if (envelope && envelope.success && envelope.data) {
+        var item = envelope.data.item;
+        var existed = envelope.data.already_existed;
+        var viewUrl = '/items/' + encodeURIComponent(item.imdb_id || '');
+        var posterHtml = item.image_url
+          ? '<img src="' + escHtml(item.image_url) + '" alt="" class="mb-3 w-20 rounded object-cover">'
+          : '';
+        var yearStr = item.year ? ' (' + escHtml(String(item.year)) + ')' : '';
+        var ratingStr = item.rating != null ? ' · ★ ' + Number(item.rating).toFixed(1) : '';
+        addBotMsg(
+          (existed ? '<p class="mb-2 text-muted text-[0.8125rem]">Already in catalogue.</p>' : '')
+          + posterHtml
+          + '<p class="font-semibold">' + escHtml(item.title) + yearStr + '</p>'
+          + '<p class="mt-0.5 text-muted text-[0.8125rem]">' + escHtml(item.media_type) + ratingStr + '</p>'
+          + '<a href="' + escHtml(viewUrl) + '" class="mt-3 inline-block btn btn--sm">View</a>',
+          false
+        );
+      } else {
+        var msg = (envelope && envelope.message) || (body.detail && body.detail[0] && body.detail[0].msg) || 'Could not find or add this title.';
+        addBotMsg(escHtml(msg), true);
+      }
+    })
+    .catch(function () {
+      if (thinking && thinking.parentNode) thinking.parentNode.removeChild(thinking);
+      addBotMsg('Something went wrong. Please check your connection and try again.', true);
+    })
+    .finally(function () {
+      btn.disabled = false;
+      input.focus();
+    });
+  });
+})();
+</script>
+{% endblock %}

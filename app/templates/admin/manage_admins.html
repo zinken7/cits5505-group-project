@@ -1,0 +1,94 @@
+{% extends "app_layout.html" %}
+
+{% block title %}Manage administrators — WatchList Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+  <div class="mx-auto max-w-5xl">
+
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex min-w-0 items-center gap-3">
+        <div class="min-w-0">
+          <h1 class="h-section m-0">Manage administrators</h1>
+          <p class="mt-2 max-w-2xl text-[0.875rem] leading-relaxed text-muted">
+            Grant or revoke admin access. The root account is protected and cannot be changed here.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4 grid gap-3 sm:grid-cols-3">
+      <div class="card p-4">
+        <div class="h-eyebrow">Users</div>
+        <div class="mt-2 text-3xl font-semibold text-foreground">{{ users|length }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="h-eyebrow">Admins</div>
+        <div class="mt-2 text-3xl font-semibold text-foreground">{{ users|selectattr("is_admin")|list|length }}</div>
+      </div>
+      <div class="card p-4">
+        <div class="h-eyebrow">Root</div>
+        <div class="mt-2 text-[0.95rem] font-semibold text-success">Protected</div>
+        <p class="mt-1 text-[0.8125rem] leading-relaxed text-muted">Root keeps admin privileges.</p>
+      </div>
+    </div>
+
+    <div class="card overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-[0.875rem]">
+          <thead>
+            <tr class="border-b border-border bg-card-2/60">
+              <th class="px-4 py-3 font-semibold">User</th>
+              <th class="hidden px-4 py-3 font-semibold md:table-cell">Email</th>
+              <th class="px-4 py-3 font-semibold">Role</th>
+              <th class="w-[1%] whitespace-nowrap px-4 py-3 text-right font-semibold">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for u in users %}
+            <tr class="border-b border-border transition-colors hover:bg-card-2/50">
+              <td class="min-w-[180px] px-4 py-3">
+                <div class="font-medium text-foreground">{{ u.username }}</div>
+                {% if u.id == current_user.id %}
+                <div class="mt-1 text-[0.75rem] text-muted">Current session</div>
+                {% endif %}
+                <div class="mt-1 truncate text-[0.75rem] text-muted md:hidden">{{ u.email }}</div>
+              </td>
+              <td class="hidden px-4 py-3 text-muted md:table-cell">{{ u.email }}</td>
+              <td class="px-4 py-3">
+                {% if u.is_root %}
+                <span class="pill pill--ink">Root</span>
+                {% elif u.is_admin %}
+                <span class="pill pill--accent">Admin</span>
+                {% else %}
+                <span class="pill">Member</span>
+                {% endif %}
+              </td>
+              <td class="whitespace-nowrap px-4 py-3 text-right">
+                {% if u.is_root %}
+                <span class="text-[0.8125rem] font-medium text-muted">Locked</span>
+                {% elif u.is_admin %}
+                <form method="post" class="inline">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <input type="hidden" name="user_id" value="{{ u.id }}"/>
+                  <input type="hidden" name="action" value="revoke"/>
+                  <button type="submit" class="btn btn--sm text-danger">Revoke</button>
+                </form>
+                {% else %}
+                <form method="post" class="inline">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <input type="hidden" name="user_id" value="{{ u.id }}"/>
+                  <input type="hidden" name="action" value="grant"/>
+                  <button type="submit" class="btn btn--primary btn--sm">Make admin</button>
+                </form>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

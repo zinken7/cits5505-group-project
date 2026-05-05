@@ -145,6 +145,16 @@ def search():
     return render_template("search.html", q=q)
 
 
+@bp.route("/media/add")
+@login_required
+def add_media_user():
+    """IMDb URL import page for regular (non-admin) users."""
+    if current_user.is_admin:
+        from flask import redirect
+        return redirect(url_for("management.add_media"))
+    return render_template("media_add.html")
+
+
 @bp.route("/items/<imdb_id>")
 def item_detail(imdb_id):
     """Item detail page — JS hydrates from /api/v1/items/<imdb_id>."""

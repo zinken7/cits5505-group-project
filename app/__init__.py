@@ -12,6 +12,11 @@ def create_app(config_name=None):
 
     if config_name is None:
         config_name = os.environ.get("FLASK_ENV", "default")
+    if isinstance(config_name, str):
+        config_name = config_name.strip().lower() or "default"
+
+    if config_name not in config:
+        config_name = "default"
 
     app = Flask(
         __name__,
@@ -20,6 +25,16 @@ def create_app(config_name=None):
     )
     cfg = config[config_name]
     app.config.from_object(cfg)
+
+    if os.environ.get("VITE_DEV_MODE", "").strip().lower() in {"1", "true", "yes"}:
+        app.config["VITE_DEV_MODE"] = True
+
+    if not app.config.get("VITE_DEV_MODE", False):
+        flask_env = os.environ.get("FLASK_ENV", "").strip().lower()
+        manifest_path = app.config.get("VITE_MANIFEST_PATH", "")
+        if flask_env != "production" and manifest_path and not os.path.exists(manifest_path):
+            app.config["VITE_DEV_MODE"] = True
+
     if hasattr(cfg, "init_app"):
         cfg.init_app(app)
 

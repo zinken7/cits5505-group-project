@@ -34,6 +34,8 @@ else
 fi
 
 echo "Starting backend..."
+export FLASK_ENV=development
+export VITE_DEV_MODE=1
 python run.py &
 BACKEND_PID=$!
 

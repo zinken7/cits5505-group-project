@@ -35,7 +35,7 @@ class DevelopmentConfig(Config):
     """Development configuration."""
 
     DEBUG = True
-    VITE_DEV_MODE = os.environ.get("VITE_DEV_MODE", "").lower() in {"1", "true", "yes"}
+    VITE_DEV_MODE = False
     PASSWORD_RESET_EXPOSE_LINK = True
 
 

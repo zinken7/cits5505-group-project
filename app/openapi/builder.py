@@ -490,6 +490,29 @@ def _paths():
         }
     }
 
+    p["/api/v1/share/media"] = {
+        "post": {
+            "tags": ["Messages"],
+            "summary": "Share a media item with a friend",
+            "requestBody": {
+                "required": True,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "required": ["mediaId", "recipientId"],
+                            "properties": {
+                                "mediaId": {"type": "integer"},
+                                "recipientId": {"type": "integer"},
+                            },
+                        }
+                    }
+                },
+            },
+            "responses": _created_response(),
+        }
+    }
+
     msg_peer = {
         "name": "user_id",
         "in": "path",

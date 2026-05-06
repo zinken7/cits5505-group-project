@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from sqlalchemy import or_, and_
 from app.extensions import db
 from app.models.message import Message
+from app.models.user import User
 from app.services.friend_service import are_friends
 from app.services import tag_service
 
@@ -21,6 +22,9 @@ def send_message(sender_id, recipient_id, body):
 
 
 def get_conversation(user_a, user_b, limit=50, offset=0):
+    other = db.session.get(User, user_b)
+    if not other or other.deactivated:
+        return []
     rows = Message.query.filter(
         or_(
             and_(Message.sender_id == user_a, Message.recipient_id == user_b),
@@ -35,6 +39,9 @@ def get_conversation(user_a, user_b, limit=50, offset=0):
 
 
 def mark_read(reader_id, sender_id):
+    sender = db.session.get(User, sender_id)
+    if not sender or sender.deactivated:
+        return 0
     now = datetime.now(timezone.utc)
     updated = Message.query.filter_by(
         sender_id=sender_id, recipient_id=reader_id, read_at=None
@@ -44,4 +51,9 @@ def mark_read(reader_id, sender_id):
 
 
 def unread_count(user_id):
-    return Message.query.filter_by(recipient_id=user_id, read_at=None).count()
+    return (
+        Message.query
+        .join(User, Message.sender_id == User.id)
+        .filter(Message.recipient_id == user_id, Message.read_at.is_(None), User.deactivated.is_(False))
+        .count()
+    )

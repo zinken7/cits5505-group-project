@@ -66,6 +66,78 @@
       </div>
 
       {% if current_user.is_authenticated %}
+      <div class="navlist">
+        <div class="navlist__label">Media</div>
+        {% if current_user.is_admin %}
+        <a href="{{ url_for('management.add_media') }}"
+          class="navitem {{ 'is-active' if request.endpoint == 'management.add_media' else '' }}"
+          title="Add catalogue item">
+          <span class="navitem__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" width="18" height="18">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="navitem__label">Add media</span>
+        </a>
+        <a href="{{ url_for('management.manage_media') }}"
+          class="navitem {{ 'is-active' if request.endpoint in ('management.manage_media', 'management.edit_media') else '' }}"
+          title="Browse and edit catalogue">
+          <span class="navitem__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" width="18" height="18">
+              <path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>
+            </svg>
+          </span>
+          <span class="navitem__label">Manage media</span>
+        </a>
+        {% else %}
+        <a href="{{ url_for('main.add_media_user') }}"
+          class="navitem {{ 'is-active' if request.endpoint == 'main.add_media_user' else '' }}"
+          title="Add a title via IMDb URL">
+          <span class="navitem__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" width="18" height="18">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </span>
+          <span class="navitem__label">Add media</span>
+        </a>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if current_user.is_authenticated and current_user.is_admin %}
+      <div class="navlist">
+        <div class="navlist__label">Admin</div>
+        <a href="{{ url_for('management.manage_users') }}"
+          class="navitem {{ 'is-active' if request.endpoint == 'management.manage_users' else '' }}"
+          title="Deactivate user accounts">
+          <span class="navitem__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" width="18" height="18">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 8h5"/>
+            </svg>
+          </span>
+          <span class="navitem__label">Manage users</span>
+        </a>
+        {% if current_user.is_root %}
+        <a href="{{ url_for('management.manage_admins') }}"
+          class="navitem {{ 'is-active' if request.endpoint == 'management.manage_admins' else '' }}"
+          title="Manage administrators">
+          <span class="navitem__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" width="18" height="18">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </span>
+          <span class="navitem__label">Manage admins</span>
+        </a>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if current_user.is_authenticated %}
       <div id="sidebar-requests-wrap" class="navlist" style="display:none">
         <div class="navlist__label" style="display:flex;align-items:center;justify-content:space-between">
           <span>Requests</span>

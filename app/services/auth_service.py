@@ -43,6 +43,6 @@ def authenticate_user(login, password):
     user = User.query.filter(
         or_(User.email == login, User.username == login)
     ).first()
-    if user and user.check_password(password):
+    if user and not user.deactivated and user.check_password(password):
         return user
     return None

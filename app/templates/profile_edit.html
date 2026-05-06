@@ -97,6 +97,16 @@
       </div>
 
     </form>
+
+    <div class="card mt-6 border border-danger/30 p-5">
+      <div class="h-eyebrow">Account</div>
+      <div class="mt-2 text-[0.9375rem] font-semibold text-foreground">Delete account</div>
+      <p class="mt-2 text-[0.8125rem] leading-relaxed text-muted">
+        Your account will be deactivated. Your watchlist, messages, friendships, and profile data stay in the database.
+      </p>
+      <div id="delete-account-error" class="mt-3 hidden text-[0.8125rem]" style="color:var(--bad)"></div>
+      <button type="button" class="btn btn--sm mt-4 text-danger" id="delete-account-btn">Delete account</button>
+    </div>
   </div>
 </div>
 {% endblock %}
@@ -156,6 +166,37 @@
           saveBtn.textContent = 'Save Changes';
         });
     });
+
+    var deleteBtn = document.getElementById('delete-account-btn');
+    var deleteErr = document.getElementById('delete-account-error');
+    if (deleteBtn) {
+      deleteBtn.addEventListener('click', function () {
+        window.appConfirm({
+          title: 'Delete account?',
+          message: 'Your data will stay stored, but your profile and login will be disabled.',
+          confirmText: 'Delete account',
+          cancelText: 'Cancel',
+          danger: true
+        }).then(function (confirmed) {
+          if (!confirmed) return;
+          deleteBtn.disabled = true;
+          deleteBtn.textContent = 'Deleting…';
+          if (deleteErr) deleteErr.classList.add('hidden');
+          window.apiFetch('/api/v1/users/me', { method: 'DELETE' })
+            .then(function () {
+              window.location.href = '/login';
+            })
+            .catch(function (err) {
+              if (deleteErr) {
+                deleteErr.textContent = (err && err.message) || 'Failed to delete account.';
+                deleteErr.classList.remove('hidden');
+              }
+              deleteBtn.disabled = false;
+              deleteBtn.textContent = 'Delete account';
+            });
+          });
+        });
+    }
   })();
 </script>
 {% endblock %}

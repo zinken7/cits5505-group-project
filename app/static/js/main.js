@@ -45,6 +45,85 @@ window.apiFetch = function apiFetch(path, opts) {
   });
 };
 
+window.appConfirm = function appConfirm(options) {
+  options = options || {};
+  var title = options.title || 'Confirm action';
+  var message = options.message || '';
+  var confirmText = options.confirmText || 'Confirm';
+  var cancelText = options.cancelText || 'Cancel';
+  var danger = options.danger !== false;
+
+  return new Promise(function (resolve) {
+    var modal = document.getElementById('app-confirm-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'app-confirm-modal';
+      modal.className = 'fixed inset-0 z-200 hidden items-center justify-center bg-black/55 p-4';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = [
+        '<div class="card max-w-md border border-border p-6 shadow-lg" data-app-confirm-panel>',
+        '<h2 class="h-section m-0 text-[1.1rem]" id="app-confirm-title"></h2>',
+        '<p class="mt-3 text-[0.875rem] leading-relaxed text-muted" id="app-confirm-message"></p>',
+        '<div class="mt-6 flex flex-wrap justify-end gap-2">',
+        '<button type="button" class="btn btn--sm" id="app-confirm-cancel"></button>',
+        '<button type="button" class="btn btn--sm" id="app-confirm-ok"></button>',
+        '</div>',
+        '</div>'
+      ].join('');
+      document.body.appendChild(modal);
+    }
+
+    var titleEl = modal.querySelector('#app-confirm-title');
+    var msgEl = modal.querySelector('#app-confirm-message');
+    var cancelBtn = modal.querySelector('#app-confirm-cancel');
+    var okBtn = modal.querySelector('#app-confirm-ok');
+    var previousFocus = document.activeElement;
+
+    titleEl.textContent = title;
+    msgEl.textContent = message;
+    cancelBtn.textContent = cancelText;
+    okBtn.textContent = confirmText;
+    okBtn.className = danger
+      ? 'btn btn--sm border-danger/40 text-danger'
+      : 'btn btn--primary btn--sm';
+
+    function close(value) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modal.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', onKeydown);
+      cancelBtn.removeEventListener('click', onCancel);
+      okBtn.removeEventListener('click', onOk);
+      modal.removeEventListener('click', onBackdrop);
+      if (previousFocus && typeof previousFocus.focus === 'function') {
+        previousFocus.focus();
+      }
+      resolve(value);
+    }
+
+    function onCancel() { close(false); }
+    function onOk() { close(true); }
+    function onBackdrop(e) {
+      if (e.target === modal) close(false);
+    }
+    function onKeydown(e) {
+      if (e.key === 'Escape') close(false);
+    }
+
+    cancelBtn.addEventListener('click', onCancel);
+    okBtn.addEventListener('click', onOk);
+    modal.addEventListener('click', onBackdrop);
+    document.addEventListener('keydown', onKeydown);
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    modal.setAttribute('aria-hidden', 'false');
+    okBtn.focus();
+  });
+};
+
 (function ($) {
   "use strict";
 

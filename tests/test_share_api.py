@@ -65,3 +65,39 @@ def test_share_media_rejects_non_friend(client, app, db):
 
     assert rv.status_code == 400
     assert rv.get_json()["message"] == "You can only message friends"
+
+
+def test_share_media_requires_login(client, db):
+    rv = post_json(client, "/api/v1/share/media", {
+        "mediaId": 1,
+        "recipientId": 2,
+    })
+
+    body = rv.get_json()
+    assert rv.status_code == 401
+    assert body["success"] is False
+    assert body["message"] == "Authentication required"
+
+
+def test_share_media_validates_required_fields(client, db):
+    register(client, "sender3", "sender3@example.com")
+
+    rv = post_json(client, "/api/v1/share/media", {"mediaId": 1})
+    body = rv.get_json()
+
+    assert rv.status_code == 422
+    assert body["detail"][0]["msg"] == "recipientId is required"
+
+
+def test_share_media_returns_not_found_for_missing_media(client, db):
+    register(client, "sender4", "sender4@example.com")
+
+    rv = post_json(client, "/api/v1/share/media", {
+        "mediaId": 9999,
+        "recipientId": 1,
+    })
+    body = rv.get_json()
+
+    assert rv.status_code == 404
+    assert body["success"] is False
+    assert body["message"] == "Media not found"

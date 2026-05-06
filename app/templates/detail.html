@@ -54,7 +54,7 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
               Like
             </button>
-            <button class="btn flex-1">
+            <button type="button" class="btn flex-1" data-action="open-share">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>
               Share
             </button>
@@ -191,6 +191,34 @@
         </div>
 
       </div>
+    </div>
+  </div>
+
+  <div id="share-modal"
+       class="fixed inset-0 z-200 hidden items-center justify-center"
+       style="background:var(--overlay-scrim);padding:18px"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="share-modal-title"
+       aria-hidden="true">
+    <div class="card w-full max-w-md" style="padding:22px;box-shadow:var(--shadow-lg)">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 id="share-modal-title" class="h-section" style="font-size:1.35rem">Share with a friend</h2>
+          <p class="text-sm text-muted" style="margin-top:6px">Send this title as a message.</p>
+        </div>
+        <button type="button" class="iconbtn" data-action="close-share" aria-label="Close share dialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="share-friend-list" class="flex flex-col gap-2" style="margin-top:18px"></div>
+      <div id="share-empty" class="hidden text-sm text-muted" style="margin-top:18px">
+        You do not have any friends to share with yet.
+      </div>
+      <div id="share-error" class="hidden text-sm" style="margin-top:14px;color:var(--bad)"></div>
     </div>
   </div>
 </div>

@@ -5,11 +5,22 @@
 (function () {
   'use strict';
 
-  var allItems = [];
+  var PAGE_SIZE = 18;
+  var CACHE_KEY = 'wh.explore.v1';
+  var CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+  var allItems     = [];
+  var filteredItems = [];   // current filtered+sorted result set
+  var visibleCount  = 0;    // how many of filteredItems are in the DOM
+
   var currentType  = window._exploreInitialType || 'all';
   var currentGenre = 'All';
   var currentSort  = 'trending';
   var currentQ     = '';
+
+  var _sentinel    = null;  // IntersectionObserver target
+  var _observer    = null;
+  var _loadPending = false; // prevents re-entrant sentinel fires
 
   // ── Boot ──────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
@@ -23,6 +34,21 @@
 
   // ── Data loading ─────────────────────────────────────────────────
   function loadData() {
+    // Check sessionStorage cache first
+    try {
+      var cached = sessionStorage.getItem(CACHE_KEY);
+      if (cached) {
+        var parsed = JSON.parse(cached);
+        if (parsed && Date.now() - parsed.ts < CACHE_TTL) {
+          allItems = parsed.items;
+          renderTrending(parsed.trending);
+          buildGenreChips();
+          applyFilters();
+          return;
+        }
+      }
+    } catch (e) { /* sessionStorage unavailable or parse error — fall through */ }
+
     var fetches = [
       apiFetch('/api/v1/movies?limit=100&sort=-releaseYear'),
       apiFetch('/api/v1/anime?limit=100'),
@@ -40,6 +66,11 @@
       var trending = unwrap(results[3]);
 
       allItems = movies.concat(anime, tvshows);
+
+      try {
+        sessionStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), items: allItems, trending: trending }));
+      } catch (e) { /* storage full or unavailable — skip cache write */ }
+
       renderTrending(trending);
       buildGenreChips();
       applyFilters();
@@ -109,7 +140,9 @@
       });
     }
 
-    renderGrid(filtered, q);
+    filteredItems = filtered;
+    visibleCount  = 0;
+    _renderVisible(false, q);
 
     // Show/hide trending section only when no filters active
     var trendSection = document.getElementById('trending-section');
@@ -118,27 +151,95 @@
     }
   }
 
-  function renderGrid(items, q) {
-    var grid = document.getElementById('results-grid');
+  // ── Visible slice rendering ───────────────────────────────────────
+  function _renderVisible(append, q) {
+    var grid      = document.getElementById('results-grid');
     var noResults = document.getElementById('no-results');
-    var countEl = document.getElementById('result-count');
+    var countEl   = document.getElementById('result-count');
+    var total     = filteredItems.length;
 
-    if (countEl) {
-      countEl.innerHTML = items.length + ' result' + (items.length !== 1 ? 's' : '') +
-        (q ? ' for &ldquo;<span class="text-foreground">' + esc(q) + '</span>&rdquo;' : '');
-    }
-
-    if (!items.length) {
-      if (grid) grid.style.display = 'none';
+    if (!total) {
+      if (grid) { grid.innerHTML = ''; grid.style.display = 'none'; }
       if (noResults) noResults.style.display = '';
+      if (countEl) countEl.textContent = '0 results';
+      _detachSentinel();
       return;
     }
 
     if (noResults) noResults.style.display = 'none';
-    if (grid) {
-      grid.style.display = '';
-      grid.innerHTML = items.map(function (item) { return mcard(item); }).join('');
+    if (grid) grid.style.display = '';
+
+    var start = append ? visibleCount : 0;
+    var end   = Math.min(visibleCount + PAGE_SIZE, total);
+    var batch = filteredItems.slice(start, end);
+    visibleCount = end;
+
+    if (countEl) {
+      var label = (q == null ? currentQ : q);
+      countEl.innerHTML =
+        'Showing ' + visibleCount + ' of ' + total +
+        ' result' + (total !== 1 ? 's' : '') +
+        (label ? ' for &ldquo;<span class="text-foreground">' + esc(label) + '</span>&rdquo;' : '');
     }
+
+    if (grid) {
+      if (!append) {
+        grid.innerHTML = batch.map(function (item) { return mcard(item); }).join('');
+      } else {
+        var frag = document.createDocumentFragment();
+        batch.forEach(function (item) {
+          var tmp = document.createElement('div');
+          tmp.innerHTML = mcard(item);
+          while (tmp.firstChild) frag.appendChild(tmp.firstChild);
+        });
+        grid.appendChild(frag);
+      }
+    }
+
+    if (visibleCount < total) {
+      _attachSentinel(grid);
+    } else {
+      _detachSentinel();
+    }
+  }
+
+  // ── Sentinel / IntersectionObserver ──────────────────────────────
+  function _attachSentinel(grid) {
+    if (!grid) return;
+    if (!_sentinel) {
+      _sentinel = document.createElement('div');
+      _sentinel.id = 'scroll-sentinel';
+      _sentinel.style.cssText = 'height:1px;width:100%;grid-column:1/-1;';
+    }
+    // appendChild moves the sentinel to the end of the grid whether or not it
+    // is already in the DOM. This keeps the sentinel AFTER all rendered cards
+    // so the observer fires correctly on the next downward scroll.
+    grid.appendChild(_sentinel);
+
+    if (!_observer) {
+      _observer = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting || _loadPending) return;
+        _loadPending = true;
+        _renderVisible(true);
+        // Two rAF frames let the browser repaint and recalculate the sentinel
+        // position before _loadPending is cleared.
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { _loadPending = false; });
+        });
+      }, { rootMargin: '200px' });
+      // Observe exactly once — never unobserve/re-observe between batches.
+      // Re-observing triggers an async initial-state callback; if the sentinel
+      // is still in view when that fires and _loadPending blocks it, the
+      // observer treats the state as already delivered and never fires again
+      // until the element exits and re-enters the viewport.
+      _observer.observe(_sentinel);
+    }
+  }
+
+  function _detachSentinel() {
+    if (_observer) { _observer.disconnect(); _observer = null; }
+    if (_sentinel && _sentinel.parentNode) _sentinel.parentNode.removeChild(_sentinel);
+    _loadPending = false;
   }
 
   // ── Media card HTML ───────────────────────────────────────────────

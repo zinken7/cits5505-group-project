@@ -63,9 +63,9 @@
   function fetchAll(genre) {
     var enc = encodeURIComponent(genre);
     var apis = [
-      { id: 'movie',  url: '/api/v1/movies?genre='  + enc + '&sort=-rating&limit=16' },
-      { id: 'anime',  url: '/api/v1/anime?genre='   + enc + '&sort=-rating&limit=16' },
-      { id: 'tvshow', url: '/api/v1/tvshows?genre=' + enc + '&sort=-rating&limit=16' },
+      { id: 'movie',  url: '/api/v1/movies?genre='  + enc + '&sort=-rating&limit=12' },
+      { id: 'anime',  url: '/api/v1/anime?genre='   + enc + '&sort=-rating&limit=12' },
+      { id: 'tvshow', url: '/api/v1/tvshows?genre=' + enc + '&sort=-rating&limit=12' },
     ];
 
     apis.forEach(function (api) {

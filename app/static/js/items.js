@@ -378,14 +378,13 @@
         var ids = selectedFriendIds();
         if (!ids.length || sendBtn.disabled) return;
         sendBtn.disabled = true;
+        sendBtn.textContent = 'Sending...';
         showError("");
 
-        Promise.all(ids.map(function (id) {
-          return window.apiFetch('/api/v1/share/media', {
-            method: 'POST',
-            body: { mediaId: data.id, recipientId: Number(id) },
-          });
-        }))
+        window.apiFetch('/api/v1/share/media', {
+          method: 'POST',
+          body: { mediaId: data.id, recipientIds: ids.map(Number) },
+        })
           .then(function () {
             closeModal();
             renderAlert(root, "success", "Shared with " + ids.length + " friend" + (ids.length === 1 ? "." : "s."));
@@ -393,7 +392,10 @@
           .catch(function (err) {
             showError((err && err.message) || "Could not share this title.");
           })
-          .finally(updateSendState);
+          .finally(function () {
+            sendBtn.textContent = 'Send share';
+            updateSendState();
+          });
       });
     }
   }

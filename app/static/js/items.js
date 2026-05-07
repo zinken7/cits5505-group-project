@@ -263,6 +263,7 @@
     var empty = document.getElementById('share-empty');
     var error = document.getElementById('share-error');
     var sendBtn = modal.querySelector('[data-action="send-share"]');
+    var selectedCount = document.getElementById('share-selected-count');
     var closeBtns = [].slice.call(modal.querySelectorAll('[data-action="close-share"]'));
     var friendsLoaded = false;
 
@@ -279,7 +280,13 @@
     }
 
     function updateSendState() {
-      if (sendBtn) sendBtn.disabled = selectedFriendIds().length === 0;
+      var count = selectedFriendIds().length;
+      if (sendBtn) sendBtn.disabled = count === 0;
+      if (selectedCount) {
+        selectedCount.textContent = count
+          ? count + ' friend' + (count === 1 ? '' : 's') + ' selected'
+          : 'No friends selected';
+      }
     }
 
     function friendRow(friend) {
@@ -315,6 +322,7 @@
     function loadFriends() {
       if (friendsLoaded) return Promise.resolve();
       if (friendList) friendList.innerHTML = '<div class="text-sm text-muted">Loading friends...</div>';
+      if (empty) empty.classList.add("hidden");
       return window.apiFetch('/api/v1/friends')
         .then(function (friends) {
           friendsLoaded = true;
@@ -328,6 +336,12 @@
 
     function openModal() {
       showError("");
+      if (friendList) {
+        friendList.querySelectorAll('input[type="checkbox"]').forEach(function (input) {
+          input.checked = false;
+        });
+      }
+      updateSendState();
       modal.classList.remove("hidden");
       modal.classList.add("flex");
       modal.setAttribute("aria-hidden", "false");
@@ -339,6 +353,7 @@
       modal.classList.remove("flex");
       modal.setAttribute("aria-hidden", "true");
       showError("");
+      updateSendState();
     }
 
     openBtn.addEventListener("click", function () {

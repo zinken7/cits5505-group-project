@@ -146,14 +146,33 @@
            style="margin-top:18px;font-style:italic;font-family:var(--font-display)"></p>
 
         {# Trailer placeholder #}
-        <div class="mt-7 relative overflow-hidden" style="aspect-ratio:16/7;border-radius:16px;cursor:pointer;background:var(--card-bg-2);border:1px solid var(--rule)">
-          <div data-field="trailer-bg" class="absolute inset-0" style="background-size:cover;background-position:center;filter:brightness(.6) saturate(1.15)"></div>
-          <div class="absolute inset-0 grid place-items-center">
-            <div class="w-18 h-18 grid place-items-center text-[#14110d]" style="border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 16px 40px rgba(0,0,0,.4)">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
+        <div data-field="trailer-container"
+            class="mt-7 relative overflow-hidden"
+            style="aspect-ratio:16/7;border-radius:16px;cursor:pointer;background:var(--card-bg-2);border:1px solid var(--rule)">
+
+          <div data-field="trailer-bg"
+              class="absolute inset-0"
+              style="background-size:cover;background-position:center;filter:brightness(.6) saturate(1.15)">
           </div>
-          <div class="absolute text-white text-[0.6875rem]" style="left:20px;bottom:18px;font-family:var(--font-mono);letter-spacing:.16em;text-transform:uppercase">Official Trailer</div>
+
+          <button type="button"
+                  data-action="play-trailer"
+                  class="absolute inset-0 grid place-items-center border-0 bg-transparent cursor-pointer"
+                  aria-label="Play official trailer">
+
+            <span class="w-18 h-18 grid place-items-center text-[#14110d]"
+                  style="border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 16px 40px rgba(0,0,0,.4)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+
+          </button>
+
+          <div class="absolute text-white text-[0.6875rem]"
+              style="left:20px;bottom:18px;font-family:var(--font-mono);letter-spacing:.16em;text-transform:uppercase">
+            Official Trailer
+          </div>
         </div>
 
         {# Synopsis #}

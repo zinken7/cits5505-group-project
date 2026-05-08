@@ -11,6 +11,8 @@ from app.api.v1.common import (
     validate_body,
 )
 from app.api.v1.schemas.users import UserMePatchSchema
+from app.extensions import db
+from app.models.user import User
 from app.services.user_service import get_user, update_user
 from app.services.watchlist_service import filter_watchlist, get_user_watchlist
 
@@ -110,3 +112,26 @@ def users_watchlist_get(user_id):
     raw = get_user_watchlist(uid, status=None)
     items, total = filter_watchlist(raw, status=status, media_type=media_type, q=q, sort=sort, limit=limit, offset=offset)
     return api_response(data=items, meta={"limit": limit, "offset": offset, "total": total})
+
+
+@bp.route("/users/search", methods=["GET"])
+@api_login_required
+def users_search():
+    q = (request.args.get("q") or "").strip()
+    if not q:
+        return api_response(data=[], meta={"limit": 0, "offset": 0, "total": 0})
+    limit, offset = parse_pagination(limit_default=20, max_limit=100)
+
+    query = User.query.filter(
+        db.or_(
+            User.username.ilike(f"%{q}%"),
+            User.display_name.ilike(f"%{q}%")
+        )
+    ).filter(User.id != current_user.id)
+
+    total = query.count()
+    users = query.order_by(User.username.asc()).offset(offset).limit(limit).all()
+    return api_response(
+        data=[u.to_public_dict() for u in users],
+        meta={"limit": limit, "offset": offset, "total": total},
+    )

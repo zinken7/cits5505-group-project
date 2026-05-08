@@ -25,9 +25,7 @@
  */
 window.apiFetch = function apiFetch(path, opts) {
   opts = opts || {};
-  var csrfMeta = document.querySelector('meta[name="csrf-token"]');
-  var csrfToken = csrfMeta ? csrfMeta.getAttribute("content") : "";
-  var headers = Object.assign({ "Content-Type": "application/json", "X-CSRFToken": csrfToken }, opts.headers || {});
+  var headers = Object.assign({ "Content-Type": "application/json" }, opts.headers || {});
   var fetchOpts = Object.assign({}, opts, { headers: headers });
   if (opts.body && typeof opts.body === "object") {
     fetchOpts.body = JSON.stringify(opts.body);

@@ -145,6 +145,14 @@ def search():
     return render_template("search.html", q=q)
 
 
+@bp.route("/search-users")
+@login_required
+def search_users():
+    """Search users page."""
+    q = request.args.get("q", "").strip()
+    return render_template("search_users.html", q=q)
+
+
 @bp.route("/items/<imdb_id>")
 def item_detail(imdb_id):
     """Item detail page — JS hydrates from /api/v1/items/<imdb_id>."""

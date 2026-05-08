@@ -25,9 +25,10 @@ def user_and_media(db, app):
 def test_add_to_watchlist(user_and_media, app):
     user, media = user_and_media
     with app.app_context():
-        item, err = add_to_watchlist(user.id, media.id, status="planned")
+        item, err = add_to_watchlist(user.id, media.id, status="planned", is_liked=True)
         assert err is None
         assert item["status"] == "planned"
+        assert item["is_liked"] is True
 
 
 def test_add_duplicate_rejected(user_and_media, app):
@@ -52,6 +53,16 @@ def test_patch_watchlist_item(user_and_media, app):
         updated, err = patch_watchlist_item(item["id"], user.id, status="completed")
         assert err is None
         assert updated["status"] == "completed"
+
+
+def test_patch_watchlist_item_like(user_and_media, app):
+    user, media = user_and_media
+    with app.app_context():
+        item, _ = add_to_watchlist(user.id, media.id, status="planned")
+        updated, err = patch_watchlist_item(item["id"], user.id, is_liked=True)
+        assert err is None
+        assert updated["status"] == "planned"
+        assert updated["is_liked"] is True
 
 
 def test_remove_from_watchlist(user_and_media, app):

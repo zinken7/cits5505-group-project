@@ -123,9 +123,12 @@
   function wireWatchlist(root, data, watchlistUrl) {
     var btn        = root.querySelector('[data-action="add-to-watchlist"]');
     var label      = btn ? btn.querySelector('[data-field="action-label"]') : null;
+    var likeBtn    = root.querySelector('[data-action="toggle-like"]');
+    var likeLabel  = likeBtn ? likeBtn.querySelector('[data-field="like-label"]') : null;
+    var likeIcon   = likeBtn ? likeBtn.querySelector('[data-field="like-icon"]') : null;
     var statusBtns = [].slice.call(root.querySelectorAll('[data-status-btn]'));
 
-    var currentEntry  = null; // { id, status } when item is already in watchlist
+    var currentEntry  = null; // { id, status, is_liked } when item is already in watchlist
     var selectedStatus = 'planned';
 
     // ── Load existing entry ──────────────────────────────────────
@@ -136,7 +139,11 @@
           var items = Array.isArray(result) ? result : [];
           for (var i = 0; i < items.length; i++) {
             if (items[i].media_id === data.id) {
-              currentEntry = { id: items[i].id, status: items[i].status };
+              currentEntry = {
+                id: items[i].id,
+                status: items[i].status,
+                is_liked: !!items[i].is_liked,
+              };
               selectedStatus = items[i].status;
               break;
             }
@@ -163,6 +170,14 @@
           btn.classList.remove('btn--ghost');
         }
         btn.disabled = false;
+      }
+      if (likeBtn) {
+        var liked = !!(currentEntry && currentEntry.is_liked);
+        likeBtn.classList.toggle('btn--accent', liked);
+        likeBtn.setAttribute('aria-pressed', liked ? 'true' : 'false');
+        if (likeLabel) likeLabel.textContent = liked ? 'Liked' : 'Like';
+        if (likeIcon) likeIcon.setAttribute('fill', liked ? 'currentColor' : 'none');
+        likeBtn.disabled = false;
       }
     }
 
@@ -194,15 +209,15 @@
             body: JSON.stringify({ mediaType: data.media_type, mediaId: data.id, status: newStatus }),
           })
             .then(function (entry) {
-              currentEntry = { id: entry.id, status: entry.status || newStatus };
+              currentEntry = { id: entry.id, status: entry.status || newStatus, is_liked: !!entry.is_liked };
               selectedStatus = currentEntry.status;
               applyState();
               renderAlert(root, 'success', 'Added to ' + currentEntry.status + ' list.');
             })
             .catch(function () {
               renderAlert(root, 'error', 'Could not add to watchlist.');
-              statusBtns.forEach(function (b) { b.disabled = false; });
-            });
+            })
+            .finally(function () { statusBtns.forEach(function (b) { b.disabled = false; }); });
         }
       });
     });
@@ -235,7 +250,7 @@
             body: JSON.stringify({ mediaType: data.media_type, mediaId: data.id, status: selectedStatus }),
           })
             .then(function (entry) {
-              currentEntry = { id: entry.id, status: entry.status || selectedStatus };
+              currentEntry = { id: entry.id, status: entry.status || selectedStatus, is_liked: !!entry.is_liked };
               selectedStatus = currentEntry.status;
               applyState();
               renderAlert(root, 'success', 'Added to ' + currentEntry.status + ' list.');
@@ -244,6 +259,50 @@
               if (label) label.textContent = 'Add to Watchlist';
               btn.disabled = false;
               renderAlert(root, 'error', 'Could not add to watchlist.');
+            });
+        }
+      });
+    }
+
+    if (likeBtn) {
+      likeBtn.addEventListener('click', function () {
+        if (likeBtn.disabled) return;
+        if (!window._appUserId) { window.location.href = '/login'; return; }
+        likeBtn.disabled = true;
+
+        if (currentEntry) {
+          var nextLiked = !currentEntry.is_liked;
+          window.apiFetch('/api/v1/watchlist/' + currentEntry.id, {
+            method: 'PATCH',
+            body: JSON.stringify({ isLiked: nextLiked }),
+          })
+            .then(function (entry) {
+              currentEntry.is_liked = !!entry.is_liked;
+              applyState();
+              renderAlert(root, 'success', currentEntry.is_liked ? 'Added to your likes.' : 'Removed from your likes.');
+            })
+            .catch(function () {
+              likeBtn.disabled = false;
+              renderAlert(root, 'error', 'Could not update like.');
+            });
+        } else {
+          window.apiFetch(watchlistUrl, {
+            method: 'POST',
+            body: JSON.stringify({ mediaType: data.media_type, mediaId: data.id, status: selectedStatus, isLiked: true }),
+          })
+            .then(function (entry) {
+              currentEntry = {
+                id: entry.id,
+                status: entry.status || selectedStatus,
+                is_liked: !!entry.is_liked,
+              };
+              selectedStatus = currentEntry.status;
+              applyState();
+              renderAlert(root, 'success', 'Added to your likes.');
+            })
+            .catch(function () {
+              likeBtn.disabled = false;
+              renderAlert(root, 'error', 'Could not like this item.');
             });
         }
       });

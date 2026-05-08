@@ -48,6 +48,7 @@ def watchlist_create():
     media_type = data.get("mediaType")
     media_id_raw = data.get("mediaId")
     status = data.get("status") or "planned"
+    is_liked = data.get("isLiked", False)
     media_id = int(str(media_id_raw))
 
     media = get_media(media_id)
@@ -59,7 +60,7 @@ def watchlist_create():
             status=400,
         )
 
-    item, err = add_to_watchlist(current_user.id, media_id, status=status)
+    item, err = add_to_watchlist(current_user.id, media_id, status=status, is_liked=is_liked)
     if err:
         return api_response(data=None, message=err, success=False, status=400)
     return api_response(data=item, message="Created", status=201)
@@ -86,7 +87,8 @@ def watchlist_one_patch(entry_id):
         return validation_error("Invalid entry id")
     data = request.get_json(silent=True) or {}
     status = data.get("status")
-    item, err = patch_watchlist_item(eid, current_user.id, status=status)
+    is_liked = data.get("isLiked") if "isLiked" in data else None
+    item, err = patch_watchlist_item(eid, current_user.id, status=status, is_liked=is_liked)
     if err:
         code = 404 if "not found" in err.lower() else 400
         return api_response(data=None, message=err, success=False, status=code)

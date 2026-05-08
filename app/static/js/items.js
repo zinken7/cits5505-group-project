@@ -20,7 +20,6 @@
      ================================================================ */
   function initItemDetail(root) {
     const apiUrl = root.dataset.apiUrl;
-    const watchlistUrl = root.dataset.watchlistUrl;
 
     fetch(apiUrl, { headers: { Accept: "application/json" } })
       .then((r) => r.json())
@@ -30,7 +29,7 @@
           return;
         }
         renderItem(root, body.data);
-        wireWatchlist(root, body.data, watchlistUrl);
+        wireWatchlist(root, body.data);
       })
       .catch(() => renderAlert(root, "error", "Could not load item. Please try again."));
   }
@@ -120,40 +119,27 @@
   }
 
   /* ---- Watchlist: status buttons + add/remove -------------------- */
-  function wireWatchlist(root, data, watchlistUrl) {
+  function wireWatchlist(root, data) {
     var btn        = root.querySelector('[data-action="add-to-watchlist"]');
     var label      = btn ? btn.querySelector('[data-field="action-label"]') : null;
     var statusBtns = [].slice.call(root.querySelectorAll('[data-status-btn]'));
 
-    var currentEntry  = null; // { id, status } when item is already in watchlist
-    var selectedStatus = 'planned';
+    var currentStatus = null;
+    var statusUrl     = '/api/v1/watchlist/status/' + encodeURIComponent(data.id);
 
-    // ── Load existing entry ──────────────────────────────────────
-    function loadState() {
-      if (!window._appUserId) return;
-      window.apiFetch('/api/v1/watchlist')
-        .then(function (result) {
-          var items = Array.isArray(result) ? result : [];
-          for (var i = 0; i < items.length; i++) {
-            if (items[i].media_id === data.id) {
-              currentEntry = { id: items[i].id, status: items[i].status };
-              selectedStatus = items[i].status;
-              break;
-            }
-          }
-          applyState();
-        })
-        .catch(function () {});
+    // ── Enable / disable every action button atomically ──────────
+    function setAllDisabled(on) {
+      statusBtns.forEach(function (b) { b.disabled = on; });
+      if (btn) btn.disabled = on;
     }
 
-    // ── Reflect state in UI ──────────────────────────────────────
+    // ── Reflect state in UI (does not touch disabled) ────────────
     function applyState() {
-      var active = currentEntry ? currentEntry.status : null;
       statusBtns.forEach(function (b) {
-        b.classList.toggle('on', !!active && b.dataset.statusBtn === active);
+        b.classList.toggle('on', !!currentStatus && b.dataset.statusBtn === currentStatus);
       });
       if (btn) {
-        if (currentEntry) {
+        if (currentStatus) {
           if (label) label.textContent = 'Remove from Watchlist';
           btn.classList.remove('btn--accent');
           btn.classList.add('btn--ghost');
@@ -162,8 +148,53 @@
           btn.classList.add('btn--accent');
           btn.classList.remove('btn--ghost');
         }
-        btn.disabled = false;
       }
+    }
+
+    function resetState() {
+      currentStatus = null;
+    }
+
+    function setStatus(newStatus) {
+      if (currentStatus === newStatus) return;
+      var hadStatus = !!currentStatus;
+      setAllDisabled(true);
+      window.apiFetch(statusUrl, {
+        method: 'PUT',
+        body: { status: newStatus },
+      })
+        .then(function (entry) {
+          currentStatus = entry.status || newStatus;
+          renderAlert(
+            root,
+            'success',
+            hadStatus ? 'Status updated to ' + currentStatus + '.' : 'Added to ' + currentStatus + ' list.'
+          );
+        })
+        .catch(function () { renderAlert(root, 'error', 'Could not update watchlist.'); })
+        .finally(function () {
+          applyState();
+          setAllDisabled(false);
+        });
+    }
+
+    // ── Load existing entry ──────────────────────────────────────
+    function loadState() {
+      if (!window._appUserId) return;
+      setAllDisabled(true);
+      window.apiFetch(statusUrl)
+        .then(function (result) {
+          if (result) {
+            currentStatus = result.status;
+          } else {
+            resetState();
+          }
+        })
+        .catch(function () {})
+        .finally(function () {
+          applyState();
+          setAllDisabled(false);
+        });
     }
 
     // ── Status buttons ───────────────────────────────────────────
@@ -171,39 +202,7 @@
       statusBtn.addEventListener('click', function () {
         var newStatus = statusBtn.dataset.statusBtn;
         if (!window._appUserId) { window.location.href = '/login'; return; }
-        statusBtns.forEach(function (b) { b.disabled = true; });
-
-        if (currentEntry) {
-          // Already in list — update status
-          window.apiFetch('/api/v1/watchlist/' + currentEntry.id, {
-            method: 'PATCH',
-            body: JSON.stringify({ status: newStatus }),
-          })
-            .then(function () {
-              currentEntry.status = newStatus;
-              selectedStatus = newStatus;
-              applyState();
-              renderAlert(root, 'success', 'Status updated to ' + newStatus + '.');
-            })
-            .catch(function () { renderAlert(root, 'error', 'Could not update status.'); })
-            .finally(function () { statusBtns.forEach(function (b) { b.disabled = false; }); });
-        } else {
-          // Not in list — add with this status
-          window.apiFetch(watchlistUrl, {
-            method: 'POST',
-            body: JSON.stringify({ mediaType: data.media_type, mediaId: data.id, status: newStatus }),
-          })
-            .then(function (entry) {
-              currentEntry = { id: entry.id, status: entry.status || newStatus };
-              selectedStatus = currentEntry.status;
-              applyState();
-              renderAlert(root, 'success', 'Added to ' + currentEntry.status + ' list.');
-            })
-            .catch(function () {
-              renderAlert(root, 'error', 'Could not add to watchlist.');
-              statusBtns.forEach(function (b) { b.disabled = false; });
-            });
-        }
+        setStatus(newStatus);
       });
     });
 
@@ -212,39 +211,24 @@
       btn.addEventListener('click', function () {
         if (btn.disabled) return;
         if (!window._appUserId) { window.location.href = '/login'; return; }
-        btn.disabled = true;
 
-        if (currentEntry) {
+        if (currentStatus) {
           // Remove
-          window.apiFetch('/api/v1/watchlist/' + currentEntry.id, { method: 'DELETE' })
+          setAllDisabled(true);
+          window.apiFetch(statusUrl, { method: 'DELETE' })
             .then(function () {
-              currentEntry = null;
-              selectedStatus = 'planned';
-              applyState();
+              resetState();
               renderAlert(root, 'success', 'Removed from your watchlist.');
             })
-            .catch(function () {
-              btn.disabled = false;
-              renderAlert(root, 'error', 'Could not remove from watchlist.');
+            .catch(function () { renderAlert(root, 'error', 'Could not remove from watchlist.'); })
+            .finally(function () {
+              applyState();
+              setAllDisabled(false);
             });
         } else {
-          // Add with currently selected status
+          // Add starts in Planned; status buttons can set a different status directly.
           if (label) label.textContent = 'Adding…';
-          window.apiFetch(watchlistUrl, {
-            method: 'POST',
-            body: JSON.stringify({ mediaType: data.media_type, mediaId: data.id, status: selectedStatus }),
-          })
-            .then(function (entry) {
-              currentEntry = { id: entry.id, status: entry.status || selectedStatus };
-              selectedStatus = currentEntry.status;
-              applyState();
-              renderAlert(root, 'success', 'Added to ' + currentEntry.status + ' list.');
-            })
-            .catch(function () {
-              if (label) label.textContent = 'Add to Watchlist';
-              btn.disabled = false;
-              renderAlert(root, 'error', 'Could not add to watchlist.');
-            });
+          setStatus('planned');
         }
       });
     }

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from sqlalchemy import func
+from sqlalchemy.exc import IntegrityError
 
 from app.extensions import db
 from app.models.watchlist import WatchlistItem
@@ -30,6 +31,16 @@ def get_user_watchlist(user_id, status=None):
     return [item.to_dict() for item in items]
 
 
+def get_watchlist_item_by_media(user_id, media_id):
+    """Return the current user's watchlist item for one media item, if any."""
+    media = db.session.get(Media, media_id)
+    if not media:
+        return None, "Media not found"
+
+    item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+    return item.to_dict() if item else None, None
+
+
 def add_to_watchlist(user_id, media_id, status="planned"):
     """Add a media item to a user's watchlist.
 
@@ -52,7 +63,42 @@ def add_to_watchlist(user_id, media_id, status="planned"):
 
     item = WatchlistItem(user_id=user_id, media_id=media_id, status=status)
     db.session.add(item)
-    db.session.commit()
+    try:
+        db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        return None, "Item already in your watchlist"
+    return item.to_dict(), None
+
+
+def set_watchlist_status(user_id, media_id, status="planned"):
+    """Create or update the current user's watchlist status for a media item."""
+    if status not in VALID_STATUSES:
+        return None, f"Invalid status. Must be one of: {', '.join(VALID_STATUSES)}"
+
+    media = db.session.get(Media, media_id)
+    if not media:
+        return None, "Media not found"
+
+    item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+    if item:
+        if item.status != status:
+            item.status = status
+            db.session.commit()
+        return item.to_dict(), None
+
+    item = WatchlistItem(user_id=user_id, media_id=media_id, status=status)
+    db.session.add(item)
+    try:
+        db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+        if not item:
+            return None, "Could not update watchlist"
+        if item.status != status:
+            item.status = status
+            db.session.commit()
     return item.to_dict(), None
 
 
@@ -106,6 +152,21 @@ def remove_from_watchlist(item_id, user_id):
     db.session.delete(item)
     db.session.commit()
     return True, None
+
+
+def remove_from_watchlist_by_media(user_id, media_id):
+    """Remove the current user's watchlist item for a media item.
+
+    The operation is idempotent: removing an item that is already absent
+    still succeeds and reports deleted=False.
+    """
+    item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+    if not item:
+        return False
+
+    db.session.delete(item)
+    db.session.commit()
+    return True
 
 
 def filter_watchlist(items, status=None, media_type=None, q=None, sort="-updatedAt", limit=12, offset=0):

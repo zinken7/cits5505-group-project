@@ -8,6 +8,7 @@ from app.services.media_service import (
     delete_media,
     get_media,
     get_media_by_imdb_id,
+    list_media_admin_page,
     list_media,
     update_media,
 )
@@ -81,3 +82,19 @@ def test_update_media(db, app):
         m = create_media("Old Title", "movie")
         updated = update_media(m.id, title="New Title")
         assert updated.title == "New Title"
+
+
+def test_list_media_admin_page(db, app):
+    with app.app_context():
+        for i in range(18):
+            db.session.add(Media(title=f"Title {i:02d}", media_type="movie"))
+        db.session.commit()
+
+        rows, total = list_media_admin_page(limit=15, offset=0)
+        assert total == 18
+        assert len(rows) == 15
+        assert rows[0].title == "Title 00"
+
+        rows, total = list_media_admin_page(limit=15, offset=15)
+        assert total == 18
+        assert len(rows) == 3

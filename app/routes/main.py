@@ -30,9 +30,9 @@ def categories():
     if genre not in GENRES:
         genre = "Drama"
 
-    movies,  movie_total  = list_media("movie",  genre=genre, sort="-rating", limit=16)
-    anime,   anime_total  = list_media("anime",  genre=genre, sort="-rating", limit=16)
-    tvshows, tvshow_total = list_media("tvshow", genre=genre, sort="-rating", limit=16)
+    movies,  movie_total  = list_media("movie",  genre=genre, sort="-rating", limit=12)
+    anime,   anime_total  = list_media("anime",  genre=genre, sort="-rating", limit=12)
+    tvshows, tvshow_total = list_media("tvshow", genre=genre, sort="-rating", limit=12)
     return render_template(
         "categories.html",
         genres=GENRES,
@@ -151,6 +151,14 @@ def search_users():
     """Search users page."""
     q = request.args.get("q", "").strip()
     return render_template("search_users.html", q=q)
+@bp.route("/media/add")
+@login_required
+def add_media_user():
+    """IMDb URL import page for regular (non-admin) users."""
+    if current_user.is_admin:
+        from flask import redirect
+        return redirect(url_for("management.add_media"))
+    return render_template("media_add.html")
 
 
 @bp.route("/items/<imdb_id>")

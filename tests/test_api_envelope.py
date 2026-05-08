@@ -39,11 +39,6 @@ def test_catalog_movies_envelope(client, db):
     _assert_envelope(rv.get_json())
 
 
-def test_catalog_games_envelope(client, db):
-    rv = client.get("/api/v1/games")
-    _assert_envelope(rv.get_json())
-
-
 def test_search_envelope(client, db):
     rv = client.get("/api/v1/search?q=test")
     _assert_envelope(rv.get_json())

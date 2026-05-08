@@ -528,6 +528,11 @@
   .pill--completed { @apply bg-success border-success text-white; }
   .pill--planned   { @apply bg-warning border-warning text-white; }
 
+  .status-dot { @apply inline-block w-4 h-4 rounded-full; }
+  .status-dot--watching { @apply bg-sea border-sea text-white; }
+  .status-dot--completed { @apply bg-success border-success text-white; }
+  .status-dot--planned { @apply bg-warning border-warning text-white; }
+
   .chip {
     @apply inline-flex items-center cursor-pointer whitespace-nowrap gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border text-xs font-medium text-foreground-2 transition-[background,border-color] duration-150;
   }

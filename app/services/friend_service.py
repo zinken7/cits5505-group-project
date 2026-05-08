@@ -9,7 +9,7 @@ def send_request(requester_id, addressee_id):
     if requester_id == addressee_id:
         return None, "Cannot send a friend request to yourself"
     target = db.session.get(User, addressee_id)
-    if not target:
+    if not target or target.deactivated:
         return None, "User not found"
     if not target.allow_friend_requests:
         return None, "This user is not accepting friend requests"
@@ -40,6 +40,10 @@ def respond_to_request(friendship_id, user_id, action):
     fs = db.session.get(Friendship, friendship_id)
     if not fs:
         return None, "Request not found"
+    requester = db.session.get(User, fs.requester_id)
+    addressee = db.session.get(User, fs.addressee_id)
+    if not requester or not addressee or requester.deactivated or addressee.deactivated:
+        return None, "User not found"
     if fs.addressee_id != user_id:
         return None, "Not authorised"
     if fs.status != "pending":
@@ -74,7 +78,7 @@ def get_friends(user_id):
     for fs in rows:
         friend_id = fs.addressee_id if fs.requester_id == user_id else fs.requester_id
         u = db.session.get(User, friend_id)
-        if u:
+        if u and not u.deactivated:
             d = u.to_public_dict()
             d["friendship_id"] = fs.id
             result.append(d)
@@ -82,24 +86,43 @@ def get_friends(user_id):
 
 
 def get_pending_received(user_id):
-    return Friendship.query.filter_by(addressee_id=user_id, status="pending").all()
+    return (
+        Friendship.query
+        .join(User, Friendship.requester_id == User.id)
+        .filter(Friendship.addressee_id == user_id, Friendship.status == "pending", User.deactivated.is_(False))
+        .all()
+    )
 
 
 def get_pending_sent(user_id):
-    return Friendship.query.filter_by(requester_id=user_id, status="pending").all()
+    return (
+        Friendship.query
+        .join(User, Friendship.addressee_id == User.id)
+        .filter(Friendship.requester_id == user_id, Friendship.status == "pending", User.deactivated.is_(False))
+        .all()
+    )
 
 
 def are_friends(user_id_a, user_id_b):
-    return Friendship.query.filter(
+    fs = Friendship.query.filter(
         or_(
             and_(Friendship.requester_id == user_id_a, Friendship.addressee_id == user_id_b),
             and_(Friendship.requester_id == user_id_b, Friendship.addressee_id == user_id_a),
         ),
         Friendship.status == "accepted",
-    ).first() is not None
+    ).first()
+    if not fs:
+        return False
+    a = db.session.get(User, user_id_a)
+    b = db.session.get(User, user_id_b)
+    return bool(a and b and not a.deactivated and not b.deactivated)
 
 
 def get_friendship(user_id_a, user_id_b):
+    a = db.session.get(User, user_id_a)
+    b = db.session.get(User, user_id_b)
+    if not a or not b or a.deactivated or b.deactivated:
+        return None
     return Friendship.query.filter(
         or_(
             and_(Friendship.requester_id == user_id_a, Friendship.addressee_id == user_id_b),

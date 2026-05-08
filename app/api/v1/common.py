@@ -114,3 +114,27 @@ def admin_required(fn):
         return fn(*args, **kwargs)
 
     return wrapper
+
+
+def root_required(fn):
+    """JSON API: must be logged in as ``User.is_root``."""
+
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if not current_user.is_authenticated:
+            return api_response(
+                data=None,
+                message="Authentication required",
+                success=False,
+                status=401,
+            )
+        if not getattr(current_user, "is_root", False):
+            return api_response(
+                data=None,
+                message="Root account required",
+                success=False,
+                status=403,
+            )
+        return fn(*args, **kwargs)
+
+    return wrapper

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import request
-from flask_login import current_user
+from flask_login import current_user, logout_user
 
 from app.api.v1 import bp
 from app.api.v1.common import (
@@ -13,7 +13,7 @@ from app.api.v1.common import (
 from app.api.v1.schemas.users import UserMePatchSchema
 from app.extensions import db
 from app.models.user import User
-from app.services.user_service import get_user, update_user
+from app.services.user_service import deactivate_user, get_user, update_user
 from app.services.watchlist_service import filter_watchlist, get_user_watchlist
 
 
@@ -72,6 +72,17 @@ def users_me_patch():
 
     update_user(current_user, **kwargs)
     return api_response(data=current_user.to_dict(), message="Updated")
+
+
+@bp.route("/users/me", methods=["DELETE"])
+@api_login_required
+def users_me_delete():
+    try:
+        deactivate_user(current_user)
+    except ValueError as e:
+        return api_response(data=None, message=str(e), success=False, status=400)
+    logout_user()
+    return api_response(data={"deactivated": True}, message="Account deactivated")
 
 
 @bp.route("/users/me/watchlist", methods=["GET"])

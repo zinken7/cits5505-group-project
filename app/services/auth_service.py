@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+import re
+
 from sqlalchemy import or_
 
 from app.extensions import db
 from app.models.user import User
+
+_USERNAME_RE = re.compile(r"^[A-Za-z0-9_]+$")
 
 
 def register_user(username, email, password, display_name=None):
@@ -12,6 +16,12 @@ def register_user(username, email, password, display_name=None):
     """
     if not username or not email or not password:
         return None, "All fields are required"
+
+    if len(username) < 3 or len(username) > 80:
+        return None, "Username must be between 3 and 80 characters"
+
+    if not _USERNAME_RE.fullmatch(username):
+        return None, "Username can only contain letters, numbers, and underscores"
 
     if len(password) < 8:
         return None, "Password must be at least 8 characters"

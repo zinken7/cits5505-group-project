@@ -17,7 +17,6 @@ var activeController = null;
   // ── Search ────────────────────────────────────────────────────────
 function doSearch(q) {
   setCount('Searching…');
-  setSkeletons();
   updateHeading(q);
 
   window.history.replaceState(
@@ -40,6 +39,7 @@ function doSearch(q) {
     }
   )
     .then(function (response) {
+
       var users = Array.isArray(response)
         ? response
         : (response.data || []);
@@ -47,11 +47,12 @@ function doSearch(q) {
       render(q, users);
     })
     .catch(function (err) {
+
+      // Ignore cancelled requests
       if (err.name === 'AbortError') return;
 
       console.error(err);
       setCount('Search failed.');
-      renderUsers([], q);
     });
 }
 

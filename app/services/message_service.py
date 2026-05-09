@@ -8,7 +8,7 @@ from app.services.friend_service import are_friends
 from app.services import tag_service
 
 
-def send_message(sender_id, recipient_id, body):
+def send_message(sender_id, recipient_id, body, tags=None):
     body = (body or "").strip()
     if not body:
         return None, "Message body cannot be empty"
@@ -17,7 +17,8 @@ def send_message(sender_id, recipient_id, body):
     msg = Message(sender_id=sender_id, recipient_id=recipient_id, body=body)
     db.session.add(msg)
     db.session.commit()
-    tags = tag_service.resolve_tags(body)
+    if tags is None:
+        tags = tag_service.resolve_tags(body)
     return msg.to_dict(tags=tags), None
 
 

@@ -30,7 +30,7 @@ def get_user_watchlist(user_id, status=None):
     return [item.to_dict() for item in items]
 
 
-def add_to_watchlist(user_id, media_id, status="planned"):
+def add_to_watchlist(user_id, media_id, status="planned", is_liked=False):
     """Add a media item to a user's watchlist.
 
     Returns (item_dict, None) on success or (None, error_message) on failure.
@@ -50,7 +50,7 @@ def add_to_watchlist(user_id, media_id, status="planned"):
     if existing:
         return None, "Item already in your watchlist"
 
-    item = WatchlistItem(user_id=user_id, media_id=media_id, status=status)
+    item = WatchlistItem(user_id=user_id, media_id=media_id, status=status, is_liked=bool(is_liked))
     db.session.add(item)
     db.session.commit()
     return item.to_dict(), None
@@ -85,11 +85,26 @@ def get_watchlist_item(item_id, user_id):
     return item.to_dict(), None
 
 
-def patch_watchlist_item(item_id, user_id, status=None):
-    """Update status (other fields reserved for future columns)."""
-    if status is None:
-        return None, "status is required"
-    return update_status(item_id, status, user_id)
+def patch_watchlist_item(item_id, user_id, status=None, is_liked=None):
+    """Update a user's watchlist item."""
+    if status is None and is_liked is None:
+        return None, "status or is_liked is required"
+
+    item = db.session.get(WatchlistItem, item_id)
+    if not item:
+        return None, "Item not found"
+    if item.user_id != user_id:
+        return None, "Unauthorized"
+
+    if status is not None:
+        if status not in VALID_STATUSES:
+            return None, f"Invalid status. Must be one of: {', '.join(VALID_STATUSES)}"
+        item.status = status
+    if is_liked is not None:
+        item.is_liked = bool(is_liked)
+
+    db.session.commit()
+    return item.to_dict(), None
 
 
 def remove_from_watchlist(item_id, user_id):

@@ -138,7 +138,7 @@ def users_search():
             User.username.ilike(f"%{q}%"),
             User.display_name.ilike(f"%{q}%")
         )
-    ).filter(User.id != current_user.id)
+    ).filter(User.id != current_user.id).filter(User.is_root == False)
 
     total = query.count()
     users = query.order_by(User.username.asc()).offset(offset).limit(limit).all()
@@ -146,3 +146,5 @@ def users_search():
         data=[u.to_public_dict() for u in users],
         meta={"limit": limit, "offset": offset, "total": total},
     )
+
+

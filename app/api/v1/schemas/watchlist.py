@@ -22,6 +22,8 @@ class WatchlistCreateSchema:
         status = data.get("status", "planned")
         if status not in VALID_STATUSES:
             errors.append(f"status must be one of: {', '.join(VALID_STATUSES)}")
+        if "isLiked" in data and not isinstance(data.get("isLiked"), bool):
+            errors.append("isLiked must be true or false")
         return errors
 
 
@@ -29,9 +31,13 @@ class WatchlistPatchSchema:
     @classmethod
     def validate(cls, data: dict):
         errors = []
+        has_status = "status" in data
+        has_like = "isLiked" in data
+        if not has_status and not has_like:
+            errors.append("status or isLiked is required")
         status = data.get("status")
-        if not status:
-            errors.append("status is required")
-        elif status not in VALID_STATUSES:
+        if has_status and status not in VALID_STATUSES:
             errors.append(f"status must be one of: {', '.join(VALID_STATUSES)}")
+        if has_like and not isinstance(data.get("isLiked"), bool):
+            errors.append("isLiked must be true or false")
         return errors

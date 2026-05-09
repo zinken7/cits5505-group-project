@@ -49,9 +49,9 @@
           </button>
 
           <div class="flex gap-2">
-            <button class="btn flex-1">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
-              Like
+            <button type="button" class="btn flex-1" data-action="toggle-like" aria-pressed="false">
+              <svg data-field="like-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              <span data-field="like-label">Like</span>
             </button>
             <button class="btn flex-1">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>
@@ -128,7 +128,6 @@
           <div>
             <div class="upper text-muted">Tracking</div>
             <div class="display" style="font-size:32px;margin-top:6px" data-field="watchlist_count">0</div>
-            <div class="text-[0.6875rem] text-muted">across all statuses</div>
           </div>
           <div data-field-wrap="episodes">
             <div class="upper text-muted">Episodes</div>

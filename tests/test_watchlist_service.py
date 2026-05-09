@@ -5,9 +5,13 @@ import pytest
 from app.models.media import Media
 from app.services.watchlist_service import (
     add_to_watchlist,
+    counts_for_imdb_id,
     filter_watchlist,
+    get_user_watchlist,
     patch_watchlist_item,
     remove_from_watchlist,
+    remove_from_watchlist_by_media,
+    set_watchlist_status,
 )
 from app.services.auth_service import register_user
 
@@ -16,7 +20,7 @@ from app.services.auth_service import register_user
 def user_and_media(db, app):
     with app.app_context():
         user, _ = register_user("watcher", "watcher@example.com", "password123")
-        media = Media(title="Test Anime", media_type="anime", year=2020)
+        media = Media(title="Test Anime", media_type="anime", year=2020, imdb_id="ttwatchlist")
         db.session.add(media)
         db.session.commit()
         yield user, media
@@ -52,6 +56,64 @@ def test_patch_watchlist_item(user_and_media, app):
         updated, err = patch_watchlist_item(item["id"], user.id, status="completed")
         assert err is None
         assert updated["status"] == "completed"
+
+
+def test_set_watchlist_like_creates_like_only_entry(user_and_media, app):
+    user, media = user_and_media
+    with app.app_context():
+        item, err = set_watchlist_status(user.id, media.id, is_liked=True)
+        assert err is None
+        assert item["status"] is None
+        assert item["is_liked"] is True
+        assert get_user_watchlist(user.id) == []
+
+
+def test_set_watchlist_status_preserves_like(user_and_media, app):
+    user, media = user_and_media
+    with app.app_context():
+        set_watchlist_status(user.id, media.id, is_liked=True)
+        item, err = set_watchlist_status(user.id, media.id, status="completed")
+        assert err is None
+        assert item["status"] == "completed"
+        assert item["is_liked"] is True
+
+
+def test_add_watchlist_promotes_like_only_entry(user_and_media, app):
+    user, media = user_and_media
+    with app.app_context():
+        set_watchlist_status(user.id, media.id, is_liked=True)
+        item, err = add_to_watchlist(user.id, media.id, status="planned")
+        assert err is None
+        assert item["status"] == "planned"
+        assert item["is_liked"] is True
+
+
+def test_remove_from_watchlist_preserves_like(user_and_media, app):
+    user, media = user_and_media
+    with app.app_context():
+        set_watchlist_status(user.id, media.id, status="planned", is_liked=True)
+        removed, item = remove_from_watchlist_by_media(user.id, media.id)
+        assert removed is True
+        assert item["status"] is None
+        assert item["is_liked"] is True
+        assert get_user_watchlist(user.id) == []
+
+
+def test_like_only_entry_does_not_count_as_watchlist(user_and_media, app):
+    user, media = user_and_media
+    with app.app_context():
+        set_watchlist_status(user.id, media.id, is_liked=True)
+        counts = counts_for_imdb_id(media.imdb_id)
+        assert counts == {"watching": 0, "completed": 0, "planned": 0, "total": 0}
+
+
+def test_patch_watchlist_item_can_toggle_like(user_and_media, app):
+    user, media = user_and_media
+    with app.app_context():
+        item, _ = add_to_watchlist(user.id, media.id, status="planned")
+        updated, err = patch_watchlist_item(item["id"], user.id, is_liked=True)
+        assert err is None
+        assert updated["is_liked"] is True
 
 
 def test_remove_from_watchlist(user_and_media, app):

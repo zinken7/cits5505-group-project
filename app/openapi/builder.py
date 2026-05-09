@@ -312,6 +312,51 @@ def _paths():
             "responses": _ok_response(),
         },
     }
+    p["/api/v1/watchlist/status/{media_id}"] = {
+        "get": {
+            "tags": ["Watchlist"],
+            "summary": "Get the current user's watchlist entry for one media item",
+            "parameters": [
+                {
+                    "name": "media_id",
+                    "in": "path",
+                    "required": True,
+                    "schema": {"type": "string"},
+                }
+            ],
+            "responses": _ok_response(),
+        },
+        "put": {
+            "tags": ["Watchlist"],
+            "summary": "Create or update a watchlist entry by media id",
+            "parameters": [
+                {
+                    "name": "media_id",
+                    "in": "path",
+                    "required": True,
+                    "schema": {"type": "string"},
+                }
+            ],
+            "requestBody": {
+                "required": True,
+                "content": {"application/json": {"schema": _ref("WatchlistUpdateRequest")}},
+            },
+            "responses": _ok_response(),
+        },
+        "delete": {
+            "tags": ["Watchlist"],
+            "summary": "Delete a watchlist entry by media id",
+            "parameters": [
+                {
+                    "name": "media_id",
+                    "in": "path",
+                    "required": True,
+                    "schema": {"type": "string"},
+                }
+            ],
+            "responses": _ok_response(),
+        },
+    }
 
     p["/api/v1/trending"] = {
         "get": {
@@ -700,6 +745,7 @@ def _schemas():
                 "status": {"type": "string"},
                 "progress": {"$ref": "#/components/schemas/Progress"},
                 "isFavorite": {"type": "boolean", "default": False},
+                "isLiked": {"type": "boolean", "default": False},
             },
         },
         "Progress": {
@@ -716,6 +762,7 @@ def _schemas():
                 "status": {"type": "string"},
                 "progress": {"$ref": "#/components/schemas/Progress"},
                 "isFavorite": {"type": "boolean"},
+                "isLiked": {"type": "boolean"},
             },
         },
         "ReviewRequest": {

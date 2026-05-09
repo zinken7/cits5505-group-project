@@ -8,6 +8,8 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     socket = io({ transports: ['websocket'] });
+    window.whChatSocket = socket;
+    document.dispatchEvent(new CustomEvent('wh:socket_ready', { detail: { socket: socket } }));
 
     socket.on('chat_history', function (data) {
       renderHistory(data.messages || []);
@@ -100,11 +102,12 @@
     var html = esc(body);
     tags.forEach(function (tag) {
       var placeholder = '#' + tag.text;
+      var href = tag.url || (tag.imdb_id ? '/items/' + tag.imdb_id : '#');
       var popover = tag.image_url
         ? '<div class="media-tag-popover"><img src="' + esc(tag.image_url) + '" alt=""><div class="media-tag-popover__title">' + esc(tag.title) + '</div></div>'
         : '';
       var replacement =
-        '<a href="/items/' + esc(tag.imdb_id) + '" class="media-tag" target="_blank">' +
+        '<a href="' + esc(href) + '" class="media-tag" target="_blank" rel="noopener">' +
         esc(placeholder) + popover + '</a>';
       html = html.split(esc(placeholder)).join(replacement);
     });

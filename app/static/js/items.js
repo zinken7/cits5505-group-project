@@ -30,6 +30,7 @@
         }
         renderItem(root, body.data);
         wireWatchlist(root, body.data);
+        wireShare(root, body.data);
       })
       .catch(() => renderAlert(root, "error", "Could not load item. Please try again."));
   }
@@ -332,6 +333,160 @@
     loadState();
   }
 
+  function wireShare(root, data) {
+    var openBtn = root.querySelector('[data-action="open-share"]');
+    var modal = root.querySelector('[data-share-modal]');
+    if (!openBtn || !modal) return;
+
+    var friendList = modal.querySelector('[data-share-friends]');
+    var empty = modal.querySelector('[data-share-empty]');
+    var error = modal.querySelector('[data-share-error]');
+    var selectedCount = modal.querySelector('[data-share-count]');
+    var sendBtn = modal.querySelector('[data-action="send-share"]');
+    var closeBtns = [].slice.call(modal.querySelectorAll('[data-action="close-share"]'));
+    var friendsLoaded = false;
+
+    function selectedFriendIds() {
+      if (!friendList) return [];
+      return [].slice.call(friendList.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(function (input) { return input.value; });
+    }
+
+    function showError(message) {
+      if (!error) return;
+      error.textContent = message || "";
+      error.classList.toggle("hidden", !message);
+    }
+
+    function updateSendState() {
+      var count = selectedFriendIds().length;
+      if (sendBtn) sendBtn.disabled = count === 0;
+      if (selectedCount) {
+        selectedCount.textContent = count
+          ? count + ' friend' + (count === 1 ? '' : 's') + ' selected'
+          : 'No friends selected';
+      }
+    }
+
+    function friendRow(friend) {
+      var name = friend.displayName || friend.username || "Friend";
+      var username = friend.username ? "@" + friend.username : "";
+      var initials = name.split(" ").map(function (part) { return part[0] || ""; }).join("").slice(0, 2).toUpperCase();
+      return '<label class="flex items-center gap-3 cursor-pointer" style="padding:10px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--card-bg-2)">' +
+        '<input type="checkbox" value="' + esc(friend.id) + '" style="width:16px;height:16px">' +
+        '<span class="avatar avatar--sm" style="background:var(--accent)">' + esc(initials || "?") + '</span>' +
+        '<span class="min-w-0">' +
+          '<span class="block font-semibold text-sm">' + esc(name) + '</span>' +
+          '<span class="block text-xs text-muted">' + esc(username) + '</span>' +
+        '</span>' +
+      '</label>';
+    }
+
+    function renderFriends(friends) {
+      if (!friendList || !empty) return;
+      if (!friends.length) {
+        friendList.innerHTML = "";
+        empty.classList.remove("hidden");
+        updateSendState();
+        return;
+      }
+      empty.classList.add("hidden");
+      friendList.innerHTML = friends.map(friendRow).join("");
+      friendList.querySelectorAll('input[type="checkbox"]').forEach(function (input) {
+        input.addEventListener("change", updateSendState);
+      });
+      updateSendState();
+    }
+
+    function loadFriends() {
+      if (friendsLoaded) return Promise.resolve();
+      if (friendList) friendList.innerHTML = '<div class="text-sm text-muted">Loading friends...</div>';
+      if (empty) empty.classList.add("hidden");
+      return window.apiFetch('/api/v1/friends')
+        .then(function (friends) {
+          friendsLoaded = true;
+          renderFriends(Array.isArray(friends) ? friends : []);
+        })
+        .catch(function () {
+          if (friendList) friendList.innerHTML = "";
+          showError("Could not load friends.");
+        });
+    }
+
+    function openModal() {
+      showError("");
+      if (friendList) {
+        friendList.querySelectorAll('input[type="checkbox"]').forEach(function (input) {
+          input.checked = false;
+        });
+      }
+      updateSendState();
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      modal.setAttribute("aria-hidden", "false");
+      loadFriends();
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      modal.setAttribute("aria-hidden", "true");
+      showError("");
+      updateSendState();
+    }
+
+    openBtn.addEventListener("click", function () {
+      if (!window._appUserId) { window.location.href = "/login"; return; }
+      openModal();
+    });
+
+    closeBtns.forEach(function (btn) {
+      btn.addEventListener("click", closeModal);
+    });
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
+    });
+
+    if (sendBtn) {
+      sendBtn.addEventListener("click", function () {
+        var ids = selectedFriendIds();
+        if (!ids.length || sendBtn.disabled) return;
+        sendBtn.disabled = true;
+        sendBtn.textContent = 'Sending...';
+        showError("");
+
+        window.apiFetch('/api/v1/share/media', {
+          method: 'POST',
+          body: { mediaId: data.id, recipientIds: ids.map(Number) },
+        })
+          .then(function () {
+            closeModal();
+            openSharedChatPanels(ids);
+            renderAlert(root, "success", "Shared with " + ids.length + " friend" + (ids.length === 1 ? "." : "s."));
+          })
+          .catch(function (err) {
+            showError((err && err.message) || "Could not share this title.");
+          })
+          .finally(function () {
+            sendBtn.textContent = 'Send share';
+            updateSendState();
+          });
+      });
+    }
+
+    function openSharedChatPanels(friendIds) {
+      if (typeof window.openChatPanel !== 'function') return;
+      friendIds.map(Number).forEach(function (friendId) {
+        window.openChatPanel(friendId).catch(function () {});
+      });
+    }
+  }
+
   /* ---- helpers ---------------------------------------------------- */
   function setText(root, field, value) {
     root.querySelectorAll(`[data-field="${field}"]`).forEach((el) => {
@@ -353,6 +508,14 @@
   function fmtInt(n) {
     if (n == null) return "0";
     return Number(n).toLocaleString();
+  }
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
   function toInt(n) {
     if (n == null || n === "") return 0;

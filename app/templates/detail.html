@@ -53,7 +53,7 @@
               <svg data-field="like-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
               <span data-field="like-label">Like</span>
             </button>
-            <button class="btn flex-1">
+            <button type="button" class="btn flex-1" data-action="open-share">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>
               Share
             </button>
@@ -207,6 +207,36 @@
           <span data-field="planned_count">0</span>
         </div>
 
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed inset-0 hidden items-center justify-center"
+       data-share-modal
+       aria-hidden="true"
+       style="z-index:950;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:20px">
+    <div class="bg-card border border-border"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="share-title"
+         style="width:min(420px,calc(100vw - 40px));border-radius:14px;box-shadow:var(--shadow-lg);overflow:hidden">
+      <div class="flex items-center justify-between gap-4 border-b border-border" style="padding:14px 16px">
+        <div>
+          <h2 id="share-title" class="font-semibold text-base m-0">Share with friends</h2>
+          <p class="text-xs text-muted mt-1 m-0" data-share-count>No friends selected</p>
+        </div>
+        <button type="button" class="btn btn--ghost btn--sm" data-action="close-share" aria-label="Close share dialog">Close</button>
+      </div>
+
+      <div style="padding:12px 16px">
+        <div class="hidden text-sm text-muted" data-share-empty>No friends available yet.</div>
+        <div class="flex flex-col gap-2 overflow-auto" data-share-friends style="max-height:220px"></div>
+        <div class="hidden text-sm mt-3" data-share-error style="color:var(--bad)"></div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 border-t border-border" style="padding:12px 16px">
+        <button type="button" class="btn" data-action="close-share">Cancel</button>
+        <button type="button" class="btn btn--accent" data-action="send-share" disabled>Send share</button>
       </div>
     </div>
   </div>

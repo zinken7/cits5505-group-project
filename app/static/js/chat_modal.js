@@ -12,6 +12,8 @@
   // ── Bootstrap ────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     socket = io({ transports: ['websocket'] });
+    window.whChatSocket = socket;
+    document.dispatchEvent(new CustomEvent('wh:socket_ready', { detail: { socket: socket } }));
 
     socket.on('chat_history', function (data) {
       var fid = data.friend_id;
@@ -67,13 +69,13 @@
   // ── Load friend list ──────────────────────────────────────────────────────
   function loadFriends() {
     var container = document.getElementById('sidebar-friends');
-    if (!container) return;
+    if (!container) return Promise.resolve([]);
 
-    apiFetch('/api/v1/friends')
+    return apiFetch('/api/v1/friends')
       .then(function (friends) {
         if (!Array.isArray(friends) || !friends.length) {
           container.innerHTML = '<div style="padding:8px 12px;font-size:.78rem;color:var(--muted)">No friends yet</div>';
-          return;
+          return [];
         }
         container.innerHTML = '';
         friends.forEach(function (f) {
@@ -107,10 +109,12 @@
             username: f.username,
           };
         });
+        return friends;
       })
       .catch(function () {
         var c = document.getElementById('sidebar-friends');
         if (c) c.innerHTML = '<div style="padding:8px 12px;font-size:.78rem;color:var(--muted)">Could not load</div>';
+        return [];
       });
   }
 
@@ -258,6 +262,30 @@
   }
 
   // ── Message rendering ─────────────────────────────────────────────────────
+  window.openChatPanel = function (friendId) {
+    friendId = parseInt(friendId, 10);
+    if (!friendId) return Promise.resolve(false);
+
+    if (panels[friendId]) {
+      panels[friendId].panel.classList.remove('is-minimized');
+      panels[friendId].input.focus();
+      return Promise.resolve(true);
+    }
+
+    var friend = friendItems[friendId];
+    if (friend) {
+      openPanel(friendId, friend.name, friend.username);
+      return Promise.resolve(true);
+    }
+
+    return loadFriends().then(function () {
+      var loadedFriend = friendItems[friendId];
+      if (!loadedFriend) return false;
+      openPanel(friendId, loadedFriend.name, loadedFriend.username);
+      return true;
+    });
+  };
+
   function renderHistory(friendId, messages) {
     var p = panels[friendId];
     if (!p) return;
@@ -321,11 +349,12 @@
     var html = esc(body);
     tags.forEach(function (tag) {
       var placeholder = esc('#' + tag.text);
+      var href = tag.url || (tag.imdb_id ? '/items/' + tag.imdb_id : '#');
       var popover = tag.image_url
         ? '<span class="cp-tag-popover"><img src="' + esc(tag.image_url) + '" alt=""><div class="cp-tag-popover__title">' + esc(tag.title) + '</div></span>'
         : '';
       var replacement =
-        '<a href="/items/' + esc(tag.imdb_id) + '" class="cp-tag" target="_blank" rel="noopener">' +
+        '<a href="' + esc(href) + '" class="cp-tag" target="_blank" rel="noopener">' +
         placeholder + popover + '</a>';
       html = html.split(placeholder).join(replacement);
     });

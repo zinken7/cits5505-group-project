@@ -744,6 +744,7 @@ def _schemas():
                 "mediaId": {"type": "string"},
                 "status": {"type": "string"},
                 "progress": {"$ref": "#/components/schemas/Progress"},
+                "isLiked": {"type": "boolean", "default": False},
                 "isFavorite": {"type": "boolean", "default": False},
                 "isLiked": {"type": "boolean", "default": False},
             },
@@ -761,6 +762,7 @@ def _schemas():
             "properties": {
                 "status": {"type": "string"},
                 "progress": {"$ref": "#/components/schemas/Progress"},
+                "isLiked": {"type": "boolean"},
                 "isFavorite": {"type": "boolean"},
                 "isLiked": {"type": "boolean"},
             },

@@ -29,9 +29,10 @@ def user_and_media(db, app):
 def test_add_to_watchlist(user_and_media, app):
     user, media = user_and_media
     with app.app_context():
-        item, err = add_to_watchlist(user.id, media.id, status="planned")
+        item, err = add_to_watchlist(user.id, media.id, status="planned", is_liked=True)
         assert err is None
         assert item["status"] == "planned"
+        assert item["is_liked"] is True
 
 
 def test_add_duplicate_rejected(user_and_media, app):

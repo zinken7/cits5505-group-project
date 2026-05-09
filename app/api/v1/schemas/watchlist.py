@@ -23,7 +23,7 @@ class WatchlistCreateSchema:
         if status not in VALID_STATUSES:
             errors.append(f"status must be one of: {', '.join(VALID_STATUSES)}")
         if "isLiked" in data and not isinstance(data.get("isLiked"), bool):
-            errors.append("isLiked must be true or false")
+            errors.append("isLiked must be a boolean")
         return errors
 
 

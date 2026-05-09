@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Tests for watchlist API media-id update flow."""
+"""Tests for watchlist API behavior."""
+import json
 
 from app.models.media import Media
 

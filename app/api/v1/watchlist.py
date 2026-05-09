@@ -11,8 +11,11 @@ from app.services.watchlist_service import (
     filter_watchlist,
     get_user_watchlist,
     get_watchlist_item,
+    get_watchlist_item_by_media,
     patch_watchlist_item,
     remove_from_watchlist,
+    remove_from_watchlist_by_media,
+    set_watchlist_status,
 )
 
 
@@ -64,6 +67,51 @@ def watchlist_create():
     if err:
         return api_response(data=None, message=err, success=False, status=400)
     return api_response(data=item, message="Created", status=201)
+
+
+@bp.route("/watchlist/status/<media_id>", methods=["GET"])
+@api_login_required
+def watchlist_status_get(media_id):
+    mid = parse_id(media_id, field="mediaId")
+    if mid is None:
+        return validation_error("Invalid media id", loc=("path", "mediaId"))
+    item, err = get_watchlist_item_by_media(current_user.id, mid)
+    if err:
+        return api_response(data=None, message=err, success=False, status=404)
+    return api_response(data=item)
+
+
+@bp.route("/watchlist/status/<media_id>", methods=["PUT"])
+@api_login_required
+@validate_body(WatchlistPatchSchema)
+def watchlist_status_put(media_id):
+    mid = parse_id(media_id, field="mediaId")
+    if mid is None:
+        return validation_error("Invalid media id", loc=("path", "mediaId"))
+    data = request.get_json(silent=True) or {}
+    item, err = set_watchlist_status(
+        current_user.id,
+        mid,
+        status=data.get("status"),
+        is_liked=data.get("isLiked") if "isLiked" in data else None,
+    )
+    if err:
+        code = 404 if "not found" in err.lower() else 400
+        return api_response(data=None, message=err, success=False, status=code)
+    return api_response(data=item)
+
+
+@bp.route("/watchlist/status/<media_id>", methods=["DELETE"])
+@api_login_required
+def watchlist_status_delete(media_id):
+    mid = parse_id(media_id, field="mediaId")
+    if mid is None:
+        return validation_error("Invalid media id", loc=("path", "mediaId"))
+    deleted, item = remove_from_watchlist_by_media(current_user.id, mid)
+    return api_response(
+        data={"deleted": deleted, "item": item},
+        message="Removed" if deleted else "Already removed",
+    )
 
 
 @bp.route("/watchlist/<entry_id>", methods=["GET"])

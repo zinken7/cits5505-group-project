@@ -31,12 +31,13 @@ class WatchlistPatchSchema:
     @classmethod
     def validate(cls, data: dict):
         errors = []
-        status = data.get("status")
-        is_liked_present = "isLiked" in data
-        if status is None and not is_liked_present:
+        has_status = "status" in data
+        has_like = "isLiked" in data
+        if not has_status and not has_like:
             errors.append("status or isLiked is required")
-        elif status is not None and status not in VALID_STATUSES:
+        status = data.get("status")
+        if has_status and status not in VALID_STATUSES:
             errors.append(f"status must be one of: {', '.join(VALID_STATUSES)}")
-        if is_liked_present and not isinstance(data.get("isLiked"), bool):
-            errors.append("isLiked must be a boolean")
+        if has_like and not isinstance(data.get("isLiked"), bool):
+            errors.append("isLiked must be true or false")
         return errors

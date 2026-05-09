@@ -12,7 +12,6 @@
 <div data-page="item-detail"
      data-imdb-id="{{ imdb_id }}"
      data-api-url="{{ url_for('api_v1.get_item', imdb_id=imdb_id) }}"
-     data-watchlist-url="{{ url_for('api_v1.watchlist_create') }}"
      style="background:var(--page-bg)">
 
   {# Alert slot #}
@@ -129,7 +128,6 @@
           <div>
             <div class="upper text-muted">Tracking</div>
             <div class="display" style="font-size:32px;margin-top:6px" data-field="watchlist_count">0</div>
-            <div class="text-[0.6875rem] text-muted">across all statuses</div>
           </div>
           <div data-field-wrap="episodes">
             <div class="upper text-muted">Episodes</div>

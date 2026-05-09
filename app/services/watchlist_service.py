@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from sqlalchemy import func
+from sqlalchemy.exc import IntegrityError
 
 from app.extensions import db
 from app.models.watchlist import WatchlistItem
@@ -22,12 +23,22 @@ def get_user_watchlist(user_id, status=None):
 
     Returns a list of dicts ready for JSON serialization.
     """
-    query = WatchlistItem.query.filter_by(user_id=user_id)
+    query = WatchlistItem.query.filter_by(user_id=user_id).filter(WatchlistItem.status.isnot(None))
     if status and status in VALID_STATUSES:
         query = query.filter_by(status=status)
 
     items = query.order_by(WatchlistItem.created_at.desc()).all()
     return [item.to_dict() for item in items]
+
+
+def get_watchlist_item_by_media(user_id, media_id):
+    """Return the current user's watchlist item for one media item, if any."""
+    media = db.session.get(Media, media_id)
+    if not media:
+        return None, "Media not found"
+
+    item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+    return item.to_dict() if item else None, None
 
 
 def add_to_watchlist(user_id, media_id, status="planned", is_liked=False):
@@ -43,16 +54,86 @@ def add_to_watchlist(user_id, media_id, status="planned", is_liked=False):
     if not media:
         return None, "Media not found"
 
-    # Check for duplicate
     existing = WatchlistItem.query.filter_by(
         user_id=user_id, media_id=media_id
     ).first()
     if existing:
-        return None, "Item already in your watchlist"
+        if existing.status is not None:
+            return None, "Item already in your watchlist"
+        existing.status = status
+        if is_liked:
+            existing.is_liked = True
+        db.session.commit()
+        return existing.to_dict(), None
 
     item = WatchlistItem(user_id=user_id, media_id=media_id, status=status, is_liked=bool(is_liked))
     db.session.add(item)
-    db.session.commit()
+    try:
+        db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        return None, "Item already in your watchlist"
+    return item.to_dict(), None
+
+
+def set_watchlist_status(user_id, media_id, status=None, is_liked=None):
+    """Create or update the current user's watchlist entry for a media item."""
+    if status is None and is_liked is None:
+        return None, "status or isLiked is required"
+    if status is not None and status not in VALID_STATUSES:
+        return None, f"Invalid status. Must be one of: {', '.join(VALID_STATUSES)}"
+
+    media = db.session.get(Media, media_id)
+    if not media:
+        return None, "Media not found"
+
+    item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+    if item is None and status is None and is_liked is False:
+        return None, None
+
+    if item:
+        changed = False
+        if status is not None and item.status != status:
+            item.status = status
+            changed = True
+        if is_liked is not None and item.is_liked != bool(is_liked):
+            item.is_liked = bool(is_liked)
+            changed = True
+        if changed:
+            if item.status is None and not item.is_liked:
+                db.session.delete(item)
+                db.session.commit()
+                return None, None
+            db.session.commit()
+        return item.to_dict(), None
+
+    item = WatchlistItem(
+        user_id=user_id,
+        media_id=media_id,
+        status=status,
+        is_liked=bool(is_liked) if is_liked is not None else False,
+    )
+    db.session.add(item)
+    try:
+        db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+        if not item:
+            return None, "Could not update watchlist"
+        changed = False
+        if status is not None and item.status != status:
+            item.status = status
+            changed = True
+        if is_liked is not None and item.is_liked != bool(is_liked):
+            item.is_liked = bool(is_liked)
+            changed = True
+        if changed:
+            if item.status is None and not item.is_liked:
+                db.session.delete(item)
+                db.session.commit()
+                return None, None
+            db.session.commit()
     return item.to_dict(), None
 
 
@@ -86,9 +167,11 @@ def get_watchlist_item(item_id, user_id):
 
 
 def patch_watchlist_item(item_id, user_id, status=None, is_liked=None):
-    """Update a user's watchlist item."""
+    """Update mutable watchlist item fields owned by the current user."""
     if status is None and is_liked is None:
-        return None, "status or is_liked is required"
+        return None, "status or isLiked is required"
+    if status is not None and status not in VALID_STATUSES:
+        return None, f"Invalid status. Must be one of: {', '.join(VALID_STATUSES)}"
 
     item = db.session.get(WatchlistItem, item_id)
     if not item:
@@ -97,12 +180,13 @@ def patch_watchlist_item(item_id, user_id, status=None, is_liked=None):
         return None, "Unauthorized"
 
     if status is not None:
-        if status not in VALID_STATUSES:
-            return None, f"Invalid status. Must be one of: {', '.join(VALID_STATUSES)}"
         item.status = status
     if is_liked is not None:
         item.is_liked = bool(is_liked)
-
+    if item.status is None and not item.is_liked:
+        db.session.delete(item)
+        db.session.commit()
+        return None, None
     db.session.commit()
     return item.to_dict(), None
 
@@ -118,9 +202,31 @@ def remove_from_watchlist(item_id, user_id):
     if item.user_id != user_id:
         return False, "Unauthorized"
 
-    db.session.delete(item)
+    if item.is_liked:
+        item.status = None
+    else:
+        db.session.delete(item)
     db.session.commit()
     return True, None
+
+
+def remove_from_watchlist_by_media(user_id, media_id):
+    """Remove the current user's watchlist item for a media item.
+
+    The operation is idempotent. If the row is liked, keep the row and clear
+    only the watchlist status so the like remains independent.
+    """
+    item = WatchlistItem.query.filter_by(user_id=user_id, media_id=media_id).first()
+    if not item or item.status is None:
+        return False, item.to_dict() if item else None
+
+    if item.is_liked:
+        item.status = None
+    else:
+        db.session.delete(item)
+        item = None
+    db.session.commit()
+    return True, item.to_dict() if item else None
 
 
 def filter_watchlist(items, status=None, media_type=None, q=None, sort="-updatedAt", limit=12, offset=0):
@@ -150,6 +256,7 @@ def counts_for_imdb_id(imdb_id):
     rows = (
         db.session.query(WatchlistItem.status, func.count(WatchlistItem.id))
         .filter(WatchlistItem.media_id == media.id)
+        .filter(WatchlistItem.status.isnot(None))
         .group_by(WatchlistItem.status)
         .all()
     )
@@ -170,6 +277,7 @@ def get_trending(media_type=None, limit=10):
     query = (
         db.session.query(Media, func.count(WatchlistItem.id).label("count"))
         .join(WatchlistItem, WatchlistItem.media_id == Media.id)
+        .filter(WatchlistItem.status.isnot(None))
         .group_by(Media.id)
         .order_by(func.count(WatchlistItem.id).desc())
     )

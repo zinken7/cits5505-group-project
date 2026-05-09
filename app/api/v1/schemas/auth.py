@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+import re
+
+
+_USERNAME_RE = re.compile(r"^[A-Za-z0-9_]+$")
 
 
 class RegisterSchema:
@@ -15,6 +19,14 @@ class RegisterSchema:
             val = data.get(field)
             if val and len(str(val)) > max_len:
                 errors.append(f"{field} must be at most {max_len} characters")
+        username = (data.get("username") or "").strip()
+        if username and len(username) < 3:
+            errors.append("username must be at least 3 characters")
+        if username and not _USERNAME_RE.fullmatch(username):
+            errors.append("username can only contain letters, numbers, and underscores")
+        password = data.get("password") or ""
+        if password and len(password) < 8:
+            errors.append("password must be at least 8 characters")
         return errors
 
 

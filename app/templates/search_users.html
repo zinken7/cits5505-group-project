@@ -1,0 +1,63 @@
+{% extends "app_layout.html" %}
+
+{% block title %}{% if q %}Search Users: {{ q }}{% else %}Search Users{% endif %} · WatchList Hub{% endblock %}
+{% block meta_description %}Search users for {{ q }} on WatchList Hub.{% endblock %}
+
+{% block content %}
+<div class="page" id="search-users-page">
+
+  {# ── Page header ───────────────────────────────────────────────── #}
+  <div class="flex items-end justify-between gap-6 flex-wrap mb-7">
+    <div class="flex-1 min-w-0">
+      <div class="h-eyebrow">Search users</div>
+      <h1 class="h-display" id="search-users-heading">
+        {% if q %}Results for <em>{{ q | e }}</em>{% else %}Find friends{% endif %}
+      </h1>
+    </div>
+    <div class="search-refine" id="search-users-refine-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+      </svg>
+      <input id="search-users-q" type="text" class="search-refine__input"
+             value="{{ q | e }}" placeholder="Search users by name or username…"
+             autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  {# ── Results count ─────────────────────────────────────────────── #}
+  <div class="flex items-center justify-between gap-4 mb-8 flex-wrap">
+    <div id="users-result-count" class="explore-count mono text-[0.6875rem] uppercase text-muted">
+      {% if q %}Searching…{% endif %}
+    </div>
+  </div>
+
+  {# ── Users list ────────────────────────────────────────────────── #}
+  <div class="card" id="users-list">
+    {% if q %}
+    <div class="users-skeleton">
+      {% for _ in range(10) %}
+      <div class="user-skeleton animate-pulse flex items-center gap-4 p-4">
+        <div class="avatar-skel w-12 h-12 bg-gray-200 rounded-full"></div>
+        <div class="flex-1">
+          <div class="h-4 bg-gray-200 rounded w-32 mb-2"></div>
+          <div class="h-3 bg-gray-200 rounded w-48"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-12 text-muted">
+      <div class="text-lg mb-2">Start typing to search for users</div>
+      <p>Find friends by their username or display name</p>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>window._searchUsersInitialQ = {{ q | tojson }};</script>
+<script src="{{ url_for('static', filename='js/search_users.js') }}"></script>
+{% endblock %}

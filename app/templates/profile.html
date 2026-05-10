@@ -52,16 +52,20 @@
     </div>
 
     {# Name + handle + bio #}
-    <div class="flex-1 min-w-0 pb-1 max-[520px]:text-center">
-      <div class="font-display" style="font-size:clamp(28px,4vw,42px);line-height:1;letter-spacing:-.02em">
-        {{ profile_user.display_name or profile_user.username }}
-      </div>
-      <div
-        class="flex gap-2.5 items-center mt-1.5 text-muted text-[0.8125rem] uppercase tracking-[.1em] max-[520px]:justify-center"
-        style="font-family:var(--font-mono)">
-        <span>@{{ profile_user.username }}</span>
-        {% if profile_user.bio %}<span>·</span><span class="tracking-normal lowercase">{{ profile_user.bio
-          | truncate(80) }}</span>{% endif %}
+    <div class="flex-1 min-w-0 pb-1 max-[520px]:text-center"
+        style="transform: translateY(-25px);">
+      <div class="flex flex-col gap-3">
+        <div class="font-display" style="font-size:clamp(28px,4vw,42px);line-height:1;letter-spacing:-.02em">
+          {{ profile_user.display_name or profile_user.username }}
+        </div>
+
+        <div
+          class="flex gap-2.5 items-center text-muted text-[0.8125rem] uppercase tracking-[.1em] max-[520px]:justify-center"
+          style="font-family:var(--font-mono)">
+          <span>@{{ profile_user.username }}</span>
+          {% if profile_user.bio %}<span>·</span><span class="tracking-normal lowercase">{{ profile_user.bio
+            | truncate(80) }}</span>{% endif %}
+        </div>
       </div>
     </div>
 

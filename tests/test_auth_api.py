@@ -41,6 +41,34 @@ class TestRegister:
         })
         assert rv.status_code == 422
 
+    @pytest.mark.parametrize(
+        "username, expected_message",
+        [
+            ("se", "Username must be between 3 and 80 characters"),
+            ("x" * 81, "Username must be between 3 and 80 characters"),
+            ("bad name!", "Username can only contain letters, numbers, and underscores"),
+        ],
+    )
+    def test_register_rejects_invalid_usernames(self, client, db, username, expected_message):
+        rv = post_json(client, "/api/v1/auth/register", {
+            "username": username,
+            "email": "invalid-username@example.com",
+            "password": "password123",
+        })
+
+        assert rv.status_code == 422
+        assert expected_message in rv.get_json()["detail"][0]["msg"]
+
+    def test_register_rejects_short_password(self, client, db):
+        rv = post_json(client, "/api/v1/auth/register", {
+            "username": "shortpass",
+            "email": "shortpass@example.com",
+            "password": "short",
+        })
+
+        assert rv.status_code == 422
+        assert "password must be at least 8 characters" in rv.get_json()["detail"][0]["msg"]
+
 
 class TestLogin:
     def test_login_success(self, client, db):

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-import re
 from datetime import date
 
+from app.validation import validate_username
+
 VALID_VISIBILITY = ("public", "followers", "private")
-_USERNAME_RE = re.compile(r'^[a-zA-Z0-9_]{3,30}$')
 
 
 class UserMePatchSchema:
@@ -21,8 +21,9 @@ class UserMePatchSchema:
 
         username = data.get("username")
         if username is not None:
-            if not _USERNAME_RE.match(str(username)):
-                errors.append("username must be 3–30 characters: letters, numbers, underscores only")
+            username_error = validate_username(str(username).strip())
+            if username_error:
+                errors.append(username_error)
 
         dob = data.get("dateOfBirth")
         if dob is not None and dob != "":

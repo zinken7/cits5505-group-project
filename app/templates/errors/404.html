@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}404 — Page Not Found | WatchList Hub{% endblock %}
+{% block meta_description %}This page doesn't exist on WatchList Hub.{% endblock %}
+
+{% block head %}
+{{ super() }}
+{{ vite_page_entry('src/main.js') }}
+{% endblock %}
+
+{% block body %}
+<div class="min-h-screen flex items-center justify-center px-6 py-12"
+     style="background:var(--bg);color:var(--ink);">
+
+  <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 w-full max-w-4xl">
+
+    <img src="{{ url_for('static', filename='images/404.png') }}"
+         alt="404 illustration"
+         class="w-auto object-contain shrink-0"
+         style="max-height:520px;max-width:min(90vw,480px);">
+
+    <div class="flex flex-col items-center text-center">
+      <h1 class="font-display leading-tight mb-3"
+          style="font-size:clamp(2rem,5vw,3rem);">
+        You've Drifted Too Far!
+      </h1>
+      <p class="text-base mb-5" style="color:var(--muted);">
+        The content you are looking at seems to be shipped from a different universe...
+      </p>
+      <a href="{{ url_for('main.explore') }}" class="btn btn--primary btn--sm">
+        Back
+      </a>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

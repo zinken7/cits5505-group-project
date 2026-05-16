@@ -242,4 +242,13 @@ def create_app(config_name=None):
 
     from app.sockets import chat  # noqa: F401 — registers socket event handlers
 
+    # ------------------------------------------------------------------
+    # Error handlers
+    # ------------------------------------------------------------------
+    from flask import render_template as _rt
+
+    @app.errorhandler(404)
+    def _not_found(e):
+        return _rt("errors/404.html"), 404
+
     return app

@@ -53,21 +53,51 @@
   background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
 }
 
-/* Inline alert (success / error messages from JS) */
-.item-detail__alert {
-  @apply mb-4 px-4 py-3 rounded-lg text-sm border;
+/* Toast notifications (fixed bottom-right, auto-dismiss) */
+.detail-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
 }
 
-.item-detail__alert--success {
+.detail-toast {
+  @apply px-4 py-3 rounded-lg text-sm font-medium border;
+  pointer-events: auto;
+  min-width: 220px;
+  max-width: 340px;
+  box-shadow: var(--shadow-md);
+  animation: detail-toast-in 0.2s ease-out;
+}
+
+.detail-toast--success {
   @apply text-success;
   border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
-  background-color: color-mix(in srgb, var(--color-success) 12%, transparent);
+  background-color: color-mix(in srgb, var(--color-success) 12%, var(--card-bg));
 }
 
-.item-detail__alert--error {
+.detail-toast--error {
   @apply text-danger;
   border-color: color-mix(in srgb, var(--color-danger) 40%, transparent);
-  background-color: color-mix(in srgb, var(--color-danger) 12%, transparent);
+  background-color: color-mix(in srgb, var(--color-danger) 12%, var(--card-bg));
+}
+
+.detail-toast--out {
+  animation: detail-toast-out 0.25s ease-in forwards;
+}
+
+@keyframes detail-toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes detail-toast-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(8px); }
 }
 
 @media (max-width: 900px) {

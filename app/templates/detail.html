@@ -14,12 +14,8 @@
      data-api-url="{{ url_for('api_v1.get_item', imdb_id=imdb_id) }}"
      style="background:var(--page-bg)">
 
-  {# Alert slot #}
-  <div class="item-detail__alert hidden text-[0.8125rem] font-medium" data-field="alert" role="status"
-       style="margin:0 28px;padding:12px 16px;border-radius:10px"></div>
-
   {# ── Cinematic banner ─────────────────────────────────────────── #}
-  <div class="relative overflow-hidden z-0" style="height:clamp(160px,25vw,280px);border-bottom:1px solid var(--rule)">
+  <div class="relative overflow-hidden z-0" style="height:clamp(160px,25vw,280px)">
     <div data-field="banner-bg" class="absolute inset-0"
          style="background-size:cover;background-position:center;filter:blur(28px) brightness(.55) saturate(1.2);transform:scale(1.1)"></div>
     <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(13,12,10,.35) 0%,var(--page-bg) 100%)"></div>

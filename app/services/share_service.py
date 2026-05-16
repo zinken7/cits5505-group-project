@@ -6,7 +6,7 @@ from app.services.tag_service import media_tag
 
 
 def build_share_body(media):
-    return f"Check out #{media.title} on WatchList Hub. It's interesting!"
+    return f"Hey! Check out #{media.title}. It's interesting!"
 
 
 def share_media_with_friends(sender_id, media_id, recipient_ids):

@@ -72,7 +72,6 @@
     {% endwith %}
 
     <div class="w-full max-w-sm">
-      <div class="h-eyebrow mb-2">Create your account</div>
       <h1 class="display mb-8" style="font-size:38px;letter-spacing:-.02em">
         Start <em style="font-style:italic;color:var(--accent)">tracking</em> today.
       </h1>
@@ -101,7 +100,6 @@
           {% call password_input_wrap() %}
           {{ form.password(class="form-input", placeholder="At least 8 characters", autocomplete="new-password", minlength="8", maxlength="128") }}
           {% endcall %}
-          <span class="form-hint">Minimum 8 characters (matches server validation).</span>
           {% if form.password.errors %}
           <span class="flash-msg flash-msg--error text-xs mt-1 inline-block">{{ form.password.errors[0] }}</span>
           {% endif %}

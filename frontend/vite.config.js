@@ -27,7 +27,6 @@ export default defineConfig({
         detail:      "./src/pages/detail.js",
         categories:  "./src/pages/categories.js",
         landing:     "./src/pages/landing.js",
-        chat:        "./src/pages/chat.js",
         search:      "./src/pages/search.js",
       },
     },

@@ -1,0 +1,249 @@
+{% extends "public_layout.html" %}
+
+{% block title %}Item Detail — WatchList Hub{% endblock %}
+
+{% block vite_page %}{{ vite_page_entry('src/pages/detail.js') }}{% endblock %}
+
+{% block content %}
+<div data-page="item-detail"
+     data-imdb-id="{{ imdb_id }}"
+     data-api-url="{{ url_for('api_v1.get_item', imdb_id=imdb_id) }}"
+     style="background:var(--page-bg)">
+
+  {# ── Cinematic banner ─────────────────────────────────────────── #}
+  <div class="relative overflow-hidden z-0" style="height:clamp(160px,25vw,280px)">
+    <div data-field="banner-bg" class="absolute inset-0"
+         style="background-size:cover;background-position:center;filter:blur(28px) brightness(.55) saturate(1.2);transform:scale(1.1)"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(13,12,10,.35) 0%,var(--page-bg) 100%)"></div>
+  </div>
+
+  <div class="page relative z-10" style="padding-top:0;margin-top:clamp(-80px,-12vw,-140px)">
+    <div class="grid grid-cols-[260px_1fr] gap-9 max-[900px]:grid-cols-1 max-[900px]:gap-5">
+
+      {# ── Left: poster + login CTA ────────────────────────────────── #}
+      <div class="max-[520px]:max-w-[220px] max-[520px]:mx-auto">
+        <div class="overflow-hidden" style="aspect-ratio:2/3;border-radius:18px;box-shadow:var(--shadow-lg);background:var(--card-bg);border:1px solid var(--rule)">
+          <img data-field="image_url" alt="" class="w-full h-full" style="object-fit:cover" loading="eager">
+        </div>
+
+        <div class="flex flex-col gap-2" style="margin-top:18px">
+          <a href="{{ url_for('auth.login') }}" class="btn btn--accent btn--lg w-full">
+            Log in to track this
+          </a>
+          <a href="{{ url_for('auth.register') }}" class="btn w-full">
+            Create a free account
+          </a>
+          <a data-field="imdb_url" class="btn btn--ghost justify-between" target="_blank" rel="noopener">
+            <span>View on IMDb</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 13v7H4V4h7"/></svg>
+          </a>
+        </div>
+
+        {# Community breakdown #}
+        <div style="margin-top:20px">
+          <div class="h-eyebrow">Community</div>
+          <div data-field="community-bars" style="margin-top:12px">
+            <div style="margin-top:12px">
+              <div class="flex justify-between text-xs" style="margin-bottom:4px">
+                <span class="upper text-foreground">Watching</span>
+                <span class="mono tabular text-muted" data-field="watching_count">0</span>
+              </div>
+              <div class="bar"><div class="bar__fill" id="bar-watching" style="width:0%;background:var(--sea)"></div></div>
+            </div>
+            <div style="margin-top:12px">
+              <div class="flex justify-between text-xs" style="margin-bottom:4px">
+                <span class="upper text-foreground">Completed</span>
+                <span class="mono tabular text-muted" data-field="completed_count">0</span>
+              </div>
+              <div class="bar"><div class="bar__fill" id="bar-completed" style="width:0%;background:var(--good)"></div></div>
+            </div>
+            <div style="margin-top:12px">
+              <div class="flex justify-between text-xs" style="margin-bottom:4px">
+                <span class="upper text-foreground">Planned</span>
+                <span class="mono tabular text-muted" data-field="planned_count">0</span>
+              </div>
+              <div class="bar"><div class="bar__fill" id="bar-planned" style="width:0%;background:var(--warn)"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# ── Right: meta + content ────────────────────────────────── #}
+      <div class="min-w-0">
+
+        {# Genre pills #}
+        <div class="flex gap-2.5 flex-wrap items-center">
+          <span class="pill pill--ink" data-field="media_type">—</span>
+          <div data-field="genres" class="flex gap-1.5 flex-wrap"></div>
+        </div>
+
+        {# Title #}
+        <h1 class="display" style="font-size:clamp(44px,6.5vw,88px);line-height:.94;letter-spacing:-.03em;margin:18px 0 6px"
+            data-field="title">&nbsp;</h1>
+
+        {# Meta line #}
+        <div class="text-xs text-muted" style="font-family:var(--font-mono);letter-spacing:.16em;text-transform:uppercase">
+          <span data-field="year"></span>
+          <span data-field="runtime-sep" class="hidden"> · </span>
+          <span data-field="runtime"></span>
+          <span data-field="director-sep" class="hidden"> · dir. </span>
+          <span data-field="director"></span>
+        </div>
+
+        {# Metric bar #}
+        <div class="grid grid-cols-4 gap-4 mt-6 py-[18px] border-y border-border max-[900px]:grid-cols-2">
+          <div>
+            <div class="upper text-muted">Rating</div>
+            <div class="display" style="font-size:32px;margin-top:6px">
+              <span data-field="rating">—</span><span class="text-sm text-muted"></span>
+            </div>
+          </div>
+          <div>
+            <div class="upper text-muted">Tracking</div>
+            <div class="display" style="font-size:32px;margin-top:6px" data-field="watchlist_count">0</div>
+          </div>
+          <div data-field-wrap="episodes">
+            <div class="upper text-muted">Episodes</div>
+            <div class="display" style="font-size:32px;margin-top:6px" data-field="episodes">—</div>
+          </div>
+          <div>
+            <div class="upper text-muted">Release</div>
+            <div class="display" style="font-size:32px;margin-top:6px" data-field="year-stat">—</div>
+          </div>
+        </div>
+
+        {# Tagline #}
+        <p class="hidden text-base text-muted" data-field="tagline"
+           style="margin-top:18px;font-style:italic;font-family:var(--font-display)"></p>
+
+        {# Trailer placeholder #}
+        <div data-field="trailer-container"
+            class="mt-7 relative overflow-hidden"
+            style="aspect-ratio:16/7;border-radius:16px;cursor:pointer;background:var(--card-bg-2);border:1px solid var(--rule)">
+          <div data-field="trailer-bg"
+              class="absolute inset-0"
+              style="background-size:cover;background-position:center;filter:brightness(.6) saturate(1.15)">
+          </div>
+          <button type="button"
+                  data-action="play-trailer"
+                  class="absolute inset-0 grid place-items-center border-0 bg-transparent cursor-pointer"
+                  aria-label="Play official trailer">
+            <span class="w-18 h-18 grid place-items-center text-[#14110d]"
+                  style="border-radius:50%;background:rgba(255,255,255,.9);box-shadow:0 16px 40px rgba(0,0,0,.4)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+          </button>
+          <div class="absolute text-white text-[0.6875rem]"
+              style="left:20px;bottom:18px;font-family:var(--font-mono);letter-spacing:.16em;text-transform:uppercase">
+            Official Trailer
+          </div>
+        </div>
+
+        {# Synopsis #}
+        <div class="mt-7">
+          <div class="h-eyebrow">Synopsis</div>
+          <p class="text-[1.0625rem] max-w-[45rem]" style="line-height:1.65;margin-top:12px;color:var(--ink-2)"
+             data-field="description">&nbsp;</p>
+        </div>
+
+        {# Cast #}
+        <div class="mt-7" data-field-wrap="cast">
+          <div class="h-eyebrow">Cast &amp; crew</div>
+          <div id="cast-grid" class="grid gap-3.5" style="grid-template-columns:repeat(auto-fill,minmax(110px,1fr));margin-top:14px"></div>
+          <dl class="hidden" style="display:none">
+            <dt>Starring</dt><dd data-field="cast"></dd>
+            <dt>Director</dt><dd data-field="director-credit"></dd>
+          </dl>
+        </div>
+
+        {# Credits (hidden — used by JS) #}
+        <dl style="display:none">
+          <dd data-field="director"></dd>
+          <dd data-field-wrap="language"><span data-field="language"></span></dd>
+          <dd data-field-wrap="country"><span data-field="country"></span></dd>
+          <dd data-field-wrap="awards"><span data-field="awards"></span></dd>
+        </dl>
+
+        {# Community activity (kept for JS compat) #}
+        <div style="display:none">
+          <span data-field="watching_count">0</span>
+          <span data-field="completed_count">0</span>
+          <span data-field="planned_count">0</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/items.js') }}"></script>
+<script>
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var root = document.querySelector('[data-page="item-detail"]');
+    if (!root) return;
+
+    var titleObs = new MutationObserver(function (muts) {
+      var title = root.querySelector('[data-field="title"]');
+      if (!title || !title.textContent.trim() || title.textContent === ' ') return;
+      titleObs.disconnect();
+      patchUI(root);
+    });
+    if (root.querySelector('[data-field="title"]')) {
+      titleObs.observe(root.querySelector('[data-field="title"]'), { childList: true, characterData: true, subtree: true });
+    }
+  });
+
+  function patchUI(root) {
+    var imgEl = root.querySelector('[data-field="image_url"]');
+    var imgSrc = imgEl ? imgEl.src : '';
+
+    var banner = root.querySelector('[data-field="banner-bg"]');
+    if (banner && imgSrc) banner.style.backgroundImage = 'url(' + imgSrc + ')';
+
+    var trailerBg = root.querySelector('[data-field="trailer-bg"]');
+    if (trailerBg && imgSrc) trailerBg.style.backgroundImage = 'url(' + imgSrc + ')';
+
+    var w = parseInt(root.querySelector('[data-field="watching_count"]')?.textContent) || 0;
+    var c = parseInt(root.querySelector('[data-field="completed_count"]')?.textContent) || 0;
+    var p = parseInt(root.querySelector('[data-field="planned_count"]')?.textContent) || 0;
+    var tot = w + c + p || 1;
+    setBar('bar-watching',  Math.round(w / tot * 100));
+    setBar('bar-completed', Math.round(c / tot * 100));
+    setBar('bar-planned',   Math.round(p / tot * 100));
+
+    var dir = root.querySelector('[data-field="director"]');
+    var dirSep = root.querySelector('[data-field="director-sep"]');
+    if (dirSep && dir && dir.textContent.trim()) dirSep.classList.remove('hidden');
+
+    var castEl = root.querySelector('[data-field="cast"]');
+    var castGrid = document.getElementById('cast-grid');
+    if (castEl && castGrid) {
+      var castStr = castEl.textContent.trim();
+      if (castStr) {
+        var colors = ['#7c3aed','#06b6d4','#d4ff3a','#ff5a36','#16a34a','#f472b6'];
+        var names = castStr.split(',').map(function(s){return s.trim();}).filter(Boolean).slice(0, 8);
+        castGrid.innerHTML = names.map(function(name, i) {
+          var initials = name.split(' ').map(function(w){return w[0]||'';}).slice(0,2).join('');
+          var col = colors[i % colors.length];
+          return '<div class="text-center">' +
+            '<div class="avatar avatar--lg avatar--round" style="background:' + col + ';margin:0 auto">' + initials + '</div>' +
+            '<div class="font-semibold text-[0.8125rem]" style="margin-top:8px">' + name + '</div>' +
+            '<div class="text-[0.6875rem] text-muted" style="font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em">' + (i===0?'Lead':'Cast') + '</div>' +
+            '</div>';
+        }).join('');
+      }
+    }
+  }
+
+  function setBar(id, pct) {
+    var el = document.getElementById(id);
+    if (el) el.style.width = pct + '%';
+  }
+})();
+</script>
+{% endblock %}

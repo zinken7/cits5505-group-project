@@ -130,13 +130,6 @@ def profile(username):
     )
 
 
-@bp.route("/chat")
-@login_required
-def chat():
-    """Real-time chat with friends."""
-    return render_template("chat.html")
-
-
 @bp.route("/search")
 @login_required
 def search():
@@ -166,4 +159,6 @@ def item_detail(imdb_id):
     """Item detail page — JS hydrates from /api/v1/items/<imdb_id>."""
     if not get_media_by_imdb_id(imdb_id):
         abort(404)
-    return render_template("detail.html", imdb_id=imdb_id)
+    if current_user.is_authenticated:
+        return render_template("detail.html", imdb_id=imdb_id)
+    return render_template("detail_public.html", imdb_id=imdb_id)

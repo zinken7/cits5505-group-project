@@ -1,0 +1,125 @@
+{# Slim public shell — no sidebar. Extend this for pages accessible without login. #}
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+{{ vite_page_entry('src/pages/topbar_search.js') }}
+{% endblock %}
+
+{% block body %}
+<div class="app">
+  <div class="main" style="grid-column:1/-1">
+
+    {# ── Slim public topbar ─────────────────────────────────────── #}
+    <div class="topbar">
+      <a href="{{ url_for('main.explore') }}"
+         class="flex items-center gap-2 shrink-0 no-underline text-inherit">
+        <div class="brand__mark">W</div>
+        <span class="font-display text-[1.375rem] leading-none max-[639px]:hidden">Watchlist<em class="text-accent italic">Hub</em></span>
+      </a>
+
+      <div class="topbar-search" id="topbar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+        </svg>
+        <input class="topbar-search__input" id="tsearch-input" type="text"
+               placeholder="Search movies, anime, TV shows…"
+               autocomplete="off" spellcheck="false">
+        <kbd class="kbd ml-auto">⌘ K</kbd>
+        <div class="tsearch-drop" id="tsearch-drop" hidden>
+          <div id="tsearch-results"></div>
+          <div class="tsearch-footer">
+            <a class="tsearch-footer__link" id="tsearch-viewall" href="{{ url_for('auth.login') }}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+              </svg>
+              <span>See all results</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <span class="topbar__spacer"></span>
+
+      <div class="topbar__actions">
+        <button class="iconbtn" id="theme-toggle" title="Toggle theme">
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
+        </button>
+        <a href="{{ url_for('auth.login') }}" class="btn btn--sm">Log In</a>
+        <a href="{{ url_for('auth.register') }}" class="btn btn--primary btn--sm">Sign Up</a>
+      </div>
+    </div>
+
+    {# Flash messages #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-bar">
+      {% for category, message in messages %}
+      <div class="flash-msg flash-msg--{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    {# ── ⌘K Search modal — must be before topbar_search.js ─────── #}
+    <div class="tsearch-backdrop" id="tsearch-backdrop" hidden></div>
+    <div class="tsearch-modal" id="tsearch-modal" role="dialog" aria-modal="true" aria-label="Search" hidden>
+      <div class="tsearch-modal__box">
+        <div class="tsearch-modal__header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+          <input class="tsearch-modal__input" id="tsearch-modal-input" type="text"
+                 placeholder="Search movies, anime, TV shows…"
+                 autocomplete="off" spellcheck="false">
+          <button class="tsearch-modal__close" id="tsearch-close" type="button" aria-label="Close search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="tsearch-modal__results" id="tsearch-modal-results"></div>
+        <div class="tsearch-footer">
+          <a class="tsearch-footer__link" id="tsearch-modal-viewall" href="{{ url_for('auth.login') }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+            </svg>
+            <span>See all results</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/topbar_search.js') }}"></script>
+    {% block scripts %}{% endblock %}
+
+    <script>
+      (function () {
+        var btn = document.getElementById('theme-toggle');
+        var moon = btn && btn.querySelector('.theme-icon-moon');
+        var sun  = btn && btn.querySelector('.theme-icon-sun');
+        var t = document.documentElement.dataset.theme || 'light';
+        if (moon) moon.style.display = t === 'dark' ? 'none' : '';
+        if (sun)  sun.style.display  = t === 'dark' ? '' : 'none';
+      })();
+    </script>
+
+  </div>{# /.main #}
+</div>{# /.app #}
+{% endblock %}

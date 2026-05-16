@@ -10,6 +10,8 @@
 (function ($) {
   "use strict";
 
+  var _toastContainer = null;
+
   $(function () {
     const $detail = $('[data-page="item-detail"]');
     if ($detail.length) initItemDetail($detail[0]);
@@ -239,14 +241,9 @@
       })
         .then(function (entry) {
           currentEntry = entry || { status: newStatus, is_liked: wasLiked };
-          renderAlert(
-            root,
-            'success',
-            hadStatus ? 'Status updated to ' + currentEntry.status + '.' : 'Added to ' + currentEntry.status + ' list.'
-          );
           return refreshCommunityCounts();
         })
-        .catch(function () { renderAlert(root, 'error', 'Could not update watchlist.'); })
+        .catch(function () {})
         .finally(function () {
           applyState();
           setAllDisabled(false);
@@ -261,9 +258,8 @@
       })
         .then(function (entry) {
           currentEntry = entry || (nextLiked ? { status: null, is_liked: true } : null);
-          renderAlert(root, 'success', nextLiked ? 'Added to your likes.' : 'Removed from your likes.');
         })
-        .catch(function () { renderAlert(root, 'error', 'Could not update like.'); })
+        .catch(function () {})
         .finally(function () {
           applyState();
           setAllDisabled(false);
@@ -306,10 +302,9 @@
           window.apiFetch(statusUrl, { method: 'DELETE' })
             .then(function (result) {
               currentEntry = result && result.item ? result.item : null;
-              renderAlert(root, 'success', 'Removed from your watchlist.');
               return refreshCommunityCounts();
             })
-            .catch(function () { renderAlert(root, 'error', 'Could not remove from watchlist.'); })
+            .catch(function () {})
             .finally(function () {
               applyState();
               setAllDisabled(false);
@@ -467,7 +462,6 @@
           .then(function () {
             closeModal();
             openSharedChatPanels(ids);
-            renderAlert(root, "success", "Shared with " + ids.length + " friend" + (ids.length === 1 ? "." : "s."));
           })
           .catch(function (err) {
             showError((err && err.message) || "Could not share this title.");
@@ -526,10 +520,22 @@
     var el = root.querySelector("#" + id);
     if (el) el.style.width = Math.max(0, Math.min(100, pct)) + "%";
   }
-  function renderAlert(root, kind, html) {
-    const slot = root.querySelector('[data-field="alert"]');
-    if (!slot) return;
-    slot.className = "item-detail__alert item-detail__alert--" + kind;
-    slot.innerHTML = html;
+  function renderAlert(_root, kind, text) {
+    if (!_toastContainer) {
+      _toastContainer = document.createElement('div');
+      _toastContainer.className = 'detail-toast-container';
+      document.body.appendChild(_toastContainer);
+    }
+    var toast = document.createElement('div');
+    toast.className = 'detail-toast detail-toast--' + kind;
+    toast.textContent = text;
+    _toastContainer.appendChild(toast);
+
+    function dismiss() {
+      toast.classList.add('detail-toast--out');
+      toast.addEventListener('animationend', function () { toast.remove(); }, { once: true });
+    }
+    var timer = setTimeout(dismiss, 3000);
+    toast.addEventListener('click', function () { clearTimeout(timer); toast.remove(); });
   }
 })(jQuery);

@@ -41,7 +41,7 @@
 
   {# Avatar + info row — avatar overlaps the banner #}
   <div
-    class="relative z-10 flex items-end gap-5 px-6 -mt-14 max-[520px]:-mt-10 max-[520px]:flex-col max-[520px]:items-center max-[520px]:px-3">
+    class="relative z-10 flex items-end gap-5 px-6 -mt-14 max-[520px]:flex-col max-[520px]:items-center max-[520px]:px-3">
 
     {# Avatar — overlapping cover #}
     <div class="shrink-0">
@@ -52,8 +52,7 @@
     </div>
 
     {# Name + handle + bio #}
-    <div class="flex-1 min-w-0 pb-1 max-[520px]:text-center"
-        style="transform: translateY(-25px);">
+    <div class="flex-1 min-w-0 pb-1 max-[520px]:text-center profile-info-nudge">
       <div class="flex flex-col gap-3">
         <div class="font-display" style="font-size:clamp(28px,4vw,42px);line-height:1;letter-spacing:-.02em">
           {{ profile_user.display_name or profile_user.username }}

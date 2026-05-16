@@ -72,7 +72,7 @@
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
             </svg>
           </span>
-          <span class="navitem__label">Search Users</span>
+          <span class="navitem__label">Find Friends</span>
         </a>
       </div>
 
@@ -304,8 +304,8 @@
     <script src="{{ url_for('static', filename='js/topbar_search.js') }}"></script>
     {% block scripts %}{% endblock %}
 
-    {# Chat panels container — skip on /chat page which has its own socket via chat.js #}
-    {% if current_user.is_authenticated and request.endpoint != 'main.chat' %}
+    {# Chat panels container (floating sidebar panel) #}
+    {% if current_user.is_authenticated %}
     <div id="chat-panels"></div>
     <script>window._appUserId = {{ current_user.id | tojson }};</script>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>

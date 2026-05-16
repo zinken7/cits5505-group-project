@@ -45,7 +45,7 @@ def test_share_media_sends_message_to_friend(client, app, db):
     assert body["success"] is True
     assert body["data"]["sender_id"] == sender_id
     assert body["data"]["recipient_id"] == recipient_id
-    assert body["data"]["body"] == "Check out #Shared Movie on WatchList Hub. It's interesting!"
+    assert body["data"]["body"] == "Hey! Check out #Shared Movie. It's interesting!"
     assert body["data"]["tags"][0]["text"] == "Shared Movie"
     assert body["data"]["tags"][0]["url"] == "/items/ttshare1"
 
@@ -76,7 +76,7 @@ def test_share_media_api_emits_realtime_message(client, app, db):
     received = socket_client.get_received()
     new_messages = [event for event in received if event["name"] == "new_message"]
     assert len(new_messages) == 1
-    assert new_messages[0]["args"][0]["body"] == "Check out #API Socket Share on WatchList Hub. It's interesting!"
+    assert new_messages[0]["args"][0]["body"] == "Hey! Check out #API Socket Share. It's interesting!"
 
 
 def test_share_media_sends_to_multiple_friends(client, app, db):
@@ -113,7 +113,7 @@ def test_share_media_sends_to_multiple_friends(client, app, db):
         rows = Message.query.order_by(Message.id).all()
         assert len(rows) == 2
         assert {row.recipient_id for row in rows} == set(recipient_ids)
-        assert all(row.body == "Check out #Group Share on WatchList Hub. It's interesting!" for row in rows)
+        assert all(row.body == "Hey! Check out #Group Share. It's interesting!" for row in rows)
 
 
 def test_share_media_uses_exact_media_for_duplicate_titles(client, app, db):
@@ -138,7 +138,7 @@ def test_share_media_uses_exact_media_for_duplicate_titles(client, app, db):
     body = rv.get_json()
 
     assert rv.status_code == 201
-    assert body["data"]["body"] == "Check out #The Office on WatchList Hub. It's interesting!"
+    assert body["data"]["body"] == "Hey! Check out #The Office. It's interesting!"
     assert body["data"]["tags"][0]["imdb_id"] == "tt0290978"
     assert body["data"]["tags"][0]["url"] == "/items/tt0290978"
 

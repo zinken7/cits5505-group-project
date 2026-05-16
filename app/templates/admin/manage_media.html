@@ -72,8 +72,11 @@
         </table>
       </div>
       <div class="flex flex-wrap items-center justify-between gap-3 border-t border-border p-3">
-        <div class="font-mono text-[0.75rem] text-muted" id="media-pagination-label">
-          Page {% if total %}{{ page }}{% else %}0{% endif %} of {{ page_count }}
+        <div class="font-mono text-[0.75rem] text-muted">
+          <div id="media-pagination-label">Page {% if total %}{{ page }}{% else %}0{% endif %} of {{ page_count }}</div>
+          <div id="media-page-summary">
+            Showing {% if total %}{{ offset + 1 }}-{{ [offset + (items | length), total] | min }}{% else %}0{% endif %} of {{ total }} rows.
+          </div>
         </div>
         <div class="inline-flex items-center gap-2">
           <button type="button" class="btn btn--sm" id="media-prev-page" {% if offset <= 0 %}disabled{% endif %}>Previous</button>

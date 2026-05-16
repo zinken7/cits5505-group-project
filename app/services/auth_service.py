@@ -3,6 +3,7 @@ from sqlalchemy import or_
 
 from app.extensions import db
 from app.models.user import User
+from app.validation import validate_username
 
 
 def register_user(username, email, password, display_name=None):
@@ -12,6 +13,10 @@ def register_user(username, email, password, display_name=None):
     """
     if not username or not email or not password:
         return None, "All fields are required"
+
+    username_error = validate_username(username)
+    if username_error:
+        return None, username_error
 
     if len(password) < 8:
         return None, "Password must be at least 8 characters"

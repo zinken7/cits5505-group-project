@@ -1,7 +1,15 @@
 # -*- coding: utf-8 -*-
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, PasswordField, StringField
-from wtforms.validators import DataRequired, Email, EqualTo, Length
+from wtforms.validators import DataRequired, Email, EqualTo, Length, Regexp
+
+from app.validation import (
+    USERNAME_CHARACTERS_MESSAGE,
+    USERNAME_LENGTH_MESSAGE,
+    USERNAME_MAX_LENGTH,
+    USERNAME_MIN_LENGTH,
+    USERNAME_PATTERN,
+)
 
 
 class LoginForm(FlaskForm):
@@ -23,7 +31,18 @@ class LoginForm(FlaskForm):
 class RegisterForm(FlaskForm):
     username = StringField(
         "Username",
-        validators=[DataRequired(), Length(min=1, max=80)],
+        validators=[
+            DataRequired(message="Username is required."),
+            Length(
+                min=USERNAME_MIN_LENGTH,
+                max=USERNAME_MAX_LENGTH,
+                message=f"{USERNAME_LENGTH_MESSAGE}.",
+            ),
+            Regexp(
+                USERNAME_PATTERN,
+                message=f"{USERNAME_CHARACTERS_MESSAGE}.",
+            ),
+        ],
     )
     email = StringField(
         "Email",

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Programmatic OpenAPI 3.1 document for Watchlist Hub (served at /openapi.json)."""
 
+from app.validation import USERNAME_MAX_LENGTH, USERNAME_MIN_LENGTH, USERNAME_PATTERN
+
 
 def _ref(name):
     return {"$ref": f"#/components/schemas/{name}"}
@@ -701,10 +703,15 @@ def _schemas():
         },
         "RegisterRequest": {
             "type": "object",
-            "required": ["username", "displayName", "email", "password"],
+            "required": ["username", "email", "password"],
             "properties": {
-                "username": {"type": "string", "minLength": 3, "maxLength": 24},
-                "displayName": {"type": "string", "minLength": 2, "maxLength": 50},
+                "username": {
+                    "type": "string",
+                    "minLength": USERNAME_MIN_LENGTH,
+                    "maxLength": USERNAME_MAX_LENGTH,
+                    "pattern": USERNAME_PATTERN,
+                },
+                "displayName": {"type": "string", "maxLength": 80},
                 "email": {"type": "string"},
                 "password": {"type": "string", "minLength": 8},
             },
@@ -720,6 +727,12 @@ def _schemas():
         "UserUpdateRequest": {
             "type": "object",
             "properties": {
+                "username": {
+                    "type": "string",
+                    "minLength": USERNAME_MIN_LENGTH,
+                    "maxLength": USERNAME_MAX_LENGTH,
+                    "pattern": USERNAME_PATTERN,
+                },
                 "displayName": {"type": "string"},
                 "bio": {"type": "string"},
                 "favoriteGenres": {"type": "array", "items": {"type": "string"}},

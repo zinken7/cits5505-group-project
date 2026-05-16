@@ -27,6 +27,7 @@
 
       <div class="navlist">
         <div class="navlist__label">Library</div>
+        {% if current_user.is_authenticated %}
         <a href="{{ url_for('main.dashboard') }}"
           class="navitem {{ 'is-active' if request.endpoint == 'main.dashboard' else '' }}"
           title="Dashboard">
@@ -38,6 +39,7 @@
           </span>
           <span class="navitem__label">Dashboard</span>
         </a>
+        {% endif %}
         <a href="{{ url_for('main.explore') }}"
           class="navitem {{ 'is-active' if request.endpoint == 'main.explore' else '' }}"
           title="Explore">
@@ -63,6 +65,7 @@
           </span>
           <span class="navitem__label">Categories</span>
         </a>
+        {% if current_user.is_authenticated %}
         <a href="{{ url_for('main.search_users') }}"
           class="navitem {{ 'is-active' if request.endpoint == 'main.search_users' else '' }}"
           title="Search Users">
@@ -74,6 +77,7 @@
           </span>
           <span class="navitem__label">Search Users</span>
         </a>
+        {% endif %}
       </div>
 
       {% if current_user.is_authenticated %}
@@ -236,6 +240,7 @@
           </div>
         </div>
         {% else %}
+        <a href="{{ url_for('auth.login') }}" class="btn btn--sm">Log In</a>
         <a href="{{ url_for('auth.register') }}" class="btn btn--primary btn--sm">Sign Up</a>
         {% endif %}
       </div>

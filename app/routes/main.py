@@ -18,7 +18,6 @@ def index():
 
 
 @bp.route("/categories")
-@login_required
 def categories():
     """Categories page — browse all 3 media types by genre."""
     GENRES = sorted([
@@ -138,7 +137,6 @@ def chat():
 
 
 @bp.route("/search")
-@login_required
 def search():
     """Search results page."""
     q = request.args.get("q", "").strip()

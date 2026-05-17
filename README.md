@@ -15,6 +15,17 @@ A full-stack social platform for tracking **movies**, **anime**, and **TV shows*
 
 ---
 
+## Group Members
+
+| UWA ID   | Name             | GitHub Username                                   |
+|----------|------------------|---------------------------------------------------|
+| 24814799 | Tyrone Tran      | [zinken7](https://github.com/zinken7)             |
+| 24702635 | Aashritha Jangam | [aashritha463](https://github.com/aashritha463)   |
+| 24643978 | Han Nguyen Thi   | [hnguyen-debug](https://github.com/hnguyen-debug) |
+| 24769645 | Sarwesh Kattel   | [Sarwesh13](https://github.com/Sarwesh13)         |
+
+---
+
 ## Features
 
 - **Watchlist management** — six statuses per item: Watching, Planned, Completed, Dropped, On Hold, Rewatching

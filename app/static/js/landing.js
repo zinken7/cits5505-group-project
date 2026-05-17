@@ -1014,6 +1014,7 @@
 
     btn.addEventListener("click", async () => {
       if (!heroMedia) return;
+      if (!window._isAuthenticated) { window.location.href = "/login"; return; }
       try {
         const csrfToken = document.querySelector('meta[name="csrf-token"]');
         const token = csrfToken ? csrfToken.getAttribute('content') : '';
@@ -1026,12 +1027,11 @@
           },
           body: JSON.stringify({
             mediaId: heroMedia.id,
-            mediaType: heroMedia.media_type || "movie",
+            mediaType: heroMedia.media_type,
             status: "planned"
           }),
         });
         const data = await res.json();
-        if (res.status === 401) { window.location.href = "/login"; return; }
         if (data.success) {
           btn.textContent = "✓ Added!";
           btn.style.background = "linear-gradient(135deg, #10b981, #059669)";

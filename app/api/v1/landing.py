@@ -44,6 +44,7 @@ def landing_posters():
         {
             "id": m.id,
             "title": m.title,
+            "media_type": m.media_type,
             "image_url": _local_poster_url(m),
             "year": m.year,
             "rating": m.rating,

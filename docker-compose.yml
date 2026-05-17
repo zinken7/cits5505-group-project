@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5002:5002"
+    volumes:
+      - db_data:/app/instance
+      - poster_data:/app/app/static/posters
+    environment:
+      FLASK_ENV: production
+      DATABASE_URL: sqlite:////app/instance/watchlist.db
+    env_file:
+      - .env
+    restart: unless-stopped
+
+volumes:
+  db_data:
+  poster_data:

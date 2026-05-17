@@ -79,6 +79,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script>window._isAuthenticated = {{ current_user.is_authenticated | tojson }};</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 {% endblock %}

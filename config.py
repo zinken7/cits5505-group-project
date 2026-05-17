@@ -58,6 +58,7 @@ class ProductionConfig(Config):
 
     DEBUG = False
     VITE_DEV_MODE = False
+    RATELIMIT_STORAGE_URI = "memory://"
 
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)

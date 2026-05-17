@@ -40,8 +40,12 @@ def parse_imdb_id(raw):
 
 def _make_driver():
     """Create a headless Chrome WebDriver with the same options as enrich_media.py."""
+    import os
+    import shutil
+
     from selenium import webdriver as wd
     from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.chrome.service import Service
 
     opts = Options()
     opts.add_argument("--headless=new")
@@ -49,7 +53,17 @@ def _make_driver():
     opts.add_argument("--disable-dev-shm-usage")
     opts.add_argument("--disable-gpu")
     opts.add_argument(f"--user-agent={_UA}")
-    return wd.Chrome(options=opts)
+
+    # In Docker/Linux, Chromium may be at /usr/bin/chromium instead of google-chrome
+    for binary in ("/usr/bin/chromium", "/usr/bin/chromium-browser"):
+        if os.path.exists(binary):
+            opts.binary_location = binary
+            break
+
+    # Resolve chromedriver: prefer chromium-driver location used by Debian packages
+    driver_path = shutil.which("chromedriver") or shutil.which("chromium-driver")
+    service = Service(executable_path=driver_path) if driver_path else None
+    return wd.Chrome(options=opts, service=service) if service else wd.Chrome(options=opts)
 
 
 def _fetch_next_data(imdb_id):

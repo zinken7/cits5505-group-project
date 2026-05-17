@@ -13,9 +13,11 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# System deps for Werkzeug/SQLAlchemy C extensions
+# System deps: build tools + Chromium for Selenium-based IMDb scraping
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
+    chromium \
+    chromium-driver \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .

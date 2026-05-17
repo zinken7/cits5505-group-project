@@ -336,6 +336,10 @@
   .password-input-wrap .form-input {
     padding-right: 2.75rem;
   }
+  .password-input-wrap .form-input::-ms-reveal,
+  .password-input-wrap .form-input::-ms-clear {
+    display: none;
+  }
   .password-toggle-btn {
     @apply absolute right-1.5 top-1/2 grid h-9 w-9 shrink-0 -translate-y-1/2 place-items-center rounded-lg border-0 p-0 cursor-pointer;
     background: transparent;

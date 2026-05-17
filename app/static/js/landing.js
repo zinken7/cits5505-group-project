@@ -1000,22 +1000,32 @@
     btn.addEventListener("click", async () => {
       if (!heroMedia) return;
       try {
-        await window.apiFetch("/api/v1/watchlist", {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]');
+        const token = csrfToken ? csrfToken.getAttribute('content') : '';
+        
+        const res = await fetch("/api/v1/watchlist", {
           method: "POST",
+          headers: { 
+            "Content-Type": "application/json",
+            "X-CSRFToken": token
+          },
           body: JSON.stringify({
             mediaId: heroMedia.id,
             mediaType: heroMedia.media_type || "movie",
             status: "planned"
           }),
         });
-        btn.textContent = "✓ Added!";
-        btn.style.background = "linear-gradient(135deg, #10b981, #059669)";
-        btn.disabled = true;
-      } catch (err) {
-        if (err.status === 401) { window.location.href = "/login"; return; }
-        btn.textContent = err.message || "Already in list";
-        btn.style.background = "linear-gradient(135deg, #6b7280, #4b5563)";
-      }
+        const data = await res.json();
+        if (res.status === 401) { window.location.href = "/login"; return; }
+        if (data.success) {
+          btn.textContent = "✓ Added!";
+          btn.style.background = "linear-gradient(135deg, #10b981, #059669)";
+          btn.disabled = true;
+        } else {
+          btn.textContent = data.message || "Already in list";
+          btn.style.background = "linear-gradient(135deg, #6b7280, #4b5563)";
+        }
+      } catch { btn.textContent = "Error — try again"; }
     });
   }
 

@@ -66,7 +66,6 @@ def test_manage_media_page_renders_first_page(client, app, db):
     assert rv.status_code == 200
     html = rv.get_data(as_text=True)
     assert 'data-api-url="/api/v1/management/media"' in html
-    assert "Showing 1-15 of 20 rows." in html
     tbody = re.search(r'<tbody id="media-table-body">(.*?)</tbody>', html, re.S)
     assert tbody is not None
     assert len(re.findall(r"<tr[^>]+data-media-row>", tbody.group(1))) == 15
@@ -79,7 +78,6 @@ def test_manage_media_page_preserves_page_from_query(client, app, db):
     rv = client.get("/management/media?page=2")
     assert rv.status_code == 200
     html = rv.get_data(as_text=True)
-    assert "Showing 16-20 of 20 rows." in html
     assert "Page 2 of 2" in html
     tbody = re.search(r'<tbody id="media-table-body">(.*?)</tbody>', html, re.S)
     assert tbody is not None

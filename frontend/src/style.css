@@ -841,6 +841,7 @@
     .ticker        { @apply hidden; }
     .tab           { @apply px-2 py-1.5 text-xs; }
     .tabs          { @apply gap-px p-[3px]; }
+    .search-refine { min-width: 0; }
   }
 
   /* ── Sidebar/ticker reduced-motion overrides ─────────────────── */
